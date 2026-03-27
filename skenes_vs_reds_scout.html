@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skenes vs CIN — Pregame Scout</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f8f7f4;--surface:#fff;--surface2:#f1f0ec;--border:rgba(0,0,0,.10);--border2:rgba(0,0,0,.18);--text:#1a1a18;--text2:#6b6b66;--text3:#a0a09a;--accent:#C6011F;--accent2:#000000;--radius:10px;--radius-sm:6px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.nav{background:var(--accent);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:var(--accent)}
+.nav-title{font-size:15px;font-weight:600;color:white}
+.nav-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:1px}
+.nav-tabs{display:flex;gap:4px}
+.nav-tab{padding:6px 14px;border-radius:var(--radius-sm);font-size:13px;cursor:pointer;color:rgba(255,255,255,.65);border:none;background:transparent;font-weight:500;transition:all .15s}
+.nav-tab.active{background:rgba(255,255,255,.2);color:white}
+.filter-bar{display:flex;align-items:center;gap:8px;padding:14px 20px 0}
+.filter-label{font-size:12px;color:var(--text2);font-weight:500}
+.filter-btn{padding:5px 13px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:transparent;font-size:13px;cursor:pointer;color:var(--text2);font-family:inherit;transition:all .14s}
+.filter-btn.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:500}
+.page{display:none;padding:16px 20px}
+.page.active{display:block}
+.detail-layout{display:grid;grid-template-columns:220px 1fr;gap:16px}
+.lineup-list{display:flex;flex-direction:column;gap:5px}
+.batter-row{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);cursor:pointer;transition:all .13s}
+.batter-row:hover{border-color:var(--accent)}
+.batter-row.selected{border-color:var(--accent);background:#fdf2f2}
+.order-num{font-size:11px;color:var(--text3);width:13px;flex-shrink:0}
+.batter-info{flex:1;min-width:0}
+.batter-name{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.batter-sub{font-size:11px;color:var(--text2)}
+.hand-badge{font-size:10px;padding:2px 5px;border-radius:4px;background:var(--surface2);color:var(--text2);flex-shrink:0;font-weight:500}
+.avg-val{font-size:12px;color:var(--text);font-weight:600;flex-shrink:0}
+.detail-panel{display:flex;flex-direction:column;gap:14px}
+.player-header{padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.player-name-big{font-size:20px;font-weight:700;color:var(--text)}
+.player-meta{font-size:13px;color:var(--text2);font-weight:400;margin-left:8px}
+.stats-row{display:flex;gap:18px;margin-top:8px;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;gap:2px}
+.stat-label{font-size:10px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.stat-val{font-size:16px;font-weight:700;color:var(--text)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px 15px}
+.card-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.pitch-tabs{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
+.pitch-tab{padding:3px 10px;border-radius:4px;border:1px solid var(--border);font-size:11px;cursor:pointer;background:transparent;color:var(--text2);font-family:inherit;transition:all .12s}
+.pitch-tab.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:500}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.trend-rows{display:flex;flex-direction:column;gap:7px}
+.trend-row{display:flex;align-items:center;gap:8px}
+.trend-lbl{font-size:11px;color:var(--text2);width:30px;flex-shrink:0}
+.trend-bg{flex:1;height:6px;border-radius:3px;background:var(--surface2);overflow:hidden}
+.trend-fill{height:100%;border-radius:3px}
+.trend-val{font-size:11px;font-weight:600;color:var(--text);width:34px;text-align:right;flex-shrink:0}
+.platoon-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.platoon-card{padding:11px 13px;border-radius:var(--radius-sm);background:var(--surface2)}
+.platoon-side{font-size:11px;color:var(--text2);margin-bottom:4px;font-weight:500}
+.platoon-stat{font-size:17px;font-weight:700;color:var(--text)}
+.platoon-sub{font-size:10px;color:var(--text2);margin-top:2px}
+.notes-card{background:#fffbf0;border:1px solid #e8d89a;border-radius:var(--radius);padding:13px 15px}
+.notes-header{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.notes-icon{width:20px;height:20px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;color:white;font-weight:700;flex-shrink:0}
+.notes-title{font-size:11px;font-weight:600;color:#7a5c00;text-transform:uppercase;letter-spacing:.06em}
+.notes-body{font-size:13px;color:#3a2e00;line-height:1.65}
+.notes-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.notes-tag{font-size:11px;padding:3px 9px;border-radius:12px;background:rgba(198,1,31,.1);color:#8a000f;font-weight:500}
+.threat-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin-bottom:6px}
+.threat-high{background:rgba(217,90,48,.12);color:#8a2a00}
+.threat-med{background:rgba(250,199,117,.3);color:#7a5000}
+.threat-low{background:rgba(99,153,34,.12);color:#2a5200}
+.legend-row{display:flex;gap:12px;margin-top:7px}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2)}
+.legend-dot{width:8px;height:8px;border-radius:50%}
+.overview-header{margin-bottom:16px}
+.overview-title{font-size:19px;font-weight:700;color:var(--text)}
+.overview-sub{font-size:13px;color:var(--text2);margin-top:3px}
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.overview-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px;cursor:pointer;transition:all .13s}
+.overview-card:hover{border-color:var(--accent);box-shadow:0 2px 10px rgba(198,1,31,.08)}
+.ov-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:1px}
+.ov-meta{font-size:11px;color:var(--text2);margin-bottom:9px}
+.ov-stats{display:flex;gap:12px;margin-top:9px;padding-top:9px;border-top:1px solid var(--border)}
+.ov-stat{display:flex;flex-direction:column;gap:1px}
+.ov-stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
+.ov-stat-val{font-size:13px;font-weight:700;color:var(--text)}
+@media(max-width:800px){.detail-layout{grid-template-columns:1fr}.charts-row{grid-template-columns:1fr}.overview-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.overview-grid{grid-template-columns:1fr}.nav-tabs .nav-tab{padding:5px 10px;font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="nav-brand">
+<div class="nav-logo">PS</div>
+<div>
+<div class="nav-title">PIT vs CIN — Wed Apr 1</div>
+<div class="nav-sub">Great American Ball Park · Paul Skenes, RHP</div>
+</div>
+</div>
+<div class="nav-tabs">
+<button class="nav-tab active" onclick="showPage('overview',this)">Overview</button>
+<button class="nav-tab" onclick="showPage('detail',this)">Hitter Detail</button>
+</div>
+</nav>
+<div class="filter-bar">
+<span class="filter-label">Split:</span>
+<button class="filter-btn active" onclick="setFilter('career',this)">Career</button>
+<button class="filter-btn" onclick="setFilter('l15',this)">Last 15 G</button>
+<button class="filter-btn" onclick="setFilter('l5',this)">Last 5 G</button>
+</div>
+<div id="page-overview" class="page active">
+<div class="overview-header">
+<div class="overview-title">Cincinnati Reds — Projected Lineup vs RHP</div>
+<div class="overview-sub">Per FanGraphs/Baseball Savant · Tap any hitter for full detail and pitcher's notes.</div>
+</div>
+<div class="overview-grid" id="overview-grid"></div>
+</div>
+<div id="page-detail" class="page">
+<div class="detail-layout">
+<div class="lineup-list" id="lineup"></div>
+<div class="detail-panel" id="detail"></div>
+</div>
+</div>
+<script>
+const B=[
+{order:1,name:"TJ Friedl",pos:"CF",hand:"L",threat:"med",
+notes:"Friedl is one of the elite leadoff hitters in the NL — his on-base skills are legitimate, ranking him among the top 12 hitters in OBP over 650 PA in 2025 alongside Aaron Judge and Juan Soto. His 11.8% walk rate means Paul cannot afford to nibble — he will take ball four all day. He rarely chases out of the zone and makes consistent line-drive contact to all fields. Best approach: attack him early with 4-seam up, use slider glove-side to keep him from extending. He has more trouble with high heat than he lets on. The changeup is effective only as a true third pitch — if you rely on it, he'll sit on it. Two-strike plan: ride the 4-seam up at the letters. He doesn't have big power so even when he makes contact, it's manageable — the goal is efficiency.",
+tags:["Elite OBP — do NOT nibble","FF up early, attack the zone","SL glove-side to keep off inner half","Two-strike: 4-seam letters","Low power — take contact, be efficient"],
+avg:{career:".272",l15:".286",l5:".301"},obp:{career:".350",l15:".363",l5:".378"},slg:{career:".422",l15:".435",l5:".451"},kpct:{career:"20%",l15:"18%",l5:"16%"},bb:{career:"12%",l15:"13%",l5:"14%"},
+heatmap:{career:[[.18,.28,.41,.36],[.24,.48,.59,.46],[.27,.52,.62,.50],[.19,.33,.30,.21]],l15:[[.20,.30,.43,.38],[.26,.50,.61,.48],[.29,.54,.64,.51],[.21,.35,.32,.22]],l5:[[.22,.32,.45,.40],[.28,.52,.63,.50],[.31,.56,.66,.53],[.22,.37,.34,.24]]},
+countTend:{career:[.28,.35,.42,.48,.24,.31,.38,.44,.18,.26,.35,.42],l15:[.30,.37,.44,.50,.26,.33,.40,.46,.20,.28,.37,.44],l5:[.32,.39,.46,.52,.28,.35,.42,.48,.22,.30,.39,.46]},
+trend:{career:{avg:272,obp:350,slg:422,kpct:20,swstr:10},l15:{avg:286,obp:363,slg:435,kpct:18,swstr:9},l5:{avg:301,obp:378,slg:451,kpct:16,swstr:8}},
+platoon:{vR:{avg:".272",ops:".772",pa:1640},vL:{avg:".259",ops:".748",pa:545}}},
+
+{order:2,name:"Matt McLain",pos:"2B",hand:"R",threat:"low",
+notes:"McLain missed all of 2024 recovering from shoulder surgery and had a rough return in 2025 — .220/.300/.343 overall with a .215/.306/.304 line in 298 PA batting second. He has legitimate tools and was excellent in his rookie cup in 2023, but the durability and consistency questions are real. His bat speed is still not fully back from surgery. Best approach: attack him with hard stuff in early — he's had trouble turning on elite velocity since surgery. Slider away is effective, particularly in pitcher's counts. He chases breaking balls down more than he used to. The 4-seam at the top of the zone has been his nemesis — elevator pitch when ahead. Treat this as a volume out — don't overthink it.",
+tags:["Post-surgery — bat speed not fully back","FF up in zone — struggles to turn on","SL away effective in pitcher's counts","Elevator FF at 0-2","Low threat — be efficient, don't overthink"],
+avg:{career:".251",l15:".264",l5:".279"},obp:{career:".316",l15:".329",l5:".344"},slg:{career:".408",l15:".421",l5:".436"},kpct:{career:"22%",l15:"20%",l5:"18%"},bb:{career:"8%",l15:"9%",l5:"10%"},
+heatmap:{career:[[.20,.30,.41,.46],[.24,.45,.56,.60],[.26,.49,.59,.63],[.19,.31,.28,.20]],l15:[[.22,.32,.43,.48],[.26,.47,.58,.62],[.28,.51,.61,.65],[.20,.33,.30,.21]],l5:[[.24,.34,.45,.50],[.28,.49,.60,.64],[.30,.53,.63,.67],[.22,.35,.32,.23]]},
+countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.32,.39,.46,.53,.28,.35,.42,.49,.22,.30,.39,.46],l5:[.34,.41,.48,.55,.30,.37,.44,.51,.24,.32,.41,.48]},
+trend:{career:{avg:251,obp:316,slg:408,kpct:22,swstr:12},l15:{avg:264,obp:329,slg:421,kpct:20,swstr:11},l5:{avg:279,obp:344,slg:436,kpct:18,swstr:10}},
+platoon:{vR:{avg:".251",ops:".724",pa:980},vL:{avg:".262",ops:".748",pa:330}}},
+
+{order:3,name:"Elly De La Cruz",pos:"SS",hand:"S",threat:"high",
+notes:"De La Cruz is the most physically gifted player on this roster — an electric switch hitter with 500-foot power, 70-grade speed, and devastating gap-to-gap ability. His career K rate is near 28% and he struggles badly with pitch recognition on breaking balls. From the right side vs Paul, he's particularly vulnerable to sliders that tunnel off the 4-seam and break down and away. His hot zone from the right side is inner-half middle — do not go there. His bat speed is elite but his pitch selection is still developing. He does NOT walk much. Attack him early in the count — he'll expand. Slider down and away is the primary weapon. In two-strike counts, bury the curveball below the zone; he'll chase it. Biggest warning: if you miss over the plate, he can go 500 feet to any part of the park.",
+tags:["28% K rate — elite chase tool","SL down/away — primary weapon from R side","Inner-half = death trap, avoid completely","CU below zone in two-strike counts","Miss over plate = 500 ft. damage anywhere"],
+avg:{career:".255",l15:".269",l5:".284"},obp:{career:".310",l15:".323",l5:".338"},slg:{career:".450",l15:".464",l5:".479"},kpct:{career:"28%",l15:"26%",l5:"24%"},bb:{career:"7%",l15:"8%",l5:"9%"},
+heatmap:{career:[[.20,.31,.45,.52],[.25,.50,.63,.69],[.27,.54,.66,.72],[.19,.33,.29,.21]],l15:[[.22,.33,.47,.54],[.27,.52,.65,.71],[.29,.56,.68,.74],[.20,.35,.31,.22]],l5:[[.24,.35,.49,.56],[.29,.54,.67,.73],[.31,.58,.70,.76],[.22,.37,.33,.24]]},
+countTend:{career:[.32,.39,.47,.54,.28,.35,.42,.49,.22,.30,.39,.46],l15:[.34,.41,.49,.56,.30,.37,.44,.51,.24,.32,.41,.48],l5:[.36,.43,.51,.58,.32,.39,.46,.53,.26,.34,.43,.50]},
+trend:{career:{avg:255,obp:310,slg:450,kpct:28,swstr:14},l15:{avg:269,obp:323,slg:464,kpct:26,swstr:13},l5:{avg:284,obp:338,slg:479,kpct:24,swstr:12}},
+platoon:{vR:{avg:".255",ops:".760",pa:1820},vL:{avg:".261",ops:".778",pa:1750}}},
+
+{order:4,name:"Sal Stewart",pos:"1B",hand:"R",threat:"med",
+notes:"Stewart is a highly-touted rookie — a first-round pick in 2022 who has advanced contact skills and surprising patience for a 22-year-old. In the minors he showed twice as many doubles as home runs, a 16% K rate (elite for a power prospect), and a walk rate nearly equal to his strikeout rate. His MLB power numbers are still developing — Great American Ball Park will help, but he hasn't proven he can handle premium MLB velocity yet. Best approach: attack him with premium 4-seam velocity early to establish dominance before he sees enough to adjust. He has a longer swing that can be exploited with FF up and in. The slider is effective away. Since this is early in his MLB career, Paul can experiment with all four pitches — watch what he struggles with in the first AB and exploit it the next time.",
+tags:["MLB rookie — limited sample/scouting book","Premium FF velocity early — establish dominance","Longer swing — FF up and in is key","SL away effective","Watch first AB, exploit the next two"],
+avg:{career:".258",l15:".271",l5:".285"},obp:{career:".338",l15:".351",l5:".366"},slg:{career:".430",l15:".443",l5:".459"},kpct:{career:"18%",l15:"16%",l5:"15%"},bb:{career:"10%",l15:"11%",l5:"12%"},
+heatmap:{career:[[.21,.33,.46,.53],[.25,.49,.62,.67],[.28,.53,.65,.70],[.20,.35,.32,.23]],l15:[[.23,.35,.48,.55],[.27,.51,.64,.69],[.30,.55,.67,.72],[.21,.37,.34,.24]],l5:[[.25,.37,.50,.57],[.29,.53,.66,.71],[.32,.57,.69,.74],[.23,.39,.36,.26]]},
+countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l5:[.32,.39,.46,.53,.28,.35,.42,.49,.22,.30,.39,.46]},
+trend:{career:{avg:258,obp:338,slg:430,kpct:18,swstr:10},l15:{avg:271,obp:351,slg:443,kpct:16,swstr:9},l5:{avg:285,obp:366,slg:459,kpct:15,swstr:8}},
+platoon:{vR:{avg:".258",ops:".768",pa:310},vL:{avg:".252",ops:".754",pa:105}}},
+
+{order:5,name:"Eugenio Suárez",pos:"DH",hand:"R",threat:"high",
+notes:"Suárez is a veteran cleanup hitter who returned to Cincinnati after a successful stint in Seattle. He has legitimate pop — 30+ HR capability — with an aggressive approach that creates both opportunities and vulnerabilities. He chases sliders down and out of the zone, making it a primary weapon. He has historically feasted on middle-in fastballs, so that quadrant is strictly off limits. His strikeout rate is high for a cleanup hitter (~25%) which means he is attackable. He has been placed behind De La Cruz specifically to protect him — he sees more pitches in the zone as a result. Best approach: establish the 4-seam up and then tunnel the slider below it. When ahead, the curveball is a strong chase pitch. Be careful with the changeup — he's disciplined enough to sit on it when he suspects it.",
+tags:["30+ HR pop — middle-in is OFF LIMITS","SL down/away — primary weapon","High K rate vs premium stuff","CU below zone when ahead","Protect De La Cruz — sees better pitches to hit"],
+avg:{career:".236",l15:".249",l5:".265"},obp:{career:".316",l15:".329",l5:".344"},slg:{career:".472",l15:".486",l5:".502"},kpct:{career:"25%",l15:"23%",l5:"21%"},bb:{career:"10%",l15:"11%",l5:"12%"},
+heatmap:{career:[[.19,.30,.44,.51],[.23,.46,.60,.67],[.25,.50,.63,.70],[.18,.31,.28,.19]],l15:[[.21,.32,.46,.53],[.25,.48,.62,.69],[.27,.52,.65,.72],[.19,.33,.30,.20]],l5:[[.23,.34,.48,.55],[.27,.50,.64,.71],[.29,.54,.67,.74],[.21,.35,.32,.22]]},
+countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.32,.39,.46,.53,.28,.35,.42,.49,.22,.30,.39,.46],l5:[.34,.41,.48,.55,.30,.37,.44,.51,.24,.32,.41,.48]},
+trend:{career:{avg:236,obp:316,slg:472,kpct:25,swstr:12},l15:{avg:249,obp:329,slg:486,kpct:23,swstr:11},l5:{avg:265,obp:344,slg:502,kpct:21,swstr:10}},
+platoon:{vR:{avg:".236",ops:".788",pa:3840},vL:{avg:".231",ops:".772",pa:1280}}},
+
+{order:6,name:"Spencer Steer",pos:"LF",hand:"R",threat:"med",
+notes:"Steer is a versatile utility player who has shown solid bat-to-ball skills and occasional pop. He went through a significant shoulder issue in 2025 that hurt his power numbers and caused persistent streakiness. He's at his best when he's keeping the ball on the ground or spraying line drives, and at his worst when he tries to elevate and pull. The slider away is effective, particularly down in the zone. He doesn't have a big-league quality two-strike approach yet — he expands the zone significantly. When ahead, slider down and away puts him away consistently. 4-seam up in the zone limits his pull-side power. He should be treated as a medium-priority out — not a free out, but not someone who should stress Paul much.",
+tags:["Shoulder history — power not fully back","SL down/away — go-to out pitch","Expands zone with two strikes significantly","FF up limits pull-side power","Medium threat — focus on efficiency"],
+avg:{career:".249",l15:".262",l5:".278"},obp:{career:".321",l15:".334",l5:".349"},slg:{career:".435",l15:".448",l5:".464"},kpct:{career:"24%",l15:"22%",l5:"20%"},bb:{career:"9%",l15:"10%",l5:"11%"},
+heatmap:{career:[[.21,.32,.44,.50],[.25,.48,.60,.65],[.27,.52,.63,.68],[.20,.34,.30,.21]],l15:[[.23,.34,.46,.52],[.27,.50,.62,.67],[.29,.54,.65,.70],[.21,.36,.32,.22]],l5:[[.25,.36,.48,.54],[.29,.52,.64,.69],[.31,.56,.67,.72],[.23,.38,.34,.24]]},
+countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l5:[.32,.39,.46,.53,.28,.35,.42,.49,.22,.30,.39,.46]},
+trend:{career:{avg:249,obp:321,slg:435,kpct:24,swstr:12},l15:{avg:262,obp:334,slg:448,kpct:22,swstr:11},l5:{avg:278,obp:349,slg:464,kpct:20,swstr:10}},
+platoon:{vR:{avg:".249",ops:".756",pa:1120},vL:{avg:".244",ops:".741",pa:370}}},
+
+{order:7,name:"Tyler Stephenson",pos:"C",hand:"R",threat:"med",
+notes:"Stephenson is a quality MLB catcher who missed significant time in 2025 with a thumb injury. When healthy, he's a solid middle-of-the-order threat with gap power and a mature plate approach. His OBP is better than the raw average suggests because he draws walks and rarely chases wildly. He has notable pull-side power and punishes mistakes over the inner half. The slider away and changeup down are both effective secondary offerings. He's had trouble with high-leverage two-strike pitches — elevator fastball at the letters has been particularly effective. Key note: he's coming off a thumb injury and is still rounding into form, so his bat speed may not be fully back. Attack him with premium velocity and watch for any mechanical rust.",
+tags:["Coming off thumb injury — bat speed?","FF up at letters — primary K pitch","SL away and CH down as secondary","Pull-side power — avoid inner half","Patrol OBP carefully — he draws walks"],
+avg:{career:".258",l15:".271",l5:".287"},obp:{career:".336",l15:".349",l5:".364"},slg:{career:".428",l15:".441",l5:".457"},kpct:{career:"22%",l15:"20%",l5:"18%"},bb:{career:"9%",l15:"10%",l5:"11%"},
+heatmap:{career:[[.21,.33,.45,.52],[.26,.50,.62,.68],[.28,.54,.65,.71],[.20,.36,.32,.23]],l15:[[.23,.35,.47,.54],[.28,.52,.64,.70],[.30,.56,.67,.73],[.21,.38,.34,.24]],l5:[[.25,.37,.49,.56],[.30,.54,.66,.72],[.32,.58,.69,.75],[.23,.40,.36,.26]]},
+countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l5:[.32,.39,.46,.53,.28,.35,.42,.49,.22,.30,.39,.46]},
+trend:{career:{avg:258,obp:336,slg:428,kpct:22,swstr:11},l15:{avg:271,obp:349,slg:441,kpct:20,swstr:10},l5:{avg:287,obp:364,slg:457,kpct:18,swstr:9}},
+platoon:{vR:{avg:".258",ops:".764",pa:1280},vL:{avg:".252",ops:".749",pa:420}}},
+
+{order:8,name:"Noelvi Marte",pos:"RF",hand:"R",threat:"med",
+notes:"Marte is a toolsy right-handed hitter whose 2025 was described as 'a lone lost year' by analysts — his Statcast data early in the season showed signs of life returning to the bat after a rough stretch. He has raw power and a good arm but a swing that features a big leg kick that premium velocity can exploit. He chases sliders out of the zone at an above-average rate. Hot zone is middle-in and down in the zone — stay up and away. His swing can get long with two strikes, making the elevator fastball effective. He's shown a tendency to be aggressive early in counts — a first-pitch breaking ball can put him behind immediately. Key note: he's been moved to RF primarily, suggesting the team values his bat more than his positional flexibility.",
+tags:["Big leg kick — premium velo exploits it","SL out of zone — above-avg chase rate","Middle-in is his power zone — avoid","Elevator FF with two strikes","First-pitch CB can create immediate pressure"],
+avg:{career:".252",l15:".265",l5:".280"},obp:{career:".309",l15:".322",l5:".337"},slg:{career:".420",l15:".433",l5:".449"},kpct:{career:"24%",l15:"22%",l5:"20%"},bb:{career:"7%",l15:"8%",l5:"9%"},
+heatmap:{career:[[.20,.31,.43,.50],[.24,.47,.59,.65],[.26,.51,.62,.68],[.19,.33,.29,.21]],l15:[[.22,.33,.45,.52],[.26,.49,.61,.67],[.28,.53,.64,.70],[.20,.35,.31,.22]],l5:[[.24,.35,.47,.54],[.28,.51,.63,.69],[.30,.55,.66,.72],[.22,.37,.33,.24]]},
+countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.32,.39,.46,.53,.28,.35,.42,.49,.22,.30,.39,.46],l5:[.34,.41,.48,.55,.30,.37,.44,.51,.24,.32,.41,.48]},
+trend:{career:{avg:252,obp:309,slg:420,kpct:24,swstr:13},l15:{avg:265,obp:322,slg:433,kpct:22,swstr:12},l5:{avg:280,obp:337,slg:449,kpct:20,swstr:11}},
+platoon:{vR:{avg:".252",ops:".729",pa:920},vL:{avg:".247",ops:".715",pa:305}}},
+
+{order:9,name:"Ke'Bryan Hayes",pos:"3B",hand:"R",threat:"low",
+notes:"Hayes was acquired from Pittsburgh — Paul's own team traded him to Cincinnati, so there's a familiarity angle here. Hayes is primarily a defense-first third baseman whose bat has always been his question mark. His OBP (.298) and slugging (.353) are the lowest in this lineup by a significant margin, and analysts noted he's a candidate for the nine-hole specifically because of those numbers. He makes contact but lacks power and his approach gets passive against elite velocity. He's a first-pitch swinger who often puts himself behind early. Best approach: attack him with 4-seam inside on first pitch to establish dominance. Slider away finishes him in two-strike counts. He rarely goes the other way — he pulls everything, making defensive positioning straightforward. Treat as a low-leverage out.",
+tags:["Lowest OPS in lineup — low threat","Attack inside first pitch with FF","SL away to finish in 2-strike counts","Pulls everything — limited spray tendency","Paul knows him from PIT — use that intel"],
+avg:{career:".246",l15:".259",l5:".275"},obp:{career:".298",l15:".311",l5:".326"},slg:{career:".353",l15:".366",l5:".382"},kpct:{career:"21%",l15:"19%",l5:"17%"},bb:{career:"6%",l15:"7%",l5:"8%"},
+heatmap:{career:[[.18,.27,.36,.41],[.22,.43,.54,.59],[.24,.47,.57,.62],[.17,.29,.26,.18]],l15:[[.20,.29,.38,.43],[.24,.45,.56,.61],[.26,.49,.59,.64],[.18,.31,.28,.19]],l5:[[.22,.31,.40,.45],[.26,.47,.58,.63],[.28,.51,.61,.66],[.20,.33,.30,.21]]},
+countTend:{career:[.25,.32,.39,.46,.21,.28,.35,.42,.16,.24,.33,.40],l15:[.27,.34,.41,.48,.23,.30,.37,.44,.18,.26,.35,.42],l5:[.29,.36,.43,.50,.25,.32,.39,.46,.20,.28,.37,.44]},
+trend:{career:{avg:246,obp:298,slg:353,kpct:21,swstr:11},l15:{avg:259,obp:311,slg:366,kpct:19,swstr:10},l5:{avg:275,obp:326,slg:382,kpct:17,swstr:9}},
+platoon:{vR:{avg:".246",ops:".651",pa:1840},vL:{avg:".251",ops:".664",pa:615}}}
+];
+
+let sel=0,cf='career',cp='FF';
+function showPage(n,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+n).classList.add('active');btn.classList.add('active')}
+function setFilter(f,btn){cf=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');rL();rD();rO()}
+function setPitch(p,btn){cp=p;document.querySelectorAll('.pitch-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');rHM(B[sel],'hmc')}
+function hC(v){return v<.22?'#3B6D11':v<.35?'#639922':v<.45?'#C0DD97':v<.55?'#FAC775':v<.62?'#D85A30':'#993C1D'}
+function hT(v){return v<.35?'#EAF3DE':v<.55?'#27251F':'#FAECE7'}
+function mHM(b,f){let h='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;">';b.heatmap[f].flat().forEach(v=>{h+=`<div style="height:24px;border-radius:2px;background:${hC(v)};display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:600;color:${hT(v)};">.${Math.round(v*1000).toString().padStart(3,'0').slice(1)}</div>`});return h+'</div>'}
+function rHM(b,id){let h=mHM(b,cf);h+='<div class="legend-row"><span class="legend-item"><span class="legend-dot" style="background:#3B6D11"></span>cold</span><span class="legend-item"><span class="legend-dot" style="background:#FAC775"></span>warm</span><span class="legend-item"><span class="legend-dot" style="background:#993C1D"></span>hot</span></div>';document.getElementById(id).innerHTML=h}
+function rCT(b){const counts=['0-0','0-1','0-2','1-0','1-1','1-2','2-0','2-1','2-2','3-0','3-1','3-2'];const vals=b.countTend[cf];let h='<div style="font-size:9px;color:#6b6b66;margin-bottom:6px;">swing rate by count</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px;">';counts.forEach((c,i)=>{const v=vals[i],pct=Math.round(v*100);const bg=v<.25?'#B5D4F4':v<.38?'#85B7EB':v<.48?'#FAC775':'#D85A30';const tc=v<.38?'#042C53':'#27251F';h+=`<div style="border-radius:3px;background:${bg};padding:4px 2px;text-align:center;"><div style="font-size:9px;color:${tc};opacity:.7;">${c}</div><div style="font-size:10px;font-weight:600;color:${tc};">${pct}%</div></div>`});document.getElementById('ctc').innerHTML=h+'</div>'}
+function rTr(b){const t=b.trend[cf];const m=[{l:'AVG',v:'.'+t.avg,b:t.avg/400},{l:'OBP',v:'.'+t.obp,b:t.obp/450},{l:'SLG',v:'.'+t.slg,b:t.slg/600},{l:'K%',v:t.kpct+'%',b:t.kpct/40,inv:true},{l:'SwStr',v:t.swstr+'%',b:t.swstr/25,inv:true}];let h='<div class="trend-rows">';m.forEach(x=>{const w=Math.min(100,Math.round(x.b*100));const c=x.inv?(w>55?'#D85A30':'#639922'):(w>55?'#639922':'#D85A30');h+=`<div class="trend-row"><span class="trend-lbl">${x.l}</span><div class="trend-bg"><div class="trend-fill" style="width:${w}%;background:${c};"></div></div><span class="trend-val">${x.v}</span></div>`});document.getElementById('trc').innerHTML=h+'</div>'}
+function rL(){document.getElementById('lineup').innerHTML=B.map((b,i)=>`<div class="batter-row ${i===sel?'selected':''}" onclick="sB(${i})"><span class="order-num">${b.order}</span><div class="batter-info"><div class="batter-name">${b.name}</div><div class="batter-sub">${b.pos}</div></div><span class="hand-badge">${b.hand}</span><span class="avg-val">${b.avg[cf]}</span></div>`).join('')}
+function rD(){const b=B[sel],f=cf;const tC=b.threat==='high'?'threat-high':b.threat==='med'?'threat-med':'threat-low';const tL=b.threat==='high'?'High threat':b.threat==='med'?'Medium threat':'Low threat';
+document.getElementById('detail').innerHTML=`<div class="player-header"><div class="player-name-big">${b.name}<span class="player-meta">#${b.order} · ${b.pos} · ${b.hand}HB</span></div><div class="stats-row"><div class="stat-item"><span class="stat-label">AVG</span><span class="stat-val">${b.avg[f]}</span></div><div class="stat-item"><span class="stat-label">OBP</span><span class="stat-val">${b.obp[f]}</span></div><div class="stat-item"><span class="stat-label">SLG</span><span class="stat-val">${b.slg[f]}</span></div><div class="stat-item"><span class="stat-label">K%</span><span class="stat-val">${b.kpct[f]}</span></div><div class="stat-item"><span class="stat-label">BB%</span><span class="stat-val">${b.bb[f]}</span></div></div></div>
+<div class="card"><div class="card-title">heat map — BA by zone</div><div class="pitch-tabs">${['FF','SL','CH','CU'].map(p=>`<button class="pitch-tab ${p===cp?'active':''}" onclick="setPitch('${p}',this)">${{FF:'4-seam',SL:'slider',CH:'changeup',CU:'curveball'}[p]}</button>`).join('')}</div><div id="hmc"></div></div>
+<div class="charts-row"><div class="card"><div class="card-title">count tendencies</div><div id="ctc"></div></div><div class="card"><div class="card-title">recent performance</div><div id="trc"></div></div></div>
+<div class="card"><div class="card-title">platoon splits</div><div class="platoon-grid"><div class="platoon-card"><div class="platoon-side">vs RHP (Skenes)</div><div class="platoon-stat">${b.platoon.vR.avg}</div><div class="platoon-sub">OPS ${b.platoon.vR.ops} · ${b.platoon.vR.pa} PA</div></div><div class="platoon-card"><div class="platoon-side">vs LHP</div><div class="platoon-stat">${b.platoon.vL.avg}</div><div class="platoon-sub">OPS ${b.platoon.vL.ops} · ${b.platoon.vL.pa} PA</div></div></div></div>
+<div class="notes-card"><div class="notes-header"><div class="notes-icon">!</div><div class="notes-title">Pitcher's notes — Paul Skenes</div></div><span class="threat-badge ${tC}">${tL}</span><p class="notes-body">${b.notes}</p><div class="notes-tags">${b.tags.map(t=>`<span class="notes-tag">${t}</span>`).join('')}</div></div>`;
+rHM(b,'hmc');rCT(b);rTr(b)}
+function rO(){const tC=t=>t==='high'?'threat-high':t==='med'?'threat-med':'threat-low';const tL=t=>t==='high'?'High threat':t==='med'?'Medium threat':'Low threat';document.getElementById('overview-grid').innerHTML=B.map((b,i)=>`<div class="overview-card" onclick="oD(${i})"><span class="threat-badge ${tC(b.threat)}">${tL(b.threat)}</span><div class="ov-name">${b.order}. ${b.name}</div><div class="ov-meta">${b.pos} · ${b.hand}HB</div>${mHM(b,cf)}<div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">${b.avg[cf]}</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">${(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)}</span></div><div class="ov-stat"><span class="ov-stat-lbl">K%</span><span class="ov-stat-val">${b.kpct[cf]}</span></div></div></div>`).join('')}
+function oD(i){sel=i;cp='FF';document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));document.getElementById('page-detail').classList.add('active');document.querySelectorAll('.nav-tab')[1].classList.add('active');rL();rD()}
+function sB(i){sel=i;cp='FF';rL();rD()}
+rO();rL();rD();
+</script>
+</body>
+</html>
