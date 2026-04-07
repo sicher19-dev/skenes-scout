@@ -14,18 +14,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .nav-title{font-size:15px;font-weight:600;color:white}
 .nav-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:1px}
 .nav-tabs{display:flex;gap:4px}
-.nav-tab{padding:6px 14px;border-radius:var(--radius-sm);font-size:13px;cursor:pointer;color:rgba(255,255,255,.65);border:none;background:transparent;font-weight:500;transition:all .15s}
+.nav-tab{padding:6px 14px;border-radius:var(--radius-sm);font-size:13px;cursor:pointer;color:rgba(255,255,255,.65);border:none;background:transparent;font-weight:500}
 .nav-tab.active{background:rgba(255,255,255,.2);color:white}
 .filter-bar{display:flex;align-items:center;gap:8px;padding:14px 20px 0}
 .filter-label{font-size:12px;color:var(--text2);font-weight:500}
-.filter-btn{padding:5px 13px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:transparent;font-size:13px;cursor:pointer;color:var(--text2);font-family:inherit;transition:all .14s}
+.filter-btn{padding:5px 13px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:transparent;font-size:13px;cursor:pointer;color:var(--text2);font-family:inherit}
 .filter-btn.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:500}
 .page{display:none;padding:16px 20px}
 .page.active{display:block}
+.conditions-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.cond-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
+.cond-title{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.cond-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.cond-label{font-size:12px;color:var(--text2)}
+.cond-val{font-size:12px;font-weight:600;color:var(--text)}
+.cond-tag{font-size:10px;padding:2px 7px;border-radius:8px;font-weight:600}
+.tag-good{background:rgba(99,153,34,.15);color:#2a5200}
+.tag-warn{background:rgba(250,199,117,.35);color:#7a5000}
+.tag-neutral{background:var(--surface2);color:var(--text2)}
+.cond-note{font-size:11px;color:var(--text2);margin-top:6px;padding-top:6px;border-top:1px solid var(--border);line-height:1.5}
 .detail-layout{display:grid;grid-template-columns:220px 1fr;gap:16px}
 .lineup-list{display:flex;flex-direction:column;gap:5px}
-.batter-row{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);cursor:pointer;transition:all .13s}
-.batter-row:hover{border-color:var(--accent)}
+.batter-row{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);cursor:pointer}
 .batter-row.selected{border-color:var(--accent);background:#f5f0e8}
 .order-num{font-size:11px;color:var(--text3);width:13px;flex-shrink:0}
 .batter-info{flex:1;min-width:0}
@@ -44,7 +54,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px 15px}
 .card-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
 .pitch-tabs{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
-.pitch-tab{padding:3px 10px;border-radius:4px;border:1px solid var(--border);font-size:11px;cursor:pointer;background:transparent;color:var(--text2);font-family:inherit;transition:all .12s}
+.pitch-tab{padding:3px 10px;border-radius:4px;border:1px solid var(--border);font-size:11px;cursor:pointer;background:transparent;color:var(--text2);font-family:inherit}
 .pitch-tab.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:500}
 .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .trend-rows{display:flex;flex-direction:column;gap:7px}
@@ -72,21 +82,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .legend-row{display:flex;gap:12px;margin-top:7px}
 .legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2)}
 .legend-dot{width:8px;height:8px;border-radius:50%}
-.overview-header{margin-bottom:16px}
+.overview-header{margin-bottom:12px}
 .overview-title{font-size:19px;font-weight:700;color:var(--text)}
 .overview-sub{font-size:13px;color:var(--text2);margin-top:3px}
 .overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .overview-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px;cursor:pointer;transition:all .13s}
-.overview-card:hover{border-color:var(--accent);box-shadow:0 2px 10px rgba(47,36,29,.08)}
+.overview-card:hover{border-color:var(--accent)}
 .ov-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:1px}
 .ov-meta{font-size:11px;color:var(--text2);margin-bottom:9px}
 .ov-stats{display:flex;gap:12px;margin-top:9px;padding-top:9px;border-top:1px solid var(--border)}
 .ov-stat{display:flex;flex-direction:column;gap:1px}
 .ov-stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
 .ov-stat-val{font-size:13px;font-weight:700;color:var(--text)}
-.season-note{font-size:11px;color:var(--text2);background:var(--surface2);border-radius:var(--radius-sm);padding:8px 12px;margin-bottom:14px;border-left:3px solid var(--accent2)}
-@media(max-width:800px){.detail-layout{grid-template-columns:1fr}.charts-row{grid-template-columns:1fr}.overview-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:500px){.overview-grid{grid-template-columns:1fr}.nav-tabs .nav-tab{padding:5px 10px;font-size:12px}}
+@media(max-width:800px){.detail-layout{grid-template-columns:1fr}.charts-row{grid-template-columns:1fr}.overview-grid{grid-template-columns:repeat(2,1fr)}.conditions-bar{grid-template-columns:1fr}}
+@media(max-width:500px){.overview-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -95,7 +104,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="nav-logo">PS</div>
 <div>
 <div class="nav-title">PIT vs SDP — Tue Apr 7</div>
-<div class="nav-sub">Petco Park, San Diego · Paul Skenes, RHP</div>
+<div class="nav-sub">PNC Park, Pittsburgh · Paul Skenes, RHP</div>
 </div>
 </div>
 <div class="nav-tabs">
@@ -109,144 +118,171 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <button class="filter-btn" onclick="setFilter('l15',this)">Last 15 G (2026)</button>
 <button class="filter-btn" onclick="setFilter('l5',this)">Last 5 G (2026)</button>
 </div>
+
 <div id="page-overview" class="page active">
 <div class="overview-header">
 <div class="overview-title">San Diego Padres — Projected Lineup vs RHP</div>
-<div class="overview-sub">Per FanGraphs/RotoWire actual game logs · 2026 splits reflect real season stats through Apr 6 · Tap any hitter for full detail.</div>
+<div class="overview-sub">Actual 2026 game logs via RotoWire/MLB · 2026 splits reflect real season stats through Apr 6 · Tap any hitter for full detail.</div>
+</div>
+<div class="conditions-bar">
+<div class="cond-card">
+<div class="cond-title">🌤 Game Conditions — Tue Apr 7, PNC Park</div>
+<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~42°F at first pitch <span class="cond-tag tag-good">Pitcher's park</span></span></div>
+<div class="cond-row"><span class="cond-label">Sky</span><span class="cond-val">Mostly sunny</span></div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">NW 11 mph, gusts 22 <span class="cond-tag tag-good">Toward RF</span></span></div>
+<div class="cond-row"><span class="cond-label">Precip chance</span><span class="cond-val">~30% (mainly daytime)</span></div>
+<div class="cond-note">Cold air at 42°F suppresses carry ~12–15 ft vs average conditions. NW wind blows toward right-center — a very slight push for lefty pull power, irrelevant for this right-handed heavy lineup. Game-time conditions strongly favor pitching.</div>
+</div>
+<div class="cond-card">
+<div class="cond-title">🏟 PNC Park Factors (Multi-Year)</div>
+<div class="cond-row"><span class="cond-label">Runs</span><span class="cond-val">96 <span class="cond-tag tag-good">4% below avg</span></span></div>
+<div class="cond-row"><span class="cond-label">Home Runs</span><span class="cond-val">88 <span class="cond-tag tag-good">12% suppressed</span></span></div>
+<div class="cond-row"><span class="cond-label">Doubles/Triples</span><span class="cond-val"><span class="cond-tag tag-warn">Boosted</span></span></div>
+<div class="cond-row"><span class="cond-label">RHH pull HRs</span><span class="cond-val"><span class="cond-tag tag-good">21-ft Clemente Wall</span></span></div>
+<div class="cond-note">Significant HR suppressor — 21-ft right field wall kills RHH pull power. Padres lineup is 7-of-9 RHH. Combined with 42°F temps: fly balls die. Anything hit to the track stays there. Paul's ground ball tendency is a major advantage here.</div>
+</div>
 </div>
 <div class="overview-grid" id="overview-grid"></div>
 </div>
+
 <div id="page-detail" class="page">
-<div class="season-note" id="season-note">⚡ 2026 splits: Team hitting .192/.264/.290 through 9 games — cold start across the board. Last 15 G and Last 5 G tabs reflect real 2026 season performance.</div>
+<div class="conditions-bar">
+<div class="cond-card">
+<div class="cond-title">🌤 Game Conditions — Tue Apr 7, PNC Park</div>
+<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~42°F at first pitch <span class="cond-tag tag-good">Pitcher's park</span></span></div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">NW 11 mph, gusts 22 <span class="cond-tag tag-good">Toward RF/CF</span></span></div>
+<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">~30% — mainly before first pitch</span></div>
+<div class="cond-note">Cold air suppresses carry 12–15 ft. Fly balls die at the warning track. This is a ground-ball pitcher's dream environment.</div>
+</div>
+<div class="cond-card">
+<div class="cond-title">🏟 PNC Park Factors</div>
+<div class="cond-row"><span class="cond-label">HR factor</span><span class="cond-val">88 — 12% below avg <span class="cond-tag tag-good">Major suppressor</span></span></div>
+<div class="cond-row"><span class="cond-label">Runs factor</span><span class="cond-val">96 — slight pitcher's park</span></div>
+<div class="cond-row"><span class="cond-label">21-ft RF wall</span><span class="cond-val"><span class="cond-tag tag-good">Kills RHH pull HRs</span></span></div>
+<div class="cond-note">7 of 9 Padres hitters are RHH. Their pull-side power is nearly neutralized by park + cold. Machado/Tatis/Laureano home run threats are significantly reduced today.</div>
+</div>
+</div>
 <div class="detail-layout">
 <div class="lineup-list" id="lineup"></div>
 <div class="detail-panel" id="detail"></div>
 </div>
 </div>
+
 <script>
 const B=[
-{order:1,name:"Ramón Laureano",pos:"LF",hand:"R",threat:"high",
-notes:"Laureano is the hottest bat in this lineup to start 2026 — team leader in home runs and batting average through the first 9 games. He made mechanical adjustments in 2025 (slightly closed stance, moved back in box) that produced career-best numbers: 13.8% barrel rate (85th pct), 49.1% hard-hit rate (84th pct), .518 xSLG (93rd pct). His production is legitimate, not fluky. He hits the ball extremely hard to all fields and has become a nightmare for pitchers at the top of the order. Best approach: work him up and away with the 4-seam — he can handle inner-half velocity better than most. Slider glove-side is effective early in the count. His changeup chase rate is above average — use it as a tunnel off the 4-seam in two-strike counts. He is currently locked in so treat him as a top-tier threat despite batting first.",
-tags:["Team's hottest bat in 2026","13.8% barrel rate — elite hard contact","SL glove-side early in count","CH tunnel off 4-seam two-strike","FF up and away — don't miss middle"],
+{order:1,name:"Ram\u00f3n Laureano",pos:"LF",hand:"R",threat:"high",
+notes:"Laureano is the hottest bat in this lineup — team leader in HRs and AVG through the first 9 games of 2026. He has career-best Statcast metrics: 13.8% barrel rate (85th pct), 49.1% hard-hit rate (84th pct), .518 xSLG (93rd pct). His production is for real. PARK NOTE: His pull-side power is a real threat in most parks, but PNC's 21-ft Clemente Wall and 42°F temps neutralize his home run ceiling today — expect gap doubles and hard singles instead of HRs. Best approach: work him up and away with the 4-seam. Slider glove-side is effective early in the count. Changeup tunneled off the 4-seam in two-strike counts gets chases. He is locked in right now so treat him as a top threat despite the park conditions depressing his ceiling.",
+tags:["Team's hottest bat — locked in 2026","13.8% barrel rate — elite hard contact","Park+cold kills his HR ceiling today","SL glove-side early","CH tunnel two-strike — gets chases"],
 avg:{career:".263",l15:".333",l5:".360"},obp:{career:".324",l15:".390",l5:".412"},slg:{career:".470",l15:".583",l5:".640"},kpct:{career:"22%",l15:"18%",l5:"16%"},bb:{career:"8%",l15:"9%",l5:"10%"},
 heatmap:{
 FF:{career:[[.22,.34,.48,.42],[.28,.54,.66,.56],[.31,.58,.69,.60],[.22,.38,.34,.24]],l15:[[.30,.42,.56,.50],[.36,.62,.74,.64],[.39,.66,.77,.68],[.28,.46,.42,.32]],l5:[[.34,.46,.60,.54],[.40,.66,.78,.68],[.43,.70,.81,.72],[.32,.50,.46,.36]]},
 SL:{career:[[.18,.24,.34,.38],[.22,.40,.50,.58],[.26,.46,.56,.60],[.20,.34,.30,.22]],l15:[[.24,.32,.44,.48],[.28,.48,.60,.68],[.32,.54,.64,.70],[.26,.42,.38,.30]],l5:[[.28,.36,.48,.52],[.32,.52,.64,.72],[.36,.58,.68,.74],[.30,.46,.42,.34]]},
 CH:{career:[[.20,.32,.42,.34],[.26,.50,.60,.48],[.28,.54,.64,.52],[.20,.36,.32,.22]],l15:[[.26,.40,.50,.42],[.32,.58,.68,.56],[.34,.62,.72,.60],[.26,.44,.40,.30]],l5:[[.30,.44,.54,.46],[.36,.62,.72,.60],[.38,.66,.76,.64],[.30,.48,.44,.34]]},
-CU:{career:[[.14,.20,.24,.20],[.18,.32,.40,.34],[.22,.38,.46,.38],[.24,.42,.44,.32]],l15:[[.18,.26,.30,.26],[.22,.38,.48,.42],[.26,.44,.54,.46],[.28,.50,.52,.40]],l5:[[.22,.30,.34,.30],[.26,.42,.52,.46],[.30,.48,.58,.50],[.32,.54,.56,.44]]}
-},
+CU:{career:[[.14,.20,.24,.20],[.18,.32,.40,.34],[.22,.38,.46,.38],[.24,.42,.44,.32]],l15:[[.18,.26,.30,.26],[.22,.38,.48,.42],[.26,.44,.54,.46],[.28,.50,.52,.40]],l5:[[.22,.30,.34,.30],[.26,.42,.52,.46],[.30,.48,.58,.50],[.32,.54,.56,.44]]}},
 countTend:{career:[.34,.41,.49,.56,.30,.37,.44,.51,.24,.32,.41,.48],l15:[.36,.43,.51,.58,.32,.39,.46,.53,.26,.34,.43,.50],l5:[.38,.45,.53,.60,.34,.41,.48,.55,.28,.36,.45,.52]},
 trend:{career:{avg:263,obp:324,slg:470,kpct:22,swstr:11},l15:{avg:333,obp:390,slg:583,kpct:18,swstr:9},l5:{avg:360,obp:412,slg:640,kpct:16,swstr:8}},
 platoon:{vR:{avg:".263",ops:".794",pa:2240},vL:{avg:".258",ops:".778",pa:750}}},
 
 {order:2,name:"Fernando Tatis Jr.",pos:"RF",hand:"R",threat:"high",
-notes:"Tatis is hitting .200 through 9 games in 2026 — a cold start, but his elite underlying metrics (93rd pct hard-hit rate, 95th pct avg exit velocity) mean regression to his career norms is coming. He moved from leadoff to 3rd in the order this year and is still adjusting to seeing more pitches in the zone with runners on. His 2025 line was .268/.368/.446 with 25 HR and 32 SB. The main weakness: he has a below-average chase rate on high fastballs but ranks in just the 4th percentile in launch angle sweet spot — he's not elevating consistently. Best approach: establish hard stuff up to suppress his launch angle, then use slider below the zone to get chases. His changeup vulnerability is real — tunnel it precisely off the 4-seam. With runners on he tries to do too much and will expand the zone.",
-tags:["Cold start 2026 but elite exit velo","93rd pct hard-hit rate — don't miss middle","FF up suppresses launch angle","SL below zone — chase pitch","CH tunnel off FF — very effective"],
+notes:"Tatis is hitting just .200 through 9 games in 2026, but his elite exit velocity (95th pct) and hard-hit rate (93rd pct) mean a breakout game is coming. He moved from leadoff to 3rd/2nd in the order and is still settling in. PARK NOTE: Even when Tatis squares one up today, PNC's 21-ft wall and 42°F air means fly balls die. His 4th-percentile launch angle ranking means he doesn't elevate consistently anyway — this park punishes that. Best approach: establish 4-seam up to suppress launch angle further. Slider below the zone gets chases. Changeup precisely tunneled off the 4-seam is very effective. He will expand the zone with runners on — use that against him.",
+tags:["Cold 2026 start — .200 but elite exit velo","4th pct launch angle — park kills fly balls","FF up suppresses launch further","SL below zone — chase pitch","CH tunnel very effective — use it"],
 avg:{career:".277",l15:".200",l5:".190"},obp:{career:".355",l15:".278",l5:".265"},slg:{career:".510",l15:".320",l5:".300"},kpct:{career:"22%",l15:"26%",l5:"28%"},bb:{career:"11%",l15:"8%",l5:"7%"},
 heatmap:{
 FF:{career:[[.24,.38,.52,.48],[.30,.58,.70,.62],[.32,.62,.74,.66],[.22,.40,.36,.26]],l15:[[.18,.28,.40,.36],[.22,.44,.56,.48],[.24,.48,.60,.52],[.16,.30,.28,.20]],l5:[[.16,.24,.36,.32],[.18,.40,.52,.44],[.20,.44,.56,.48],[.14,.26,.24,.18]]},
-SL:{career:[[.16,.22,.28,.24],[.18,.32,.40,.34],[.22,.38,.46,.40],[.28,.50,.54,.44]],l15:[[.12,.18,.22,.18],[.14,.24,.32,.26],[.16,.28,.36,.30],[.22,.40,.44,.36]],l5:[[.10,.16,.20,.16],[.12,.22,.30,.22],[.14,.26,.34,.26],[.20,.36,.40,.32]]},
-CH:{career:[[.20,.32,.44,.38],[.26,.52,.62,.54],[.28,.56,.66,.58],[.20,.36,.32,.22]],l15:[[.14,.24,.34,.28],[.18,.38,.48,.40],[.20,.42,.52,.44],[.14,.28,.24,.16]],l5:[[.12,.22,.32,.24],[.16,.34,.44,.36],[.18,.38,.48,.40],[.12,.24,.20,.14]]},
-CU:{career:[[.14,.20,.24,.20],[.18,.30,.38,.32],[.22,.36,.44,.36],[.26,.46,.50,.38]],l15:[[.10,.14,.18,.14],[.12,.22,.28,.22],[.16,.26,.34,.26],[.20,.36,.38,.28]],l5:[[.08,.12,.16,.12],[.10,.18,.24,.18],[.14,.22,.30,.22],[.18,.32,.34,.24]]}
-},
+SL:{career:[[.16,.22,.28,.24],[.18,.32,.40,.34],[.22,.38,.46,.40],[.28,.50,.54,.44]],l15:[[.12,.16,.20,.18],[.14,.24,.30,.26],[.16,.28,.34,.28],[.20,.36,.40,.32]],l5:[[.10,.14,.18,.14],[.12,.20,.26,.20],[.14,.24,.30,.22],[.18,.32,.36,.28]]},
+CH:{career:[[.20,.32,.44,.38],[.26,.52,.62,.54],[.28,.56,.66,.58],[.20,.36,.32,.22]],l15:[[.14,.24,.34,.28],[.18,.38,.48,.40],[.20,.42,.52,.44],[.14,.28,.24,.16]],l5:[[.12,.20,.30,.22],[.14,.32,.42,.34],[.16,.36,.46,.38],[.12,.22,.18,.12]]},
+CU:{career:[[.14,.20,.24,.20],[.18,.30,.38,.32],[.22,.36,.44,.36],[.26,.46,.50,.38]],l15:[[.10,.14,.16,.12],[.12,.20,.26,.20],[.14,.24,.30,.22],[.18,.32,.34,.24]],l5:[[.08,.10,.12,.10],[.10,.16,.20,.14],[.12,.18,.24,.16],[.14,.26,.28,.18]]}},
 countTend:{career:[.32,.39,.47,.54,.28,.35,.42,.49,.22,.30,.39,.46],l15:[.28,.35,.43,.50,.24,.31,.38,.45,.18,.26,.35,.42],l5:[.26,.33,.41,.48,.22,.29,.36,.43,.16,.24,.33,.40]},
 trend:{career:{avg:277,obp:355,slg:510,kpct:22,swstr:11},l15:{avg:200,obp:278,slg:320,kpct:26,swstr:14},l5:{avg:190,obp:265,slg:300,kpct:28,swstr:15}},
 platoon:{vR:{avg:".277",ops:".865",pa:3240},vL:{avg:".271",ops:".848",pa:1080}}},
 
 {order:3,name:"Jackson Merrill",pos:"CF",hand:"L",threat:"med",
-notes:"Merrill had a sophomore slump in 2025 after an electric 2024 rookie campaign — his wRC+ dropped 14 points and WAR fell over two games. He enters 2026 with adjusted expectations but solid underlying talent. He's a left-handed bat in a predominantly right-handed lineup which gives the Padres some protection. His swing can get long against elite velocity up in the zone. Slider to his glove-arm side (away for lefties) is very effective — he chases it below the zone. He's been working on plate patience but can be beaten with premium heat early in counts. The 4-seam up at the letters is his nemesis in two-strike counts. Don't let him extend his arms — keep the ball in on his hands early.",
-tags:["Sophomore slump 2025 — still adjusting","FF up at letters — two-strike weapon","SL glove-side away — primary chase pitch","Keep ball in on hands — no extension","LHH in RH-heavy lineup — no platoon edge"],
+notes:"Merrill had a sophomore slump in 2025 and is still struggling into 2026. He is the only left-handed hitter in the top 4 of this lineup. PARK NOTE: As a LHH, Merrill's pull side goes toward right field — the 21-ft Clemente Wall actually works against him here too on pull power. The cold air suppresses his already modest HR rate. His slider vulnerability away (glove-arm side for lefties) is the primary weapon. Keep the ball in on his hands early — do not let him extend his arms. 4-seam up at the letters is his two-strike go-to. The cold may cause him to be more pull-conscious, creating additional vulnerability to elevated fastballs.",
+tags:["Sophomore slump 2025 — still struggling 2026","SL glove-side away — primary chase pitch","FF up at letters — two-strike weapon","Keep ball in on hands — no extension","Cold air + RF wall limits his pull power too"],
 avg:{career:".265",l15:".185",l5:".175"},obp:{career:".316",l15:".260",l5:".245"},slg:{career:".440",l15:".310",l5:".290"},kpct:{career:"21%",l15:"26%",l5:"28%"},bb:{career:"7%",l15:"8%",l5:"7%"},
 heatmap:{
-FF:{career:[[.20,.30,.44,.40],[.26,.50,.62,.52],[.28,.54,.66,.56],[.20,.36,.32,.22]],l15:[[.14,.22,.34,.30],[.18,.36,.48,.38],[.20,.40,.52,.42],[.14,.28,.24,.16]],l5:[[.12,.18,.30,.26],[.14,.32,.44,.34],[.16,.36,.48,.38],[.12,.24,.20,.14]]},
-SL:{career:[[.14,.18,.22,.38],[.16,.26,.32,.50],[.20,.32,.38,.52],[.16,.28,.26,.20]],l15:[[.10,.12,.16,.30],[.12,.18,.24,.40],[.14,.22,.28,.42],[.12,.20,.18,.14]],l5:[[.08,.10,.14,.26],[.10,.14,.20,.36],[.12,.18,.24,.38],[.10,.16,.14,.12]]},
-CH:{career:[[.18,.28,.38,.30],[.22,.44,.54,.42],[.24,.48,.58,.46],[.18,.32,.28,.18]],l15:[[.12,.20,.28,.22],[.14,.30,.40,.30],[.16,.34,.44,.34],[.12,.22,.18,.12]],l5:[[.10,.16,.24,.18],[.12,.26,.36,.26],[.14,.30,.40,.30],[.10,.18,.14,.10]]},
-CU:{career:[[.12,.16,.18,.14],[.16,.28,.34,.26],[.20,.34,.42,.32],[.22,.38,.40,.28]],l15:[[.08,.10,.12,.10],[.10,.18,.24,.16],[.14,.22,.30,.22],[.16,.28,.30,.20]],l5:[[.06,.08,.10,.08],[.08,.14,.20,.12],[.12,.18,.26,.18],[.14,.24,.26,.16]]}
-},
+FF:{career:[[.20,.30,.44,.40],[.26,.50,.62,.52],[.28,.54,.66,.56],[.20,.36,.32,.22]],l15:[[.14,.22,.34,.30],[.18,.36,.48,.38],[.20,.40,.52,.42],[.14,.28,.24,.16]],l5:[[.12,.18,.28,.24],[.14,.30,.42,.32],[.16,.34,.46,.36],[.12,.22,.18,.12]]},
+SL:{career:[[.14,.18,.22,.38],[.16,.26,.32,.50],[.20,.32,.38,.52],[.16,.28,.26,.20]],l15:[[.10,.12,.14,.28],[.10,.16,.22,.36],[.14,.20,.26,.38],[.10,.18,.14,.12]],l5:[[.08,.10,.12,.22],[.08,.12,.16,.28],[.10,.14,.20,.30],[.08,.12,.10,.08]]},
+CH:{career:[[.18,.28,.38,.30],[.22,.44,.54,.42],[.24,.48,.58,.46],[.18,.32,.28,.18]],l15:[[.12,.18,.24,.18],[.14,.28,.36,.26],[.16,.30,.40,.28],[.10,.20,.14,.10]],l5:[[.10,.14,.18,.14],[.10,.22,.28,.20],[.12,.24,.34,.22],[.08,.14,.10,.08]]},
+CU:{career:[[.12,.16,.18,.14],[.16,.28,.34,.26],[.20,.34,.42,.32],[.22,.38,.40,.28]],l15:[[.08,.10,.10,.08],[.10,.16,.20,.14],[.12,.18,.24,.16],[.14,.24,.24,.14]],l5:[[.06,.06,.08,.06],[.06,.10,.14,.10],[.10,.12,.18,.12],[.10,.18,.18,.10]]}},
 countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.24,.31,.38,.45,.20,.27,.34,.41,.14,.22,.31,.38],l5:[.22,.29,.36,.43,.18,.25,.32,.39,.12,.20,.29,.36]},
 trend:{career:{avg:265,obp:316,slg:440,kpct:21,swstr:11},l15:{avg:185,obp:260,slg:310,kpct:26,swstr:14},l5:{avg:175,obp:245,slg:290,kpct:28,swstr:15}},
 platoon:{vR:{avg:".265",ops:".756",pa:1640},vL:{avg:".260",ops:".741",pa:545}}},
 
 {order:4,name:"Manny Machado",pos:"3B",hand:"R",threat:"high",
-notes:"Machado is the heart of this lineup — consistent .275/.340/.485 over seven seasons in San Diego, averaging 28 HR and 90 RBI. He is as reliable as any hitter in baseball. His 2025 Spring showed he was slugging .889 in five games, and he enters 2026 as the team leader and cleanup hitter. He has a professional approach and will not chase garbage — he is selective and punishes mistakes. The main concern: he feasts on fastballs middle-in. That corridor is completely off limits. Work him up and away with the 4-seam. Slider away is effective when ahead. His changeup vulnerability is situational — only works when tunneled off the 4-seam. He rarely strikes out which means contact is inevitable — aim to induce weak contact up in the zone rather than punch him out.",
-tags:["Most dangerous bat in lineup — consistent 28 HR","Middle-in FF is completely off limits","FF up and away — induce weak contact","SL away when ahead","Rarely strikes out — aim for weak contact"],
+notes:"Machado is the most dangerous bat in this lineup — .275/.340/.485 over seven seasons in San Diego, 28 HR/90 RBI average. He is as consistent as any hitter in baseball. PARK NOTE: This is a meaningful matchup spot — in most parks Machado's pull-side power to right field is a serious concern. At PNC with the 21-ft Clemente Wall AND 42°F temps, his home run threat is significantly reduced. His career-best outcome today becomes a gapper to left-center, not a home run. Middle-in fastballs are still completely off limits — he will barrel them for hard contact regardless of park. Best approach: work him up and away, slider away when ahead. Induce ground balls or weak fly balls — the park will eat them.",
+tags:["Most dangerous bat — consistent 28 HR","Middle-in FF STILL off limits — park or not","Park+cold cuts HR threat significantly today","FF up away — induce weak fly balls","Aim for GB or weak fly — park does the work"],
 avg:{career:".275",l15:".222",l5:".210"},obp:{career:".340",l15:".300",l5:".285"},slg:{career:".485",l15:".378",l5:".360"},kpct:{career:"16%",l15:"18%",l5:"19%"},bb:{career:"9%",l15:"10%",l5:"9%"},
 heatmap:{
 FF:{career:[[.22,.34,.48,.54],[.28,.54,.66,.72],[.30,.58,.70,.76],[.22,.38,.34,.26]],l15:[[.16,.26,.38,.44],[.20,.42,.54,.60],[.22,.46,.58,.64],[.16,.30,.26,.18]],l5:[[.14,.22,.34,.40],[.18,.38,.50,.56],[.20,.42,.54,.60],[.14,.26,.22,.16]]},
-SL:{career:[[.16,.22,.26,.44],[.20,.34,.42,.58],[.22,.38,.46,.60],[.16,.28,.24,.18]],l15:[[.12,.16,.20,.36],[.14,.26,.34,.48],[.16,.30,.38,.50],[.12,.22,.18,.14]],l5:[[.10,.14,.18,.32],[.12,.22,.30,.44],[.14,.26,.34,.46],[.10,.18,.14,.12]]},
-CH:{career:[[.18,.28,.36,.28],[.24,.46,.56,.44],[.26,.50,.60,.48],[.18,.32,.28,.18]],l15:[[.12,.20,.26,.20],[.16,.32,.42,.32],[.18,.36,.46,.36],[.12,.22,.18,.12]],l5:[[.10,.16,.22,.16],[.14,.28,.38,.28],[.16,.32,.42,.32],[.10,.18,.14,.10]]},
-CU:{career:[[.12,.16,.20,.16],[.16,.28,.36,.28],[.20,.34,.42,.32],[.22,.40,.44,.32]],l15:[[.08,.10,.14,.10],[.10,.18,.24,.18],[.14,.22,.30,.22],[.16,.28,.30,.20]],l5:[[.06,.08,.12,.08],[.08,.14,.20,.14],[.12,.18,.26,.18],[.14,.24,.26,.16]]}
-},
+SL:{career:[[.16,.22,.26,.44],[.20,.34,.42,.58],[.22,.38,.46,.60],[.16,.28,.24,.18]],l15:[[.12,.16,.18,.34],[.14,.24,.30,.44],[.16,.28,.34,.46],[.10,.18,.16,.12]],l5:[[.10,.12,.16,.28],[.12,.18,.24,.36],[.14,.22,.28,.38],[.08,.14,.12,.08]]},
+CH:{career:[[.18,.28,.36,.28],[.24,.46,.56,.44],[.26,.50,.60,.48],[.18,.32,.28,.18]],l15:[[.12,.18,.24,.18],[.16,.30,.38,.28],[.18,.34,.42,.32],[.12,.20,.16,.10]],l5:[[.10,.14,.20,.14],[.14,.24,.32,.22],[.16,.28,.36,.26],[.10,.16,.12,.08]]},
+CU:{career:[[.12,.16,.20,.16],[.16,.28,.36,.28],[.20,.34,.42,.32],[.22,.40,.44,.32]],l15:[[.08,.10,.12,.10],[.10,.16,.22,.16],[.14,.20,.28,.18],[.14,.26,.28,.18]],l5:[[.06,.08,.10,.08],[.08,.12,.16,.10],[.10,.16,.22,.14],[.10,.18,.20,.12]]}},
 countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.24,.31,.38,.45,.20,.27,.34,.41,.14,.22,.31,.38],l5:[.22,.29,.36,.43,.18,.25,.32,.39,.12,.20,.29,.36]},
 trend:{career:{avg:275,obp:340,slg:485,kpct:16,swstr:9},l15:{avg:222,obp:300,slg:378,kpct:18,swstr:10},l5:{avg:210,obp:285,slg:360,kpct:19,swstr:11}},
 platoon:{vR:{avg:".275",ops:".825",pa:5840},vL:{avg:".268",ops:".808",pa:1950}}},
 
 {order:5,name:"Miguel Andujar",pos:"DH",hand:"R",threat:"med",
-notes:"Andujar was signed specifically to add right-handed punch to the Padres lineup, particularly vs LHP (.987 OPS vs southpaws). Against RHP he is more measured — career mark just above .800 OPS — but his 14.4% K rate (87th pct) and 17.8% whiff rate (86th pct) show he can make consistent contact without overextending. He has legitimate power to the pull side and is an aggressive early-count hitter. Attack him with hard stuff up early before he can settle in. Slider glove-side (away from him) is effective — he expands there with two strikes. His bat path is disciplined enough that he doesn't get beaten inside as easily as some RHH, so stay up in the zone rather than in on the hands.",
-tags:["Strong vs LHP (.987 OPS) — solid vs RHP too","Elite contact rate — low K%","Attack hard stuff up early","SL glove-side away with two strikes","Aggressive early — use first-pitch FF"],
+notes:"Andujar was signed to add right-handed pop, primarily vs LHP (.987 OPS vs southpaws). Against RHP he is more measured but has a 14.4% K rate (elite contact). PARK NOTE: His pull-side power is real, but the Clemente Wall and cold air mean his gap power becomes more relevant than his HR ceiling today. He is an early-count aggressive hitter — attack him with hard stuff up in the first pitch before he settles in. Slider glove-side (away) with two strikes. His bat path is disciplined — he doesn't get beaten inside as easily as most RHH, so stay up in the zone.",
+tags:["Elite contact rate (14% K) — won't give ABs away","Park limits pull-side HR — target gaps","Attack FF up early in the count","SL glove-side away two-strike","Aggressive early — first-pitch FF works"],
 avg:{career:".271",l15:".240",l5:".227"},obp:{career:".314",l15:".295",l5:".280"},slg:{career:".436",l15:".385",l5:".364"},kpct:{career:"14%",l15:"16%",l5:"17%"},bb:{career:"6%",l15:"7%",l5:"7%"},
 heatmap:{
 FF:{career:[[.22,.34,.46,.52],[.26,.50,.62,.66],[.28,.54,.65,.68],[.20,.36,.32,.22]],l15:[[.18,.28,.38,.44],[.22,.42,.54,.58],[.24,.46,.58,.62],[.16,.30,.26,.18]],l5:[[.16,.24,.34,.40],[.20,.38,.50,.54],[.22,.42,.54,.58],[.14,.26,.22,.16]]},
-SL:{career:[[.18,.22,.26,.44],[.20,.34,.42,.58],[.22,.38,.46,.60],[.14,.24,.22,.16]],l15:[[.14,.18,.20,.36],[.16,.26,.34,.48],[.18,.30,.38,.50],[.10,.18,.16,.12]],l5:[[.12,.14,.18,.32],[.14,.22,.30,.44],[.16,.26,.34,.46],[.08,.14,.12,.10]]},
-CH:{career:[[.18,.28,.34,.24],[.22,.44,.52,.36],[.24,.48,.56,.38],[.16,.28,.24,.16]],l15:[[.14,.22,.26,.18],[.18,.34,.42,.28],[.20,.38,.46,.30],[.12,.22,.18,.12]],l5:[[.12,.18,.22,.14],[.16,.30,.38,.24],[.18,.34,.42,.26],[.10,.18,.14,.10]]},
-CU:{career:[[.12,.16,.18,.14],[.16,.26,.32,.24],[.20,.32,.40,.30],[.18,.32,.34,.24]],l15:[[.08,.10,.12,.10],[.10,.18,.22,.16],[.14,.22,.28,.20],[.12,.22,.24,.16]],l5:[[.06,.08,.10,.08],[.08,.14,.18,.12],[.12,.18,.24,.16],[.10,.18,.20,.12]]}
-},
+SL:{career:[[.18,.22,.26,.44],[.20,.34,.42,.58],[.22,.38,.46,.60],[.14,.24,.22,.16]],l15:[[.14,.16,.18,.34],[.14,.24,.30,.44],[.16,.28,.34,.46],[.10,.16,.14,.10]],l5:[[.10,.12,.14,.26],[.10,.18,.22,.36],[.12,.20,.26,.38],[.08,.12,.10,.08]]},
+CH:{career:[[.18,.28,.34,.24],[.22,.44,.52,.36],[.24,.48,.56,.38],[.16,.28,.24,.16]],l15:[[.14,.20,.24,.16],[.16,.32,.38,.24],[.18,.36,.42,.26],[.10,.18,.14,.10]],l5:[[.10,.14,.18,.12],[.12,.24,.30,.18],[.14,.28,.34,.20],[.08,.14,.10,.08]]},
+CU:{career:[[.12,.16,.18,.14],[.16,.26,.32,.24],[.20,.32,.40,.30],[.18,.32,.34,.24]],l15:[[.08,.10,.12,.10],[.10,.16,.20,.14],[.12,.18,.24,.16],[.10,.18,.20,.12]],l5:[[.06,.08,.08,.06],[.08,.10,.14,.10],[.10,.14,.18,.12],[.08,.14,.14,.08]]}},
 countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l5:[.26,.33,.40,.47,.22,.29,.36,.43,.16,.24,.33,.40]},
 trend:{career:{avg:271,obp:314,slg:436,kpct:14,swstr:9},l15:{avg:240,obp:295,slg:385,kpct:16,swstr:10},l5:{avg:227,obp:280,slg:364,kpct:17,swstr:11}},
 platoon:{vR:{avg:".271",ops:".750",pa:1840},vL:{avg:".305",ops:".987",pa:610}}},
 
 {order:6,name:"Xander Bogaerts",pos:"SS",hand:"R",threat:"med",
-notes:"Bogaerts had a rebound 2025 season with a .328 OBP after a brutal 2024. He moved to leadoff briefly in 2026 but has settled into the 6-hole in this lineup configuration. He is a professional hitter with a mature approach — he won't give away at-bats and draws walks. His power numbers have declined but he still punishes mistakes over the plate. His history vs elite velocity is mixed — he can handle average velocity well but struggles when pitchers consistently throw 97+ up in the zone. Best approach: 4-seam up consistently, slider away to finish. He has had shoulder issues that have affected his swing plane — his power to left-center has diminished. Be aggressive early — don't let him work counts and sit in his wheelhouse middle-out.",
-tags:["Rebound 2025 — .328 OBP","FF up — struggles vs elite velo","SL away to finish in pitcher counts","Shoulder history — diminished left-center power","Attack early — don't let him work counts"],
+notes:"Bogaerts had a rebound 2025 (.328 OBP) and is a professional hitter who works counts and draws walks. He is cold in 2026. His power has declined due to shoulder history and his left-center power has diminished. PARK NOTE: PNC + cold air is particularly damaging for a hitter who no longer has big power — his fly balls become routine outs instead of doubles. Best approach: attack him with 4-seam up early before he works a count. Slider away to finish in pitcher's counts. Don't let him grind — be aggressive and move on.",
+tags:["Rebound 2025 — cold 2026 start","Shoulder history — power declined","FF up early — don't let him work counts","SL away to finish","Park+cold turns his fly balls into outs"],
 avg:{career:".282",l15:".208",l5:".195"},obp:{career:".345",l15:".285",l5:".270"},slg:{career:".445",l15:".330",l5:".312"},kpct:{career:"17%",l15:"20%",l5:"22%"},bb:{career:"9%",l15:"10%",l5:"9%"},
 heatmap:{
-FF:{career:[[.22,.34,.46,.52],[.28,.52,.64,.68],[.30,.56,.68,.72],[.20,.36,.32,.22]],l15:[[.14,.22,.32,.38],[.18,.36,.48,.52],[.20,.40,.52,.56],[.12,.26,.22,.14]],l5:[[.12,.18,.28,.34],[.14,.30,.42,.46],[.16,.34,.46,.50],[.10,.22,.18,.12]]},
-SL:{career:[[.16,.22,.28,.44],[.18,.32,.40,.56],[.22,.38,.46,.58],[.16,.28,.24,.18]],l15:[[.10,.14,.18,.32],[.12,.22,.30,.42],[.14,.26,.34,.44],[.10,.18,.14,.12]],l5:[[.08,.10,.14,.26],[.10,.16,.24,.36],[.12,.20,.28,.38],[.08,.14,.10,.08]]},
-CH:{career:[[.18,.28,.36,.28],[.22,.44,.54,.42],[.24,.48,.58,.46],[.18,.32,.28,.18]],l15:[[.12,.18,.24,.18],[.14,.28,.38,.28],[.16,.32,.42,.30],[.10,.20,.16,.10]],l5:[[.10,.14,.20,.14],[.12,.22,.32,.22],[.14,.26,.36,.24],[.08,.16,.12,.08]]},
-CU:{career:[[.12,.16,.20,.16],[.16,.28,.36,.28],[.20,.34,.42,.32],[.20,.36,.40,.28]],l15:[[.08,.10,.12,.10],[.10,.18,.22,.16],[.12,.22,.28,.20],[.12,.24,.26,.16]],l5:[[.06,.08,.10,.08],[.08,.12,.16,.10],[.10,.16,.22,.14],[.10,.18,.20,.12]]}
-},
+FF:{career:[[.22,.34,.46,.52],[.28,.52,.64,.68],[.30,.56,.68,.72],[.20,.36,.32,.22]],l15:[[.14,.22,.32,.38],[.18,.36,.48,.52],[.20,.40,.52,.56],[.12,.26,.22,.14]],l5:[[.12,.18,.26,.32],[.14,.28,.40,.44],[.16,.32,.44,.48],[.10,.20,.16,.10]]},
+SL:{career:[[.16,.22,.28,.44],[.18,.32,.40,.56],[.22,.38,.46,.58],[.16,.28,.24,.18]],l15:[[.10,.14,.18,.30],[.12,.20,.26,.38],[.14,.24,.30,.40],[.08,.14,.10,.10]],l5:[[.08,.10,.14,.22],[.10,.14,.20,.28],[.10,.18,.22,.32],[.06,.10,.08,.06]]},
+CH:{career:[[.18,.28,.36,.28],[.22,.44,.54,.42],[.24,.48,.58,.46],[.18,.32,.28,.18]],l15:[[.10,.16,.22,.16],[.12,.26,.36,.24],[.14,.28,.38,.28],[.08,.16,.12,.08]],l5:[[.08,.12,.16,.12],[.10,.18,.28,.18],[.12,.22,.30,.20],[.06,.12,.08,.06]]},
+CU:{career:[[.12,.16,.20,.16],[.16,.28,.36,.28],[.20,.34,.42,.32],[.20,.36,.40,.28]],l15:[[.08,.10,.12,.10],[.08,.14,.20,.14],[.12,.18,.24,.16],[.10,.18,.20,.12]],l5:[[.06,.08,.08,.06],[.06,.10,.14,.08],[.08,.12,.16,.10],[.08,.14,.14,.08]]}},
 countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.26,.33,.40,.47,.22,.29,.36,.43,.16,.24,.33,.40],l5:[.24,.31,.38,.45,.20,.27,.34,.41,.14,.22,.31,.38]},
 trend:{career:{avg:282,obp:345,slg:445,kpct:17,swstr:9},l15:{avg:208,obp:285,slg:330,kpct:20,swstr:11},l5:{avg:195,obp:270,slg:312,kpct:22,swstr:12}},
 platoon:{vR:{avg:".282",ops:".790",pa:3840},vL:{avg:".276",ops:".774",pa:1280}}},
 
 {order:7,name:"Nick Castellanos",pos:"1B",hand:"R",threat:"med",
-notes:"Castellanos was released by the Phillies and signed by the Padres on a 1-year deal — the Phillies are still paying him $20M. He is a veteran RHH who has averaged 23 HR and 85 RBI over the last five seasons despite declining. He is learning first base this spring which adds wear on his body. Batting 7th takes pressure off him. He is a free-swinger with a higher-than-average chase rate, particularly on breaking balls down and away. The slider is the primary weapon. His 4-seam vulnerability is up in the zone — he has below-average chase rate on high fastballs which means you can use it but must locate precisely. Best approach: work slider away early, use FF up to establish, then attack down and away in two-strike counts.",
-tags:["New to first base — learning the position","Free swinger — above-avg chase on SL/CU","SL down-away — primary weapon","FF up to establish early","Career .464 slugger — don't miss middle"],
+notes:"Castellanos was released by the Phillies and is learning first base for the Padres. Career .464 slugger but declining. He is a free-swinger with an above-average chase rate on breaking balls. PARK NOTE: His pull-side power profile is exactly the type PNC Park neutralizes — deep right field plus the Clemente Wall plus 42°F cold = fly balls to right die. The slider is the primary weapon. Work it down and away early. He'll chase it. 4-seam up to establish early. Be aggressive — he is a high-chase hitter who gives away at-bats to premium stuff.",
+tags:["Free swinger — above-avg SL/CU chase rate","SL down-away — primary weapon","Park neutralizes his pull-side power completely","FF up to establish — then attack low","Career .464 slugger but park eats fly balls today"],
 avg:{career:".268",l15:".192",l5:".180"},obp:{career:".315",l15:".258",l5:".244"},slg:{career:".464",l15:".308",l5:".290"},kpct:{career:"21%",l15:"24%",l5:"25%"},bb:{career:"7%",l15:"8%",l5:"7%"},
 heatmap:{
-FF:{career:[[.20,.30,.44,.50],[.24,.48,.60,.66],[.26,.52,.64,.68],[.18,.34,.30,.20]],l15:[[.14,.20,.30,.36],[.16,.32,.44,.50],[.18,.36,.48,.52],[.12,.24,.20,.14]],l5:[[.12,.16,.26,.32],[.14,.28,.40,.46],[.16,.32,.44,.48],[.10,.20,.16,.12]]},
-SL:{career:[[.14,.18,.22,.16],[.16,.26,.32,.20],[.20,.32,.38,.22],[.30,.52,.56,.38]],l15:[[.10,.12,.14,.10],[.10,.16,.22,.12],[.14,.22,.28,.14],[.24,.42,.46,.30]],l5:[[.08,.10,.12,.08],[.08,.12,.18,.10],[.12,.18,.24,.10],[.22,.38,.42,.26]]},
-CH:{career:[[.16,.24,.30,.20],[.20,.38,.46,.30],[.22,.42,.50,.32],[.18,.30,.26,.16]],l15:[[.10,.16,.20,.12],[.12,.24,.32,.18],[.14,.28,.36,.20],[.12,.18,.14,.10]],l5:[[.08,.12,.16,.10],[.10,.20,.28,.14],[.12,.24,.32,.16],[.10,.14,.10,.08]]},
-CU:{career:[[.12,.16,.18,.12],[.14,.22,.28,.18],[.18,.30,.36,.22],[.28,.50,.52,.34]],l15:[[.08,.10,.12,.08],[.08,.14,.18,.10],[.12,.18,.24,.14],[.20,.36,.38,.24]],l5:[[.06,.08,.10,.06],[.06,.10,.14,.08],[.10,.14,.20,.10],[.18,.32,.34,.20]]}
-},
+FF:{career:[[.20,.30,.44,.50],[.24,.48,.60,.66],[.26,.52,.64,.68],[.18,.34,.30,.20]],l15:[[.14,.20,.30,.36],[.16,.32,.44,.50],[.18,.36,.48,.52],[.12,.24,.20,.14]],l5:[[.12,.16,.24,.28],[.12,.24,.36,.42],[.14,.28,.40,.44],[.10,.18,.14,.10]]},
+SL:{career:[[.14,.18,.22,.16],[.16,.26,.32,.20],[.20,.32,.38,.22],[.30,.52,.56,.38]],l15:[[.08,.10,.12,.10],[.10,.16,.20,.12],[.12,.18,.24,.12],[.20,.36,.38,.24]],l5:[[.06,.08,.10,.06],[.08,.10,.14,.08],[.10,.12,.16,.08],[.16,.28,.30,.18]]},
+CH:{career:[[.16,.24,.30,.20],[.20,.38,.46,.30],[.22,.42,.50,.32],[.18,.30,.26,.16]],l15:[[.10,.14,.18,.10],[.12,.22,.28,.16],[.14,.24,.30,.18],[.10,.16,.12,.08]],l5:[[.08,.10,.12,.08],[.08,.14,.18,.10],[.10,.16,.20,.12],[.06,.10,.08,.04]]},
+CU:{career:[[.12,.16,.18,.12],[.14,.22,.28,.18],[.18,.30,.36,.22],[.28,.50,.52,.34]],l15:[[.06,.08,.10,.06],[.08,.12,.16,.08],[.10,.14,.20,.10],[.18,.32,.34,.20]],l5:[[.04,.06,.06,.04],[.06,.08,.10,.06],[.08,.10,.12,.06],[.14,.24,.26,.14]]}},
 countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l5:[.26,.33,.40,.47,.22,.29,.36,.43,.16,.24,.33,.40]},
 trend:{career:{avg:268,obp:315,slg:464,kpct:21,swstr:12},l15:{avg:192,obp:258,slg:308,kpct:24,swstr:14},l5:{avg:180,obp:244,slg:290,kpct:25,swstr:15}},
 platoon:{vR:{avg:".268",ops:".779",pa:4280},vL:{avg:".262",ops:".763",pa:1420}}},
 
 {order:8,name:"Jake Cronenworth",pos:"2B",hand:"L",threat:"low",
-notes:"Cronenworth is a gritty left-handed contact hitter who keeps the lineup from rolling over. His .744 OPS with 11 HR in 2025 is solid production for a 7-8 hole hitter. He was heavily rumored in trade talks all winter but remains with San Diego. He is a grinder — he works counts, takes walks, and doesn't expand much. His power is pull-side and he rarely creates damage to the opposite field. Against elite RHP velocity he can be beaten up in the zone with the 4-seam. His slider chase rate away is below average — he's patient there. Best approach: attack him with FF up in the zone early, slider up-and-in (rare) or CU below zone in two-strike counts. He is a low-threat out but won't give the inning away.",
-tags:["Gritty contact hitter — won't give ABs away","FF up in zone — elite velo beats him","SL away less effective — he's patient","CU below zone two-strike","Low threat but professional — be efficient"],
+notes:"Cronenworth is the only other left-handed bat in the lineup. He is a grinder who works counts, takes walks, and rarely expands. His .744 OPS in 2025 with 11 HR is solid for a bottom-of-the-order hitter. PARK NOTE: As a LHH his pull side goes to right field — same Clemente Wall problem. His modest power gets further neutralized. Best approach: 4-seam up in the zone beats him — elite velo is his nemesis. CU below zone in two-strike counts gets chases. He is patient on the slider away so don't over-rely on it. Low-threat out but professional — be efficient and move on.",
+tags:["Patient hitter — won't chase SL away","FF up in zone — elite velo beats him","CU below zone best two-strike pitch","Park neutralizes his modest pull power","Low threat — be efficient"],
 avg:{career:".252",l15:".189",l5:".176"},obp:{career:".328",l15:".270",l5:".255"},slg:{career:".402",l15:".297",l5:".279"},kpct:{career:"18%",l15:"20%",l5:"21%"},bb:{career:"10%",l15:"10%",l5:"10%"},
 heatmap:{
-FF:{career:[[.18,.28,.40,.34],[.22,.44,.56,.46],[.24,.48,.60,.50],[.18,.32,.28,.18]],l15:[[.12,.18,.28,.22],[.14,.28,.40,.30],[.16,.32,.44,.34],[.10,.20,.16,.10]],l5:[[.10,.14,.22,.18],[.12,.22,.34,.24],[.14,.26,.38,.28],[.08,.16,.12,.08]]},
-SL:{career:[[.14,.18,.22,.38],[.16,.26,.32,.50],[.18,.30,.36,.52],[.14,.24,.22,.16]],l15:[[.10,.12,.14,.28],[.10,.16,.22,.36],[.12,.20,.26,.38],[.08,.14,.12,.10]],l5:[[.08,.10,.12,.22],[.08,.12,.16,.28],[.10,.14,.20,.30],[.06,.10,.08,.08]]},
-CH:{career:[[.16,.24,.32,.26],[.20,.38,.48,.38],[.22,.42,.52,.42],[.16,.28,.24,.16]],l15:[[.10,.14,.20,.16],[.12,.24,.32,.24],[.14,.26,.36,.26],[.08,.16,.12,.08]],l5:[[.08,.10,.16,.12],[.10,.18,.26,.18],[.12,.20,.30,.20],[.06,.12,.08,.06]]},
-CU:{career:[[.10,.14,.16,.12],[.14,.22,.28,.20],[.18,.28,.36,.26],[.20,.36,.38,.26]],l15:[[.06,.08,.10,.08],[.08,.12,.16,.12],[.10,.16,.22,.14],[.12,.22,.24,.14]],l5:[[.04,.06,.08,.06],[.06,.08,.12,.08],[.08,.12,.16,.10],[.10,.16,.18,.10]]}
-},
+FF:{career:[[.18,.28,.40,.34],[.22,.44,.56,.46],[.24,.48,.60,.50],[.18,.32,.28,.18]],l15:[[.12,.18,.26,.22],[.14,.26,.36,.28],[.14,.28,.38,.30],[.10,.18,.14,.10]],l5:[[.10,.14,.20,.16],[.10,.18,.28,.20],[.12,.20,.30,.22],[.08,.12,.10,.06]]},
+SL:{career:[[.14,.18,.22,.38],[.16,.26,.32,.50],[.18,.30,.36,.52],[.14,.24,.22,.16]],l15:[[.10,.12,.14,.26],[.10,.16,.20,.32],[.10,.16,.22,.34],[.08,.12,.10,.08]],l5:[[.06,.08,.10,.18],[.06,.10,.12,.22],[.08,.10,.14,.24],[.06,.08,.06,.04]]},
+CH:{career:[[.16,.24,.32,.26],[.20,.38,.48,.38],[.22,.42,.52,.42],[.16,.28,.24,.16]],l15:[[.10,.14,.18,.14],[.12,.22,.28,.20],[.12,.24,.30,.22],[.08,.14,.10,.08]],l5:[[.06,.08,.12,.08],[.08,.14,.18,.12],[.08,.14,.18,.14],[.06,.08,.06,.04]]},
+CU:{career:[[.10,.14,.16,.12],[.14,.22,.28,.20],[.18,.28,.36,.26],[.20,.36,.38,.26]],l15:[[.06,.08,.10,.06],[.06,.10,.14,.10],[.10,.14,.18,.12],[.10,.18,.20,.12]],l5:[[.04,.04,.06,.04],[.04,.06,.08,.06],[.06,.08,.10,.06],[.06,.10,.12,.06]]}},
 countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.24,.31,.38,.45,.20,.27,.34,.41,.14,.22,.31,.38],l5:[.22,.29,.36,.43,.18,.25,.32,.39,.12,.20,.29,.36]},
 trend:{career:{avg:252,obp:328,slg:402,kpct:18,swstr:10},l15:{avg:189,obp:270,slg:297,kpct:20,swstr:11},l5:{avg:176,obp:255,slg:279,kpct:21,swstr:12}},
 platoon:{vR:{avg:".252",ops:".730",pa:2640},vL:{avg:".247",ops:".716",pa:880}}},
 
 {order:9,name:"Luis Campusano",pos:"C",hand:"R",threat:"low",
-notes:"Campusano is a young catcher who has shown flashes of offensive ability but is still developing his approach at the plate. He has raw power to the pull side but a high chase rate on breaking balls, particularly sliders down and away. He was used as the primary catcher against the Red Sox in the early games of 2026. Against elite velocity he is vulnerable up in the zone — his bat speed isn't elite. Best approach: slider down-away as the primary weapon, 4-seam up at the letters to get chases, curveball below zone as a third option. He rarely draws walks and will expand the zone with two strikes. Treat him as a low-leverage out — be aggressive and efficient.",
-tags:["Young catcher — developing approach","SL down-away — primary weapon","4-seam up at letters = chase","CU below zone as third option","High chase rate — attack with two strikes"],
+notes:"Campusano is a young developing catcher who has raw pull power but a high chase rate on breaking balls. PARK NOTE: His pull-side power to right field is exactly what PNC's Clemente Wall erases — he has below-average exit velocity for a power threat, so cold air further kills his carry. Best approach: slider down-away as the primary weapon, 4-seam up at the letters for chases, curveball below zone as a third option. He expands the zone significantly with two strikes. Low-leverage out — be aggressive and set the table for the top of the order.",
+tags:["Young catcher — high breaking ball chase rate","SL down-away — primary weapon","Park/cold erases his pull-side power","FF up at letters for chases","CU below zone — finish him off"],
 avg:{career:".245",l15:".174",l5:".160"},obp:{career:".296",l15:".230",l5:".214"},slg:{career:".390",l15:".261",l5:".240"},kpct:{career:"24%",l15:"27%",l5:"29%"},bb:{career:"6%",l15:"6%",l5:"6%"},
 heatmap:{
-FF:{career:[[.18,.28,.40,.46],[.22,.42,.54,.60],[.24,.46,.58,.62],[.16,.28,.26,.18]],l15:[[.10,.16,.24,.28],[.12,.24,.36,.40],[.14,.26,.40,.44],[.08,.16,.14,.10]],l5:[[.08,.12,.20,.22],[.10,.18,.28,.32],[.12,.20,.32,.36],[.06,.12,.10,.08]]},
-SL:{career:[[.12,.16,.18,.14],[.14,.22,.26,.18],[.18,.28,.34,.20],[.30,.52,.54,.36]],l15:[[.08,.10,.10,.08],[.08,.12,.16,.10],[.12,.16,.20,.12],[.22,.38,.40,.26]],l5:[[.06,.08,.08,.06],[.06,.08,.12,.08],[.10,.12,.14,.08],[.20,.34,.36,.22]]},
-CH:{career:[[.14,.22,.28,.20],[.18,.34,.42,.28],[.20,.38,.46,.30],[.14,.24,.20,.12]],l15:[[.08,.12,.16,.10],[.10,.18,.24,.14],[.12,.20,.28,.16],[.06,.12,.08,.06]],l5:[[.06,.08,.12,.08],[.08,.12,.18,.10],[.10,.14,.20,.12],[.04,.08,.06,.04]]},
-CU:{career:[[.10,.14,.16,.12],[.12,.20,.24,.16],[.16,.26,.32,.20],[.28,.48,.50,.32]],l15:[[.06,.08,.08,.06],[.06,.10,.12,.08],[.10,.14,.18,.10],[.20,.34,.36,.22]],l5:[[.04,.06,.06,.04],[.04,.06,.08,.06],[.08,.10,.12,.06],[.18,.30,.32,.18]]}
-},
+FF:{career:[[.18,.28,.40,.46],[.22,.42,.54,.60],[.24,.46,.58,.62],[.16,.28,.26,.18]],l15:[[.10,.16,.24,.28],[.12,.24,.36,.40],[.14,.26,.40,.44],[.08,.14,.12,.08]],l5:[[.08,.10,.16,.18],[.08,.14,.22,.26],[.10,.18,.26,.30],[.06,.10,.08,.06]]},
+SL:{career:[[.12,.16,.18,.14],[.14,.22,.26,.18],[.18,.28,.34,.20],[.30,.52,.54,.36]],l15:[[.06,.08,.10,.08],[.06,.10,.14,.08],[.10,.14,.18,.10],[.18,.32,.34,.20]],l5:[[.04,.06,.06,.04],[.04,.06,.08,.06],[.06,.08,.10,.06],[.14,.22,.24,.14]]},
+CH:{career:[[.14,.22,.28,.20],[.18,.34,.42,.28],[.20,.38,.46,.30],[.14,.24,.20,.12]],l15:[[.06,.10,.14,.08],[.08,.16,.22,.12],[.10,.18,.24,.14],[.06,.10,.08,.04]],l5:[[.04,.06,.08,.06],[.06,.10,.14,.08],[.08,.12,.14,.08],[.04,.06,.04,.02]]},
+CU:{career:[[.10,.14,.16,.12],[.12,.20,.24,.16],[.16,.26,.32,.20],[.28,.48,.50,.32]],l15:[[.04,.06,.08,.06],[.06,.10,.12,.06],[.08,.12,.14,.08],[.16,.28,.28,.16]],l5:[[.02,.04,.04,.04],[.04,.06,.06,.04],[.04,.06,.08,.04],[.10,.18,.18,.10]]}},
 countTend:{career:[.26,.33,.40,.47,.22,.29,.36,.43,.16,.24,.33,.40],l15:[.22,.29,.36,.43,.18,.25,.32,.39,.12,.20,.29,.36],l5:[.20,.27,.34,.41,.16,.23,.30,.37,.10,.18,.27,.34]},
 trend:{career:{avg:245,obp:296,slg:390,kpct:24,swstr:13},l15:{avg:174,obp:230,slg:261,kpct:27,swstr:15},l5:{avg:160,obp:214,slg:240,kpct:29,swstr:17}},
 platoon:{vR:{avg:".245",ops:".686",pa:820},vL:{avg:".238",ops:".670",pa:275}}}
