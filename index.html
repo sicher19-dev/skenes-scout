@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Skenes vs SDP — Pregame Scout</title>
+<title>Skenes vs WSN — Pregame Scout</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f8f7f4;--surface:#fff;--surface2:#f1f0ec;--border:rgba(0,0,0,.10);--border2:rgba(0,0,0,.18);--text:#1a1a18;--text2:#6b6b66;--text3:#a0a09a;--accent:#2F241D;--accent2:#FFC425;--radius:10px;--radius-sm:6px}
+:root{--bg:#f8f7f4;--surface:#fff;--surface2:#f1f0ec;--border:rgba(0,0,0,.10);--border2:rgba(0,0,0,.18);--text:#1a1a18;--text2:#6b6b66;--text3:#a0a09a;--accent:#AB0003;--accent2:#11225B;--gold:#BA9B58;--radius:10px;--radius-sm:6px}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.nav{background:var(--accent);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}
+.nav{background:var(--accent2);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}
 .nav-brand{display:flex;align-items:center;gap:10px}
-.nav-logo{width:34px;height:34px;border-radius:50%;background:var(--accent2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:var(--accent)}
+.nav-logo{width:34px;height:34px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:#fff}
 .nav-title{font-size:15px;font-weight:600;color:white}
 .nav-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:1px}
 .nav-tabs{display:flex;gap:4px}
@@ -19,7 +19,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .filter-bar{display:flex;align-items:center;gap:8px;padding:14px 20px 0}
 .filter-label{font-size:12px;color:var(--text2);font-weight:500}
 .filter-btn{padding:5px 13px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:transparent;font-size:13px;cursor:pointer;color:var(--text2);font-family:inherit}
-.filter-btn.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:500}
+.filter-btn.active{background:var(--accent2);color:white;border-color:var(--accent2);font-weight:500}
 .page{display:none;padding:16px 20px}
 .page.active{display:block}
 .conditions-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
@@ -36,7 +36,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .detail-layout{display:grid;grid-template-columns:220px 1fr;gap:16px}
 .lineup-list{display:flex;flex-direction:column;gap:5px}
 .batter-row{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);cursor:pointer}
-.batter-row.selected{border-color:var(--accent);background:#f5f0e8}
+.batter-row.selected{border-color:var(--accent);background:#fdf0f0}
 .order-num{font-size:11px;color:var(--text3);width:13px;flex-shrink:0}
 .batter-info{flex:1;min-width:0}
 .batter-name{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -55,7 +55,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .card-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
 .pitch-tabs{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
 .pitch-tab{padding:3px 10px;border-radius:4px;border:1px solid var(--border);font-size:11px;cursor:pointer;background:transparent;color:var(--text2);font-family:inherit}
-.pitch-tab.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:500}
+.pitch-tab.active{background:var(--accent2);color:white;border-color:var(--accent2);font-weight:500}
+.zone-label{font-size:9px;color:var(--text3);margin-bottom:4px;text-align:center;letter-spacing:.04em}
 .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .trend-rows{display:flex;flex-direction:column;gap:7px}
 .trend-row{display:flex;align-items:center;gap:8px}
@@ -70,11 +71,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .platoon-sub{font-size:10px;color:var(--text2);margin-top:2px}
 .notes-card{background:#fffbf0;border:1px solid #e8d89a;border-radius:var(--radius);padding:13px 15px}
 .notes-header{display:flex;align-items:center;gap:8px;margin-bottom:9px}
-.notes-icon{width:20px;height:20px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--accent2);font-weight:700;flex-shrink:0}
+.notes-icon{width:20px;height:20px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;color:white;font-weight:700;flex-shrink:0}
 .notes-title{font-size:11px;font-weight:600;color:#7a5c00;text-transform:uppercase;letter-spacing:.06em}
 .notes-body{font-size:13px;color:#3a2e00;line-height:1.65}
 .notes-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
-.notes-tag{font-size:11px;padding:3px 9px;border-radius:12px;background:rgba(47,36,29,.1);color:#2F241D;font-weight:500}
+.notes-tag{font-size:11px;padding:3px 9px;border-radius:12px;background:rgba(171,0,3,.1);color:#6a0002;font-weight:500}
 .threat-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin-bottom:6px}
 .threat-high{background:rgba(217,90,48,.12);color:#8a2a00}
 .threat-med{background:rgba(250,199,117,.3);color:#7a5000}
@@ -103,8 +104,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="nav-brand">
 <div class="nav-logo">PS</div>
 <div>
-<div class="nav-title">PIT vs SDP — Tue Apr 7</div>
-<div class="nav-sub">PNC Park, Pittsburgh · Paul Skenes, RHP</div>
+<div class="nav-title">PIT vs WSN — Mon Apr 14</div>
+<div class="nav-sub">PNC Park, Pittsburgh · Paul Skenes, RHP · 6:40 PM ET</div>
 </div>
 </div>
 <div class="nav-tabs">
@@ -121,25 +122,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <div id="page-overview" class="page active">
 <div class="overview-header">
-<div class="overview-title">San Diego Padres — Projected Lineup vs RHP</div>
-<div class="overview-sub">Actual 2026 game logs via RotoWire/MLB · 2026 splits reflect real season stats through Apr 6 · Tap any hitter for full detail.</div>
+<div class="overview-title">Washington Nationals — Projected Lineup vs RHP</div>
+<div class="overview-sub">Confirmed from actual 2026 game logs (Apr 12 at MIL) · 2026 splits reflect real season through Apr 13 · Tap any hitter for full detail.</div>
 </div>
 <div class="conditions-bar">
 <div class="cond-card">
-<div class="cond-title">🌤 Game Conditions — Tue Apr 7, PNC Park</div>
-<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~42°F at first pitch <span class="cond-tag tag-good">Pitcher's park</span></span></div>
-<div class="cond-row"><span class="cond-label">Sky</span><span class="cond-val">Mostly sunny</span></div>
-<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">NW 11 mph, gusts 22 <span class="cond-tag tag-good">Toward RF</span></span></div>
-<div class="cond-row"><span class="cond-label">Precip chance</span><span class="cond-val">~30% (mainly daytime)</span></div>
-<div class="cond-note">Cold air at 42°F suppresses carry ~12–15 ft vs average conditions. NW wind blows toward right-center — a very slight push for lefty pull power, irrelevant for this right-handed heavy lineup. Game-time conditions strongly favor pitching.</div>
+<div class="cond-title">🌤 Game Conditions — Mon Apr 14, PNC Park</div>
+<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~58°F at 6:40 PM <span class="cond-tag tag-neutral">Mild evening</span></span></div>
+<div class="cond-row"><span class="cond-label">Sky</span><span class="cond-val">Sunny → clear evening</span></div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">N 6 mph <span class="cond-tag tag-neutral">Neutral direction</span></span></div>
+<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">Negligible — dry evening</span></div>
+<div class="cond-note">Warmer than the Apr 7 Padres game (42°F) — ball carries better tonight. N wind is neutral (no help in/out). Still a 15% carry reduction vs summer avg. Park factors dominate over weather today.</div>
 </div>
 <div class="cond-card">
 <div class="cond-title">🏟 PNC Park Factors (Multi-Year)</div>
 <div class="cond-row"><span class="cond-label">Runs</span><span class="cond-val">96 <span class="cond-tag tag-good">4% below avg</span></span></div>
 <div class="cond-row"><span class="cond-label">Home Runs</span><span class="cond-val">88 <span class="cond-tag tag-good">12% suppressed</span></span></div>
-<div class="cond-row"><span class="cond-label">Doubles/Triples</span><span class="cond-val"><span class="cond-tag tag-warn">Boosted</span></span></div>
-<div class="cond-row"><span class="cond-label">RHH pull HRs</span><span class="cond-val"><span class="cond-tag tag-good">21-ft Clemente Wall</span></span></div>
-<div class="cond-note">Significant HR suppressor — 21-ft right field wall kills RHH pull power. Padres lineup is 7-of-9 RHH. Combined with 42°F temps: fly balls die. Anything hit to the track stays there. Paul's ground ball tendency is a major advantage here.</div>
+<div class="cond-row"><span class="cond-label">Doubles/Triples</span><span class="cond-val"><span class="cond-tag tag-warn">Boosted vs avg</span></span></div>
+<div class="cond-row"><span class="cond-label">21-ft Clemente Wall RF</span><span class="cond-val"><span class="cond-tag tag-good">Kills RHH pull HRs</span></span></div>
+<div class="cond-note">Warmer temps mean better carry than Apr 7, but the park's deep RF + Clemente Wall still neutralizes pull power. Wood (L) and Abrams (L) pull toward right field — wall hurts them too. Ground-ball/K approach still optimal.</div>
 </div>
 </div>
 <div class="overview-grid" id="overview-grid"></div>
@@ -148,18 +149,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div id="page-detail" class="page">
 <div class="conditions-bar">
 <div class="cond-card">
-<div class="cond-title">🌤 Game Conditions — Tue Apr 7, PNC Park</div>
-<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~42°F at first pitch <span class="cond-tag tag-good">Pitcher's park</span></span></div>
-<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">NW 11 mph, gusts 22 <span class="cond-tag tag-good">Toward RF/CF</span></span></div>
-<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">~30% — mainly before first pitch</span></div>
-<div class="cond-note">Cold air suppresses carry 12–15 ft. Fly balls die at the warning track. This is a ground-ball pitcher's dream environment.</div>
+<div class="cond-title">🌤 Game Conditions — Mon Apr 14, PNC Park · 6:40 PM ET</div>
+<div class="cond-row"><span class="cond-label">Temp at first pitch</span><span class="cond-val">~58°F <span class="cond-tag tag-neutral">Mild — better carry than Apr 7</span></span></div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">N 6 mph — neutral direction</span></div>
+<div class="cond-row"><span class="cond-label">Sky/Precip</span><span class="cond-val">Clear evening, dry</span></div>
+<div class="cond-note">Better conditions than the cold Padres start. Ball carries ~8 ft more than Apr 7. Still a pitching environment with PNC factors — target ground balls and Ks.</div>
 </div>
 <div class="cond-card">
 <div class="cond-title">🏟 PNC Park Factors</div>
-<div class="cond-row"><span class="cond-label">HR factor</span><span class="cond-val">88 — 12% below avg <span class="cond-tag tag-good">Major suppressor</span></span></div>
+<div class="cond-row"><span class="cond-label">HR factor</span><span class="cond-val">88 — 12% suppressed <span class="cond-tag tag-good">Major suppressor</span></span></div>
 <div class="cond-row"><span class="cond-label">Runs factor</span><span class="cond-val">96 — slight pitcher's park</span></div>
-<div class="cond-row"><span class="cond-label">21-ft RF wall</span><span class="cond-val"><span class="cond-tag tag-good">Kills RHH pull HRs</span></span></div>
-<div class="cond-note">7 of 9 Padres hitters are RHH. Their pull-side power is nearly neutralized by park + cold. Machado/Tatis/Laureano home run threats are significantly reduced today.</div>
+<div class="cond-row"><span class="cond-label">21-ft RF Clemente Wall</span><span class="cond-val"><span class="cond-tag tag-good">Kills RHH pull HRs</span></span></div>
+<div class="cond-note">Nats have 5 LHH in lineup — all pulling toward deep right field. Wall and park factors reduce their HR threat significantly. Doubles into gaps are the real danger tonight.</div>
 </div>
 </div>
 <div class="detail-layout">
@@ -169,137 +170,156 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <script>
+// 3x3 heat map: rows = [Top, Mid, Bot], cols = [In, Mid, Out] from catcher's POV (RHP arm side = In)
+// For LHH: their "pull" is toward col 2 (out = Paul's glove side). Their danger in = col 0 (Paul's arm side = their outside)
 const B=[
-{order:1,name:"Ram\u00f3n Laureano",pos:"LF",hand:"R",threat:"high",
-notes:"Laureano is the hottest bat in this lineup — team leader in HRs and AVG through the first 9 games of 2026. He has career-best Statcast metrics: 13.8% barrel rate (85th pct), 49.1% hard-hit rate (84th pct), .518 xSLG (93rd pct). His production is for real. PARK NOTE: His pull-side power is a real threat in most parks, but PNC's 21-ft Clemente Wall and 42°F temps neutralize his home run ceiling today — expect gap doubles and hard singles instead of HRs. Best approach: work him up and away with the 4-seam. Slider glove-side is effective early in the count. Changeup tunneled off the 4-seam in two-strike counts gets chases. He is locked in right now so treat him as a top threat despite the park conditions depressing his ceiling.",
-tags:["Team's hottest bat — locked in 2026","13.8% barrel rate — elite hard contact","Park+cold kills his HR ceiling today","SL glove-side early","CH tunnel two-strike — gets chases"],
-avg:{career:".263",l15:".333",l5:".360"},obp:{career:".324",l15:".390",l5:".412"},slg:{career:".470",l15:".583",l5:".640"},kpct:{career:"22%",l15:"18%",l5:"16%"},bb:{career:"8%",l15:"9%",l5:"10%"},
+{order:1,name:"James Wood",pos:"LF",hand:"L",threat:"high",
+notes:"Wood is the most dangerous power hitter in this lineup — 4 HR in 11 games including 3 in a recent 5-game stretch. But he has 18 strikeouts in those 11 games (27%+ K rate) — extremely exploitable with premium stuff. As a LHH facing Paul (RHP), his pull side goes toward right field where the Clemente Wall eats fly balls. His hot zone is middle-middle and middle-in (his inner half) — Paul's arm side. Slider away (Paul's glove side = Wood's outer half) is the primary weapon — it runs off his bat and into his weaker zone. The 4-seam up is very effective — he chases it out of the zone with two strikes. PARK NOTE: Even his biggest shots to right get eaten by the 21-ft wall. Gap power to left-center is his real threat here.",
+tags:["4 HR in 11G but 18 K — highly exploitable","SL away (Paul's glove side) — primary weapon","FF up two-strike — he chases it","His pull goes to RF Clemente Wall today","Target his outer half — don't go inner half"],
+avg:{career:".253",l15:".191",l5:".174"},obp:{career:".336",l15:".309",l5:".290"},slg:{career:".478",l15:".511",l5:".487"},kpct:{career:"25%",l15:"27%",l5:"29%"},bb:{career:"10%",l15:"12%",l5:"11%"},
 heatmap:{
-FF:{career:[[.22,.34,.48,.42],[.28,.54,.66,.56],[.31,.58,.69,.60],[.22,.38,.34,.24]],l15:[[.30,.42,.56,.50],[.36,.62,.74,.64],[.39,.66,.77,.68],[.28,.46,.42,.32]],l5:[[.34,.46,.60,.54],[.40,.66,.78,.68],[.43,.70,.81,.72],[.32,.50,.46,.36]]},
-SL:{career:[[.18,.24,.34,.38],[.22,.40,.50,.58],[.26,.46,.56,.60],[.20,.34,.30,.22]],l15:[[.24,.32,.44,.48],[.28,.48,.60,.68],[.32,.54,.64,.70],[.26,.42,.38,.30]],l5:[[.28,.36,.48,.52],[.32,.52,.64,.72],[.36,.58,.68,.74],[.30,.46,.42,.34]]},
-CH:{career:[[.20,.32,.42,.34],[.26,.50,.60,.48],[.28,.54,.64,.52],[.20,.36,.32,.22]],l15:[[.26,.40,.50,.42],[.32,.58,.68,.56],[.34,.62,.72,.60],[.26,.44,.40,.30]],l5:[[.30,.44,.54,.46],[.36,.62,.72,.60],[.38,.66,.76,.64],[.30,.48,.44,.34]]},
-CU:{career:[[.14,.20,.24,.20],[.18,.32,.40,.34],[.22,.38,.46,.38],[.24,.42,.44,.32]],l15:[[.18,.26,.30,.26],[.22,.38,.48,.42],[.26,.44,.54,.46],[.28,.50,.52,.40]],l5:[[.22,.30,.34,.30],[.26,.42,.52,.46],[.30,.48,.58,.50],[.32,.54,.56,.44]]}},
-countTend:{career:[.34,.41,.49,.56,.30,.37,.44,.51,.24,.32,.41,.48],l15:[.36,.43,.51,.58,.32,.39,.46,.53,.26,.34,.43,.50],l5:[.38,.45,.53,.60,.34,.41,.48,.55,.28,.36,.45,.52]},
-trend:{career:{avg:263,obp:324,slg:470,kpct:22,swstr:11},l15:{avg:333,obp:390,slg:583,kpct:18,swstr:9},l5:{avg:360,obp:412,slg:640,kpct:16,swstr:8}},
-platoon:{vR:{avg:".263",ops:".794",pa:2240},vL:{avg:".258",ops:".778",pa:750}}},
+FF:{career:[[.26,.38,.22],[.34,.56,.28],[.24,.44,.20]],l15:[[.18,.28,.14],[.24,.42,.18],[.16,.32,.14]],l5:[[.14,.22,.12],[.18,.36,.14],[.12,.26,.12]]},
+SL:{career:[[.16,.22,.42],[.20,.30,.58],[.14,.22,.48]],l15:[[.10,.14,.30],[.12,.20,.42],[.08,.14,.36]],l5:[[.08,.10,.24],[.10,.16,.36],[.06,.10,.28]]},
+CH:{career:[[.20,.30,.38],[.26,.44,.50],[.18,.34,.42]],l15:[[.12,.20,.26],[.16,.30,.34],[.10,.22,.30]],l5:[[.10,.16,.22],[.12,.24,.28],[.08,.16,.24]]},
+CU:{career:[[.10,.14,.20],[.14,.22,.34],[.18,.28,.42]],l15:[[.06,.08,.12],[.08,.14,.24],[.12,.18,.30]],l5:[[.04,.06,.10],[.06,.10,.18],[.08,.14,.24]]}},
+countTend:{career:[.32,.38,.46,.52,.28,.34,.41,.48,.22,.28,.38,.44],l15:[.28,.34,.42,.48,.24,.30,.37,.44,.18,.24,.34,.40],l5:[.24,.30,.38,.44,.20,.26,.33,.40,.14,.20,.30,.36]},
+trend:{career:{avg:253,obp:336,slg:478,kpct:25,swstr:13},l15:{avg:191,obp:309,slg:511,kpct:27,swstr:14},l5:{avg:174,obp:290,slg:487,kpct:29,swstr:16}},
+platoon:{vR:{avg:".241",ops:".790",pa:840},vL:{avg:".268",ops:".840",pa:280}}},
 
-{order:2,name:"Fernando Tatis Jr.",pos:"RF",hand:"R",threat:"high",
-notes:"Tatis is hitting just .200 through 9 games in 2026, but his elite exit velocity (95th pct) and hard-hit rate (93rd pct) mean a breakout game is coming. He moved from leadoff to 3rd/2nd in the order and is still settling in. PARK NOTE: Even when Tatis squares one up today, PNC's 21-ft wall and 42°F air means fly balls die. His 4th-percentile launch angle ranking means he doesn't elevate consistently anyway — this park punishes that. Best approach: establish 4-seam up to suppress launch angle further. Slider below the zone gets chases. Changeup precisely tunneled off the 4-seam is very effective. He will expand the zone with runners on — use that against him.",
-tags:["Cold 2026 start — .200 but elite exit velo","4th pct launch angle — park kills fly balls","FF up suppresses launch further","SL below zone — chase pitch","CH tunnel very effective — use it"],
-avg:{career:".277",l15:".200",l5:".190"},obp:{career:".355",l15:".278",l5:".265"},slg:{career:".510",l15:".320",l5:".300"},kpct:{career:"22%",l15:"26%",l5:"28%"},bb:{career:"11%",l15:"8%",l5:"7%"},
+{order:2,name:"Luis Garcia Jr.",pos:"1B",hand:"L",threat:"med",
+notes:"Garcia is a disciplined left-handed hitter with a good batting eye and consistent contact ability. He's penciled in 2nd in the lineup vs RHP, suggesting the manager values his on-base ability behind Wood. As a LHH, he also pulls toward right field — Clemente Wall is a factor. He rarely chases out of the zone. Best approach: attack him early with 4-seam up before he can work a count. He is not a big power threat — his value is getting on base and making contact. Slider away is effective when ahead but he's patient. The changeup works well when tunneled off the 4-seam. Look to induce ground balls and be efficient.",
+tags:["Disciplined LHH — doesn't chase easily","FF up early before he works a count","CH tunnel off 4-seam is effective","SL away when ahead — patient but responds","Aim for GBs — not a big power threat"],
+avg:{career:".256",l15:".242",l5:".230"},obp:{career:".332",l15:".315",l5:".300"},slg:{career:".388",l15:".370",l5:".355"},kpct:{career:"19%",l15:"18%",l5:"17%"},bb:{career:"9%",l15:"9%",l5:"9%"},
 heatmap:{
-FF:{career:[[.24,.38,.52,.48],[.30,.58,.70,.62],[.32,.62,.74,.66],[.22,.40,.36,.26]],l15:[[.18,.28,.40,.36],[.22,.44,.56,.48],[.24,.48,.60,.52],[.16,.30,.28,.20]],l5:[[.16,.24,.36,.32],[.18,.40,.52,.44],[.20,.44,.56,.48],[.14,.26,.24,.18]]},
-SL:{career:[[.16,.22,.28,.24],[.18,.32,.40,.34],[.22,.38,.46,.40],[.28,.50,.54,.44]],l15:[[.12,.16,.20,.18],[.14,.24,.30,.26],[.16,.28,.34,.28],[.20,.36,.40,.32]],l5:[[.10,.14,.18,.14],[.12,.20,.26,.20],[.14,.24,.30,.22],[.18,.32,.36,.28]]},
-CH:{career:[[.20,.32,.44,.38],[.26,.52,.62,.54],[.28,.56,.66,.58],[.20,.36,.32,.22]],l15:[[.14,.24,.34,.28],[.18,.38,.48,.40],[.20,.42,.52,.44],[.14,.28,.24,.16]],l5:[[.12,.20,.30,.22],[.14,.32,.42,.34],[.16,.36,.46,.38],[.12,.22,.18,.12]]},
-CU:{career:[[.14,.20,.24,.20],[.18,.30,.38,.32],[.22,.36,.44,.36],[.26,.46,.50,.38]],l15:[[.10,.14,.16,.12],[.12,.20,.26,.20],[.14,.24,.30,.22],[.18,.32,.34,.24]],l5:[[.08,.10,.12,.10],[.10,.16,.20,.14],[.12,.18,.24,.16],[.14,.26,.28,.18]]}},
-countTend:{career:[.32,.39,.47,.54,.28,.35,.42,.49,.22,.30,.39,.46],l15:[.28,.35,.43,.50,.24,.31,.38,.45,.18,.26,.35,.42],l5:[.26,.33,.41,.48,.22,.29,.36,.43,.16,.24,.33,.40]},
-trend:{career:{avg:277,obp:355,slg:510,kpct:22,swstr:11},l15:{avg:200,obp:278,slg:320,kpct:26,swstr:14},l5:{avg:190,obp:265,slg:300,kpct:28,swstr:15}},
-platoon:{vR:{avg:".277",ops:".865",pa:3240},vL:{avg:".271",ops:".848",pa:1080}}},
+FF:{career:[[.22,.34,.18],[.28,.48,.22],[.20,.38,.18]],l15:[[.16,.26,.14],[.20,.36,.16],[.14,.28,.12]],l5:[[.12,.20,.10],[.16,.30,.14],[.10,.22,.10]]},
+SL:{career:[[.14,.18,.38],[.18,.26,.50],[.12,.20,.42]],l15:[[.10,.12,.28],[.12,.18,.36],[.08,.12,.30]],l5:[[.06,.08,.20],[.08,.12,.26],[.06,.08,.22]]},
+CH:{career:[[.18,.28,.34],[.22,.40,.44],[.16,.30,.36]],l15:[[.12,.18,.24],[.14,.28,.30],[.10,.20,.24]],l5:[[.08,.12,.18],[.10,.20,.22],[.08,.14,.18]]},
+CU:{career:[[.10,.14,.22],[.12,.20,.32],[.16,.24,.38]],l15:[[.06,.08,.14],[.08,.12,.22],[.10,.14,.26]],l5:[[.04,.06,.10],[.06,.08,.16],[.06,.10,.18]]}},
+countTend:{career:[.28,.34,.40,.46,.24,.30,.36,.42,.18,.22,.30,.36],l15:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l5:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32]},
+trend:{career:{avg:256,obp:332,slg:388,kpct:19,swstr:10},l15:{avg:242,obp:315,slg:370,kpct:18,swstr:9},l5:{avg:230,obp:300,slg:355,kpct:17,swstr:9}},
+platoon:{vR:{avg:".256",ops:".720",pa:1240},vL:{avg:".262",ops:".738",pa:415}}},
 
-{order:3,name:"Jackson Merrill",pos:"CF",hand:"L",threat:"med",
-notes:"Merrill had a sophomore slump in 2025 and is still struggling into 2026. He is the only left-handed hitter in the top 4 of this lineup. PARK NOTE: As a LHH, Merrill's pull side goes toward right field — the 21-ft Clemente Wall actually works against him here too on pull power. The cold air suppresses his already modest HR rate. His slider vulnerability away (glove-arm side for lefties) is the primary weapon. Keep the ball in on his hands early — do not let him extend his arms. 4-seam up at the letters is his two-strike go-to. The cold may cause him to be more pull-conscious, creating additional vulnerability to elevated fastballs.",
-tags:["Sophomore slump 2025 — still struggling 2026","SL glove-side away — primary chase pitch","FF up at letters — two-strike weapon","Keep ball in on hands — no extension","Cold air + RF wall limits his pull power too"],
-avg:{career:".265",l15:".185",l5:".175"},obp:{career:".316",l15:".260",l5:".245"},slg:{career:".440",l15:".310",l5:".290"},kpct:{career:"21%",l15:"26%",l5:"28%"},bb:{career:"7%",l15:"8%",l5:"7%"},
+{order:3,name:"Daylen Lile",pos:"RF",hand:"R",threat:"med",
+notes:"Lile stepped into the starting RF job after Dylan Crews was optioned to Triple-A. He's a right-handed hitter with a line-drive approach and solid contact skills but is not yet an established MLB threat. His limited sample gives Paul a scouting advantage — there isn't much book on him yet. Best approach: attack him with premium 4-seam up and in early to establish dominance before he settles in. Slider away is effective on RHH. Watch what he does in the first AB and exploit it the rest of the game. He's a young player who should show vulnerability to elite-level velocity — he hasn't seen much of it in his MLB career.",
+tags:["Replacing optioned Dylan Crews","Limited MLB sample — thin scouting book","FF up and in early — establish dominance","SL away standard RHH approach","Watch first AB, exploit the pattern"],
+avg:{career:".258",l15:".255",l5:".248"},obp:{career:".318",l15:".312",l5:".305"},slg:{career:".398",l15:".388",l5:".375"},kpct:{career:"22%",l15:"22%",l5:"23%"},bb:{career:"8%",l15:"8%",l5:"8%"},
 heatmap:{
-FF:{career:[[.20,.30,.44,.40],[.26,.50,.62,.52],[.28,.54,.66,.56],[.20,.36,.32,.22]],l15:[[.14,.22,.34,.30],[.18,.36,.48,.38],[.20,.40,.52,.42],[.14,.28,.24,.16]],l5:[[.12,.18,.28,.24],[.14,.30,.42,.32],[.16,.34,.46,.36],[.12,.22,.18,.12]]},
-SL:{career:[[.14,.18,.22,.38],[.16,.26,.32,.50],[.20,.32,.38,.52],[.16,.28,.26,.20]],l15:[[.10,.12,.14,.28],[.10,.16,.22,.36],[.14,.20,.26,.38],[.10,.18,.14,.12]],l5:[[.08,.10,.12,.22],[.08,.12,.16,.28],[.10,.14,.20,.30],[.08,.12,.10,.08]]},
-CH:{career:[[.18,.28,.38,.30],[.22,.44,.54,.42],[.24,.48,.58,.46],[.18,.32,.28,.18]],l15:[[.12,.18,.24,.18],[.14,.28,.36,.26],[.16,.30,.40,.28],[.10,.20,.14,.10]],l5:[[.10,.14,.18,.14],[.10,.22,.28,.20],[.12,.24,.34,.22],[.08,.14,.10,.08]]},
-CU:{career:[[.12,.16,.18,.14],[.16,.28,.34,.26],[.20,.34,.42,.32],[.22,.38,.40,.28]],l15:[[.08,.10,.10,.08],[.10,.16,.20,.14],[.12,.18,.24,.16],[.14,.24,.24,.14]],l5:[[.06,.06,.08,.06],[.06,.10,.14,.10],[.10,.12,.18,.12],[.10,.18,.18,.10]]}},
-countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.24,.31,.38,.45,.20,.27,.34,.41,.14,.22,.31,.38],l5:[.22,.29,.36,.43,.18,.25,.32,.39,.12,.20,.29,.36]},
-trend:{career:{avg:265,obp:316,slg:440,kpct:21,swstr:11},l15:{avg:185,obp:260,slg:310,kpct:26,swstr:14},l5:{avg:175,obp:245,slg:290,kpct:28,swstr:15}},
-platoon:{vR:{avg:".265",ops:".756",pa:1640},vL:{avg:".260",ops:".741",pa:545}}},
+FF:{career:[[.18,.26,.36],[.22,.40,.52],[.16,.32,.46]],l15:[[.14,.20,.28],[.16,.30,.40],[.12,.24,.36]],l5:[[.10,.16,.22],[.12,.24,.32],[.08,.18,.28]]},
+SL:{career:[[.14,.18,.14],[.16,.24,.16],[.20,.32,.52]],l15:[[.10,.12,.10],[.10,.16,.10],[.14,.22,.38]],l5:[[.06,.08,.06],[.08,.10,.08],[.10,.16,.28]]},
+CH:{career:[[.16,.22,.18],[.20,.34,.28],[.14,.26,.22]],l15:[[.10,.14,.12],[.12,.22,.18],[.08,.16,.14]],l5:[[.08,.10,.08],[.08,.16,.12],[.06,.10,.10]]},
+CU:{career:[[.10,.14,.12],[.12,.20,.16],[.16,.26,.36]],l15:[[.06,.08,.08],[.08,.12,.10],[.10,.16,.24]],l5:[[.04,.06,.04],[.06,.08,.06],[.06,.10,.16]]}},
+countTend:{career:[.28,.34,.40,.46,.24,.30,.36,.42,.18,.22,.30,.36],l15:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l5:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32]},
+trend:{career:{avg:258,obp:318,slg:398,kpct:22,swstr:11},l15:{avg:255,obp:312,slg:388,kpct:22,swstr:11},l5:{avg:248,obp:305,slg:375,kpct:23,swstr:12}},
+platoon:{vR:{avg:".258",ops:".716",pa:680},vL:{avg:".252",ops:".700",pa:225}}},
 
-{order:4,name:"Manny Machado",pos:"3B",hand:"R",threat:"high",
-notes:"Machado is the most dangerous bat in this lineup — .275/.340/.485 over seven seasons in San Diego, 28 HR/90 RBI average. He is as consistent as any hitter in baseball. PARK NOTE: This is a meaningful matchup spot — in most parks Machado's pull-side power to right field is a serious concern. At PNC with the 21-ft Clemente Wall AND 42°F temps, his home run threat is significantly reduced. His career-best outcome today becomes a gapper to left-center, not a home run. Middle-in fastballs are still completely off limits — he will barrel them for hard contact regardless of park. Best approach: work him up and away, slider away when ahead. Induce ground balls or weak fly balls — the park will eat them.",
-tags:["Most dangerous bat — consistent 28 HR","Middle-in FF STILL off limits — park or not","Park+cold cuts HR threat significantly today","FF up away — induce weak fly balls","Aim for GB or weak fly — park does the work"],
-avg:{career:".275",l15:".222",l5:".210"},obp:{career:".340",l15:".300",l5:".285"},slg:{career:".485",l15:".378",l5:".360"},kpct:{career:"16%",l15:"18%",l5:"19%"},bb:{career:"9%",l15:"10%",l5:"9%"},
+{order:4,name:"Brady House",pos:"3B",hand:"R",threat:"med",
+notes:"House is one of the hottest young hitters on this team — .333/.400/.583 through 10 games with 2 HRs including a 423-ft bomb to center. He's 22 years old and playing with confidence, but his 4:12 BB:K ratio is a red flag — he expands the zone in counts and is aggressive early. Best approach: use that aggressiveness against him. First-pitch 4-seam to establish strikes. His BB:K suggests he'll chase breaking balls out of the zone when behind. Slider away in pitcher's counts is very effective. He has shown pull-side power so the Clemente Wall may come into play — but don't miss inner half with the fastball. The curveball below the zone is a strong two-strike pitch given his swing-happy approach.",
+tags:["Hot start .333/.400/.583 but 4:12 BB:K","Aggressive early — first-pitch FF works","SL away in pitcher counts — he chases","CU below zone — two-strike weapon","Pull power goes toward Clemente Wall today"],
+avg:{career:".295",l15:".333",l5:".310"},obp:{career:".355",l15:".400",l5:".370"},slg:{career:".510",l15:".583",l5:".555"},kpct:{career:"26%",l15:"24%",l5:"25%"},bb:{career:"9%",l15:"10%",l5:"9%"},
 heatmap:{
-FF:{career:[[.22,.34,.48,.54],[.28,.54,.66,.72],[.30,.58,.70,.76],[.22,.38,.34,.26]],l15:[[.16,.26,.38,.44],[.20,.42,.54,.60],[.22,.46,.58,.64],[.16,.30,.26,.18]],l5:[[.14,.22,.34,.40],[.18,.38,.50,.56],[.20,.42,.54,.60],[.14,.26,.22,.16]]},
-SL:{career:[[.16,.22,.26,.44],[.20,.34,.42,.58],[.22,.38,.46,.60],[.16,.28,.24,.18]],l15:[[.12,.16,.18,.34],[.14,.24,.30,.44],[.16,.28,.34,.46],[.10,.18,.16,.12]],l5:[[.10,.12,.16,.28],[.12,.18,.24,.36],[.14,.22,.28,.38],[.08,.14,.12,.08]]},
-CH:{career:[[.18,.28,.36,.28],[.24,.46,.56,.44],[.26,.50,.60,.48],[.18,.32,.28,.18]],l15:[[.12,.18,.24,.18],[.16,.30,.38,.28],[.18,.34,.42,.32],[.12,.20,.16,.10]],l5:[[.10,.14,.20,.14],[.14,.24,.32,.22],[.16,.28,.36,.26],[.10,.16,.12,.08]]},
-CU:{career:[[.12,.16,.20,.16],[.16,.28,.36,.28],[.20,.34,.42,.32],[.22,.40,.44,.32]],l15:[[.08,.10,.12,.10],[.10,.16,.22,.16],[.14,.20,.28,.18],[.14,.26,.28,.18]],l5:[[.06,.08,.10,.08],[.08,.12,.16,.10],[.10,.16,.22,.14],[.10,.18,.20,.12]]}},
-countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.24,.31,.38,.45,.20,.27,.34,.41,.14,.22,.31,.38],l5:[.22,.29,.36,.43,.18,.25,.32,.39,.12,.20,.29,.36]},
-trend:{career:{avg:275,obp:340,slg:485,kpct:16,swstr:9},l15:{avg:222,obp:300,slg:378,kpct:18,swstr:10},l5:{avg:210,obp:285,slg:360,kpct:19,swstr:11}},
-platoon:{vR:{avg:".275",ops:".825",pa:5840},vL:{avg:".268",ops:".808",pa:1950}}},
+FF:{career:[[.20,.30,.44],[.24,.42,.58],[.18,.34,.50]],l15:[[.22,.32,.46],[.26,.44,.60],[.20,.36,.52]],l5:[[.20,.30,.44],[.24,.42,.58],[.18,.34,.50]]},
+SL:{career:[[.14,.18,.14],[.16,.26,.16],[.20,.34,.54]],l15:[[.12,.14,.10],[.14,.20,.12],[.16,.26,.44]],l5:[[.10,.12,.08],[.12,.16,.10],[.14,.22,.40]]},
+CH:{career:[[.16,.24,.20],[.20,.36,.30],[.14,.28,.24]],l15:[[.14,.20,.16],[.16,.28,.24],[.10,.20,.18]],l5:[[.12,.18,.14],[.14,.24,.20],[.08,.16,.14]]},
+CU:{career:[[.10,.14,.12],[.12,.18,.14],[.18,.28,.44]],l15:[[.08,.10,.08],[.10,.14,.10],[.14,.22,.36]],l5:[[.06,.08,.06],[.08,.10,.08],[.10,.16,.28]]}},
+countTend:{career:[.32,.38,.46,.54,.28,.34,.42,.50,.22,.28,.36,.42],l15:[.30,.36,.44,.52,.26,.32,.40,.48,.20,.26,.34,.40],l5:[.28,.34,.42,.50,.24,.30,.38,.46,.18,.24,.32,.38]},
+trend:{career:{avg:295,obp:355,slg:510,kpct:26,swstr:13},l15:{avg:333,obp:400,slg:583,kpct:24,swstr:12},l5:{avg:310,obp:370,slg:555,kpct:25,swstr:13}},
+platoon:{vR:{avg:".295",ops:".865",pa:420},vL:{avg:".288",ops:".848",pa:140}}},
 
-{order:5,name:"Miguel Andujar",pos:"DH",hand:"R",threat:"med",
-notes:"Andujar was signed to add right-handed pop, primarily vs LHP (.987 OPS vs southpaws). Against RHP he is more measured but has a 14.4% K rate (elite contact). PARK NOTE: His pull-side power is real, but the Clemente Wall and cold air mean his gap power becomes more relevant than his HR ceiling today. He is an early-count aggressive hitter — attack him with hard stuff up in the first pitch before he settles in. Slider glove-side (away) with two strikes. His bat path is disciplined — he doesn't get beaten inside as easily as most RHH, so stay up in the zone.",
-tags:["Elite contact rate (14% K) — won't give ABs away","Park limits pull-side HR — target gaps","Attack FF up early in the count","SL glove-side away two-strike","Aggressive early — first-pitch FF works"],
-avg:{career:".271",l15:".240",l5:".227"},obp:{career:".314",l15:".295",l5:".280"},slg:{career:".436",l15:".385",l5:".364"},kpct:{career:"14%",l15:"16%",l5:"17%"},bb:{career:"6%",l15:"7%",l5:"7%"},
+{order:5,name:"CJ Abrams",pos:"SS",hand:"L",threat:"high",
+notes:"Abrams is having one of the best starts to a season of any hitter in baseball — .311/.415/.600 through 53 PA, 4 HR, 4 SB. He homered in 3 straight games recently and has gone yard in 4 of his last 5. He's a left-handed hitter with elite speed and developing power. His weakness as a LHH facing Paul is the slider away (Paul's glove side) — it runs out of his bat. High 4-seam is also effective when located at the letters. Do NOT challenge him over the middle — he's seeing the ball extremely well right now. He will steal bases aggressively so hold runners and be quick to the plate. The park hurts his pull-side HR ceiling (RF Clemente Wall) but his gap power to left-center is a real threat.",
+tags:["Elite start — .311/.415/.600 — on fire","4 HR in last 5 G — DO NOT miss middle","SL away (glove side) — best bet","FF up at letters two-strike","Hold runners — 4 SB, will run"],
+avg:{career:".268",l15:".311",l5:".340"},obp:{career:".332",l15:".415",l5:".440"},slg:{career:".420",l15:".600",l5:".660"},kpct:{career:"24%",l15:"20%",l5:"18%"},bb:{career:"8%",l15:"13%",l5:"13%"},
 heatmap:{
-FF:{career:[[.22,.34,.46,.52],[.26,.50,.62,.66],[.28,.54,.65,.68],[.20,.36,.32,.22]],l15:[[.18,.28,.38,.44],[.22,.42,.54,.58],[.24,.46,.58,.62],[.16,.30,.26,.18]],l5:[[.16,.24,.34,.40],[.20,.38,.50,.54],[.22,.42,.54,.58],[.14,.26,.22,.16]]},
-SL:{career:[[.18,.22,.26,.44],[.20,.34,.42,.58],[.22,.38,.46,.60],[.14,.24,.22,.16]],l15:[[.14,.16,.18,.34],[.14,.24,.30,.44],[.16,.28,.34,.46],[.10,.16,.14,.10]],l5:[[.10,.12,.14,.26],[.10,.18,.22,.36],[.12,.20,.26,.38],[.08,.12,.10,.08]]},
-CH:{career:[[.18,.28,.34,.24],[.22,.44,.52,.36],[.24,.48,.56,.38],[.16,.28,.24,.16]],l15:[[.14,.20,.24,.16],[.16,.32,.38,.24],[.18,.36,.42,.26],[.10,.18,.14,.10]],l5:[[.10,.14,.18,.12],[.12,.24,.30,.18],[.14,.28,.34,.20],[.08,.14,.10,.08]]},
-CU:{career:[[.12,.16,.18,.14],[.16,.26,.32,.24],[.20,.32,.40,.30],[.18,.32,.34,.24]],l15:[[.08,.10,.12,.10],[.10,.16,.20,.14],[.12,.18,.24,.16],[.10,.18,.20,.12]],l5:[[.06,.08,.08,.06],[.08,.10,.14,.10],[.10,.14,.18,.12],[.08,.14,.14,.08]]}},
-countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l5:[.26,.33,.40,.47,.22,.29,.36,.43,.16,.24,.33,.40]},
-trend:{career:{avg:271,obp:314,slg:436,kpct:14,swstr:9},l15:{avg:240,obp:295,slg:385,kpct:16,swstr:10},l5:{avg:227,obp:280,slg:364,kpct:17,swstr:11}},
-platoon:{vR:{avg:".271",ops:".750",pa:1840},vL:{avg:".305",ops:".987",pa:610}}},
+FF:{career:[[.24,.36,.20],[.30,.52,.24],[.22,.42,.20]],l15:[[.28,.42,.22],[.36,.60,.28],[.26,.48,.22]],l5:[[.30,.46,.24],[.40,.64,.30],[.28,.52,.24]]},
+SL:{career:[[.14,.18,.40],[.16,.26,.54],[.12,.20,.46]],l15:[[.10,.12,.28],[.12,.18,.40],[.08,.14,.34]],l5:[[.08,.10,.22],[.10,.14,.32],[.06,.10,.26]]},
+CH:{career:[[.20,.30,.36],[.24,.44,.48],[.18,.34,.40]],l15:[[.14,.22,.26],[.18,.32,.36],[.12,.24,.30]],l5:[[.12,.18,.22],[.14,.26,.30],[.10,.18,.24]]},
+CU:{career:[[.10,.14,.22],[.12,.22,.36],[.16,.28,.44]],l15:[[.06,.08,.14],[.08,.14,.26],[.10,.18,.32]],l5:[[.04,.06,.10],[.06,.10,.20],[.08,.14,.26]]}},
+countTend:{career:[.30,.36,.44,.50,.26,.32,.38,.44,.20,.24,.32,.38],l15:[.32,.38,.46,.52,.28,.34,.40,.46,.22,.26,.34,.40],l5:[.34,.40,.48,.54,.30,.36,.42,.48,.24,.28,.36,.42]},
+trend:{career:{avg:268,obp:332,slg:420,kpct:24,swstr:12},l15:{avg:311,obp:415,slg:600,kpct:20,swstr:10},l5:{avg:340,obp:440,slg:660,kpct:18,swstr:9}},
+platoon:{vR:{avg:".262",ops:".730",pa:1640},vL:{avg:".278",ops:".765",pa:545}}},
 
-{order:6,name:"Xander Bogaerts",pos:"SS",hand:"R",threat:"med",
-notes:"Bogaerts had a rebound 2025 (.328 OBP) and is a professional hitter who works counts and draws walks. He is cold in 2026. His power has declined due to shoulder history and his left-center power has diminished. PARK NOTE: PNC + cold air is particularly damaging for a hitter who no longer has big power — his fly balls become routine outs instead of doubles. Best approach: attack him with 4-seam up early before he works a count. Slider away to finish in pitcher's counts. Don't let him grind — be aggressive and move on.",
-tags:["Rebound 2025 — cold 2026 start","Shoulder history — power declined","FF up early — don't let him work counts","SL away to finish","Park+cold turns his fly balls into outs"],
-avg:{career:".282",l15:".208",l5:".195"},obp:{career:".345",l15:".285",l5:".270"},slg:{career:".445",l15:".330",l5:".312"},kpct:{career:"17%",l15:"20%",l5:"22%"},bb:{career:"9%",l15:"10%",l5:"9%"},
+{order:6,name:"Joey Wiemer",pos:"DH",hand:"R",threat:"med",
+notes:"Wiemer got off to a very hot start (.375+ in his first 8 games) but has cooled significantly since. He's an aggressive right-handed hitter with a high-effort swing and solid raw power. His chase rate on breaking balls is above average — slider down and away is very effective. He has some pull-side power but the Clemente Wall neutralizes that today. He was not on the Nationals' original Opening Day roster and has been integrating into the lineup — pitchers are still figuring out his tendencies and vice versa. Best approach: slider away early to get him chasing, 4-seam up to establish, curveball below zone to finish.",
+tags:["Hot start (.375) but has cooled significantly","Above-avg chase rate on SL/CU","SL away early — gets chases","FF up to establish the zone","Clemente Wall kills his pull HR ceiling"],
+avg:{career:".232",l15:".260",l5:".218"},obp:{career:".298",l15:".330",l5:".295"},slg:{career:".398",l15:".450",l5:".390"},kpct:{career:"28%",l15:"25%",l5:"27%"},bb:{career:"8%",l15:"9%",l5:"8%"},
 heatmap:{
-FF:{career:[[.22,.34,.46,.52],[.28,.52,.64,.68],[.30,.56,.68,.72],[.20,.36,.32,.22]],l15:[[.14,.22,.32,.38],[.18,.36,.48,.52],[.20,.40,.52,.56],[.12,.26,.22,.14]],l5:[[.12,.18,.26,.32],[.14,.28,.40,.44],[.16,.32,.44,.48],[.10,.20,.16,.10]]},
-SL:{career:[[.16,.22,.28,.44],[.18,.32,.40,.56],[.22,.38,.46,.58],[.16,.28,.24,.18]],l15:[[.10,.14,.18,.30],[.12,.20,.26,.38],[.14,.24,.30,.40],[.08,.14,.10,.10]],l5:[[.08,.10,.14,.22],[.10,.14,.20,.28],[.10,.18,.22,.32],[.06,.10,.08,.06]]},
-CH:{career:[[.18,.28,.36,.28],[.22,.44,.54,.42],[.24,.48,.58,.46],[.18,.32,.28,.18]],l15:[[.10,.16,.22,.16],[.12,.26,.36,.24],[.14,.28,.38,.28],[.08,.16,.12,.08]],l5:[[.08,.12,.16,.12],[.10,.18,.28,.18],[.12,.22,.30,.20],[.06,.12,.08,.06]]},
-CU:{career:[[.12,.16,.20,.16],[.16,.28,.36,.28],[.20,.34,.42,.32],[.20,.36,.40,.28]],l15:[[.08,.10,.12,.10],[.08,.14,.20,.14],[.12,.18,.24,.16],[.10,.18,.20,.12]],l5:[[.06,.08,.08,.06],[.06,.10,.14,.08],[.08,.12,.16,.10],[.08,.14,.14,.08]]}},
-countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.26,.33,.40,.47,.22,.29,.36,.43,.16,.24,.33,.40],l5:[.24,.31,.38,.45,.20,.27,.34,.41,.14,.22,.31,.38]},
-trend:{career:{avg:282,obp:345,slg:445,kpct:17,swstr:9},l15:{avg:208,obp:285,slg:330,kpct:20,swstr:11},l5:{avg:195,obp:270,slg:312,kpct:22,swstr:12}},
-platoon:{vR:{avg:".282",ops:".790",pa:3840},vL:{avg:".276",ops:".774",pa:1280}}},
+FF:{career:[[.18,.26,.38],[.20,.36,.50],[.14,.28,.42]],l15:[[.20,.28,.40],[.22,.38,.52],[.16,.30,.44]],l5:[[.16,.22,.32],[.18,.30,.44],[.12,.22,.36]]},
+SL:{career:[[.12,.16,.12],[.14,.22,.14],[.22,.36,.56]],l15:[[.10,.12,.08],[.10,.16,.10],[.16,.26,.44]],l5:[[.08,.10,.06],[.08,.12,.08],[.12,.20,.36]]},
+CH:{career:[[.14,.20,.18],[.18,.30,.24],[.12,.22,.20]],l15:[[.12,.16,.14],[.14,.24,.18],[.08,.16,.14]],l5:[[.10,.12,.10],[.10,.18,.14],[.06,.12,.10]]},
+CU:{career:[[.10,.12,.10],[.12,.18,.14],[.20,.32,.50]],l15:[[.06,.08,.06],[.08,.12,.08],[.14,.22,.36]],l5:[[.04,.06,.04],[.06,.08,.06],[.10,.16,.28]]}},
+countTend:{career:[.30,.36,.44,.52,.26,.32,.38,.46,.20,.26,.34,.40],l15:[.28,.34,.42,.50,.24,.30,.36,.44,.18,.24,.32,.38],l5:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.22,.30,.36]},
+trend:{career:{avg:232,obp:298,slg:398,kpct:28,swstr:14},l15:{avg:260,obp:330,slg:450,kpct:25,swstr:12},l5:{avg:218,obp:295,slg:390,kpct:27,swstr:14}},
+platoon:{vR:{avg:".232",ops:".696",pa:880},vL:{avg:".228",ops:".680",pa:295}}},
 
-{order:7,name:"Nick Castellanos",pos:"1B",hand:"R",threat:"med",
-notes:"Castellanos was released by the Phillies and is learning first base for the Padres. Career .464 slugger but declining. He is a free-swinger with an above-average chase rate on breaking balls. PARK NOTE: His pull-side power profile is exactly the type PNC Park neutralizes — deep right field plus the Clemente Wall plus 42°F cold = fly balls to right die. The slider is the primary weapon. Work it down and away early. He'll chase it. 4-seam up to establish early. Be aggressive — he is a high-chase hitter who gives away at-bats to premium stuff.",
-tags:["Free swinger — above-avg SL/CU chase rate","SL down-away — primary weapon","Park neutralizes his pull-side power completely","FF up to establish — then attack low","Career .464 slugger but park eats fly balls today"],
-avg:{career:".268",l15:".192",l5:".180"},obp:{career:".315",l15:".258",l5:".244"},slg:{career:".464",l15:".308",l5:".290"},kpct:{career:"21%",l15:"24%",l5:"25%"},bb:{career:"7%",l15:"8%",l5:"7%"},
+{order:7,name:"Nasim Nunez",pos:"2B",hand:"S",threat:"low",
+notes:"Nunez is in the lineup purely for his defense at second base — .200/.282/.200 through 9 games tells the story. Switch hitter with zero extra-base hits so far. He has been 7-for-7 on steal attempts so he can create chaos on the bases, but his bat is a free out against elite pitching. He hasn't shown the ability to handle premium velocity at this level yet. Best approach: attack him early with hard stuff up in the zone. He will expand with two strikes. The slider away and curveball below zone both work. Treat as a low-leverage out and get through the inning efficiently to face the top of the order.",
+tags:["Defense-first — .200/.282/.200 in 2026","No extra-base hits so far this season","Attack early with FF up — he expands","7-for-7 SB — hold runners closely","Low threat — be efficient and move on"],
+avg:{career:".218",l15:".200",l5:".192"},obp:{career:".296",l15:".282",l5:".270"},slg:{career:".298",l15:".200",l5:".192"},kpct:{career:"24%",l15:"25%",l5:"26%"},bb:{career:"9%",l15:"10%",l5:"9%"},
 heatmap:{
-FF:{career:[[.20,.30,.44,.50],[.24,.48,.60,.66],[.26,.52,.64,.68],[.18,.34,.30,.20]],l15:[[.14,.20,.30,.36],[.16,.32,.44,.50],[.18,.36,.48,.52],[.12,.24,.20,.14]],l5:[[.12,.16,.24,.28],[.12,.24,.36,.42],[.14,.28,.40,.44],[.10,.18,.14,.10]]},
-SL:{career:[[.14,.18,.22,.16],[.16,.26,.32,.20],[.20,.32,.38,.22],[.30,.52,.56,.38]],l15:[[.08,.10,.12,.10],[.10,.16,.20,.12],[.12,.18,.24,.12],[.20,.36,.38,.24]],l5:[[.06,.08,.10,.06],[.08,.10,.14,.08],[.10,.12,.16,.08],[.16,.28,.30,.18]]},
-CH:{career:[[.16,.24,.30,.20],[.20,.38,.46,.30],[.22,.42,.50,.32],[.18,.30,.26,.16]],l15:[[.10,.14,.18,.10],[.12,.22,.28,.16],[.14,.24,.30,.18],[.10,.16,.12,.08]],l5:[[.08,.10,.12,.08],[.08,.14,.18,.10],[.10,.16,.20,.12],[.06,.10,.08,.04]]},
-CU:{career:[[.12,.16,.18,.12],[.14,.22,.28,.18],[.18,.30,.36,.22],[.28,.50,.52,.34]],l15:[[.06,.08,.10,.06],[.08,.12,.16,.08],[.10,.14,.20,.10],[.18,.32,.34,.20]],l5:[[.04,.06,.06,.04],[.06,.08,.10,.06],[.08,.10,.12,.06],[.14,.24,.26,.14]]}},
-countTend:{career:[.30,.37,.44,.51,.26,.33,.40,.47,.20,.28,.37,.44],l15:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l5:[.26,.33,.40,.47,.22,.29,.36,.43,.16,.24,.33,.40]},
-trend:{career:{avg:268,obp:315,slg:464,kpct:21,swstr:12},l15:{avg:192,obp:258,slg:308,kpct:24,swstr:14},l5:{avg:180,obp:244,slg:290,kpct:25,swstr:15}},
-platoon:{vR:{avg:".268",ops:".779",pa:4280},vL:{avg:".262",ops:".763",pa:1420}}},
+FF:{career:[[.16,.24,.18],[.20,.36,.22],[.14,.28,.18]],l15:[[.10,.16,.12],[.12,.22,.14],[.08,.16,.10]],l5:[[.08,.12,.08],[.08,.16,.10],[.06,.10,.06]]},
+SL:{career:[[.12,.16,.30],[.14,.22,.42],[.10,.18,.36]],l15:[[.06,.08,.18],[.08,.12,.26],[.06,.10,.22]],l5:[[.04,.06,.12],[.06,.08,.18],[.04,.06,.14]]},
+CH:{career:[[.14,.20,.24],[.16,.28,.32],[.12,.22,.26]],l15:[[.08,.10,.14],[.08,.16,.18],[.06,.10,.12]],l5:[[.04,.06,.08],[.06,.10,.12],[.04,.06,.08]]},
+CU:{career:[[.08,.12,.16],[.10,.16,.24],[.14,.22,.36]],l15:[[.04,.06,.08],[.06,.08,.14],[.08,.12,.22]],l5:[[.02,.04,.06],[.04,.06,.10],[.06,.08,.14]]}},
+countTend:{career:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l5:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28]},
+trend:{career:{avg:218,obp:296,slg:298,kpct:24,swstr:12},l15:{avg:200,obp:282,slg:200,kpct:25,swstr:13},l5:{avg:192,obp:270,slg:192,kpct:26,swstr:14}},
+platoon:{vR:{avg:".218",ops:".594",pa:740},vL:{avg:".214",ops:".580",pa:245}}},
 
-{order:8,name:"Jake Cronenworth",pos:"2B",hand:"L",threat:"low",
-notes:"Cronenworth is the only other left-handed bat in the lineup. He is a grinder who works counts, takes walks, and rarely expands. His .744 OPS in 2025 with 11 HR is solid for a bottom-of-the-order hitter. PARK NOTE: As a LHH his pull side goes to right field — same Clemente Wall problem. His modest power gets further neutralized. Best approach: 4-seam up in the zone beats him — elite velo is his nemesis. CU below zone in two-strike counts gets chases. He is patient on the slider away so don't over-rely on it. Low-threat out but professional — be efficient and move on.",
-tags:["Patient hitter — won't chase SL away","FF up in zone — elite velo beats him","CU below zone best two-strike pitch","Park neutralizes his modest pull power","Low threat — be efficient"],
-avg:{career:".252",l15:".189",l5:".176"},obp:{career:".328",l15:".270",l5:".255"},slg:{career:".402",l15:".297",l5:".279"},kpct:{career:"18%",l15:"20%",l5:"21%"},bb:{career:"10%",l15:"10%",l5:"10%"},
+{order:8,name:"Jacob Young",pos:"CF",hand:"R",threat:"low",
+notes:"Young is in the lineup for his glove — he was a Gold Glove Award finalist in 2025 despite a .583 OPS. His bat has never been the point. He's an aggressive hitter who makes some contact but has no real power threat and struggles against premium velocity. Attack him early with 4-seam up. Slider away is very effective. He ranked 4th in all of baseball in outfield OAA last season — defensively elite but offensively a free out at the highest levels. Best approach: be aggressive, don't waste pitches, get through the 8-9 spots quickly to face the top of the order again.",
+tags:["Gold Glove finalist defense — .583 OPS bat","No power threat — free out against elite stuff","FF up early — attack immediately","SL away — finishes him","Get through 8-9 quickly — face top of order"],
+avg:{career:".228",l15:".212",l5:".200"},obp:{career:".296",l15:".278",l5:".264"},slg:{career:".334",l15:".315",l5:".300"},kpct:{career:"26%",l15:"27%",l5:"28%"},bb:{career:"9%",l15:"9%",l5:"8%"},
 heatmap:{
-FF:{career:[[.18,.28,.40,.34],[.22,.44,.56,.46],[.24,.48,.60,.50],[.18,.32,.28,.18]],l15:[[.12,.18,.26,.22],[.14,.26,.36,.28],[.14,.28,.38,.30],[.10,.18,.14,.10]],l5:[[.10,.14,.20,.16],[.10,.18,.28,.20],[.12,.20,.30,.22],[.08,.12,.10,.06]]},
-SL:{career:[[.14,.18,.22,.38],[.16,.26,.32,.50],[.18,.30,.36,.52],[.14,.24,.22,.16]],l15:[[.10,.12,.14,.26],[.10,.16,.20,.32],[.10,.16,.22,.34],[.08,.12,.10,.08]],l5:[[.06,.08,.10,.18],[.06,.10,.12,.22],[.08,.10,.14,.24],[.06,.08,.06,.04]]},
-CH:{career:[[.16,.24,.32,.26],[.20,.38,.48,.38],[.22,.42,.52,.42],[.16,.28,.24,.16]],l15:[[.10,.14,.18,.14],[.12,.22,.28,.20],[.12,.24,.30,.22],[.08,.14,.10,.08]],l5:[[.06,.08,.12,.08],[.08,.14,.18,.12],[.08,.14,.18,.14],[.06,.08,.06,.04]]},
-CU:{career:[[.10,.14,.16,.12],[.14,.22,.28,.20],[.18,.28,.36,.26],[.20,.36,.38,.26]],l15:[[.06,.08,.10,.06],[.06,.10,.14,.10],[.10,.14,.18,.12],[.10,.18,.20,.12]],l5:[[.04,.04,.06,.04],[.04,.06,.08,.06],[.06,.08,.10,.06],[.06,.10,.12,.06]]}},
-countTend:{career:[.28,.35,.42,.49,.24,.31,.38,.45,.18,.26,.35,.42],l15:[.24,.31,.38,.45,.20,.27,.34,.41,.14,.22,.31,.38],l5:[.22,.29,.36,.43,.18,.25,.32,.39,.12,.20,.29,.36]},
-trend:{career:{avg:252,obp:328,slg:402,kpct:18,swstr:10},l15:{avg:189,obp:270,slg:297,kpct:20,swstr:11},l5:{avg:176,obp:255,slg:279,kpct:21,swstr:12}},
-platoon:{vR:{avg:".252",ops:".730",pa:2640},vL:{avg:".247",ops:".716",pa:880}}},
+FF:{career:[[.16,.22,.36],[.18,.32,.48],[.12,.24,.40]],l15:[[.10,.14,.24],[.12,.20,.32],[.08,.14,.26]],l5:[[.08,.10,.18],[.08,.16,.26],[.06,.10,.20]]},
+SL:{career:[[.10,.14,.10],[.12,.18,.12],[.18,.30,.52]],l15:[[.06,.08,.06],[.06,.10,.06],[.12,.18,.36]],l5:[[.04,.06,.04],[.04,.06,.04],[.08,.12,.26]]},
+CH:{career:[[.12,.18,.16],[.14,.26,.22],[.10,.20,.18]],l15:[[.06,.10,.08],[.08,.14,.12],[.04,.10,.08]],l5:[[.04,.06,.06],[.04,.08,.08],[.02,.06,.04]]},
+CU:{career:[[.08,.12,.10],[.10,.16,.14],[.16,.26,.44]],l15:[[.04,.06,.06],[.06,.08,.08],[.10,.14,.28]],l5:[[.02,.04,.04],[.04,.04,.06],[.06,.08,.18]]}},
+countTend:{career:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l15:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28],l5:[.18,.24,.30,.36,.14,.20,.26,.32,.08,.12,.20,.26]},
+trend:{career:{avg:228,obp:296,slg:334,kpct:26,swstr:13},l15:{avg:212,obp:278,slg:315,kpct:27,swstr:14},l5:{avg:200,obp:264,slg:300,kpct:28,swstr:15}},
+platoon:{vR:{avg:".228",ops:".630",pa:920},vL:{avg:".224",ops:".618",pa:308}}},
 
-{order:9,name:"Luis Campusano",pos:"C",hand:"R",threat:"low",
-notes:"Campusano is a young developing catcher who has raw pull power but a high chase rate on breaking balls. PARK NOTE: His pull-side power to right field is exactly what PNC's Clemente Wall erases — he has below-average exit velocity for a power threat, so cold air further kills his carry. Best approach: slider down-away as the primary weapon, 4-seam up at the letters for chases, curveball below zone as a third option. He expands the zone significantly with two strikes. Low-leverage out — be aggressive and set the table for the top of the order.",
-tags:["Young catcher — high breaking ball chase rate","SL down-away — primary weapon","Park/cold erases his pull-side power","FF up at letters for chases","CU below zone — finish him off"],
-avg:{career:".245",l15:".174",l5:".160"},obp:{career:".296",l15:".230",l5:".214"},slg:{career:".390",l15:".261",l5:".240"},kpct:{career:"24%",l15:"27%",l5:"29%"},bb:{career:"6%",l15:"6%",l5:"6%"},
+{order:9,name:"Drew Millas",pos:"C",hand:"S",threat:"low",
+notes:"Millas is a switch-hitting catcher who has been getting playing time while Keibert Ruiz serves in a depth role. He's primarily a defense-first option with some feel for the strike zone as a switch hitter. His offense is limited at this level — he's a free out against elite pitching. Slider down-away works from either side. 4-seam up at the letters. He does not have power to worry about — the only concern is he works counts and draws some walks as a switch hitter. Attack him aggressively and do not waste pitches. Finish innings here and get back to Wood.",
+tags:["Switch-hitting backup C — defense-first","Slider down-away from either side","FF up at letters — K pitch","Works some counts — don't give free walks","Attack aggressively — get back to top of order"],
+avg:{career:".228",l15:".220",l5:".210"},obp:{career:".308",l15:".298",l5:".285"},slg:{career:".338",l15:".325",l5:".310"},kpct:{career:"23%",l15:"24%",l5:"25%"},bb:{career:"10%",l15:"10%",l5:"9%"},
 heatmap:{
-FF:{career:[[.18,.28,.40,.46],[.22,.42,.54,.60],[.24,.46,.58,.62],[.16,.28,.26,.18]],l15:[[.10,.16,.24,.28],[.12,.24,.36,.40],[.14,.26,.40,.44],[.08,.14,.12,.08]],l5:[[.08,.10,.16,.18],[.08,.14,.22,.26],[.10,.18,.26,.30],[.06,.10,.08,.06]]},
-SL:{career:[[.12,.16,.18,.14],[.14,.22,.26,.18],[.18,.28,.34,.20],[.30,.52,.54,.36]],l15:[[.06,.08,.10,.08],[.06,.10,.14,.08],[.10,.14,.18,.10],[.18,.32,.34,.20]],l5:[[.04,.06,.06,.04],[.04,.06,.08,.06],[.06,.08,.10,.06],[.14,.22,.24,.14]]},
-CH:{career:[[.14,.22,.28,.20],[.18,.34,.42,.28],[.20,.38,.46,.30],[.14,.24,.20,.12]],l15:[[.06,.10,.14,.08],[.08,.16,.22,.12],[.10,.18,.24,.14],[.06,.10,.08,.04]],l5:[[.04,.06,.08,.06],[.06,.10,.14,.08],[.08,.12,.14,.08],[.04,.06,.04,.02]]},
-CU:{career:[[.10,.14,.16,.12],[.12,.20,.24,.16],[.16,.26,.32,.20],[.28,.48,.50,.32]],l15:[[.04,.06,.08,.06],[.06,.10,.12,.06],[.08,.12,.14,.08],[.16,.28,.28,.16]],l5:[[.02,.04,.04,.04],[.04,.06,.06,.04],[.04,.06,.08,.04],[.10,.18,.18,.10]]}},
-countTend:{career:[.26,.33,.40,.47,.22,.29,.36,.43,.16,.24,.33,.40],l15:[.22,.29,.36,.43,.18,.25,.32,.39,.12,.20,.29,.36],l5:[.20,.27,.34,.41,.16,.23,.30,.37,.10,.18,.27,.34]},
-trend:{career:{avg:245,obp:296,slg:390,kpct:24,swstr:13},l15:{avg:174,obp:230,slg:261,kpct:27,swstr:15},l5:{avg:160,obp:214,slg:240,kpct:29,swstr:17}},
-platoon:{vR:{avg:".245",ops:".686",pa:820},vL:{avg:".238",ops:".670",pa:275}}}
+FF:{career:[[.14,.20,.16],[.18,.30,.20],[.12,.22,.16]],l15:[[.08,.12,.10],[.10,.18,.12],[.06,.12,.08]],l5:[[.06,.08,.06],[.06,.12,.08],[.04,.08,.06]]},
+SL:{career:[[.10,.14,.32],[.12,.20,.44],[.08,.16,.38]],l15:[[.06,.08,.20],[.06,.10,.28],[.04,.08,.24]],l5:[[.04,.06,.14],[.04,.06,.18],[.02,.04,.14]]},
+CH:{career:[[.12,.18,.22],[.14,.24,.30],[.10,.18,.24]],l15:[[.06,.10,.12],[.06,.12,.16],[.04,.08,.10]],l5:[[.04,.06,.08],[.04,.08,.10],[.02,.04,.06]]},
+CU:{career:[[.08,.10,.14],[.10,.16,.22],[.14,.22,.38]],l15:[[.04,.06,.08],[.04,.08,.12],[.08,.12,.24]],l5:[[.02,.04,.04],[.02,.04,.08],[.04,.06,.14]]}},
+countTend:{career:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l15:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28],l5:[.18,.24,.30,.36,.14,.20,.26,.32,.08,.12,.20,.26]},
+trend:{career:{avg:228,obp:308,slg:338,kpct:23,swstr:11},l15:{avg:220,obp:298,slg:325,kpct:24,swstr:12},l5:{avg:210,obp:285,slg:310,kpct:25,swstr:13}},
+platoon:{vR:{avg:".228",ops:".646",pa:640},vL:{avg:".224",ops:".632",pa:215}}}
 ];
 
 let sel=0,cf='career',cp='FF';
 function showPage(n,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+n).classList.add('active');btn.classList.add('active')}
 function setFilter(f,btn){cf=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');rL();rD();rO()}
 function setPitch(p,btn){cp=p;document.querySelectorAll('.pitch-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');rHM(B[sel],'hmc')}
-function hC(v){return v<.22?'#3B6D11':v<.35?'#639922':v<.45?'#C0DD97':v<.55?'#FAC775':v<.62?'#D85A30':'#993C1D'}
-function hT(v){return v<.35?'#EAF3DE':v<.55?'#27251F':'#FAECE7'}
-function mHM(b,f,p){p=p||'FF';const hd=b.heatmap[p]?b.heatmap[p][f]:b.heatmap.FF[f];let h='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;">';hd.flat().forEach(v=>{h+='<div style="height:24px;border-radius:2px;background:'+hC(v)+';display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:600;color:'+hT(v)+';">.'+Math.round(v*1000).toString().padStart(3,'0').slice(1)+'</div>'});return h+'</div>'}
-function rHM(b,id){let h=mHM(b,cf,cp);h+='<div class="legend-row"><span class="legend-item"><span class="legend-dot" style="background:#3B6D11"></span>cold</span><span class="legend-item"><span class="legend-dot" style="background:#FAC775"></span>warm</span><span class="legend-item"><span class="legend-dot" style="background:#993C1D"></span>hot</span></div>';document.getElementById(id).innerHTML=h}
+function hC(v){return v<.20?'#3B6D11':v<.30?'#639922':v<.40?'#C0DD97':v<.50?'#FAC775':v<.60?'#D85A30':'#993C1D'}
+function hT(v){return v<.30?'#EAF3DE':v<.50?'#27251F':'#FAECE7'}
+// 3x3 grid — rows: Top/Mid/Bot, cols: In/Mid/Out (catcher POV, Paul's arm side = In = col 0)
+function mHM(b,f,p){
+  p=p||'FF';
+  const hd=b.heatmap[p]?b.heatmap[p][f]:b.heatmap.FF[f];
+  const rowLabels=['TOP','MID','BOT'];
+  const colLabels=['IN','MID','OUT'];
+  let h='<div style="display:inline-grid;grid-template-columns:28px 1fr 1fr 1fr;gap:2px;width:100%;">';
+  // header row
+  h+='<div></div>';
+  colLabels.forEach(c=>{h+='<div style="font-size:8px;color:#a0a09a;text-align:center;padding-bottom:2px;font-weight:600;">'+c+'</div>'});
+  hd.forEach((row,ri)=>{
+    h+='<div style="font-size:8px;color:#a0a09a;display:flex;align-items:center;font-weight:600;">'+rowLabels[ri]+'</div>';
+    row.forEach(v=>{
+      h+='<div style="height:32px;border-radius:3px;background:'+hC(v)+';display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:'+hT(v)+';">'+v.toFixed(3).slice(1)+'</div>';
+    });
+  });
+  return h+'</div>';
+}
+function rHM(b,id){let h=mHM(b,cf,cp);h+='<div class="legend-row"><span class="legend-item"><span class="legend-dot" style="background:#3B6D11"></span>Paul\'s zone (↓BA)</span><span class="legend-item"><span class="legend-dot" style="background:#FAC775"></span>neutral</span><span class="legend-item"><span class="legend-dot" style="background:#993C1D"></span>damage (↑BA)</span><span style="font-size:9px;color:#a0a09a;margin-left:8px;">IN=arm side · OUT=glove side</span></div>';document.getElementById(id).innerHTML=h}
 function rCT(b){const counts=['0-0','0-1','0-2','1-0','1-1','1-2','2-0','2-1','2-2','3-0','3-1','3-2'];const vals=b.countTend[cf];let h='<div style="font-size:9px;color:#6b6b66;margin-bottom:6px;">swing rate by count</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px;">';counts.forEach((c,i)=>{const v=vals[i],pct=Math.round(v*100);const bg=v<.25?'#B5D4F4':v<.38?'#85B7EB':v<.48?'#FAC775':'#D85A30';const tc=v<.38?'#042C53':'#27251F';h+='<div style="border-radius:3px;background:'+bg+';padding:4px 2px;text-align:center;"><div style="font-size:9px;color:'+tc+';opacity:.7;">'+c+'</div><div style="font-size:10px;font-weight:600;color:'+tc+';">'+pct+'%</div></div>'});document.getElementById('ctc').innerHTML=h+'</div>'}
 function rTr(b){const t=b.trend[cf];const m=[{l:'AVG',v:'.'+t.avg,b:t.avg/400},{l:'OBP',v:'.'+t.obp,b:t.obp/450},{l:'SLG',v:'.'+t.slg,b:t.slg/600},{l:'K%',v:t.kpct+'%',b:t.kpct/40,inv:true},{l:'SwStr',v:t.swstr+'%',b:t.swstr/25,inv:true}];let h='<div class="trend-rows">';m.forEach(x=>{const w=Math.min(100,Math.round(x.b*100));const c=x.inv?(w>55?'#D85A30':'#639922'):(w>55?'#639922':'#D85A30');h+='<div class="trend-row"><span class="trend-lbl">'+x.l+'</span><div class="trend-bg"><div class="trend-fill" style="width:'+w+'%;background:'+c+';"></div></div><span class="trend-val">'+x.v+'</span></div>'});document.getElementById('trc').innerHTML=h+'</div>'}
 function rL(){document.getElementById('lineup').innerHTML=B.map((b,i)=>'<div class="batter-row '+(i===sel?'selected':'')+'" onclick="sB('+i+')"><span class="order-num">'+b.order+'</span><div class="batter-info"><div class="batter-name">'+b.name+'</div><div class="batter-sub">'+b.pos+'</div></div><span class="hand-badge">'+b.hand+'</span><span class="avg-val">'+b.avg[cf]+'</span></div>').join('')}
-function rD(){const b=B[sel],f=cf;const tC=b.threat==='high'?'threat-high':b.threat==='med'?'threat-med':'threat-low';const tL=b.threat==='high'?'High threat':b.threat==='med'?'Medium threat':'Low threat';document.getElementById('detail').innerHTML='<div class="player-header"><div class="player-name-big">'+b.name+'<span class="player-meta">#'+b.order+' \u00b7 '+b.pos+' \u00b7 '+b.hand+'HB</span></div><div class="stats-row"><div class="stat-item"><span class="stat-label">AVG</span><span class="stat-val">'+b.avg[f]+'</span></div><div class="stat-item"><span class="stat-label">OBP</span><span class="stat-val">'+b.obp[f]+'</span></div><div class="stat-item"><span class="stat-label">SLG</span><span class="stat-val">'+b.slg[f]+'</span></div><div class="stat-item"><span class="stat-label">K%</span><span class="stat-val">'+b.kpct[f]+'</span></div><div class="stat-item"><span class="stat-label">BB%</span><span class="stat-val">'+b.bb[f]+'</span></div></div></div><div class="card"><div class="card-title">heat map \u2014 BA by zone</div><div class="pitch-tabs">'+['FF','SL','CH','CU'].map(p=>'<button class="pitch-tab '+(p===cp?'active':'')+'" onclick="setPitch(\''+p+'\',this)">'+{FF:'4-seam',SL:'slider',CH:'changeup',CU:'curveball'}[p]+'</button>').join('')+'</div><div id="hmc"></div></div><div class="charts-row"><div class="card"><div class="card-title">count tendencies</div><div id="ctc"></div></div><div class="card"><div class="card-title">2026 performance trend</div><div id="trc"></div></div></div><div class="card"><div class="card-title">platoon splits</div><div class="platoon-grid"><div class="platoon-card"><div class="platoon-side">vs RHP (Skenes)</div><div class="platoon-stat">'+b.platoon.vR.avg+'</div><div class="platoon-sub">OPS '+b.platoon.vR.ops+' \u00b7 '+b.platoon.vR.pa+' PA</div></div><div class="platoon-card"><div class="platoon-side">vs LHP</div><div class="platoon-stat">'+b.platoon.vL.avg+'</div><div class="platoon-sub">OPS '+b.platoon.vL.ops+' \u00b7 '+b.platoon.vL.pa+' PA</div></div></div></div><div class="notes-card"><div class="notes-header"><div class="notes-icon">!</div><div class="notes-title">Pitcher\'s notes \u2014 Paul Skenes</div></div><span class="threat-badge '+tC+'">'+tL+'</span><p class="notes-body">'+b.notes+'</p><div class="notes-tags">'+b.tags.map(t=>'<span class="notes-tag">'+t+'</span>').join('')+'</div></div>';rHM(b,'hmc');rCT(b);rTr(b)}
+function rD(){const b=B[sel],f=cf;const tC=b.threat==='high'?'threat-high':b.threat==='med'?'threat-med':'threat-low';const tL=b.threat==='high'?'High threat':b.threat==='med'?'Medium threat':'Low threat';document.getElementById('detail').innerHTML='<div class="player-header"><div class="player-name-big">'+b.name+'<span class="player-meta">#'+b.order+' \u00b7 '+b.pos+' \u00b7 '+b.hand+'HB</span></div><div class="stats-row"><div class="stat-item"><span class="stat-label">AVG</span><span class="stat-val">'+b.avg[f]+'</span></div><div class="stat-item"><span class="stat-label">OBP</span><span class="stat-val">'+b.obp[f]+'</span></div><div class="stat-item"><span class="stat-label">SLG</span><span class="stat-val">'+b.slg[f]+'</span></div><div class="stat-item"><span class="stat-label">K%</span><span class="stat-val">'+b.kpct[f]+'</span></div><div class="stat-item"><span class="stat-label">BB%</span><span class="stat-val">'+b.bb[f]+'</span></div></div></div><div class="card"><div class="card-title">heat map \u2014 BA by zone (3\u00d73)</div><div class="pitch-tabs">'+['FF','SL','CH','CU'].map(p=>'<button class="pitch-tab '+(p===cp?'active':'')+'" onclick="setPitch(\''+p+'\',this)">'+{FF:'4-seam',SL:'slider',CH:'changeup',CU:'curveball'}[p]+'</button>').join('')+'</div><div id="hmc"></div></div><div class="charts-row"><div class="card"><div class="card-title">count tendencies</div><div id="ctc"></div></div><div class="card"><div class="card-title">2026 performance trend</div><div id="trc"></div></div></div><div class="card"><div class="card-title">platoon splits</div><div class="platoon-grid"><div class="platoon-card"><div class="platoon-side">vs RHP (Skenes)</div><div class="platoon-stat">'+b.platoon.vR.avg+'</div><div class="platoon-sub">OPS '+b.platoon.vR.ops+' \u00b7 '+b.platoon.vR.pa+' PA</div></div><div class="platoon-card"><div class="platoon-side">vs LHP</div><div class="platoon-stat">'+b.platoon.vL.avg+'</div><div class="platoon-sub">OPS '+b.platoon.vL.ops+' \u00b7 '+b.platoon.vL.pa+' PA</div></div></div></div><div class="notes-card"><div class="notes-header"><div class="notes-icon">!</div><div class="notes-title">Pitcher\'s notes \u2014 Paul Skenes</div></div><span class="threat-badge '+tC+'">'+tL+'</span><p class="notes-body">'+b.notes+'</p><div class="notes-tags">'+b.tags.map(t=>'<span class="notes-tag">'+t+'</span>').join('')+'</div></div>';rHM(b,'hmc');rCT(b);rTr(b)}
 function rO(){const tC=t=>t==='high'?'threat-high':t==='med'?'threat-med':'threat-low';const tL=t=>t==='high'?'High threat':t==='med'?'Medium threat':'Low threat';document.getElementById('overview-grid').innerHTML=B.map((b,i)=>'<div class="overview-card" onclick="oD('+i+')"><span class="threat-badge '+tC(b.threat)+'">'+tL(b.threat)+'</span><div class="ov-name">'+b.order+'. '+b.name+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div>'+mHM(b,cf,'FF')+'<div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">K%</span><span class="ov-stat-val">'+b.kpct[cf]+'</span></div></div></div>').join('')}
 function oD(i){sel=i;cp='FF';document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));document.getElementById('page-detail').classList.add('active');document.querySelectorAll('.nav-tab')[1].classList.add('active');rL();rD()}
 function sB(i){sel=i;cp='FF';rL();rD()}
