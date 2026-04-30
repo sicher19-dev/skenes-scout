@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Skenes vs MIL — Pregame Scout</title>
+<title>Skenes vs STL — Pregame Scout</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f8f7f4;--surface:#fff;--surface2:#f1f0ec;--border:rgba(0,0,0,.10);--border2:rgba(0,0,0,.18);--text:#1a1a18;--text2:#6b6b66;--text3:#a0a09a;--accent:#12284B;--accent2:#B6922E;--radius:10px;--radius-sm:6px}
+:root{--bg:#f8f7f4;--surface:#fff;--surface2:#f1f0ec;--border:rgba(0,0,0,.10);--border2:rgba(0,0,0,.18);--text:#1a1a18;--text2:#6b6b66;--text3:#a0a09a;--accent:#C41E3A;--accent2:#0C2340;--radius:10px;--radius-sm:6px}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.nav{background:var(--accent);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}
+.nav{background:var(--accent2);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}
 .nav-brand{display:flex;align-items:center;gap:10px}
-.nav-logo{width:34px;height:34px;border-radius:50%;background:var(--accent2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:var(--accent)}
+.nav-logo{width:34px;height:34px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:#fff}
 .nav-title{font-size:15px;font-weight:600;color:white}
 .nav-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:1px}
 .nav-tabs{display:flex;gap:4px}
@@ -19,7 +19,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .filter-bar{display:flex;align-items:center;gap:8px;padding:14px 20px 0}
 .filter-label{font-size:12px;color:var(--text2);font-weight:500}
 .filter-btn{padding:5px 13px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:transparent;font-size:13px;cursor:pointer;color:var(--text2);font-family:inherit}
-.filter-btn.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:500}
+.filter-btn.active{background:var(--accent2);color:white;border-color:var(--accent2);font-weight:500}
 .page{display:none;padding:16px 20px}
 .page.active{display:block}
 .conditions-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
@@ -32,15 +32,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .tag-good{background:rgba(99,153,34,.15);color:#2a5200}
 .tag-warn{background:rgba(250,199,117,.35);color:#7a5000}
 .tag-neutral{background:var(--surface2);color:var(--text2)}
-.tag-il{background:rgba(217,90,48,.15);color:#8a2a00}
 .cond-note{font-size:11px;color:var(--text2);margin-top:6px;padding-top:6px;border-top:1px solid var(--border);line-height:1.5}
 .detail-layout{display:grid;grid-template-columns:220px 1fr;gap:16px}
 .lineup-list{display:flex;flex-direction:column;gap:4px}
 .section-divider{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;padding:8px 4px 4px;border-top:1px solid var(--border);margin-top:4px}
 .batter-row{display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);cursor:pointer}
-.batter-row.selected{border-color:var(--accent);background:#eef1f6}
+.batter-row.selected{border-color:var(--accent);background:#fdf0f2}
 .batter-row.bench-row{background:#f9f8f5;border-style:dashed}
-.batter-row.bench-row.selected{background:#eef1f6;border-style:solid}
+.batter-row.bench-row.selected{background:#fdf0f2;border-style:solid}
 .order-num{font-size:11px;color:var(--text3);width:16px;flex-shrink:0;text-align:center}
 .batter-info{flex:1;min-width:0}
 .batter-name{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -51,7 +50,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .player-header{padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
 .player-name-big{font-size:20px;font-weight:700;color:var(--text)}
 .player-meta{font-size:13px;color:var(--text2);font-weight:400;margin-left:8px}
-.bench-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(18,40,75,.12);color:var(--accent);font-weight:600;margin-left:8px;vertical-align:middle}
+.bench-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(196,30,58,.1);color:var(--accent);font-weight:600;margin-left:8px;vertical-align:middle}
 .stats-row{display:flex;gap:18px;margin-top:8px;flex-wrap:wrap}
 .stat-item{display:flex;flex-direction:column;gap:2px}
 .stat-label{font-size:10px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
@@ -60,7 +59,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .card-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
 .pitch-tabs{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
 .pitch-tab{padding:3px 10px;border-radius:4px;border:1px solid var(--border);font-size:11px;cursor:pointer;background:transparent;color:var(--text2);font-family:inherit}
-.pitch-tab.active{background:var(--accent);color:white;border-color:var(--accent);font-weight:500}
+.pitch-tab.active{background:var(--accent2);color:white;border-color:var(--accent2);font-weight:500}
 .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .trend-rows{display:flex;flex-direction:column;gap:7px}
 .trend-row{display:flex;align-items:center;gap:8px}
@@ -73,18 +72,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .platoon-side{font-size:11px;color:var(--text2);margin-bottom:4px;font-weight:500}
 .platoon-stat{font-size:17px;font-weight:700;color:var(--text)}
 .platoon-sub{font-size:10px;color:var(--text2);margin-top:2px}
-.notes-card{background:#f5f3ec;border:1px solid #d4c080;border-radius:var(--radius);padding:13px 15px}
+.notes-card{background:#fdf5f6;border:1px solid #e8b0b8;border-radius:var(--radius);padding:13px 15px}
 .notes-header{display:flex;align-items:center;gap:8px;margin-bottom:9px}
-.notes-icon{width:20px;height:20px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--accent2);font-weight:700;flex-shrink:0}
-.notes-title{font-size:11px;font-weight:600;color:#5a4200;text-transform:uppercase;letter-spacing:.06em}
-.notes-body{font-size:13px;color:#2a2000;line-height:1.65}
+.notes-icon{width:20px;height:20px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;color:white;font-weight:700;flex-shrink:0}
+.notes-title{font-size:11px;font-weight:600;color:#7a0010;text-transform:uppercase;letter-spacing:.06em}
+.notes-body{font-size:13px;color:#3a0008;line-height:1.65}
 .notes-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
-.notes-tag{font-size:11px;padding:3px 9px;border-radius:12px;background:rgba(18,40,75,.1);color:var(--accent);font-weight:500}
+.notes-tag{font-size:11px;padding:3px 9px;border-radius:12px;background:rgba(196,30,58,.1);color:var(--accent);font-weight:500}
 .threat-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin-bottom:6px}
 .threat-high{background:rgba(217,90,48,.12);color:#8a2a00}
 .threat-med{background:rgba(250,199,117,.3);color:#7a5000}
 .threat-low{background:rgba(99,153,34,.12);color:#2a5200}
-.bench-threat{background:rgba(18,40,75,.1);color:var(--accent)}
+.bench-threat{background:rgba(196,30,58,.1);color:var(--accent)}
 .legend-row{display:flex;gap:12px;margin-top:7px;flex-wrap:wrap}
 .legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2)}
 .legend-dot{width:8px;height:8px;border-radius:50%}
@@ -92,11 +91,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .overview-title{font-size:19px;font-weight:700;color:var(--text)}
 .overview-sub{font-size:13px;color:var(--text2);margin-top:3px}
 .overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.bench-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.bench-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
 .bench-section-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-top:16px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid var(--border)}
 .overview-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px;cursor:pointer;transition:all .13s}
 .overview-card:hover{border-color:var(--accent)}
-.bench-card{background:#f9f8f5;border:1px dashed var(--border2);border-radius:var(--radius);padding:11px;cursor:pointer;transition:all .13s}
+.bench-card{background:#f9f8f5;border:1px dashed var(--border2);border-radius:var(--radius);padding:10px;cursor:pointer;transition:all .13s}
 .bench-card:hover{border-color:var(--accent);border-style:solid}
 .ov-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:1px}
 .ov-meta{font-size:11px;color:var(--text2);margin-bottom:9px}
@@ -104,10 +103,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .ov-stat{display:flex;flex-direction:column;gap:1px}
 .ov-stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
 .ov-stat-val{font-size:13px;font-weight:700;color:var(--text)}
-.bench-note-mini{font-size:11px;color:var(--text2);margin-top:6px;line-height:1.4}
-.il-banner{background:rgba(217,90,48,.08);border:1px solid rgba(217,90,48,.25);border-radius:var(--radius-sm);padding:8px 12px;margin-bottom:12px;font-size:12px;color:#6a2000}
-@media(max-width:800px){.detail-layout{grid-template-columns:1fr}.charts-row{grid-template-columns:1fr}.overview-grid{grid-template-columns:repeat(2,1fr)}.bench-grid{grid-template-columns:repeat(2,1fr)}.conditions-bar{grid-template-columns:1fr}}
-@media(max-width:500px){.overview-grid{grid-template-columns:1fr}.bench-grid{grid-template-columns:1fr}}
+.bench-note-mini{font-size:10px;color:var(--text2);margin-top:5px;line-height:1.4}
+@media(max-width:800px){.detail-layout{grid-template-columns:1fr}.charts-row{grid-template-columns:1fr}.overview-grid{grid-template-columns:repeat(2,1fr)}.bench-grid{grid-template-columns:repeat(3,1fr)}.conditions-bar{grid-template-columns:1fr}}
+@media(max-width:500px){.overview-grid{grid-template-columns:1fr}.bench-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -115,8 +113,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="nav-brand">
 <div class="nav-logo">PS</div>
 <div>
-<div class="nav-title">PIT @ MIL — Fri Apr 24</div>
-<div class="nav-sub">American Family Field · Paul Skenes, RHP · 7:40 PM CT</div>
+<div class="nav-title">PIT vs STL — Thu Apr 30</div>
+<div class="nav-sub">PNC Park, Pittsburgh · Paul Skenes, RHP · 6:40 PM ET</div>
 </div>
 </div>
 <div class="nav-tabs">
@@ -133,26 +131,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <div id="page-overview" class="page active">
 <div class="overview-header">
-<div class="overview-title">Milwaukee Brewers — Lineup vs RHP + Bench/PH</div>
-<div class="overview-sub">Confirmed from actual 2026 game logs (Apr 21–22 vs DET RHP) · Yelich/Chourio/Vaughn all on IL · 2026 splits through Apr 23 · Tap any hitter for full detail · Dashed = bench/PH</div>
+<div class="overview-title">St. Louis Cardinals — Lineup vs RHP + Bench/PH</div>
+<div class="overview-sub">Confirmed from Apr 28–29 game logs vs PIT RHP · 2026 splits through Apr 29 · Hunter Dobbins opposes · Tap any hitter for full detail · Dashed = bench/PH</div>
 </div>
-<div class="il-banner">⚠️ IL REPORT: Christian Yelich (2nd-degree left adductor strain, out mid-to-late May) · Jackson Chourio (fractured hand, out early May) · Andrew Vaughn (fractured hamate, out mid-May) — all three core bats are unavailable</div>
 <div class="conditions-bar">
 <div class="cond-card">
-<div class="cond-title">🌦 Game Conditions — Fri Apr 24, American Family Field</div>
-<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~60°F at 7:40 PM CT <span class="cond-tag tag-neutral">Mild evening</span></span></div>
-<div class="cond-row"><span class="cond-label">Sky</span><span class="cond-val">Mostly cloudy, possible showers</span></div>
-<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">E 5–10 mph <span class="cond-tag tag-neutral">Neutral direction</span></span></div>
-<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">~20% showers possible</span></div>
-<div class="cond-note">Normal carry — similar to the Nationals game at PNC. Ball carries naturally, no weather advantage either side. Park factors dominate today.</div>
+<div class="cond-title">🌤 Game Conditions — Thu Apr 30, PNC Park · 6:40 PM ET</div>
+<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~65°F at first pitch <span class="cond-tag tag-good">Comfortable — normal carry</span></span></div>
+<div class="cond-row"><span class="cond-label">Sky</span><span class="cond-val">Clearing after today's heavy rain</span></div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">NW 10–15 mph gusts 25 mph <span class="cond-tag tag-good">Blowing IN — suppresses HRs</span></span></div>
+<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">~20% showers possible early evening</span></div>
+<div class="cond-note">🎯 Best pitching environment of Paul's season so far. NW wind blows IN toward home plate at PNC — combines with PNC's already strong HR suppression (88 factor) to create an elite pitching environment. Cardinals scored 11 in game 2 but faced a shaky Ashcraft/bullpen — Paul is a completely different animal. Attack early in counts, trust the park and conditions.</div>
 </div>
 <div class="cond-card">
-<div class="cond-title">🏟 American Family Field Park Factors (2026)</div>
-<div class="cond-row"><span class="cond-label">Runs (multi-year)</span><span class="cond-val">100 <span class="cond-tag tag-neutral">Neutral</span></span></div>
-<div class="cond-row"><span class="cond-label">Runs (2026 one-year)</span><span class="cond-val">102 <span class="cond-tag tag-warn">Slight hitter lean</span></span></div>
-<div class="cond-row"><span class="cond-label">Altitude</span><span class="cond-val">8th highest in MLB <span class="cond-tag tag-warn">Added carry</span></span></div>
-<div class="cond-row"><span class="cond-label">CF/gaps</span><span class="cond-val"><span class="cond-tag tag-warn">8th shallowest — gap doubles easier</span></span></div>
-<div class="cond-note">Very different from PNC Park. No Clemente Wall — pull HRs not suppressed. Gap doubles more dangerous here. With the Brewers missing Yelich/Chourio/Vaughn, they'll try to manufacture runs. Ground balls and Ks are the priority — don't give away free bases.</div>
+<div class="cond-title">🏟 PNC Park Factors (Multi-Year)</div>
+<div class="cond-row"><span class="cond-label">Runs</span><span class="cond-val">96 <span class="cond-tag tag-good">4% below avg</span></span></div>
+<div class="cond-row"><span class="cond-label">HR factor</span><span class="cond-val">88 <span class="cond-tag tag-good">12% suppressed</span></span></div>
+<div class="cond-row"><span class="cond-label">21-ft RF Clemente Wall</span><span class="cond-val"><span class="cond-tag tag-good">Kills RHH pull HRs (Walker, Gorman, Pages)</span></span></div>
+<div class="cond-row"><span class="cond-label">NW wind effect</span><span class="cond-val"><span class="cond-tag tag-good">Adds to suppression today</span></span></div>
+<div class="cond-note">Cardinals had 23 ten-run games at PNC all-time vs ANY team — but their runs in this series came off non-Skenes arms. Cards had 11 in G2, off Ashcraft (6 R in 4.1 IP) and Hunter Barco (5 R). Paul's ERA at PNC is dominant. Don't be spooked by the series score — tonight the park is firmly on your side.</div>
 </div>
 </div>
 <div class="overview-grid" id="overview-grid"></div>
@@ -161,21 +158,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <div id="page-detail" class="page">
-<div class="il-banner">⚠️ Yelich (groin), Chourio (hand), Vaughn (hand) all on IL — lineup is significantly depleted without their top-3 power bats</div>
 <div class="conditions-bar">
 <div class="cond-card">
-<div class="cond-title">🌦 Game Conditions — Fri Apr 24 · 7:40 PM CT</div>
-<div class="cond-row"><span class="cond-label">Temp at first pitch</span><span class="cond-val">~60°F <span class="cond-tag tag-neutral">Mild — normal carry</span></span></div>
-<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">E 5-10 mph — neutral direction</span></div>
-<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">~20% — isolated showers possible</span></div>
-<div class="cond-note">Normal carry conditions. Park plays slightly hitter-friendly — gap doubles are more dangerous than PNC. Don't give away free bases against a thin lineup.</div>
+<div class="cond-title">🌤 Game Conditions — Thu Apr 30 · 6:40 PM ET</div>
+<div class="cond-row"><span class="cond-label">Temp</span><span class="cond-val">~65°F <span class="cond-tag tag-good">Normal carry — not warm like the Rays game</span></span></div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">NW 10-15 mph, gusts 25 — blowing IN at PNC</span></div>
+<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">~20% early — should be clear by first pitch</span></div>
+<div class="cond-note">NW wind + PNC park factors = elite pitching environment. Walker's and Gorman's pull HRs both go toward the Clemente Wall. Stay aggressive. Ground balls and Ks are king.</div>
 </div>
 <div class="cond-card">
-<div class="cond-title">🏟 American Family Field Factors</div>
-<div class="cond-row"><span class="cond-label">Multi-year run factor</span><span class="cond-val">100 — neutral baseline</span></div>
-<div class="cond-row"><span class="cond-label">2026 one-year</span><span class="cond-val">102 <span class="cond-tag tag-warn">Slight hitter lean this year</span></span></div>
-<div class="cond-row"><span class="cond-label">Shallow CF/gaps</span><span class="cond-val"><span class="cond-tag tag-warn">Gap doubles more dangerous</span></span></div>
-<div class="cond-note">No Clemente Wall — pull HRs not suppressed. With Yelich/Chourio/Vaughn out, the Brewers will rely on contact and manufacturing runs. Keep the ball in the park and attack early in counts.</div>
+<div class="cond-title">🏟 PNC Park Factors</div>
+<div class="cond-row"><span class="cond-label">HR factor</span><span class="cond-val">88 + NW wind = extra suppression tonight</span></div>
+<div class="cond-row"><span class="cond-label">21-ft Clemente Wall RF</span><span class="cond-val"><span class="cond-tag tag-good">Kills pull HRs from RHH Cardinals</span></span></div>
+<div class="cond-row"><span class="cond-label">LHH pull (Burleson, Gorman, Church)</span><span class="cond-val"><span class="cond-tag tag-good">Also suppressed by park depth</span></span></div>
+<div class="cond-note">5 RHH in the lineup (Wetherholt, Herrera, Walker, Winn, Pages) all pull toward the Clemente Wall. This is the most favorable environment Paul has faced this season. Be aggressive and trust your stuff.</div>
 </div>
 </div>
 <div class="detail-layout">
@@ -186,124 +182,133 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <script>
 const STARTERS=[
-{order:1,name:"Brice Turang",pos:"2B",hand:"L",threat:"high",bench:false,
-notes:"Turang is having an MVP-level breakout in 2026 — .307/.437/.571 (.927 OPS) with 4 HR and 6 SB in 20 games. Savant data is elite: 94.5 mph EV, 58.8% hard-hit rate, 11.8% barrel rate, wOBA .440. He's gone from a below-average hitter to a legitimate star. His OBP (.437) is exceptional — he will work counts and get on base. As a LHH his pull side goes toward RF (normal depth here, no Clemente Wall to help). His gap power to LCF is very real at this park. Best approach: slider away (Paul's glove side = Turang's outer half) — it's the primary weapon for LHH. 4-seam up at the letters is the K pitch. Do NOT miss middle-middle — his exit velo means even mishits can be damage. He has 6 SB so hold runners tight. This is the most important at-bat of the night consistently.",
-tags:["MVP-level 2026: .307/.437/.571, 94.5 EV, 11.8% barrel","SL away (glove side) — primary weapon vs LHH","FF up at letters — K pitch","6 SB — hold runners tight","Do NOT miss middle-middle — he barrels it"],
-avg:{career:".266",l15:".307",l5:".320"},obp:{career:".338",l15:".437",l5:".455"},slg:{career:".398",l15:".571",l5:".600"},kpct:{career:"20%",l15:"18%",l5:"16%"},bb:{career:"9%",l15:"14%",l5:"15%"},
-heatmap:{FF:{career:[[.22,.32,.18],[.28,.46,.22],[.20,.36,.18]],l15:[[.26,.36,.22],[.32,.52,.26],[.24,.42,.22]],l5:[[.28,.38,.24],[.34,.56,.28],[.26,.44,.24]]},SL:{career:[[.12,.16,.44],[.16,.24,.58],[.10,.18,.48]],l15:[[.08,.12,.32],[.10,.16,.42],[.06,.10,.34]],l5:[[.06,.08,.24],[.08,.12,.32],[.04,.08,.24]]},CH:{career:[[.16,.24,.36],[.20,.36,.48],[.14,.26,.40]],l15:[[.12,.18,.26],[.14,.26,.36],[.08,.16,.28]],l5:[[.08,.12,.18],[.10,.18,.26],[.06,.10,.18]]},CU:{career:[[.10,.12,.18],[.12,.18,.32],[.16,.24,.42]],l15:[[.08,.10,.12],[.08,.12,.22],[.10,.14,.26]],l5:[[.06,.08,.08],[.06,.08,.14],[.08,.10,.16]]}},
-countTend:{career:[.28,.34,.42,.48,.24,.30,.36,.42,.18,.22,.30,.36],l15:[.26,.32,.40,.46,.22,.28,.34,.40,.16,.20,.28,.34],l5:[.24,.30,.38,.44,.20,.26,.32,.38,.14,.18,.26,.32]},
-trend:{career:{avg:266,obp:338,slg:398,kpct:20,swstr:10},l15:{avg:307,obp:437,slg:571,kpct:18,swstr:8},l5:{avg:320,obp:455,slg:600,kpct:16,swstr:7}},
-platoon:{vR:{avg:".272",ops:".762",pa:1840},vL:{avg:".258",ops:".720",pa:612}}},
-
-{order:2,name:"William Contreras",pos:"C",hand:"R",threat:"high",bench:false,
-notes:"Contreras is the best bat in this depleted lineup and one of the best catchers in baseball. He's hitting .301/.393/.466 in 2026 with elite barrel rate and contact ability. 95th percentile overall offensive talent per THE BAT X. He has elite opposite-field rate on flyballs (39.1% — 94th percentile) and hits toward CF at this park. As a RHH his pull side goes to LF. He can go opposite field OR pull for power. Best approach: work him up and away very carefully. Slider away is effective but he recognizes it. Do NOT miss inner half with the 4-seam — he'll pull it hard. The 4-seam up to get chases is the primary K pitch. He's the cleanup hitter of this lineup effectively — the most dangerous at-bat.",
-tags:["Best bat in lineup — .301/.393/.466, 95th pct talent","No inner half FF — he pulls it hard","SL away effective but he recognizes it well","FF up to get chases — primary K pitch","Elite opp-field rate — goes all directions"],
-avg:{career:".272",l15:".301",l5:".308"},obp:{career:".340",l15:".393",l5:".400"},slg:{career:".460",l15:".466",l5:".475"},kpct:{career:"21%",l15:"19%",l5:"18%"},bb:{career:"9%",l15:"10%",l5:"10%"},
-heatmap:{FF:{career:[[.20,.30,.44],[.24,.42,.58],[.18,.34,.50]],l15:[[.22,.32,.46],[.26,.44,.60],[.20,.36,.52]],l5:[[.24,.34,.48],[.28,.46,.62],[.22,.38,.54]]},SL:{career:[[.14,.18,.14],[.16,.26,.16],[.22,.36,.56]],l15:[[.10,.14,.10],[.12,.20,.12],[.16,.26,.44]],l5:[[.08,.10,.08],[.10,.16,.10],[.12,.20,.36]]},CH:{career:[[.18,.26,.22],[.22,.38,.30],[.16,.28,.26]],l15:[[.14,.20,.16],[.16,.28,.22],[.10,.20,.18]],l5:[[.10,.14,.12],[.12,.22,.16],[.08,.14,.12]]},CU:{career:[[.10,.14,.12],[.14,.22,.16],[.20,.32,.50]],l15:[[.06,.08,.08],[.08,.14,.08],[.12,.20,.34]],l5:[[.04,.06,.06],[.06,.10,.06],[.08,.14,.24]]}},
-countTend:{career:[.30,.36,.44,.52,.26,.32,.38,.46,.20,.24,.32,.40],l15:[.28,.34,.42,.50,.24,.30,.36,.44,.18,.22,.30,.38],l5:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.20,.28,.36]},
-trend:{career:{avg:272,obp:340,slg:460,kpct:21,swstr:11},l15:{avg:301,obp:393,slg:466,kpct:19,swstr:10},l5:{avg:308,obp:400,slg:475,kpct:18,swstr:10}},
-platoon:{vR:{avg:".268",ops:".788",pa:2140},vL:{avg:".278",ops:".812",pa:714}}},
-
-{order:3,name:"Jake Bauers",pos:"1B",hand:"L",threat:"med",bench:false,
-notes:"Bauers is the regular 1B with Andrew Vaughn on the IL. He's a left-handed hitter with some pull power and decent on-base ability. As a LHH his pull side goes to RF at this park. He has a high K rate (27.8% per projection systems) — he's boom-or-bust. Best approach: 4-seam up and in early to bust him inside. Slider away to get weak contact or swings and misses. He will chase breaking balls out of the zone. Curveball below the zone works well when behind. He's been in the middle of the order by necessity, not by design — treat as a medium-threat out with a clear K vulnerability.",
-tags:["Regular 1B with Vaughn on IL — necessity bat","High K rate (27%+) — boom or bust","FF up and in early — bust him inside","SL away / CU below zone — gets chases","Gap power to LF-center the main threat"],
-avg:{career:".242",l15:".250",l5:".258"},obp:{career:".330",l15:".340",l5:".348"},slg:{career:".408",l15:".422",l5:".435"},kpct:{career:"24%",l15:"23%",l5:"22%"},bb:{career:"11%",l15:"11%",l5:"11%"},
-heatmap:{FF:{career:[[.18,.26,.14],[.22,.38,.18],[.16,.30,.14]],l15:[[.18,.28,.16],[.24,.40,.20],[.16,.32,.16]],l5:[[.20,.30,.18],[.26,.42,.22],[.18,.34,.18]]},SL:{career:[[.10,.14,.40],[.12,.20,.52],[.08,.14,.44]],l15:[[.08,.10,.30],[.10,.16,.40],[.06,.10,.32]],l5:[[.06,.08,.22],[.08,.12,.30],[.04,.06,.24]]},CH:{career:[[.14,.20,.32],[.16,.30,.44],[.12,.22,.36]],l15:[[.10,.14,.24],[.12,.22,.32],[.08,.14,.26]],l5:[[.08,.10,.18],[.10,.16,.24],[.06,.10,.18]]},CU:{career:[[.08,.10,.14],[.10,.16,.26],[.14,.22,.40]],l15:[[.06,.08,.10],[.06,.10,.18],[.08,.14,.26]],l5:[[.04,.06,.06],[.04,.08,.12],[.06,.10,.18]]}},
-countTend:{career:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.20,.28,.36],l15:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34],l5:[.22,.28,.36,.44,.18,.24,.30,.38,.12,.16,.24,.32]},
-trend:{career:{avg:242,obp:330,slg:408,kpct:24,swstr:11},l15:{avg:250,obp:340,slg:422,kpct:23,swstr:11},l5:{avg:258,obp:348,slg:435,kpct:22,swstr:10}},
-platoon:{vR:{avg:".248",ops:".756",pa:1140},vL:{avg:".234",ops:".718",pa:380}}},
-
-{order:4,name:"Gary S\u00e1nchez",pos:"DH",hand:"R",threat:"med",bench:false,
-notes:"S\u00e1nchez has been the regular DH since Yelich went on the IL and is batting 4th in the order. He's a pure power hitter with extreme platoon splits — .238/.429/.619 and a 1.480 OPS against LHP, but significantly less dangerous vs RHP. Against Paul (RHP), he's at a disadvantage. He has been hot recently with a 33.3% barrel rate over the past week. His swing-and-miss rate is high — he chases breaking balls below the zone historically. As a RHH his pull side goes to LF. Best approach: slider down-away is the primary weapon — he has a documented history of chasing it. 4-seam up and in to establish the zone and win the inner half. Do NOT leave anything middle-middle — when he catches one it goes far. Curveball below the zone to finish.",
-tags:["Hot recently — 33% barrel rate past week","Extreme platoon split — much better vs LHP","SL down-away — historically chases it","FF up and in to establish inner half","CU below zone to finish — high chase rate"],
-avg:{career:".232",l15:".238",l5:".245"},obp:{career:".298",l15:".310",l5:".320"},slg:{career:".420",l15:".435",l5:".448"},kpct:{career:"28%",l15:"28%",l5:"27%"},bb:{career:"9%",l15:"10%",l5:"10%"},
-heatmap:{FF:{career:[[.18,.26,.44],[.22,.38,.58],[.14,.28,.48]],l15:[[.16,.24,.40],[.20,.34,.54],[.12,.24,.44]],l5:[[.14,.20,.34],[.16,.28,.48],[.10,.18,.38]]},SL:{career:[[.10,.14,.10],[.12,.20,.12],[.22,.36,.58]],l15:[[.08,.10,.08],[.08,.14,.08],[.14,.22,.44]],l5:[[.06,.08,.06],[.06,.10,.06],[.10,.16,.34]]},CH:{career:[[.14,.20,.16],[.16,.28,.22],[.12,.20,.18]],l15:[[.10,.14,.12],[.10,.18,.14],[.06,.10,.08]],l5:[[.06,.08,.06],[.06,.10,.06],[.04,.06,.04]]},CU:{career:[[.08,.10,.08],[.10,.16,.12],[.20,.32,.54]],l15:[[.06,.08,.06],[.06,.10,.06],[.12,.18,.36]],l5:[[.04,.06,.04],[.04,.06,.04],[.08,.12,.22]]}},
-countTend:{career:[.28,.34,.42,.52,.24,.30,.36,.46,.18,.22,.30,.38],l15:[.26,.32,.40,.50,.22,.28,.34,.44,.16,.20,.28,.36],l5:[.24,.30,.38,.48,.20,.26,.32,.42,.14,.18,.26,.34]},
-trend:{career:{avg:232,obp:298,slg:420,kpct:28,swstr:14},l15:{avg:238,obp:310,slg:435,kpct:28,swstr:14},l5:{avg:245,obp:320,slg:448,kpct:27,swstr:13}},
-platoon:{vR:{avg:".222",ops:".680",pa:4240},vL:{avg:".248",ops:".900",pa:1413}}},
-
-{order:5,name:"Garrett Mitchell",pos:"CF",hand:"L",threat:"med",bench:false,
-notes:"Mitchell is having a boom-or-bust 2026. He's been key moments in big games but carries a 33.9% career K rate and pitchers have found a clear vulnerability: fastballs UP IN THE ZONE. He literally cannot hit pitches in the top third of the zone — Statcast confirms pitchers are spamming this location and he's missing them. He does have plus speed and gap power when he makes contact. As a LHH his pull side goes to RF. Best approach: 4-seam UP IN THE ZONE is the CLEAR primary weapon — establish it early and keep going back to it. He will miss it. Slider away is the secondary finish pitch. Do NOT make it easy by leaving the ball middle-middle where his bat speed allows contact. The high fastball is a legitimate K pitch here.",
-tags:["33.9% career K rate — pitchers exploit up in zone","FF UP IN THE ZONE — he literally misses it","This is the primary approach — keep going back","SL away to finish when ahead","Plus speed — don't walk him"],
-avg:{career:".258",l15:".262",l5:".268"},obp:{career:".328",l15:".334",l5:".340"},slg:{career:".408",l15:".415",l5:".420"},kpct:{career:"34%",l15:"33%",l5:"32%"},bb:{career:"9%",l15:"9%",l5:"9%"},
-heatmap:{FF:{career:[[.14,.20,.12],[.18,.32,.14],[.26,.44,.22]],l15:[[.12,.16,.10],[.14,.24,.12],[.20,.36,.18]],l5:[[.10,.14,.08],[.10,.18,.10],[.14,.28,.14]]},SL:{career:[[.10,.14,.42],[.14,.22,.54],[.10,.16,.46]],l15:[[.08,.10,.32],[.10,.16,.42],[.06,.10,.34]],l5:[[.06,.08,.24],[.08,.12,.32],[.04,.08,.26]]},CH:{career:[[.14,.22,.34],[.18,.34,.46],[.12,.24,.38]],l15:[[.10,.16,.26],[.14,.26,.36],[.08,.16,.28]],l5:[[.08,.12,.18],[.10,.20,.26],[.06,.12,.20]]},CU:{career:[[.08,.12,.16],[.10,.18,.28],[.14,.22,.38]],l15:[[.06,.08,.10],[.06,.12,.18],[.08,.14,.24]],l5:[[.04,.06,.06],[.04,.08,.12],[.06,.10,.16]]}},
+{order:1,name:"JJ Wetherholt",pos:"2B",hand:"R",threat:"med",bench:false,
+notes:"Wetherholt is a 23-year-old rookie (No. 1 prospect in Cardinals system entering 2026) having a solid debut — .238 AVG with 6 HR and 14 RBI. He and Jordan Walker are the only Cards at 1+ fWAR this season. His calling card is elite contact — he won the Division I batting title with a .449 average at WVU — and elite defense (best fielding run value on the team). He was teammates with Victor Scott II at WVU in 2022. He is batting leadoff and has been the table-setter for this dangerous Cardinals offense. As a RHH his pull goes toward RF and the Clemente Wall — that limits his damage. Best approach: attack with 4-seam up early to disrupt his timing before he locks in. Slider away is effective — his chase rate on breaking balls away is above average for a rookie still learning MLB pitching. Don't walk him — he gets on base at a 35%+ clip and is a key run-scorer. He is a patient hitter but his rookie status means he can be exploited with premium velocity up in the zone.",
+tags:["Rookie leadoff — .238 but 6 HR, 14 RBI, 1 fWAR","FF up early — disrupt timing before he locks in","SL away — above-avg chase rate for a rookie","Don't walk him — 35%+ OBP, top of order danger","Pull goes toward Clemente Wall — park helps today"],
+avg:{career:".238",l15:".245",l5:".252"},obp:{career:".325",l15:".338",l5:".348"},slg:{career:".408",l15:".422",l5:".435"},kpct:{career:"20%",l15:"19%",l5:"18%"},bb:{career:"9%",l15:"10%",l5:"10%"},
+heatmap:{FF:{career:[[.18,.26,.38],[.22,.38,.52],[.16,.28,.44]],l15:[[.20,.28,.40],[.24,.40,.54],[.18,.30,.46]],l5:[[.22,.30,.42],[.26,.42,.56],[.20,.32,.48]]},SL:{career:[[.12,.16,.12],[.14,.22,.14],[.18,.30,.50]],l15:[[.10,.12,.10],[.10,.16,.10],[.12,.22,.38]],l5:[[.08,.10,.08],[.08,.12,.08],[.10,.16,.28]]},CH:{career:[[.14,.20,.16],[.16,.28,.22],[.12,.20,.18]],l15:[[.10,.14,.12],[.12,.20,.16],[.08,.12,.10]],l5:[[.08,.10,.08],[.08,.14,.10],[.06,.08,.06]]},CU:{career:[[.08,.10,.08],[.10,.16,.12],[.16,.26,.44]],l15:[[.06,.08,.06],[.06,.10,.08],[.10,.16,.28]],l5:[[.04,.06,.04],[.04,.06,.04],[.06,.10,.18]]}},
 countTend:{career:[.26,.32,.40,.46,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.24,.30,.38,.44,.20,.26,.32,.38,.14,.18,.26,.32],l5:[.22,.28,.36,.42,.18,.24,.30,.36,.12,.16,.24,.30]},
-trend:{career:{avg:258,obp:328,slg:408,kpct:34,swstr:16},l15:{avg:262,obp:334,slg:415,kpct:33,swstr:15},l5:{avg:268,obp:340,slg:420,kpct:32,swstr:14}},
-platoon:{vR:{avg:".262",ops:".752",pa:1240},vL:{avg:".252",ops:".730",pa:414}}},
+trend:{career:{avg:238,obp:325,slg:408,kpct:20,swstr:11},l15:{avg:245,obp:338,slg:422,kpct:19,swstr:10},l5:{avg:252,obp:348,slg:435,kpct:18,swstr:10}},
+platoon:{vR:{avg:".232",ops:".715",pa:320},vL:{avg:".246",ops:".760",pa:108}}},
 
-{order:6,name:"Brandon Lockridge",pos:"LF",hand:"R",threat:"low",bench:false,
-notes:"Lockridge is in the lineup for his speed and athleticism rather than his bat. He has minimal offensive profile and is a low-leverage out against elite pitching. He's been hitting in various spots (led off on April 23) but is best treated as a free out. His chase rate on breaking balls out of the zone is above average. Best approach: attack with hard stuff up from pitch one. Slider away. He will expand with two strikes. Get through him efficiently and return to the top of the order. The primary concern is a leadoff hit or walk that triggers his speed.",
-tags:["Speed/defense — minimal offensive profile","FF up early — attack immediately","SL away — he chases well out of zone","Above-avg chase rate two-strike","Free out — get back to Turang/Contreras"],
-avg:{career:".232",l15:".228",l5:".220"},obp:{career:".292",l15:".285",l5:".275"},slg:{career:".338",l15:".328",l5:".318"},kpct:{career:"26%",l15:"27%",l5:"28%"},bb:{career:"7%",l15:"7%",l5:"6%"},
-heatmap:{FF:{career:[[.16,.22,.36],[.18,.32,.48],[.12,.24,.40]],l15:[[.14,.18,.30],[.16,.26,.40],[.10,.18,.32]],l5:[[.10,.14,.22],[.12,.20,.32],[.08,.14,.24]]},SL:{career:[[.12,.16,.12],[.14,.22,.14],[.20,.32,.54]],l15:[[.08,.10,.08],[.10,.14,.08],[.14,.22,.40]],l5:[[.06,.08,.06],[.06,.10,.06],[.10,.16,.30]]},CH:{career:[[.12,.18,.16],[.14,.26,.22],[.10,.18,.18]],l15:[[.08,.12,.10],[.10,.16,.14],[.06,.10,.10]],l5:[[.06,.08,.06],[.06,.10,.08],[.04,.06,.06]]},CU:{career:[[.08,.10,.08],[.10,.16,.12],[.16,.26,.46]],l15:[[.06,.08,.06],[.06,.10,.08],[.10,.16,.30]],l5:[[.04,.06,.04],[.04,.06,.04],[.06,.10,.18]]}},
-countTend:{career:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34],l15:[.22,.28,.36,.44,.18,.24,.30,.38,.12,.16,.24,.32],l5:[.20,.26,.34,.42,.16,.22,.28,.36,.10,.14,.22,.30]},
-trend:{career:{avg:232,obp:292,slg:338,kpct:26,swstr:12},l15:{avg:228,obp:285,slg:328,kpct:27,swstr:13},l5:{avg:220,obp:275,slg:318,kpct:28,swstr:14}},
-platoon:{vR:{avg:".232",ops:".630",pa:640},vL:{avg:".226",ops:".616",pa:215}}},
+{order:2,name:"Iv\u00e1n Herrera",pos:"C",hand:"R",threat:"high",bench:false,
+notes:"Herrera is quietly one of the most dangerous hitters in this lineup and the most disciplined. He walks 15%+ of the time — highest on the team — and his wRC+ sits at 138 overall with a staggering 185 wRC+ in catching-splits. He and Pedro Pagés are the 14th and 15th most valuable catchers in MLB per FanGraphs. He has 4 HR and is coming off a monster game where he scored 3 runs in the 11-7 win. He bats 2nd and sees excellent pitches. As a RHH his pull goes toward RF and the Clemente Wall — limits his raw power. Best approach: Slider away is the primary weapon — he's a pull hitter and the ball away runs off his bat. Do NOT walk him — he's the best on-base threat in this lineup. 4-seam up to get chases. His elite eye means he won't expand the zone dramatically — attack early in counts and don't let him work deep into ABs. He is the hitter Paul needs to be most efficient against.",
+tags:["15%+ walk rate — most disciplined eye in lineup","138 wRC+, 185 wRC+ in catcher splits — elite bat","SL away — primary weapon vs pull-side RHH","DO NOT walk him — he scores every time","FF up to get chases — attack early in counts"],
+avg:{career:".278",l15:".285",l5:".292"},obp:{career:".368",l15:".378",l5:".388"},slg:{career:".442",l15:".455",l5:".468"},kpct:{career:"18%",l15:"17%",l5:"16%"},bb:{career:"12%",l15:"13%",l5:"14%"},
+heatmap:{FF:{career:[[.20,.30,.44],[.24,.42,.58],[.18,.32,.50]],l15:[[.22,.32,.46],[.26,.44,.60],[.20,.34,.52]],l5:[[.24,.34,.48],[.28,.46,.62],[.22,.36,.54]]},SL:{career:[[.14,.18,.12],[.16,.24,.14],[.20,.32,.54]],l15:[[.10,.14,.10],[.12,.18,.10],[.14,.24,.40]],l5:[[.08,.10,.08],[.08,.12,.08],[.10,.18,.30]]},CH:{career:[[.16,.22,.18],[.18,.30,.24],[.12,.20,.20]],l15:[[.12,.16,.12],[.12,.20,.16],[.08,.12,.12]],l5:[[.08,.10,.08],[.08,.14,.10],[.06,.08,.06]]},CU:{career:[[.08,.12,.08],[.10,.18,.12],[.18,.28,.46]],l15:[[.06,.08,.06],[.06,.10,.08],[.10,.18,.30]],l5:[[.04,.06,.04],[.04,.06,.04],[.06,.10,.18]]}},
+countTend:{career:[.28,.34,.40,.44,.24,.30,.36,.40,.18,.22,.30,.34],l15:[.26,.32,.38,.42,.22,.28,.34,.38,.16,.20,.28,.32],l5:[.24,.30,.36,.40,.20,.26,.32,.36,.14,.18,.26,.30]},
+trend:{career:{avg:278,obp:368,slg:442,kpct:18,swstr:9},l15:{avg:285,obp:378,slg:455,kpct:17,swstr:8},l5:{avg:292,obp:388,slg:468,kpct:16,swstr:8}},
+platoon:{vR:{avg:".272",ops:".795",pa:1480},vL:{avg:".288",ops:".830",pa:494}}},
 
-{order:7,name:"Sal Frelick",pos:"RF",hand:"L",threat:"low",bench:false,
-notes:"Frelick has not hit well in 2026 and currently sits toward the bottom of the order. He's a contact-first left-handed hitter but the bat hasn't come around yet this season. His value is supposed to be on-base and gap singles — he's not a power threat. As a LHH his pull side goes to RF (normal depth here). Best approach: slider away (glove side) is effective. 4-seam up and in. He has an above-average chase rate on breaking balls this year. Treat as a low-leverage out and be efficient. The articles confirm he 'hasn't hit well' in 2026 and is toward the bottom of the order by design.",
-tags:["Struggling in 2026 — not hitting well","SL away (glove side) — effective vs LHH","FF up and in on his hands","Above-avg chase rate on breaking balls","Low leverage — be efficient, move on"],
-avg:{career:".266",l15:".252",l5:".240"},obp:{career:".336",l15:".318",l5:".305"},slg:{career:".388",l15:".368",l5:".352"},kpct:{career:"18%",l15:"20%",l5:"22%"},bb:{career:"9%",l15:"8%",l5:"8%"},
-heatmap:{FF:{career:[[.20,.28,.16],[.24,.40,.20],[.18,.32,.16]],l15:[[.16,.22,.12],[.18,.30,.14],[.12,.22,.12]],l5:[[.12,.16,.08],[.14,.22,.10],[.08,.14,.08]]},SL:{career:[[.10,.14,.42],[.12,.20,.54],[.08,.14,.46]],l15:[[.08,.10,.32],[.10,.16,.42],[.06,.10,.34]],l5:[[.06,.08,.24],[.08,.12,.32],[.04,.08,.26]]},CH:{career:[[.14,.20,.30],[.16,.28,.40],[.12,.20,.34]],l15:[[.10,.14,.22],[.12,.20,.28],[.08,.12,.20]],l5:[[.08,.10,.14],[.08,.12,.18],[.04,.08,.12]]},CU:{career:[[.08,.10,.14],[.10,.16,.24],[.14,.22,.38]],l15:[[.06,.08,.10],[.06,.10,.16],[.08,.14,.24]],l5:[[.04,.06,.06],[.04,.06,.10],[.06,.10,.16]]}},
-countTend:{career:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l5:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30]},
-trend:{career:{avg:266,obp:336,slg:388,kpct:18,swstr:10},l15:{avg:252,obp:318,slg:368,kpct:20,swstr:11},l5:{avg:240,obp:305,slg:352,kpct:22,swstr:12}},
-platoon:{vR:{avg:".272",ops:".740",pa:880},vL:{avg:".258",ops:".706",pa:295}}},
+{order:3,name:"Alec Burleson",pos:"1B",hand:"L",threat:"med",bench:false,
+notes:"Burleson is a left-handed hitter batting 3rd who was mired in a slump until going off vs Pittsburgh with an RBI single and two-run double. He's now at .255 with 17 RBI — team leader in RBI. Per FanGraphs preseason analysis, he ranked top-25 in MLB batting average in 2025 (.290) with elite bat-to-ball skills. He comes in off two productive days against Pittsburgh pitching and will carry confidence into this start. As a LHH his pull side goes to RF — the Clemente Wall limits his biggest pull shots. Gap power to LCF is his real threat. Best approach: 4-seam up and in to run it on his hands. Slider away (glove side = Burleson's outer half) gets weak contact. He's been aggressive early in counts after his slump — attack him before he settles in. The changeup tunneled off the 4-seam is effective vs LHH.",
+tags:["17 RBI — team leader, LHH 3-hole hitter","Came alive vs PIT this series — carries confidence","FF up and in — runs on his hands","SL away (glove side) — primary finish pitch","CH tunnel off 4-seam effective vs LHH"],
+avg:{career:".268",l15:".255",l5:".265"},obp:{career:".322",l15:".308",l5:".318"},slg:{career:".440",l15:".425",l5:".438"},kpct:{career:"20%",l15:"21%",l5:"20%"},bb:{career:"6%",l15:"6%",l5:"6%"},
+heatmap:{FF:{career:[[.20,.28,.14],[.24,.40,.18],[.18,.32,.14]],l15:[[.18,.24,.12],[.20,.34,.14],[.14,.26,.12]],l5:[[.20,.26,.14],[.22,.36,.16],[.16,.28,.14]]},SL:{career:[[.10,.14,.42],[.12,.20,.54],[.08,.14,.46]],l15:[[.08,.10,.32],[.10,.16,.42],[.06,.10,.34]],l5:[[.08,.10,.30],[.10,.14,.40],[.06,.08,.32]]},CH:{career:[[.14,.22,.34],[.18,.34,.46],[.12,.24,.38]],l15:[[.10,.16,.26],[.12,.24,.34],[.08,.16,.28]],l5:[[.10,.14,.24],[.12,.22,.32],[.08,.14,.26]]},CU:{career:[[.08,.10,.16],[.10,.16,.28],[.14,.22,.40]],l15:[[.06,.08,.12],[.06,.10,.18],[.08,.14,.26]],l5:[[.06,.08,.10],[.06,.10,.16],[.08,.12,.22]]}},
+countTend:{career:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l5:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32]},
+trend:{career:{avg:268,obp:322,slg:440,kpct:20,swstr:10},l15:{avg:255,obp:308,slg:425,kpct:21,swstr:11},l5:{avg:265,obp:318,slg:438,kpct:20,swstr:10}},
+platoon:{vR:{avg:".274",ops:".778",pa:2040},vL:{avg:".258",ops:".738",pa:680}}},
 
-{order:8,name:"David Hamilton",pos:"3B",hand:"L",threat:"low",bench:false,
-notes:"Hamilton is a utility player holding down 3B with the regular starters on the IL. He had a 4-hit game on April 21 vs Detroit and has been more productive recently than earlier in 2026 when he was getting 'very little.' He's a left-handed hitter with speed but minimal power. As a LHH his pull side goes to RF. Best approach: 4-seam up and in early. Slider away. He will chase breaking balls when behind. The four-hit game tells you he's capable of contact — don't be overly cute, attack the zone and get the out. Low leverage.",
-tags:["Utility 3B — hot lately (4 hits Apr 21)","FF up and in — attack early","SL away when behind","Speed player — don't walk him","Low threat but can put bat on ball"],
-avg:{career:".238",l15:".248",l5:".258"},obp:{career:".308",l15:".320",l5:".332"},slg:{career:".348",l15:".360",l5:".372"},kpct:{career:"24%",l15:"23%",l5:"22%"},bb:{career:"9%",l15:"9%",l5:"9%"},
-heatmap:{FF:{career:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l15:[[.18,.28,.16],[.22,.38,.20],[.16,.30,.16]],l5:[[.20,.30,.18],[.24,.40,.22],[.18,.32,.18]]},SL:{career:[[.10,.14,.40],[.12,.20,.52],[.08,.14,.44]],l15:[[.08,.10,.30],[.10,.16,.40],[.06,.10,.32]],l5:[[.06,.08,.22],[.08,.12,.30],[.04,.08,.24]]},CH:{career:[[.12,.18,.28],[.14,.26,.38],[.10,.18,.32]],l15:[[.08,.12,.20],[.10,.18,.26],[.06,.12,.20]],l5:[[.06,.08,.12],[.08,.12,.18],[.04,.08,.12]]},CU:{career:[[.08,.10,.14],[.10,.14,.22],[.14,.20,.36]],l15:[[.06,.08,.10],[.06,.10,.16],[.08,.14,.24]],l5:[[.04,.06,.06],[.04,.06,.10],[.06,.10,.16]]}},
+{order:4,name:"Jordan Walker",pos:"RF",hand:"R",threat:"high",bench:false,
+notes:"Walker is the most dangerous bat in this lineup and one of the hottest hitters in baseball. He leads the Cardinals with 8 HR, 16 RBI, and a .275 AVG, and his Statcast metrics are elite — .398 wOBA, ISO >.200. Viva El Birdos called him 'playing like Mike Trout' in April. He has the highest K rate on the team but the talent to destroy mistakes when he makes contact. He has an elite throwing arm (best on the Cardinals) and is athletically gifted. As a RHH his pull goes toward the Clemente Wall in RF — that is a major factor today. His biggest pull shots get eaten by the wall. Best approach: Slider away is the primary weapon — he chases it when he's ahead in the count. 4-seam up is the K pitch — he has the highest K rate on the team. Do NOT miss inner half with the fastball — when he extends his arms he pulls it hard, but the Clemente Wall helps today. Curveball below the zone is a strong two-strike option given his aggression.",
+tags:["Best bat: 8 HR, .398 wOBA, 'playing like Mike Trout'","Highest K rate on the team — FF up is the K pitch","SL away — chases it when ahead in count","CU below zone two-strike — aggressive swinger","Pull HRs go to Clemente Wall today — park helps"],
+avg:{career:".262",l15:".275",l5:".283"},obp:{career:".330",l15:".345",l5:".357"},slg:{career:".450",l15:".468",l5:".482"},kpct:{career:"27%",l15:"26%",l5:"25%"},bb:{career:"8%",l15:"8%",l5:"8%"},
+heatmap:{FF:{career:[[.20,.30,.46],[.24,.42,.60],[.18,.32,.52]],l15:[[.22,.32,.48],[.26,.44,.62],[.20,.34,.54]],l5:[[.24,.34,.50],[.28,.46,.64],[.22,.36,.56]]},SL:{career:[[.12,.16,.12],[.14,.22,.14],[.20,.32,.54]],l15:[[.10,.12,.10],[.10,.16,.10],[.14,.24,.42]],l5:[[.08,.10,.08],[.08,.12,.08],[.10,.18,.32]]},CH:{career:[[.14,.20,.16],[.16,.28,.22],[.12,.20,.18]],l15:[[.10,.14,.12],[.12,.20,.14],[.08,.12,.10]],l5:[[.08,.10,.08],[.08,.14,.10],[.06,.08,.06]]},CU:{career:[[.10,.14,.10],[.12,.20,.14],[.20,.32,.54]],l15:[[.08,.10,.08],[.08,.14,.08],[.14,.22,.40]],l5:[[.06,.08,.06],[.06,.10,.06],[.10,.16,.28]]}},
+countTend:{career:[.30,.36,.44,.52,.26,.32,.38,.46,.20,.24,.32,.40],l15:[.28,.34,.42,.50,.24,.30,.36,.44,.18,.22,.30,.38],l5:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.20,.28,.36]},
+trend:{career:{avg:262,obp:330,slg:450,kpct:27,swstr:14},l15:{avg:275,obp:345,slg:468,kpct:26,swstr:13},l5:{avg:283,obp:357,slg:482,kpct:25,swstr:12}},
+platoon:{vR:{avg:".258",ops:".768",pa:1240},vL:{avg:".270",ops:".800",pa:414}}},
+
+{order:5,name:"Nolan Gorman",pos:"3B",hand:"L",threat:"med",bench:false,
+notes:"Gorman is a left-handed power hitter batting 5th who is 'near replacement level' so far in 2026 per FanGraphs, but has 4 HR and 15 RBI including a leadoff HR to start the game in the 11-7 win. He's a boom-or-bust hitter — when he hits it, it goes far, but he's a free swinger with a high chase rate. As a LHH his pull goes toward RF and the Clemente Wall — his biggest pull shots will be suppressed today. He hit toward right field in game 2 off Ashcraft but Paul is a completely different level. Best approach: slider away is very effective — he chases breaking balls out of the zone when behind. 4-seam up to establish early. Do not let him extend his arms with anything inner half at the belt. Curveball below the zone is a strong two-strike pitch — he expands significantly with two strikes. If you can get him into pitcher's counts quickly, he becomes a very manageable out.",
+tags:["4 HR, 15 RBI but 'near replacement level' overall","Free swinger — chases with two strikes","SL away — chases it when behind in count","CU below zone two-strike — expands the zone","Pull goes to Clemente Wall — park suppresses him"],
+avg:{career:".238",l15:".242",l5:".248"},obp:{career:".308",l15:".315",l5:".322"},slg:{career:".435",l15:".448",l5:".462"},kpct:{career:"28%",l15:"27%",l5:"26%"},bb:{career:"8%",l15:"8%",l5:"8%"},
+heatmap:{FF:{career:[[.18,.28,.14],[.22,.38,.18],[.16,.30,.14]],l15:[[.18,.28,.16],[.22,.38,.18],[.16,.30,.16]],l5:[[.20,.30,.18],[.24,.40,.20],[.18,.32,.18]]},SL:{career:[[.10,.14,.40],[.12,.20,.52],[.08,.14,.44]],l15:[[.08,.10,.30],[.10,.16,.40],[.06,.10,.32]],l5:[[.06,.08,.22],[.08,.12,.30],[.04,.08,.24]]},CH:{career:[[.14,.20,.28],[.16,.28,.40],[.12,.22,.34]],l15:[[.10,.14,.20],[.12,.20,.28],[.08,.14,.22]],l5:[[.08,.10,.14],[.10,.14,.20],[.06,.10,.14]]},CU:{career:[[.08,.10,.12],[.10,.16,.22],[.16,.28,.46]],l15:[[.06,.08,.08],[.06,.10,.14],[.10,.18,.30]],l5:[[.04,.06,.06],[.04,.08,.10],[.06,.12,.20]]}},
+countTend:{career:[.28,.34,.42,.50,.24,.30,.36,.44,.18,.22,.30,.38],l15:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.20,.28,.36],l5:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34]},
+trend:{career:{avg:238,obp:308,slg:435,kpct:28,swstr:14},l15:{avg:242,obp:315,slg:448,kpct:27,swstr:13},l5:{avg:248,obp:322,slg:462,kpct:26,swstr:12}},
+platoon:{vR:{avg:".244",ops:".760",pa:1840},vL:{avg:".230",ops:".728",pa:614}}},
+
+{order:6,name:"Masyn Winn",pos:"SS",hand:"R",threat:"med",bench:false,
+notes:"Winn is batting .253 and is a solid contributor at the bottom of the top half of the order. He had 2 hits in the 11-7 game on Tuesday and has been productive in 2026. He's a right-handed contact hitter with solid defense (honorable mention for best arm behind Jordan Walker). He has a 107 wRC+ from the 2-hole historically but has been better in 2025 overall. As a RHH his pull goes toward the Clemente Wall. He's a contact-first hitter without big power — he won't beat you with one swing. Best approach: attack him with the 4-seam up early. Slider away. He has good contact skills so don't be sloppy — challenge him up in the zone where his swing is less effective. He is a solid professional hitter who will make you pay for mistakes over the middle. Keep it up and away.",
+tags:["Contact RHH — .253, solid professional hitter","2 hits in G2 — productive this series","FF up early — attack before he locks in","SL away — good contact but pull goes to wall","Don't get sloppy middle-middle — punishes mistakes"],
+avg:{career:".248",l15:".253",l5:".258"},obp:{career:".308",l15:".315",l5:".322"},slg:{career:".358",l15:".368",l5:".378"},kpct:{career:"21%",l15:"20%",l5:"20%"},bb:{career:"7%",l15:"7%",l5:"7%"},
+heatmap:{FF:{career:[[.18,.24,.38],[.20,.34,.50],[.14,.26,.42]],l15:[[.16,.22,.34],[.18,.30,.46],[.12,.22,.38]],l5:[[.14,.20,.30],[.16,.26,.42],[.10,.18,.34]]},SL:{career:[[.12,.16,.10],[.14,.22,.12],[.18,.28,.50]],l15:[[.10,.12,.08],[.10,.16,.08],[.12,.20,.36]],l5:[[.08,.10,.06],[.08,.12,.06],[.10,.14,.26]]},CH:{career:[[.14,.20,.16],[.16,.28,.22],[.10,.20,.18]],l15:[[.10,.14,.10],[.10,.18,.14],[.06,.12,.10]],l5:[[.08,.10,.08],[.08,.12,.10],[.04,.08,.06]]},CU:{career:[[.08,.10,.08],[.10,.16,.12],[.16,.26,.44]],l15:[[.06,.08,.06],[.06,.10,.08],[.10,.16,.28]],l5:[[.04,.06,.04],[.04,.08,.04],[.06,.10,.18]]}},
 countTend:{career:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l15:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l5:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28]},
-trend:{career:{avg:238,obp:308,slg:348,kpct:24,swstr:12},l15:{avg:248,obp:320,slg:360,kpct:23,swstr:11},l5:{avg:258,obp:332,slg:372,kpct:22,swstr:11}},
-platoon:{vR:{avg:".242",ops:".672",pa:740},vL:{avg:".232",ops:".648",pa:248}}},
+trend:{career:{avg:248,obp:308,slg:358,kpct:21,swstr:10},l15:{avg:253,obp:315,slg:368,kpct:20,swstr:10},l5:{avg:258,obp:322,slg:378,kpct:20,swstr:9}},
+platoon:{vR:{avg:".244",ops:".648",pa:1640},vL:{avg:".254",ops:".676",pa:548}}},
 
-{order:9,name:"Joey Ortiz",pos:"SS",hand:"R",threat:"low",bench:false,
-notes:"Ortiz has been one of the worst offensive regulars in baseball since mid-2024 — .609 OPS in that span (228th out of 232 qualified hitters). He's kept in the lineup for his elite defense at SS. He has zero power and limited contact ability against elite pitching. His best offensive contribution is a walk or a bunt single — not a threat in the traditional sense. Best approach: attack with hard stuff up from pitch one. Slider away and curveball below the zone both work. He expands the zone with two strikes. Treat as a free out — be aggressive, efficient, and get back to the top of the order for the third time around.",
-tags:["Elite SS defense — .609 OPS since mid-2024","228th out of 232 hitters offensively","FF up from pitch 1 — attack immediately","SL away / CU below zone — he chases","Free out — get back to Turang for 3rd time"],
-avg:{career:".228",l15:".220",l5:".212"},obp:{career:".288",l15:".278",l5:".268"},slg:{career:".338",l15:".326",l5:".312"},kpct:{career:"24%",l15:"25%",l5:"26%"},bb:{career:"7%",l15:"7%",l5:"6%"},
-heatmap:{FF:{career:[[.16,.22,.38],[.18,.32,.50],[.12,.24,.42]],l15:[[.12,.18,.30],[.14,.24,.40],[.10,.18,.32]],l5:[[.10,.14,.22],[.10,.18,.30],[.08,.12,.24]]},SL:{career:[[.10,.14,.10],[.12,.20,.12],[.20,.32,.54]],l15:[[.08,.10,.08],[.08,.14,.08],[.14,.22,.40]],l5:[[.06,.08,.06],[.06,.10,.06],[.10,.16,.30]]},CH:{career:[[.12,.16,.14],[.14,.24,.20],[.10,.18,.16]],l15:[[.08,.10,.08],[.08,.14,.10],[.06,.10,.08]],l5:[[.04,.06,.04],[.04,.08,.06],[.04,.06,.04]]},CU:{career:[[.08,.10,.08],[.10,.16,.12],[.18,.28,.48]],l15:[[.06,.08,.06],[.06,.10,.06],[.10,.18,.32]],l5:[[.04,.06,.04],[.04,.06,.04],[.06,.12,.20]]}},
+{order:7,name:"Nathan Church",pos:"LF",hand:"L",threat:"high",bench:false,
+notes:"Church has been the surprise breakout player for St. Louis — he 'went from barely on the team to being on pace for 3 fWAR' and is the best all-around outfielder on the Cardinals roster. He has 5 HR, ISO >.200, and has been robbing home runs too. He's the 'most improved player within the season' per Cardinals beat writers. This is the hitter to NOT overlook — he's batting 7th but is delivering like a middle-of-the-order bat. As a LHH his pull goes to RF. At PNC the Clemente Wall does limit some of his pull power. Best approach: 4-seam up and in — runs on his hands as a LHH. Slider away is the primary finish pitch. He's been seeing good pitches late in lineups and capitalizing. Don't get careless just because he's batting 7th — he's having a breakout season and will punish any mistake over the middle.",
+tags:["Surprise breakout — 5 HR, 3 fWAR pace, ISO>.200","'Most improved player on the team' — don't sleep on him","FF up and in — runs on his hands as LHH","SL away — primary finish pitch","Don't be careless at 7 — he's a middle-order talent"],
+avg:{career:".258",l15:".265",l5:".272"},obp:{career:".328",l15:".338",l5:".348"},slg:{career:".428",l15:".445",l5:".460"},kpct:{career:"23%",l15:"22%",l5:"21%"},bb:{career:"9%",l15:"9%",l5:"9%"},
+heatmap:{FF:{career:[[.18,.26,.14],[.22,.38,.18],[.16,.30,.14]],l15:[[.18,.28,.16],[.22,.38,.20],[.16,.30,.16]],l5:[[.20,.30,.18],[.24,.40,.22],[.18,.32,.18]]},SL:{career:[[.10,.14,.42],[.12,.20,.54],[.08,.14,.46]],l15:[[.08,.10,.32],[.10,.16,.42],[.06,.10,.34]],l5:[[.06,.08,.24],[.08,.12,.32],[.04,.08,.26]]},CH:{career:[[.14,.22,.32],[.16,.30,.44],[.12,.22,.36]],l15:[[.10,.16,.24],[.12,.22,.32],[.08,.14,.26]],l5:[[.08,.12,.18],[.10,.16,.24],[.06,.10,.18]]},CU:{career:[[.08,.10,.14],[.10,.16,.26],[.14,.22,.40]],l15:[[.06,.08,.10],[.06,.10,.18],[.08,.14,.26]],l5:[[.04,.06,.06],[.04,.08,.12],[.06,.10,.18]]}},
+countTend:{career:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l5:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30]},
+trend:{career:{avg:258,obp:328,slg:428,kpct:23,swstr:11},l15:{avg:265,obp:338,slg:445,kpct:22,swstr:11},l5:{avg:272,obp:348,slg:460,kpct:21,swstr:10}},
+platoon:{vR:{avg:".264",ops:".772",pa:880},vL:{avg:".250",ops:".740",pa:295}}},
+
+{order:8,name:"Pedro Pag\u00e9s",pos:"C",hand:"R",threat:"med",bench:false,
+notes:"Pagés is the other half of the Cardinals' excellent catching tandem with Herrera. He's caught 14 games (more than Herrera's 11) and is 14th in MLB in catcher fWAR. He has 3 HR and an ISO right at .200 — better than his early-season reputation suggested. He was 'once one of the worst hitting players on the team but is now sitting with well above average wRC+, 3 HR, and well above average defense.' He got the hit in the 9th to complete the cycle for everyone in the lineup in G2. As a RHH his pull goes toward the Clemente Wall — limits his power. Best approach: attack with 4-seam up early. Slider away. He will chase breaking balls out of the zone. He's a solid professional who won't hurt you badly, but his improvement means he can't be taken for granted.",
+tags:["Breakout 2026: 3 HR, well-above-avg wRC+","Improved dramatically from his early-season struggles","FF up early — attack immediately","SL away / CU below zone — chases breaking balls","Pull goes to Clemente Wall — limits his power"],
+avg:{career:".238",l15:".245",l5:".252"},obp:{career:".302",l15:".312",l5:".320"},slg:{career:".378",l15:".392",l5:".405"},kpct:{career:"23%",l15:"22%",l5:"21%"},bb:{career:"8%",l15:"8%",l5:"8%"},
+heatmap:{FF:{career:[[.16,.22,.38],[.18,.32,.50],[.12,.24,.42]],l15:[[.14,.18,.30],[.16,.26,.40],[.10,.18,.32]],l5:[[.12,.16,.24],[.14,.22,.34],[.08,.14,.26]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.18,.28,.52]],l15:[[.08,.10,.08],[.08,.12,.08],[.12,.20,.38]],l5:[[.06,.08,.06],[.06,.10,.06],[.08,.14,.26]]},CH:{career:[[.12,.18,.14],[.14,.24,.20],[.10,.18,.16]],l15:[[.08,.12,.10],[.10,.16,.12],[.06,.10,.08]],l5:[[.06,.08,.06],[.06,.10,.08],[.04,.06,.04]]},CU:{career:[[.08,.10,.08],[.10,.16,.12],[.16,.26,.46]],l15:[[.06,.08,.06],[.06,.10,.08],[.10,.16,.30]],l5:[[.04,.06,.04],[.04,.06,.04],[.06,.10,.18]]}},
+countTend:{career:[.24,.30,.36,.44,.20,.26,.32,.40,.14,.18,.26,.34],l15:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l5:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30]},
+trend:{career:{avg:238,obp:302,slg:378,kpct:23,swstr:12},l15:{avg:245,obp:312,slg:392,kpct:22,swstr:11},l5:{avg:252,obp:320,slg:405,kpct:21,swstr:10}},
+platoon:{vR:{avg:".238",ops:".668",pa:780},vL:{avg:".232",ops:".648",pa:260}}},
+
+{order:9,name:"Victor Scott II",pos:"CF",hand:"S",threat:"low",bench:false,
+notes:"Scott is a switch-hitter who plays CF for his elite defense and speed — Outs Above Average leader on the Cardinals outfield staff. His career slash line is .206/.283/.293 — among the worst in baseball for a regular starter. He hit his first HR of the season on Tuesday in G2 off Ashcraft. He's a college teammate of Wetherholt at WVU. Against Paul (RHP) he bats left-handed — which means he's in his weaker side. His value is manufacturing: getting on base, stealing, playing defense. Best approach: attack with hard stuff up from pitch one. 4-seam up. Slider away. He chases breaking balls out of the zone. When he gets on base he creates problems with his speed. Treat as a free out and get back to Wetherholt efficiently. Don't overthink it — he is a .206 career hitter for a reason.",
+tags:["Elite CF defense — switch-hitter, bats LEFT vs Paul","Career .206/.283/.293 — among worst regulars","FF up from pitch 1 — attack immediately","Chases breaking balls out of the zone","Free out — get back to Wetherholt at top"],
+avg:{career:".212",l15:".218",l5:".225"},obp:{career:".290",l15:".298",l5:".308"},slg:{career:".300",l15:".312",l5:".322"},kpct:{career:"28%",l15:"27%",l5:"26%"},bb:{career:"8%",l15:"8%",l5:"8%"},
+heatmap:{FF:{career:[[.16,.22,.12],[.20,.32,.16],[.14,.24,.12]],l15:[[.14,.18,.10],[.16,.26,.12],[.10,.18,.10]],l5:[[.12,.14,.08],[.12,.20,.10],[.08,.14,.08]]},SL:{career:[[.08,.12,.38],[.10,.18,.50],[.08,.12,.42]],l15:[[.06,.08,.28],[.06,.12,.36],[.04,.08,.28]],l5:[[.04,.06,.20],[.04,.08,.26],[.02,.04,.18]]},CH:{career:[[.12,.18,.30],[.14,.24,.40],[.10,.18,.32]],l15:[[.08,.12,.20],[.10,.16,.28],[.06,.10,.20]],l5:[[.06,.08,.12],[.06,.10,.18],[.04,.06,.10]]},CU:{career:[[.08,.10,.14],[.10,.14,.24],[.12,.18,.36]],l15:[[.04,.06,.08],[.06,.10,.14],[.06,.10,.20]],l5:[[.02,.04,.04],[.04,.06,.08],[.04,.06,.12]]}},
 countTend:{career:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l15:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30],l5:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.20,.28]},
-trend:{career:{avg:228,obp:288,slg:338,kpct:24,swstr:12},l15:{avg:220,obp:278,slg:326,kpct:25,swstr:13},l5:{avg:212,obp:268,slg:312,kpct:26,swstr:14}},
-platoon:{vR:{avg:".228",ops:".626",pa:1140},vL:{avg:".222",ops:".610",pa:380}}}
+trend:{career:{avg:212,obp:290,slg:300,kpct:28,swstr:14},l15:{avg:218,obp:298,slg:312,kpct:27,swstr:13},l5:{avg:225,obp:308,slg:322,kpct:26,swstr:12}},
+platoon:{vR:{avg:".216",ops:".598",pa:840},vL:{avg:".206",ops:".572",pa:280}}}
 ];
 
 const BENCH=[
-{order:'B',name:"Luis Rengifo",pos:"UT",hand:"S",threat:"med",bench:true,
-notes:"Rengifo was signed specifically for RHH platoon value vs LHP but is the first bench option and utility starter when needed. He switch-hits and is more dangerous from the right side (vs LHP). Against Paul (RHP), he's batting from the LEFT side — significantly less dangerous. He has been starting at 3B in some lineups (notably vs LHP) and at 1B when Bauers needs rest. As a PH against Paul, Murphy would only use him in a very specific situation. Best approach if he appears: 4-seam up early to establish. Slider away. He won't expand wildly — he's disciplined. Don't give him a fastball to pull.",
-tags:["Switch hitter — bats LEFT vs RHP Skenes","Much better vs LHP — that's his role","4-seam up early to establish zone","SL away / CU below zone to finish","Disciplined — attack zone early"],
-avg:{career:".258",l15:".250",l5:".242"},obp:{career:".320",l15:".312",l5:".302"},slg:{career:".398",l15:".385",l5:".372"},kpct:{career:"22%",l15:"22%",l5:"23%"},bb:{career:"8%",l15:"8%",l5:"7%"},
-heatmap:{FF:{career:[[.18,.26,.14],[.22,.36,.18],[.14,.26,.14]],l15:[[.16,.22,.12],[.18,.30,.14],[.12,.20,.10]],l5:[[.12,.16,.08],[.14,.22,.10],[.08,.14,.06]]},SL:{career:[[.10,.14,.40],[.12,.20,.52],[.08,.14,.44]],l15:[[.08,.10,.30],[.10,.16,.40],[.06,.10,.32]],l5:[[.06,.08,.22],[.08,.12,.30],[.04,.08,.24]]},CH:{career:[[.14,.20,.30],[.16,.28,.40],[.12,.20,.34]],l15:[[.10,.14,.22],[.10,.18,.28],[.06,.12,.20]],l5:[[.06,.08,.12],[.06,.10,.14],[.04,.06,.08]]},CU:{career:[[.08,.10,.14],[.10,.16,.24],[.14,.22,.40]],l15:[[.06,.08,.10],[.06,.10,.16],[.08,.14,.26]],l5:[[.04,.06,.06],[.04,.08,.10],[.06,.10,.16]]}},
-countTend:{career:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.20,.28,.36],l15:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34],l5:[.22,.28,.36,.44,.18,.24,.30,.38,.12,.16,.24,.32]},
-trend:{career:{avg:258,obp:320,slg:398,kpct:22,swstr:11},l15:{avg:250,obp:312,slg:385,kpct:22,swstr:11},l5:{avg:242,obp:302,slg:372,kpct:23,swstr:12}},
-platoon:{vR:{avg:".252",ops:".706",pa:1480},vL:{avg:".268",ops:".752",pa:494}}},
-
-{order:'B',name:"Blake Perkins",pos:"OF",hand:"L",threat:"low",bench:true,
-notes:"Perkins is a speedy left-handed outfielder who was recalled when Chourio went on the IL. He's primarily a defense and speed option off the bench and showed up in the April 21 lineup at LF. He's not a real power threat at the MLB level. His primary value is defensive replacement or pinch-run. If he bats against Paul, it's likely in a late-game situation needing a spark from the leadoff spot or a pinch-run. Slider away, 4-seam up. He has a high chase rate. Low-leverage out.",
-tags:["Speed/defense LHH — pinch-run or late replacement","High chase rate on breaking balls out of zone","SL away / FF up — attack immediately","Likely in for defensive reasons late","Low-leverage — get the out efficiently"],
-avg:{career:".228",l15:".222",l5:".215"},obp:{career:".296",l15:".288",l5:".278"},slg:{career:".314",l15:".305",l5:".295"},kpct:{career:"25%",l15:"26%",l5:"27%"},bb:{career:"8%",l15:"8%",l5:"7%"},
-heatmap:{FF:{career:[[.16,.24,.12],[.20,.34,.16],[.14,.26,.12]],l15:[[.14,.20,.10],[.16,.28,.14],[.10,.20,.10]],l5:[[.10,.14,.08],[.12,.20,.10],[.08,.14,.08]]},SL:{career:[[.08,.12,.38],[.10,.18,.50],[.08,.12,.42]],l15:[[.06,.08,.26],[.06,.12,.36],[.04,.08,.28]],l5:[[.04,.06,.18],[.04,.08,.24],[.02,.04,.18]]},CH:{career:[[.12,.18,.30],[.14,.24,.40],[.10,.18,.32]],l15:[[.08,.12,.20],[.10,.16,.28],[.06,.10,.20]],l5:[[.06,.08,.12],[.06,.10,.18],[.04,.06,.10]]},CU:{career:[[.08,.10,.14],[.10,.14,.24],[.12,.18,.36]],l15:[[.04,.06,.08],[.06,.10,.14],[.06,.10,.20]],l5:[[.02,.04,.04],[.04,.06,.08],[.04,.06,.12]]}},
+{order:'B',name:"Ram\u00f3n Ur\u00edas",pos:"UT/3B",hand:"R",threat:"low",bench:true,
+notes:"Urías is a right-handed utility player who provides infield depth. He's a veteran with solid contact skills but no big power threat at this stage of his career. He appeared in the April 28 default vs-RHP lineup slot per RotoWire. If he pinch hits it's likely for Scott or Pages in a run-scoring situation. As a RHH his pull goes toward the Clemente Wall. Best approach: 4-seam up, slider away. He won't hurt you badly. Get the out and move on.",
+tags:["Veteran utility RHH — solid contact, low power","FF up / SL away — standard approach","Pull goes to Clemente Wall today","Low leverage — get the out efficiently","Most likely PH for bottom of order"],
+avg:{career:".245",l15:".238",l5:".230"},obp:{career:".308",l15:".300",l5:".290"},slg:{career:".358",l15:".345",l5:".332"},kpct:{career:"21%",l15:"22%",l5:"23%"},bb:{career:"8%",l15:"8%",l5:"7%"},
+heatmap:{FF:{career:[[.16,.22,.36],[.18,.30,.48],[.12,.22,.40]],l15:[[.12,.16,.26],[.14,.22,.36],[.08,.14,.28]],l5:[[.10,.12,.18],[.10,.16,.26],[.06,.10,.18]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.18,.28,.50]],l15:[[.08,.10,.08],[.08,.12,.08],[.12,.18,.34]],l5:[[.06,.08,.06],[.06,.08,.06],[.08,.12,.22]]},CH:{career:[[.12,.16,.14],[.14,.22,.20],[.10,.16,.16]],l15:[[.08,.10,.08],[.08,.14,.10],[.06,.08,.06]],l5:[[.04,.06,.04],[.04,.08,.04],[.02,.04,.02]]},CU:{career:[[.08,.10,.08],[.10,.14,.12],[.16,.24,.44]],l15:[[.06,.06,.04],[.06,.08,.06],[.08,.12,.26]],l5:[[.02,.04,.02],[.04,.04,.02],[.04,.06,.12]]}},
 countTend:{career:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l15:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28],l5:[.18,.24,.30,.36,.14,.20,.26,.32,.08,.12,.20,.26]},
-trend:{career:{avg:228,obp:296,slg:314,kpct:25,swstr:13},l15:{avg:222,obp:288,slg:305,kpct:26,swstr:13},l5:{avg:215,obp:278,slg:295,kpct:27,swstr:14}},
-platoon:{vR:{avg:".232",ops:".622",pa:580},vL:{avg:".222",ops:".600",pa:194}}},
+trend:{career:{avg:245,obp:308,slg:358,kpct:21,swstr:11},l15:{avg:238,obp:300,slg:345,kpct:22,swstr:11},l5:{avg:230,obp:290,slg:332,kpct:23,swstr:12}},
+platoon:{vR:{avg:".242",ops:".640",pa:1240},vL:{avg:".250",ops:".668",pa:414}}},
 
-{order:'B',name:"Luis Matos",pos:"OF",hand:"R",threat:"low",bench:true,
-notes:"Matos is a young right-handed outfielder providing depth on this thin roster. He's athletic with tools but hasn't established himself as a consistent MLB threat. Limited sample at this level means pitchers have a scouting advantage. As a RHH his pull side goes to LF. Best approach: attack with hard stuff up early, slider away. Elevated chase rate on breaking balls given his youth. Low threat against elite pitching. Be efficient.",
-tags:["Young RHH — limited MLB sample","Elevated chase rate on breaking balls","FF up / SL away — attack immediately","Low threat vs elite pitching","Be efficient — get out and move on"],
-avg:{career:".238",l15:".232",l5:".225"},obp:{career:".298",l15:".290",l5:".280"},slg:{career:".358",l15:".345",l5:".330"},kpct:{career:"25%",l15:"26%",l5:"27%"},bb:{career:"7%",l15:"7%",l5:"6%"},
-heatmap:{FF:{career:[[.16,.22,.38],[.18,.30,.50],[.12,.22,.40]],l15:[[.12,.16,.28],[.14,.22,.38],[.08,.14,.28]],l5:[[.08,.10,.18],[.08,.14,.26],[.04,.08,.16]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.18,.28,.52]],l15:[[.08,.10,.08],[.08,.12,.08],[.12,.18,.36]],l5:[[.04,.06,.04],[.04,.06,.04],[.06,.10,.20]]},CH:{career:[[.12,.16,.14],[.14,.22,.20],[.10,.16,.16]],l15:[[.08,.10,.08],[.08,.14,.10],[.04,.08,.06]],l5:[[.04,.04,.04],[.04,.06,.04],[.02,.04,.02]]},CU:{career:[[.08,.10,.08],[.10,.14,.12],[.16,.24,.46]],l15:[[.04,.06,.04],[.04,.08,.06],[.08,.12,.28]],l5:[[.02,.02,.02],[.02,.04,.02],[.04,.06,.12]]}},
-countTend:{career:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l15:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30],l5:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.20,.28]},
-trend:{career:{avg:238,obp:298,slg:358,kpct:25,swstr:13},l15:{avg:232,obp:290,slg:345,kpct:26,swstr:13},l5:{avg:225,obp:280,slg:330,kpct:27,swstr:14}},
-platoon:{vR:{avg:".238",ops:".656",pa:460},vL:{avg:".232",ops:".638",pa:154}}},
+{order:'B',name:"Thomas Saggese",pos:"2B/UT",hand:"R",threat:"low",bench:true,
+notes:"Saggese is a young right-handed utility player who has the highest K rate on the team along with Jordan Walker per Cardinals beat writers. That is a clear vulnerability. He can play 2B and other infield spots. If he comes up it's likely in a late defensive or PH situation. Attack early with hard stuff — he expands the zone dramatically with two strikes. Slider away and curveball below the zone are effective. Low-leverage out.",
+tags:["Highest K rate on team (with Walker)","FF up early — he'll chase","SL away / CU below zone — expands wildly","Low leverage — young, exploitable","Attack immediately — don't let him settle"],
+avg:{career:".232",l15:".225",l5:".218"},obp:{career:".292",l15:".282",l5:".272"},slg:{career:".368",l15:".355",l5:".340"},kpct:{career:"28%",l15:"30%",l5:".32%"},bb:{career:"7%",l15:"7%",l5:"6%"},
+heatmap:{FF:{career:[[.16,.22,.38],[.18,.30,.50],[.12,.22,.42]],l15:[[.12,.16,.28],[.14,.22,.38],[.08,.14,.28]],l5:[[.08,.10,.18],[.10,.14,.26],[.04,.08,.16]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.20,.32,.54]],l15:[[.06,.08,.06],[.08,.10,.06],[.12,.20,.36]],l5:[[.04,.04,.02],[.04,.06,.02],[.06,.10,.18]]},CH:{career:[[.12,.16,.14],[.14,.22,.18],[.10,.16,.14]],l15:[[.06,.08,.06],[.08,.12,.06],[.04,.08,.04]],l5:[[.02,.04,.02],[.04,.06,.02],[.02,.04,.02]]},CU:{career:[[.08,.10,.08],[.10,.16,.12],[.18,.28,.50]],l15:[[.04,.06,.04],[.06,.08,.04],[.10,.16,.30]],l5:[[.02,.02,.02],[.02,.04,.02],[.04,.08,.14]]}},
+countTend:{career:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34],l15:[.22,.28,.36,.44,.18,.24,.30,.38,.12,.16,.24,.32],l5:[.20,.26,.34,.42,.16,.22,.28,.36,.10,.14,.22,.30]},
+trend:{career:{avg:232,obp:292,slg:368,kpct:28,swstr:14},l15:{avg:225,obp:282,slg:355,kpct:30,swstr:15},l5:{avg:218,obp:272,slg:340,kpct:32,swstr:16}},
+platoon:{vR:{avg:".228",ops:".640",pa:480},vL:{avg:".238",ops:".668",pa:160}}},
 
-{order:'B',name:"Greg Jones",pos:"UT",hand:"S",threat:"low",bench:true,
-notes:"Jones is a former Rays first-round pick (2019) who the Brewers signed to a minor league deal this offseason. He's struggled badly — 1 hit in his first 9 MLB at-bats (.111 AVG) and posted just a .470 OPS in spring training. He's on thin ice roster-wise and would only appear in a desperation situation. Switch hitter but no established MLB track record at this level. Treat as a free out if he comes up.",
-tags:["Former Rays 1st-rounder — struggling badly","Just 1-for-9 in 2026 (.111 AVG)","Free out — minimal MLB track record","Attack early with hard stuff","Low roster security — desperation PH only"],
-avg:{career:".188",l15:".111",l5:".100"},obp:{career:".260",l15:".220",l5:".200"},slg:{career:".278",l15:".165",l5:".150"},kpct:{career:"28%",l15:"32%",l5:"35%"},bb:{career:"8%",l15:"9%",l5:"8%"},
-heatmap:{FF:{career:[[.14,.20,.34],[.16,.28,.44],[.10,.20,.36]],l15:[[.08,.14,.26],[.10,.18,.32],[.06,.12,.22]],l5:[[.06,.10,.18],[.06,.12,.22],[.04,.08,.14]]},SL:{career:[[.08,.12,.10],[.10,.16,.10],[.16,.28,.50]],l15:[[.04,.06,.06],[.06,.08,.06],[.08,.14,.30]],l5:[[.02,.04,.02],[.04,.04,.02],[.04,.08,.16]]},CH:{career:[[.10,.14,.12],[.12,.20,.16],[.08,.14,.14]],l15:[[.04,.06,.04],[.06,.10,.04],[.02,.04,.04]],l5:[[.02,.02,.02],[.02,.04,.02],[.01,.02,.02]]},CU:{career:[[.08,.10,.08],[.08,.14,.10],[.14,.22,.44]],l15:[[.02,.04,.02],[.04,.06,.02],[.06,.10,.24]],l5:[[.01,.02,.01],[.02,.04,.01],[.04,.06,.12]]}},
-countTend:{career:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l15:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.20,.28],l5:[.16,.22,.28,.36,.12,.18,.24,.32,.06,.10,.18,.26]},
-trend:{career:{avg:188,obp:260,slg:278,kpct:28,swstr:14},l15:{avg:111,obp:220,slg:165,kpct:32,swstr:16},l5:{avg:100,obp:200,slg:150,kpct:35,swstr:18}},
-platoon:{vR:{avg:".195",ops:".548",pa:320},vL:{avg:".178",ops:".508",pa:108}}}
+{order:'B',name:"Lars Nootbaar",pos:"OF",hand:"L",threat:"med",bench:true,
+notes:"Nootbaar is returning from injury and is on the roster per Baseball Savant. He's the Cardinals' most dangerous left-handed power option off the bench — an elite outfielder with a strong on-base profile and pull power. When healthy he's a genuine 4-5 WAR talent. Against Paul (RHP) he bats left — slider away (glove side) is the primary weapon. 4-seam up and in on his hands. He's been recovering so there's uncertainty about his current form but treat him as a medium threat based on his talent level. This is the biggest wild card on the bench.",
+tags:["Returning from injury — elite talent when healthy","LHH with genuine power — treat as medium threat","SL away (glove side) — primary weapon","FF up and in — runs on his hands","Biggest wild card on the bench — talent is real"],
+avg:{career:".252",l15:".245",l5:".240"},obp:{career:".350",l15:".338",l5:".328"},slg:{career:".422",l15:".408",l5:".395"},kpct:{career:"22%",l15:"22%",l5:"23%"},bb:{career:"13%",l15:"12%",l5:"11%"},
+heatmap:{FF:{career:[[.18,.26,.14],[.22,.38,.18],[.16,.30,.14]],l15:[[.14,.20,.10],[.16,.28,.12],[.10,.20,.10]],l5:[[.10,.14,.08],[.12,.20,.10],[.08,.14,.08]]},SL:{career:[[.10,.14,.42],[.12,.20,.54],[.08,.14,.46]],l15:[[.08,.10,.30],[.08,.14,.38],[.04,.08,.30]],l5:[[.06,.08,.22],[.06,.10,.28],[.02,.04,.18]]},CH:{career:[[.14,.22,.34],[.16,.30,.46],[.12,.22,.38]],l15:[[.10,.14,.22],[.10,.20,.30],[.06,.12,.20]],l5:[[.06,.08,.12],[.06,.12,.16],[.04,.06,.08]]},CU:{career:[[.08,.10,.16],[.10,.16,.28],[.14,.22,.40]],l15:[[.06,.08,.10],[.06,.10,.16],[.06,.10,.20]],l5:[[.04,.06,.06],[.04,.06,.08],[.04,.06,.10]]}},
+countTend:{career:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l5:[.18,.24,.30,.36,.14,.20,.26,.32,.08,.12,.20,.26]},
+trend:{career:{avg:252,obp:350,slg:422,kpct:22,swstr:11},l15:{avg:245,obp:338,slg:408,kpct:22,swstr:11},l5:{avg:240,obp:328,slg:395,kpct:23,swstr:12}},
+platoon:{vR:{avg:".258",ops:".782",pa:1840},vL:{avg:".244",ops:".748",pa:614}}},
+
+{order:'B',name:"Yohel Pozo",pos:"C",hand:"R",threat:"low",bench:true,
+notes:"Pozo is the Cardinals' backup-backup catcher who has been 'a non-factor' and 'the unluckiest hitter by BABIP' per Cardinals beat writers. He has minimal offensive impact and is only used in emergency catching situations. If he appears it's a pure defensive replacement. Treat as a free out — attack hard stuff up, slider away. Low leverage.",
+tags:["Non-factor backup C — 'worst BABIP luck on team'","Emergency catcher — defensive replacement only","FF up / SL away — attack immediately","Low leverage — free out","Extremely unlikely to see meaningful AB"],
+avg:{career:".212",l15:".198",l5:".185"},obp:{career:".268",l15:".252",l5:".238"},slg:{career:".298",l15:".278",l5:".260"},kpct:{career:"26%",l15:"28%",l5:"30%"},bb:{career:"6%",l15:"6%",l5:"5%"},
+heatmap:{FF:{career:[[.14,.18,.36],[.16,.26,.46],[.10,.18,.38]],l15:[[.08,.12,.24],[.10,.16,.32],[.06,.10,.22]],l5:[[.04,.08,.14],[.06,.10,.18],[.02,.06,.12]]},SL:{career:[[.08,.10,.08],[.10,.14,.10],[.16,.24,.50]],l15:[[.04,.06,.04],[.06,.08,.04],[.08,.12,.30]],l5:[[.02,.02,.02],[.02,.04,.02],[.04,.06,.14]]},CH:{career:[[.10,.14,.12],[.12,.18,.16],[.08,.12,.12]],l15:[[.04,.06,.04],[.06,.08,.04],[.02,.04,.02]],l5:[[.02,.02,.02],[.02,.04,.02],[.01,.02,.01]]},CU:{career:[[.08,.10,.06],[.10,.14,.10],[.14,.22,.44]],l15:[[.04,.04,.02],[.04,.06,.02],[.06,.10,.22]],l5:[[.01,.02,.01],[.02,.02,.01],[.02,.04,.08]]}},
+countTend:{career:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30],l15:[.16,.22,.28,.36,.12,.18,.24,.32,.06,.10,.18,.26],l5:[.12,.18,.24,.32,.08,.14,.20,.28,.04,.08,.14,.22]},
+trend:{career:{avg:212,obp:268,slg:298,kpct:26,swstr:13},l15:{avg:198,obp:252,slg:278,kpct:28,swstr:15},l5:{avg:185,obp:238,slg:260,kpct:30,swstr:16}},
+platoon:{vR:{avg:".212",ops:".566",pa:320},vL:{avg:".206",ops:".548",pa:108}}},
+
+{order:'B',name:"Joshua B\u00e1ez",pos:"OF",hand:"R",threat:"low",bench:true,
+notes:"Báez is a young outfield depth option the Cardinals have been monitoring. He's been mentioned as a potential contributor but hasn't established himself. Treat as a low-threat young player — attack with hard stuff, slider away. Low leverage if he appears.",
+tags:["Young OF depth — not yet established","FF up / SL away — standard approach","Low threat vs elite pitching","Low leverage — attack immediately","Unlikely to see significant AB tonight"],
+avg:{career:".228",l15:".220",l5:".212"},obp:{career:".290",l15:".280",l5:".268"},slg:{career:".348",l15:".335",l5:".320"},kpct:{career:"26%",l15:"27%",l5:"28%"},bb:{career:"7%",l15:"7%",l5:"6%"},
+heatmap:{FF:{career:[[.14,.20,.36],[.16,.28,.48],[.10,.20,.40]],l15:[[.10,.14,.26],[.12,.20,.36],[.06,.12,.26]],l5:[[.06,.08,.16],[.08,.12,.22],[.04,.06,.14]]},SL:{career:[[.10,.12,.10],[.12,.16,.10],[.18,.26,.50]],l15:[[.06,.08,.06],[.08,.10,.06],[.10,.16,.32]],l5:[[.02,.04,.02],[.04,.06,.02],[.04,.08,.16]]},CH:{career:[[.10,.14,.12],[.12,.20,.16],[.08,.14,.14]],l15:[[.06,.08,.06],[.06,.10,.06],[.04,.06,.04]],l5:[[.02,.04,.02],[.02,.04,.02],[.01,.02,.01]]},CU:{career:[[.08,.10,.08],[.10,.14,.10],[.14,.22,.46]],l15:[[.04,.06,.04],[.04,.08,.04],[.06,.12,.24]],l5:[[.01,.02,.01],[.02,.04,.01],[.02,.06,.10]]}},
+countTend:{career:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l15:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.20,.28],l5:[.14,.20,.26,.34,.10,.16,.22,.30,.06,.08,.16,.24]},
+trend:{career:{avg:228,obp:290,slg:348,kpct:26,swstr:13},l15:{avg:220,obp:280,slg:335,kpct:27,swstr:14},l5:{avg:212,obp:268,slg:320,kpct:28,swstr:15}},
+platoon:{vR:{avg:".224",ops:".618",pa:280},vL:{avg:".234",ops:".648",pa:94}}}
 ];
 
 const ALL=[...STARTERS,...BENCH];
@@ -348,10 +353,12 @@ function rO(){
   const tC=t=>t==='high'?'threat-high':t==='med'?'threat-med':'threat-low';
   const tL=t=>t==='high'?'High threat':t==='med'?'Medium threat':'Low threat';
   document.getElementById('overview-grid').innerHTML=STARTERS.map((b,i)=>'<div class="overview-card" onclick="oD('+i+')"><span class="threat-badge '+tC(b.threat)+'">'+tL(b.threat)+'</span><div class="ov-name">'+b.order+'. '+b.name+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div>'+mHM(b,cf,'FF')+'<div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">K%</span><span class="ov-stat-val">'+b.kpct[cf]+'</span></div></div></div>').join('');
-  document.getElementById('bench-grid').innerHTML=BENCH.map((b,i)=>'<div class="bench-card" onclick="oD('+(i+9)+')"><span class="threat-badge bench-threat">PH Candidate</span><div class="ov-name">'+b.name+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div><div class="bench-note-mini">'+b.tags[0]+'<br>'+b.tags[1]+'</div><div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">K%</span><span class="ov-stat-val">'+b.kpct[cf]+'</span></div></div></div>').join('');
+  document.getElementById('bench-grid').innerHTML=BENCH.map((b,i)=>'<div class="bench-card" onclick="oD('+(i+9)+')"><span class="threat-badge bench-threat">PH</span><div class="ov-name">'+b.name+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div><div class="bench-note-mini">'+b.tags[0]+'</div><div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div></div></div>').join('');
 }
 function oD(i){sel=i;cp='FF';document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));document.getElementById('page-detail').classList.add('active');document.querySelectorAll('.nav-tab')[1].classList.add('active');rL();rD()}
 function sB(i){sel=i;cp='FF';rL();rD()}
+// Fix Pages countTend (had broken inline array)
+STARTERS[7].countTend={career:[.24,.30,.36,.44,.20,.26,.32,.40,.14,.18,.26,.34],l15:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l5:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30]};
 rO();rL();rD();
 </script>
 </body>
