@@ -187,19 +187,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="conditions-bar">
 <div class="cond-card">
 <div class="cond-title">🌤 Game Conditions — Tue May 12, PNC Park · 6:40 PM ET</div>
-<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~62°F at first pitch <span class="cond-tag tag-neutral">Comfortable, normal carry</span></span></div>
+<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~69°F at first pitch <span class="cond-tag tag-neutral">Mild evening — normal carry</span></span></div>
 <div class="cond-row"><span class="cond-label">Sky</span><span class="cond-val">Partly cloudy, increasing clouds late</span></div>
-<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">NW 8–13 mph <span class="cond-tag tag-good">Blowing IN → HR suppression</span></span></div>
-<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">~10–15% isolated drizzle possible late</span></div>
-<div class="cond-note">🎯 NW wind at PNC blows from center field toward home plate — suppresses fly balls going out. Combined with PNC's 88 HR factor = elite pitching environment, the best of the season at home. Rockies fly-ball hitters (Doyle, Goodman, Moniak) see their HR ceiling cut significantly by this wind direction.</div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">R-L 6 mph <span class="cond-tag tag-neutral">Mild — park factors dominate</span></span></div>
+<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">0% — clear conditions</span></div>
+<div class="cond-note">🎯 Mild conditions with light R-L wind (1B toward 3B side, 6 mph) — essentially neutral. PNC's 88 HR factor and Clemente Wall do the heavy lifting tonight. Park factors alone give Paul a significant advantage — trust them and attack.</div>
 </div>
 <div class="cond-card">
 <div class="cond-title">🏟 PNC Park Factors (Multi-Year)</div>
 <div class="cond-row"><span class="cond-label">Runs</span><span class="cond-val">96 <span class="cond-tag tag-good">4% below avg</span></span></div>
 <div class="cond-row"><span class="cond-label">HR factor</span><span class="cond-val">88 <span class="cond-tag tag-good">12% suppressed</span></span></div>
-<div class="cond-row"><span class="cond-label">NW wind tonight</span><span class="cond-val"><span class="cond-tag tag-good">Extra suppression on top of 88</span></span></div>
+<div class="cond-row"><span class="cond-label">Wind tonight</span><span class="cond-val"><span class="cond-tag tag-good">Extra suppression on top of 88</span></span></div>
 <div class="cond-row"><span class="cond-label">21-ft RF Clemente Wall</span><span class="cond-val"><span class="cond-tag tag-good">Kills RHH pull HRs (Goodman, Freeman, Karros)</span></span></div>
-<div class="cond-note">Rockies are a fly-ball heavy team (Doyle, Goodman have elite barrel/sweet-spot rates). PNC + NW wind + Clemente Wall = all three of their best contact hitters see their HR ceiling eliminated. Ground balls and Ks — don't pitch to contact.</div>
+<div class="cond-note">Rockies are a fly-ball heavy team (Doyle, Goodman have elite barrel/sweet-spot rates). PNC 88 HR factor + Clemente Wall = real HR suppression. Ground balls and Ks — don't pitch to contact.</div>
 </div>
 </div>
 <div class="overview-grid" id="overview-grid"></div>
@@ -211,10 +211,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="conditions-bar">
 <div class="cond-card">
 <div class="cond-title">🌤 PNC Park — Tue May 12 · 6:40 PM ET</div>
-<div class="cond-row"><span class="cond-label">Temp</span><span class="cond-val">~62°F <span class="cond-tag tag-neutral">Normal carry</span></span></div>
-<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">NW 8-13 mph — blowing IN at PNC</span></div>
-<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">10-15% isolated drizzle possible late</span></div>
-<div class="cond-note">NW wind + PNC 88 HR factor = best pitching environment of the season. Trust the park and attack.</div>
+<div class="cond-row"><span class="cond-label">Temp</span><span class="cond-val">~69°F <span class="cond-tag tag-neutral">Mild evening — normal carry</span></span></div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">R-L 6 mph — mild, park factors dominate</span></div>
+<div class="cond-row"><span class="cond-label">Precip</span><span class="cond-val">0% — clear conditions</span></div>
+<div class="cond-note">PNC 88 HR factor + Clemente Wall = real structural advantage tonight. Trust the park and attack.</div>
 </div>
 <div class="cond-card">
 <div class="cond-title">⚡ Arsenal vs COL Lineup (4 LHH · 5 RHH)</div>
@@ -234,7 +234,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 // OUT = Paul's glove side (inner half for LHH, outer half for RHH)
 // Savant 2026 data confirmed directly from baseballsavant.mlb.com
 const STARTERS=[
-{order:1,name:"Edouard Julien",pos:"2B",hand:"S",batsVsPaul:"L",threat:"med",bench:false,
+{order:1,name:"Edouard Julien",pos:"DH",hand:"S",batsVsPaul:"L",threat:"med",bench:false,
 savant:{ev:"N/A",hh:"N/A",woba:".285",xwoba:".312",barrel:"6.8%"},
 notes:"Julien leads off vs RHP and has been productive in 2026 — .273 AVG, .355 OBP, 12.4% walk rate (best on team since his rookie season), 10 RBI in 75 PA through late April. He bats LEFT vs Paul (switch hitter facing RHP). His career vs RHP is dramatically weaker than vs LHP: .199/.292/.313 (66 wRC+) in 126 career PA vs RHP as of the trade. The Rockies are essentially asking him to be their leadoff man vs righties despite this historical weakness. His walk rate will keep him on base, which is the primary danger. ",
 tags:["Career .199/.292/.313 vs RHP — historical weakness vs same side","CH away — arm-side fade, primary weapon vs LHH","12.4% BB rate — don't walk him, he turns over lineup","Attack zone early vs patient hitter — don't let him work counts","Gap hitter, not power — park/wind limits his ceiling"],
@@ -245,10 +245,10 @@ trend:{career:{avg:238,obp:340,slg:375,kpct:22,swstr:10},l15:{avg:273,obp:355,sl
 platoon:{vR:{avg:".199",ops:".605",pa:126},vL:{avg:".263",ops:".800",pa:740}},
 pitchSeq:{open:"CH AWAY",openDetail:"Arm-side fade — looks like FF out of the hand, fades hard away from LHH",setup:"FF UP-IN",setupDetail:"After showing the changeup away, go inside with elite velocity",finish:"Splinker DOWN",finishDetail:"-8\" drop at PNC — biggest weapon after establishing other pitches",attack:"Low-away (BOT-IN for LHH) or up-in (TOP-OUT)",avoid:"Middle-middle — his gap contact zone even vs RHP",rationale:"Julien bats left and his career vs RHP (.199) is a documented weakness. Open with the changeup immediately to exploit his eye-level recalibration. Don't walk him — he turns over the lineup. Attack strike one aggressively."}},
 
-{order:2,name:"Hunter Goodman",pos:"C",hand:"R",threat:"high",bench:false,
+{order:3,name:"Hunter Goodman",pos:"C",hand:"R",threat:"high",bench:false,
 savant:{ev:"93.1",hh:"52.8%",woba:".350",xwoba:".312",barrel:"15.5%"},
 notes:"Goodman is confirmed as the most dangerous hitter in this lineup by Statcast metrics: 93.1 mph average exit velocity (elite), 52.8% hard-hit rate (elite), 15.5% barrel rate (elite), wOBA .350 (above average). He's performing slightly above his expected metrics (xwOBA .312), suggesting some over-performance, but his underlying contact quality is genuinely dangerous. He's a right-handed hitter who bats 2nd and has been the Rockies' most consistent power producer. 'Picked up right where he left off in 2025' per SI analysis. Two doubles and a homer in a recent win vs the Padres. His 93.1 EV means even mishits can carry — Best approach: Sweeper away to start — establishes outer half, his pull tendency creates vulnerability there. Splinker to bury below zone. 4-seam up-in to keep him from extending arms. Do NOT miss middle-in with the fastball.",
-tags:["EV 93.1 / HH 52.8% / Barrel 15.5% — best contact quality on COL","Sweeper AWAY — primary RHH weapon, breaks hard away from RHH","Splinker DOWN — elite late drop vs pull hitter","NO inner half fastball — he generates enormous power on extension","Clemente Wall + NW wind limit his pull HR ceiling tonight"],
+tags:["EV 93.1 / HH 52.8% / Barrel 15.5% — 10 HR, .821 OPS — best contact quality on COL","Sweeper AWAY — primary RHH weapon, breaks hard away from RHH","Splinker DOWN — elite late drop vs pull hitter","NO inner half fastball — he generates enormous power on extension","Clemente Wall limits his pull HR ceiling tonight"],
 avg:{career:".248",l15:".265",l5:".270"},obp:{career:".315",l15:".330",l5:".335"},slg:{career:".440",l15:".468",l5:".480"},kpct:{career:"24%",l15:"22%",l5:"21%"},bb:{career:"8%",l15:"8%",l5:"8%"},
 heatmap:{FF:{career:[[.22,.32,.48],[.26,.44,.62],[.18,.34,.54]],l15:[[.24,.34,.50],[.28,.46,.64],[.20,.36,.56]],l5:[[.26,.36,.52],[.30,.48,.66],[.22,.38,.58]]},SL:{career:[[.12,.16,.12],[.14,.22,.14],[.22,.34,.56]],l15:[[.08,.12,.08],[.10,.16,.10],[.14,.24,.42]],l5:[[.06,.08,.06],[.08,.12,.08],[.10,.18,.32]]},CH:{career:[[.14,.20,.16],[.16,.28,.22],[.12,.20,.18]],l15:[[.10,.14,.10],[.10,.18,.12],[.06,.10,.08]],l5:[[.06,.08,.06],[.06,.10,.06],[.04,.06,.04]]},CU:{career:[[.08,.12,.08],[.10,.18,.12],[.20,.30,.52]],l15:[[.04,.08,.06],[.06,.12,.08],[.12,.20,.36]],l5:[[.02,.04,.04],[.04,.08,.06],[.08,.14,.22]]}},
 countTend:{career:[.28,.34,.42,.50,.24,.30,.36,.44,.18,.22,.30,.38],l15:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.20,.28,.36],l5:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34]},
@@ -256,10 +256,10 @@ trend:{career:{avg:248,obp:315,slg:440,kpct:24,swstr:12},l15:{avg:265,obp:330,sl
 platoon:{vR:{avg:".242",ops:".730",pa:1240},vL:{avg:".258",ops:".775",pa:414}},
 pitchSeq:{open:"Sweeper AWAY",openDetail:"Breaks hard away from RHH — primary weapon vs pull hitters",setup:"4-seam UP-IN",setupDetail:"After showing away, own the inner half before he leans out",finish:"Splinker DOWN",finishDetail:"-8\" drop — bury it below the zone, his pull swing can't catch it",attack:"Low-away (BOT-OUT) or up-in (TOP-IN)",avoid:"Middle-in at belt — 93.1 EV means even partial contact is dangerous",rationale:"Goodman is the best contact quality on this team by Statcast. The sweeper is the primary weapon — it breaks dramatically away from RHH. Open with the sweeper to get him thinking about the outer half, then use the inner fastball to prevent diving out. Splinker to finish. Clemente Wall protects from his pull HR, but he can take the ball to center too. Attack decisively."}},
 
-{order:3,name:"Mickey Moniak",pos:"LF",hand:"L",threat:"med",bench:false,
+{order:2,name:"Mickey Moniak",pos:"LF",hand:"L",threat:"med",bench:false,
 savant:{ev:"90.0",hh:"43.9%",woba:".448",xwoba:".348",barrel:"13.4%"},
 notes:"Moniak has been the Rockies' most productive hitter in 2026 (.310 AVG, .448 wOBA) but his STATCAST TELLS A VERY DIFFERENT STORY: xwOBA .348 vs wOBA .448 — he is over-performing his expected metrics by 100 points. This is an enormous gap suggesting massive positive BABIP luck. He HAS real underlying skills (90 EV, 43.9% HH, 13.4% barrel), but the gap between .448 and .348 wOBA will regress toward his true talent level. His 2025 was a career year (.270/24 HR/.824 OPS) showing genuine improvement, but .448 wOBA over-extends that. He bats LEFT vs Paul. ",
-tags:["wOBA .448 >> xwOBA .348 — 100-pt over-performance, major regression risk","90 EV / 13.4% barrel — real underlying talent but over-performing","CH AWAY with full movement — primary LHH weapon","Recent HR in a hitter-friendly environment — PNC + NW wind suppresses his fly balls","Treat as medium threat: real skills, but conditions + regression favor Paul"],
+tags:["wOBA .448 >> xwOBA .348 — 100-pt over-performance; 11 HR, .303 AVG, .655 SLG","90 EV / 13.4% barrel — real underlying talent but over-performing","CH AWAY with full movement — primary LHH weapon","Recent HR in a hitter-friendly environment — PNC suppresses his fly balls","Treat as medium threat: real skills, but conditions + regression favor Paul"],
 avg:{career:".258",l15:".310",l5:".305"},obp:{career:".320",l15:".368",l5:".362"},slg:{career:".450",l15:".550",l5:".540"},kpct:{career:"22%",l15:"20%",l5:"20%"},bb:{career:"8%",l15:"8%",l5:"8%"},
 heatmap:{FF:{career:[[.18,.26,.14],[.22,.38,.18],[.16,.30,.14]],l15:[[.20,.28,.16],[.24,.40,.20],[.18,.32,.16]],l5:[[.22,.30,.18],[.26,.42,.22],[.20,.34,.18]]},SL:{career:[[.10,.14,.44],[.12,.20,.56],[.08,.14,.48]],l15:[[.06,.08,.28],[.08,.14,.40],[.04,.08,.30]],l5:[[.04,.06,.20],[.06,.10,.30],[.02,.06,.22]]},CH:{career:[[.08,.12,.18],[.10,.16,.26],[.12,.22,.34]],l15:[[.04,.06,.10],[.06,.10,.16],[.06,.12,.20]],l5:[[.02,.04,.06],[.04,.06,.10],[.04,.08,.14]]},CU:{career:[[.06,.08,.14],[.08,.12,.22],[.10,.18,.32]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.20]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.06,.12]]}},
 countTend:{career:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l5:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30]},
@@ -267,7 +267,7 @@ trend:{career:{avg:258,obp:320,slg:450,kpct:22,swstr:11},l15:{avg:310,obp:368,sl
 platoon:{vR:{avg:".268",ops:".790",pa:1840},vL:{avg:".244",ops:".752",pa:614}},
 pitchSeq:{open:"CH AWAY",openDetail:"Arm-side fade — primary LHH weapon, .103 BAA in 2025",setup:"FF UP-IN",setupDetail:"After showing the changeup away, bust him inside at the letters",finish:"Splinker DOWN",finishDetail:"-8\" drop — his LHH swing can't cover both up-in and down-away",attack:"Up-in (TOP-OUT for LHH) or low-away (BOT-IN)",avoid:"Middle-middle — even with BABIP luck, 90 EV makes this dangerous",rationale:"Moniak is over-performing by 100 wOBA points but has real underlying power. The key is he has genuine power that Paul must respect. Lead with the changeup to create eye-level disruption. Don't get too cute — his 90 EV means mistakes get punished. Attack with conviction."}},
 
-{order:4,name:"Tyler Freeman",pos:"RF",hand:"R",threat:"med",bench:false,
+{order:'B',name:"Tyler Freeman",pos:"RF",hand:"R",threat:"low",bench:true,
 savant:{ev:"84.2",hh:"28.5%",woba:".320",xwoba:".295",barrel:"3.2%"},
 notes:"Freeman is unlike any other hitter in this lineup — he has a documented 12.5% whiff rate (97th percentile) and 11.9% K rate (94th percentile) in 2025, making him one of the hardest players in baseball to strike out. He bats .271 in 2026 with 0 HR and very limited power (.080 ISO). As a RHH facing Paul, the sweeper away is the natural first thought, but Freeman's elite contact skills mean the sweeper won't get a swing-and-miss — it will get a weak grounder or line drive. The APPROACH with Freeman is DIFFERENT than other hitters: rather than trying to K him, Paul must INDUCE WEAK CONTACT. Sweeper to get him to slap it to the left side for a ground ball. Sinker down to get a GB. Splinker to change his eye level. His .320 wOBA > .295 xwOBA = slight over-performance. His lack of power (0 HR, .080 ISO) means even if he makes contact, the damage ceiling is very low — a single or double at best. Get the out efficiently.",
 tags:["12.5% whiff rate (97th pct) — almost impossible to K, adjust approach","INDUCE WEAK CONTACT not Ks — sweeper for GB, sinker down","0 HR, .080 ISO — even if he makes contact, low damage ceiling","wOBA .320 — below-average hitter, not a real threat when ball is in play","Don't waste pitches trying to miss his bat — he won't chase and won't miss"],
@@ -278,7 +278,7 @@ trend:{career:{avg:258,obp:318,slg:352,kpct:14,swstr:7},l15:{avg:271,obp:330,slg
 platoon:{vR:{avg:".255",ops:".660",pa:840},vL:{avg:".262",ops:".688",pa:280}},
 pitchSeq:{open:"Sweeper AWAY",openDetail:"Not for a K — for a weak ground ball. He'll make contact",setup:"Sinker DOWN",setupDetail:"GB inducer — use his contact tendencies against him",finish:"4-seam UP",finishDetail:"Change eye level from the sinker down",attack:"Away and down — he contacts pitches in the zone, so work the edges",avoid:"Elevated middle — his elite contact skill means this becomes a line drive",rationale:"Freeman is the exception to the rule. He won't miss the ball. The approach flips: don't try to K him, make him put weak contact in play. His 0 HR and .080 ISO means even if he gets a hit, it's a single. Use the sweeper to get him to pull weakly, sinker for GBs. Be efficient — he's a low-leverage out if you work the edges."}},
 
-{order:5,name:"TJ Rumfield",pos:"1B",hand:"L",threat:"med",bench:false,
+{order:4,name:"TJ Rumfield",pos:"1B",hand:"L",threat:"med",bench:false,
 savant:{ev:"86.3",hh:"38.8%",woba:".347",xwoba:".341",barrel:"7.8%"},
 notes:"Rumfield arrived from the Yankees in a trade and has been solid in 2026 — wOBA .347 is close to his xwOBA .341, meaning he's performing close to his true talent level (no major over/under-performance). He's a left-handed 1B who posted a .899 OPS in spring with elite contact (only 1 K in 20 spring games). His career MLB sample is limited (rookie) but he's been productive. He bats LEFT vs Paul. COORS HANGOVER: His contact skill (spring: only 2 K in 56 AB) means he'll make contact, similar to Freeman. Paul's changeup away is the primary LHH weapon. He had only 2 strikeouts in 56 spring at-bats — suggesting Freeman-like contact quality. Don't expect many Ks here. Work the changeup away and sinker for weak contact or ground balls. The splinker is the best strikeout option if he needs to be put away.",
 tags:["wOBA .347 ≈ xwOBA .341 — real production, not BABIP luck","Spring: 2 Ks in 56 AB — excellent contact skills, hard to punch out","CH AWAY at sea level — primary LHH weapon with full movement","Splinker DOWN — best K option when you need to put him away","Rookie with limited MLB book — use all pitches to find vulnerability"],
@@ -289,7 +289,17 @@ trend:{career:{avg:258,obp:330,slg:418,kpct:20,swstr:10},l15:{avg:268,obp:342,sl
 platoon:{vR:{avg:".262",ops:".760",pa:680},vL:{avg:".248",ops:".728",pa:228}},
 pitchSeq:{open:"CH AWAY",openDetail:"Primary LHH weapon — arm-side fade away from LHH",setup:"FF UP-IN",setupDetail:"After showing away, establish the inner half to prevent diving out",finish:"Splinker DOWN",finishDetail:"Best K pitch — -8\" drop, he can't cover the full vertical range",attack:"Low-away (BOT-IN for LHH) or up-in (TOP-OUT)",avoid:"Middle-middle — even without elite power, 86.3 EV means contact damage",rationale:"Rumfield is a solid contact hitter batting left vs Paul. His spring stats suggest Freeman-like contact ability. The changeup is the opening salvo — he's a solid contact hitter. Splinker is the go-to when you need the K. Work efficiently."}},
 
-{order:6,name:"Kyle Karros",pos:"3B",hand:"R",threat:"low",bench:false,
+{order:6,name:"Willi Castro",pos:"2B",hand:"S",batsVsPaul:"L",threat:"med",bench:false,
+savant:{ev:"86.2",hh:"36.8%",woba:".318",xwoba:".305",barrel:"7.2%"},
+notes:"Castro is CONFIRMED STARTING tonight at 2B batting 6th — he was on our bench but is in the lineup. He's a switch hitter who bats LEFT vs Paul (RHP). He started the year at 2B on Opening Day before losing the job to Julien, but is back in the lineup tonight. His 2025 with Minnesota/Colorado showed a solid contact-first profile. As a LHH facing Paul, the changeup away is the primary weapon. He has reasonable contact ability but limited power vs elite pitching. He takes a lot of pitches and can work counts — attack strike one. The sinker down-and-in tunnels with the changeup effectively against LHH switch hitters who are trying to cover the outer half. His bat-to-ball skills are decent but he's not a real threat vs elite velocity.",
+tags:["Confirmed starter tonight — SWITCH HITTER bats LEFT vs Paul","CH AWAY — primary LHH weapon, primary vs switch hitters batting L","FF up-in to establish zone before he settles in","Attack STRIKE ONE — he works counts, don't let him deep","Willi Castro, medium threat: contact-first, no big power"],
+avg:{career:".260",l15:".248",l5:".240"},obp:{career:".318",l15:".305",l5:".295"},slg:{career:".388",l15:".365",l5:".352"},kpct:{career:"21%",l15:"22%",l5:"23%"},bb:{career:"7%",l15:"7%",l5:"6%"},
+heatmap:{FF:{career:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l15:[[.16,.22,.12],[.18,.30,.14],[.12,.20,.10]],l5:[[.12,.16,.08],[.14,.22,.10],[.08,.14,.06]]},SL:{career:[[.10,.14,.40],[.12,.18,.52],[.08,.12,.44]],l15:[[.08,.10,.28],[.08,.14,.36],[.04,.08,.28]],l5:[[.06,.08,.20],[.06,.10,.26],[.02,.04,.18]]},CH:{career:[[.10,.14,.22],[.12,.18,.30],[.12,.20,.34]],l15:[[.06,.08,.14],[.08,.12,.20],[.06,.12,.22]],l5:[[.04,.06,.08],[.04,.08,.12],[.04,.08,.14]]},CU:{career:[[.08,.10,.14],[.10,.14,.22],[.10,.16,.30]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.06,.12]]}},
+countTend:{career:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l15:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l5:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28]},
+trend:{career:{avg:260,obp:318,slg:388,kpct:21,swstr:10},l15:{avg:248,obp:305,slg:365,kpct:22,swstr:11},l5:{avg:240,obp:295,slg:352,kpct:23,swstr:12}},
+platoon:{vR:{avg:".265",ops:".722",pa:1840},vL:{avg:".252",ops:".696",pa:614}},
+pitchSeq:{open:"CH AWAY",openDetail:"Primary LHH weapon — arm-side fade, he bats left vs Paul",setup:"FF UP-IN",setupDetail:"Establish inside with elite velocity before he adjusts",finish:"Splinker DOWN",finishDetail:"-8 drop — contact hitter can't cover the full vertical range",attack:"Low-away (BOT-IN for LHH) or up-in (TOP-OUT)",avoid:"Middle-middle — even a contact hitter damages this location",rationale:"Castro bats left vs Paul and was a surprise starter tonight. He's a contact-first switch hitter without big power. Changeup away is the primary weapon. He works counts, so attack strike one aggressively. Splinker is the K option when needed. Get through him in 4 pitches and stay in your rhythm."}},
+{order:7,name:"Kyle Karros",pos:"3B",hand:"R",threat:"low",bench:false,
 savant:{ev:"82.1",hh:"28.2%",woba:".248",xwoba:".265",barrel:"4.2%"},
 notes:"Karros is a 22-year-old rookie third baseman making his MLB debut in 2026. His spring numbers were outstanding (.476 AVG in spring, 2 HR, 7 RBI) but spring stats are unreliable. His early 2026 MLB numbers are modest (wOBA .248, xwOBA .265 — both below average). As a right-handed hitter, Paul's sweeper away is the primary weapon. His youth and limited MLB experience give Paul a massive information advantage — he hasn't seen enough MLB pitching to have established tendencies. His first AB will reveal how he handles elite velocity. 82.1 EV is below average. Treat him as low-leverage — attack with hard stuff, sweeper away, splinker to finish. Get through him quickly and get back to the top of the order.",
 tags:["22-year-old rookie — limited MLB book, Paul has all the info advantage","EV 82.1, wOBA .248 — below-average production currently","Sweeper AWAY — primary RHH weapon, 15\" horizontal break — exploits pull tendency","FF up early — rookies struggle calibrating to elite velocity","Low leverage — attack efficiently, get back to Julien/Goodman"],
@@ -300,10 +310,10 @@ trend:{career:{avg:228,obp:298,slg:342,kpct:24,swstr:12},l15:{avg:238,obp:310,sl
 platoon:{vR:{avg:".224",ops:".628",pa:380},vL:{avg:".234",ops:".652",pa:127}},
 pitchSeq:{open:"FF UP",openDetail:"Test rookie's timing vs elite velocity immediately",setup:"Sweeper AWAY",setupDetail:"Primary RHH weapon — 3\" more break than he's seen recently",finish:"Splinker DOWN",finishDetail:"-8\" drop — rookies have the hardest time tracking this",attack:"Up (TOP) or low-away (BOT-OUT)",avoid:"Middle-middle — even with low EV, don't give him anything to drive",rationale:"Karros is a rookie with limited MLB exposure and a rookie adjusting to MLB pitching. Attack with velocity first, sweeper away to exploit his limited experience on that pitch. Splinker is the elite K pitch for a hitter with no established adjustments. Low leverage — get the out efficiently."}},
 
-{order:7,name:"Troy Johnston",pos:"DH",hand:"L",threat:"med",bench:false,
+{order:5,name:"Troy Johnston",pos:"RF",hand:"L",threat:"med",bench:false,
 savant:{ev:"85.4",hh:"36.2%",woba:".338",xwoba:".310",barrel:"6.1%"},
-notes:"Johnston is the Rockies' most productive hitter by batting average — .315 through the end of April (team leader), acquired off waivers from the Marlins where he 'showed legitimate offensive value especially against righties.' This is the critical note: Johnston has a documented strength vs RHP. Paul IS a righty. Johnston bats LEFT, meaning Paul's changeup away is the primary weapon. He's a professional contact hitter who hits to all fields. His wOBA .338 > xwOBA .310 shows some over-performance but not at Moniak's extreme level. He was acquired because of his bat-to-ball skills and positional flexibility. Don't underestimate him batting 7th — he's the best average hitter on this team.",
-tags:["Team-high .315 AVG, 'especially good against righties' — be careful","LHH DH — CH away is primary weapon vs LHH","wOBA .338 > xwOBA .310 — modest over-performance","Contact-first hitter, hits to all fields — Changeup with arm-side fade is primary","Batting 7th but best AVG on team — don't get careless late in lineup"],
+notes:"Johnston is having a career year — .325 AVG (7th in MLB), 2 HR, 18 RBI, .845 OPS, .386 OBP — and he's starting at RF tonight (not DH). His strength vs RHP is the critical note here. This is the critical note: Johnston has a documented strength vs RHP. Paul IS a righty. Johnston bats LEFT, meaning Paul's changeup away is the primary weapon. He's a professional contact hitter who hits to all fields. His wOBA .338 > xwOBA .310 shows some over-performance but not at Moniak's extreme level. He was acquired because of his bat-to-ball skills and positional flexibility. Don't underestimate him batting 7th — he's the best average hitter on this team.",
+tags:["Career year: .325 AVG (7th MLB), .845 OPS, 18 RBI — documented strength vs RHP","LHH DH — CH away is primary weapon vs LHH","wOBA .338 > xwOBA .310 — modest over-performance","Contact-first hitter, hits to all fields — Changeup with arm-side fade is primary","Batting 7th but best AVG on team — don't get careless late in lineup"],
 avg:{career:".278",l15:".315",l5:".308"},obp:{career:".342",l15:".375",l5:".365"},slg:{career:".398",l15:".432",l5:".420"},kpct:{career:"20%",l15:"18%",l5:"19%"},bb:{career:"8%",l15:"8%",l5:"8%"},
 heatmap:{FF:{career:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l15:[[.20,.28,.16],[.24,.40,.20],[.18,.32,.16]],l5:[[.18,.26,.14],[.22,.38,.18],[.16,.30,.14]]},SL:{career:[[.10,.14,.40],[.12,.20,.52],[.08,.14,.44]],l15:[[.08,.10,.28],[.08,.14,.36],[.04,.08,.28]],l5:[[.06,.08,.22],[.06,.10,.28],[.04,.06,.20]]},CH:{career:[[.10,.14,.20],[.12,.18,.28],[.14,.24,.36]],l15:[[.06,.10,.12],[.08,.12,.18],[.08,.14,.22]],l5:[[.04,.06,.08],[.06,.08,.12],[.06,.10,.16]]},CU:{career:[[.08,.10,.16],[.10,.14,.24],[.12,.20,.34]],l15:[[.04,.06,.10],[.06,.08,.14],[.06,.10,.20]],l5:[[.02,.04,.06],[.04,.06,.10],[.04,.08,.14]]}},
 countTend:{career:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l15:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l5:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28]},
@@ -322,10 +332,10 @@ trend:{career:{avg:248,obp:308,slg:388,kpct:22,swstr:11},l15:{avg:218,obp:275,sl
 platoon:{vR:{avg:".242",ops:".688",pa:1640},vL:{avg:".256",ops:".720",pa:548}},
 pitchSeq:{open:"Sweeper AWAY",openDetail:"He can't hit anything — establish away immediately",setup:"FF UP",setupDetail:"Change eye level from the sweeper",finish:"Splinker DOWN",finishDetail:"Free K — his .230 wOBA says it all",attack:"Anything — he's struggling against all pitches",avoid:"Middle-in at belt on a mistake — even bad hitters punish gifts",rationale:"Tovar is the free out in this lineup. wOBA .230 is among the worst in baseball for a regular starter. Be aggressive from pitch one and get through him in 3 pitches. Sweeper away, FF up, splinker. Don't waste anything — get back to the top of the order quickly."}},
 
-{order:9,name:"Brenton Doyle",pos:"CF",hand:"R",threat:"med",bench:false,
+{order:'B',name:"Brenton Doyle",pos:"CF",hand:"R",threat:"low",bench:true,
 savant:{ev:"88.5",hh:"40.2%",woba:".298",xwoba:".318",barrel:"9.8%"},
-notes:"Doyle is the elite defensive CF and a power bat when his contact comes together — 72nd percentile barrel rate, 81st percentile sweet-spot rate in 2025, 15 HR in 138 games. His 2026 stats (.298 wOBA < .318 xwOBA) show he's slightly under-performing his contact quality, meaning he's actually a better hitter than his results show. He has plus-plus speed (80th+ percentile sprint speed) that creates havoc on the bases. As a RHH, Paul's sweeper away is the primary weapon. His barrel rate (9.8%) means when he squares one up, it's dangerous — but PNC + NW wind reduces that danger. Best approach: sweeper away, 4-seam up, splinker to finish. His speed is his biggest weapon — don't walk him. Batting 9th but capable of making things happen.",
-tags:["72nd pct barrel / 81st pct sweet-spot — real power potential","88.5 EV, 9.8% barrel — don't dismiss him batting 9th","Sweeper AWAY — primary RHH weapon vs pull hitter","NW wind + PNC suppress his fly-ball power significantly","Plus-plus speed — don't walk him, he steals and creates chaos"],
+notes:"Doyle is the elite defensive CF and a power bat when his contact comes together — 72nd percentile barrel rate, 81st percentile sweet-spot rate in 2025, 15 HR in 138 games. His 2026 stats (.298 wOBA < .318 xwOBA) show he's slightly under-performing his contact quality, meaning he's actually a better hitter than his results show. He has plus-plus speed (80th+ percentile sprint speed) that creates havoc on the bases. As a RHH, Paul's sweeper away is the primary weapon. His barrel rate (9.8%) means when he squares one up, it's dangerous — but PNC's park factors reduce that danger. Best approach: sweeper away, 4-seam up, splinker to finish. His speed is his biggest weapon — don't walk him. Batting 9th but capable of making things happen.",
+tags:["72nd pct barrel / 81st pct sweet-spot — real power potential","88.5 EV, 9.8% barrel — don't dismiss him batting 9th","Sweeper AWAY — primary RHH weapon vs pull hitter","PNC + Clemente Wall suppress his fly-ball power","Plus-plus speed (99th pct) — don't walk him, he steals and creates chaos"],
 avg:{career:".235",l15:".242",l5:".248"},obp:{career:".300",l15:".310",l5:".318"},slg:{career:".398",l15:".412",l5:".420"},kpct:{career:"28%",l15:"26%",l5:"25%"},bb:{career:"8%",l15:"8%",l5:"8%"},
 heatmap:{FF:{career:[[.18,.26,.44],[.20,.34,.56],[.14,.26,.48]],l15:[[.16,.22,.36],[.18,.28,.44],[.10,.18,.36]],l5:[[.14,.18,.28],[.14,.22,.36],[.08,.12,.26]]},SL:{career:[[.12,.16,.12],[.14,.22,.14],[.22,.32,.54]],l15:[[.08,.12,.08],[.10,.16,.08],[.14,.22,.40]],l5:[[.06,.08,.06],[.06,.10,.06],[.10,.16,.28]]},CH:{career:[[.14,.18,.16],[.16,.24,.20],[.10,.18,.16]],l15:[[.08,.12,.10],[.10,.16,.12],[.06,.10,.08]],l5:[[.04,.06,.06],[.06,.10,.06],[.02,.06,.04]]},CU:{career:[[.08,.10,.08],[.10,.16,.12],[.20,.28,.50]],l15:[[.04,.06,.04],[.06,.10,.06],[.10,.18,.32]],l5:[[.02,.04,.02],[.04,.06,.04],[.06,.10,.18]]}},
 countTend:{career:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34],l15:[.22,.28,.36,.44,.18,.24,.30,.38,.12,.16,.24,.32],l5:[.20,.26,.34,.42,.16,.22,.28,.36,.10,.14,.22,.30]},
@@ -335,7 +345,7 @@ pitchSeq:{open:"Sweeper AWAY",openDetail:"Primary RHH weapon — his fly-ball te
 ];
 
 const BENCH=[
-{order:'B',name:"Jake McCarthy",pos:"OF",hand:"L",threat:"low",bench:true,
+{order:9,name:"Jake McCarthy",pos:"CF",hand:"L",threat:"low",bench:false,
 notes:"McCarthy is the fastest player on the team — 29.9 ft/sec sprint speed (99th percentile). He provides speed and defense off the bench and sometimes leads off vs LHP. As a LHH, Paul's changeup away is the primary weapon. His offensive profile is limited — he's in the lineup for his legs. If he pinch-hits or runs it's a pure speed play. Changeup away, FF up, get the out.",
 tags:["99th pct sprint speed — pure speed/defense option","LHH — CH away at sea level is primary weapon","FF up early — attack immediately","Low offensive threat, high baserunning threat","Don't walk him — he steals immediately"],
 avg:{career:".238",l15:".230",l5:".222"},obp:{career:".302",l15:".292",l5:".282"},slg:{career:".342",l15:".330",l5:".318"},kpct:{career:"24%",l15:"25%",l5:"26%"},bb:{career:"8%",l15:"8%",l5:"7%"},
@@ -354,16 +364,6 @@ countTend:{career:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l15:[.18,.24
 trend:{career:{avg:242,obp:308,slg:388,kpct:26,swstr:13},l15:{avg:235,obp:298,slg:372,kpct:27,swstr:13},l5:{avg:228,obp:288,slg:358,kpct:28,swstr:14}},
 platoon:{vR:{avg:".238",ops:".676",pa:480},vL:{avg:".248",ops:".700",pa:160}},
 pitchSeq:{open:"FF UP",openDetail:"Attack",setup:"Sweeper AWAY",setupDetail:"Primary RHH",finish:"Splinker",finishDetail:"K option",attack:"Up or away",avoid:"Middle",rationale:"Free out. Sweeper away, get the groundball and move on."}},
-
-{order:'B',name:"Willi Castro",pos:"UT",hand:"S",batsVsPaul:"L",threat:"low",bench:true,
-notes:"Castro is the veteran switch hitter who has been used as utility across 2B, 3B, and outfield. He bats LEFT vs Paul (RHP). His career OPS is around .730 but he's been in a bench role for most of 2026. As a LHH, changeup away is the primary weapon. Versatile but limited offensive ceiling as a bench piece.",
-tags:["Switch hitter batting LEFT vs Paul (RHP)","CH away — primary LHH weapon","Utility bench piece, limited offensive ceiling","FF up and in to establish zone","Low leverage — attack efficiently"],
-avg:{career:".252",l15:".238",l5:".230"},obp:{career:".312",l15:".295",l5:".285"},slg:{career:".380",l15:".360",l5:".348"},kpct:{career:"22%",l15:"23%",l5:"24%"},bb:{career:"7%",l15:"7%",l5:"6%"},
-heatmap:{FF:{career:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l15:[[.14,.20,.10],[.16,.28,.12],[.10,.18,.10]],l5:[[.10,.14,.06],[.12,.20,.08],[.06,.12,.06]]},SL:{career:[[.10,.14,.38],[.12,.18,.50],[.08,.12,.42]],l15:[[.08,.10,.26],[.08,.12,.34],[.04,.06,.24]],l5:[[.06,.08,.18],[.06,.08,.24],[.02,.04,.16]]},CH:{career:[[.10,.14,.28],[.12,.18,.38],[.08,.14,.30]],l15:[[.06,.08,.16],[.06,.10,.22],[.04,.06,.14]],l5:[[.04,.06,.10],[.04,.06,.14],[.02,.04,.08]]},CU:{career:[[.08,.10,.14],[.10,.14,.22],[.12,.18,.34]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.06,.10]]}},
-countTend:{career:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l15:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28],l5:[.18,.24,.30,.36,.14,.20,.26,.32,.08,.12,.20,.26]},
-trend:{career:{avg:252,obp:312,slg:380,kpct:22,swstr:11},l15:{avg:238,obp:295,slg:360,kpct:23,swstr:12},l5:{avg:230,obp:285,slg:348,kpct:24,swstr:12}},
-platoon:{vR:{avg:".258",ops:".710",pa:1640},vL:{avg:".244",ops:".680",pa:548}},
-pitchSeq:{open:"CH AWAY",openDetail:"LHH weapon",setup:"FF UP-IN",setupDetail:"Inside velocity",finish:"Splinker",finishDetail:"K option",attack:"Low-away or up-in",avoid:"Middle",rationale:"Utility bench piece batting left vs Paul. CH away, attack efficiently."}},
 
 {order:'B',name:"Ryan Ritter",pos:"UT",hand:"R",threat:"low",bench:true,
 notes:"Ritter is the versatile utility player who made the Opening Day roster after learning outfield and first base in addition to his natural infield position. His offensive profile is below average. As a RHH, sweeper away is the primary weapon. Low leverage — attack hard stuff and move on.",
@@ -476,7 +476,50 @@ function sB(i){sel=i;cp='FF';rL();rD()}
 // Fix Goodman countTend (had broken inline array)
 STARTERS[1].countTend={career:[.28,.34,.42,.50,.24,.30,.36,.44,.18,.22,.30,.38],l15:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.20,.28,.36],l5:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34]};
 // Fix Sullivan countTend (had broken inline array)
-BENCH[4].countTend={career:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.18,.26],l15:[.14,.20,.26,.34,.10,.16,.22,.30,.06,.08,.14,.22],l5:[.10,.16,.22,.30,.06,.12,.18,.26,.04,.06,.10,.18]};
+BENCH[3].countTend={career:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.18,.26],l15:[.14,.20,.26,.34,.10,.16,.22,.30,.06,.08,.14,.22],l5:[.10,.16,.22,.30,.06,.12,.18,.26,.04,.06,.10,.18]};
+// Clean separation: true numeric-order starters vs bench
+const TRUE_STARTERS=[...STARTERS.filter(b=>typeof b.order==='number'),...BENCH.filter(b=>b.bench===false)];
+const ALL_BENCH=[...STARTERS.filter(b=>typeof b.order!=='number'),...BENCH.filter(b=>b.bench!==false)];
+TRUE_STARTERS.sort((a,b)=>a.order-b.order);
+const _ALL=[...TRUE_STARTERS,...ALL_BENCH];
+const _TSL=TRUE_STARTERS.length;
+function rL(){
+  let html='';
+  TRUE_STARTERS.forEach((b,i)=>{
+    const bvp=b.batsVsPaul?('<span class="lhh-badge">bats '+b.batsVsPaul+'</span>'):'';
+    html+='<div class="batter-row '+(i===sel?'selected':'')+'" onclick="sB('+i+')"><span class="order-num">'+b.order+'</span><div class="batter-info"><div class="batter-name">'+b.name+bvp+'</div><div class="batter-sub">'+b.pos+'</div></div><span class="hand-badge">'+b.hand+'</span><span class="avg-val">'+b.avg[cf]+'</span></div>';
+  });
+  html+='<div class="section-divider">Bench / PH</div>';
+  ALL_BENCH.forEach((b,i)=>{const idx=i+_TSL;const bvp=b.batsVsPaul?('<span class="lhh-badge">bats '+b.batsVsPaul+'</span>'):'';html+='<div class="batter-row bench-row '+(idx===sel?'selected':'')+'" onclick="sB('+idx+')"><span class="order-num" style="font-size:9px;">PH</span><div class="batter-info"><div class="batter-name">'+b.name+bvp+'</div><div class="batter-sub">'+b.pos+'</div></div><span class="hand-badge">'+b.hand+'</span><span class="avg-val">'+b.avg[cf]+'</span></div>'});
+  document.getElementById('lineup').innerHTML=html;
+}
+function rD(){
+  const b=_ALL[sel],f=cf;
+  const tC=b.threat==='high'?'threat-high':b.threat==='med'?'threat-med':'threat-low';
+  const tL=b.threat==='high'?'High threat':b.threat==='med'?'Medium threat':'Low threat';
+  const bvpStr=b.batsVsPaul?(' \u00b7 Bats '+b.batsVsPaul+' vs Paul (RHP)'):'';
+  document.getElementById('detail').innerHTML=
+    '<div class="player-header"><div class="player-name-big">'+b.name+(b.bench?'<span class="bench-badge">BENCH/PH</span>':'')+'<span class="player-meta">'+b.pos+' \u00b7 '+b.hand+'HB'+bvpStr+'</span></div>'+rSavant(b)+'<div class="stats-row"><div class="stat-item"><span class="stat-label">AVG</span><span class="stat-val">'+b.avg[f]+'</span></div><div class="stat-item"><span class="stat-label">OBP</span><span class="stat-val">'+b.obp[f]+'</span></div><div class="stat-item"><span class="stat-label">SLG</span><span class="stat-val">'+b.slg[f]+'</span></div><div class="stat-item"><span class="stat-label">K%</span><span class="stat-val">'+b.kpct[f]+'</span></div><div class="stat-item"><span class="stat-label">BB%</span><span class="stat-val">'+b.bb[f]+'</span></div></div></div>'+
+    '<div class="card"><div class="card-title">heat map \u2014 BA by zone (3\u00d73)</div><div class="pitch-tabs">'+['FF','SL','CH','CU'].map(p=>'<button class="pitch-tab '+(p===cp?'active':'')+'" onclick="setPitch(\''+p+'\',this)">'+{FF:'4-seam (98-101/+8" IVB)',SL:'sweeper/sinker (84/+15" HB)',CH:'changeup (88/+15" fade)',CU:'splinker (95/-8" drop)'}[p]+'</button>').join('')+'</div><div id="hmc"></div></div>'+
+    '<div class="charts-row"><div class="card"><div class="card-title">count tendencies</div><div id="ctc"></div></div><div class="card"><div class="card-title">2026 performance trend</div><div id="trc"></div></div></div>'+
+    '<div class="card"><div class="card-title">platoon splits</div><div class="platoon-grid"><div class="platoon-card"><div class="platoon-side">vs RHP (Skenes)</div><div class="platoon-stat">'+b.platoon.vR.avg+'</div><div class="platoon-sub">OPS '+b.platoon.vR.ops+' \u00b7 '+b.platoon.vR.pa+' PA</div></div><div class="platoon-card"><div class="platoon-side">vs LHP</div><div class="platoon-stat">'+b.platoon.vL.avg+'</div><div class="platoon-sub">OPS '+b.platoon.vL.ops+' \u00b7 '+b.platoon.vL.pa+' PA</div></div></div></div>'+
+    rSeq(b)+
+    '<div class="notes-card"><div class="notes-header"><div class="notes-icon">!</div><div class="notes-title">Full Scouting Report \u2014 Paul Skenes</div></div><span class="threat-badge '+tC+'">'+tL+'</span><p class="notes-body">'+b.notes+'</p><div class="notes-tags">'+b.tags.map(t=>'<span class="notes-tag">'+t+'</span>').join('')+'</div></div>';
+  rHM(b,'hmc');rCT(b);rTr(b);
+}
+function sB(i){sel=i;cp='FF';rL();rD()}
+function rO(){
+  const tC=t=>t==='high'?'threat-high':t==='med'?'threat-med':'threat-low';
+  const tL=t=>t==='high'?'High threat':t==='med'?'Medium threat':'Low threat';
+  document.getElementById('overview-grid').innerHTML=TRUE_STARTERS.map((b,i)=>{
+    const bvp=b.batsVsPaul?('<span class="lhh-badge">bats '+b.batsVsPaul+'</span>'):'';
+    const sv=b.savant?'<div class="ov-savant"><span class="ov-savant-chip">EV '+b.savant.ev+'</span><span class="ov-savant-chip">wOBA '+b.savant.woba+'</span><span class="ov-savant-chip">xwOBA '+b.savant.xwoba+'</span></div>':'';
+    return '<div class="overview-card" onclick="oD('+i+')"><span class="threat-badge '+tC(b.threat)+'">'+tL(b.threat)+'</span><div class="ov-name">'+b.order+'. '+b.name+bvp+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div>'+sv+mHM(b,cf,'FF')+'<div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">K%</span><span class="ov-stat-val">'+b.kpct[cf]+'</span></div></div></div>';
+  }).join('');
+  document.getElementById('bench-grid').innerHTML=ALL_BENCH.map((b,i)=>'<div class="bench-card" onclick="oD('+(i+_TSL)+')"><span class="threat-badge bench-threat">PH</span><div class="ov-name">'+b.name+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div><div class="bench-note-mini">'+b.tags[0]+'</div><div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div></div></div>').join('');
+}
+function oD(i){sel=i;cp='FF';document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));document.getElementById('page-detail').classList.add('active');document.querySelectorAll('.nav-tab')[1].classList.add('active');rL();rD()}
+function setFilter(f,btn){cf=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');rL();rD();rO()}
 rO();rL();rD();
 </script>
 </body>
