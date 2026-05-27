@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Skenes vs TOR — Pregame Scout</title>
+<title>Skenes vs CHC — Pregame Scout</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f8f7f4;--surface:#fff;--surface2:#f1f0ec;--border:rgba(0,0,0,.10);--border2:rgba(0,0,0,.18);--text:#1a1a18;--text2:#6b6b66;--text3:#a0a09a;--accent:#003E7E;--accent2:#E8291C;--radius:10px;--radius-sm:6px}
+:root{--bg:#f8f7f4;--surface:#fff;--surface2:#f1f0ec;--border:rgba(0,0,0,.10);--border2:rgba(0,0,0,.18);--text:#1a1a18;--text2:#6b6b66;--text3:#a0a09a;--accent:#003279;--accent2:#CC3433;--radius:10px;--radius-sm:6px}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 .nav{background:var(--accent);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}
 .nav-brand{display:flex;align-items:center;gap:10px}
@@ -30,12 +30,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .pitch-pill-name{font-size:10px;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:2px}
 .pitch-pill-usage{font-size:16px;font-weight:700;color:white;margin-bottom:1px}
 .pitch-pill-velo{font-size:9px;color:rgba(255,255,255,.6)}
-.pitch-pill-spin{font-size:8px;color:rgba(255,255,255,.5)}
 .pitch-pill-move{font-size:9px;color:#aacfff;font-weight:600;margin-top:2px}
-.pitch-pill-hand{font-size:9px;color:#E8291C;font-weight:600;margin-top:1px}
-.pitch-pill.sinker-highlight{background:rgba(232,41,28,.25);border:1px solid rgba(232,41,28,.5)}
-.alert-banner{background:rgba(232,41,28,.08);border:1px solid rgba(232,41,28,.3);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:12px;font-size:12px;color:#6a000a;line-height:1.55}
-.turf-banner{background:rgba(0,62,126,.07);border:1px solid rgba(0,62,126,.25);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:12px;font-size:12px;color:#001a3a;line-height:1.55}
+.pitch-pill-hand{font-size:9px;color:#CC3433;font-weight:600;margin-top:1px}
+.pitch-pill.sinker-pill{background:rgba(204,52,51,.25);border:1px solid rgba(204,52,51,.5)}
+.bounce-banner{background:rgba(0,50,121,.07);border:1px solid rgba(0,50,121,.25);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:12px;font-size:12px;color:#001a4a;line-height:1.55}
+.night-banner{background:rgba(15,15,40,.85);border:1px solid rgba(100,130,255,.4);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:12px;font-size:12px;color:#d0d8ff;line-height:1.55}
+.alert-banner{background:rgba(204,52,51,.08);border:1px solid rgba(204,52,51,.3);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:12px;font-size:12px;color:#5a0010;line-height:1.55}
+.wall-banner{background:rgba(39,153,34,.08);border:1px solid rgba(39,153,34,.3);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:12px;font-size:12px;color:#0a3200;line-height:1.55}
 .conditions-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .cond-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
 .cond-title{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
@@ -43,10 +44,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .cond-label{font-size:12px;color:var(--text2)}
 .cond-val{font-size:12px;font-weight:600;color:var(--text)}
 .cond-tag{font-size:10px;padding:2px 7px;border-radius:8px;font-weight:600}
-.tag-good{background:rgba(99,153,34,.15);color:#2a5200}
+.tag-good{background:rgba(39,153,34,.15);color:#0a3200}
 .tag-warn{background:rgba(250,199,117,.35);color:#7a5000}
 .tag-neutral{background:var(--surface2);color:var(--text2)}
-.tag-dome{background:rgba(0,62,126,.1);color:#001a3a}
+.tag-night{background:rgba(15,15,80,.15);color:#001060}
 .cond-note{font-size:11px;color:var(--text2);margin-top:6px;padding-top:6px;border-top:1px solid var(--border);line-height:1.5}
 .detail-layout{display:grid;grid-template-columns:220px 1fr;gap:16px}
 .lineup-list{display:flex;flex-direction:column;gap:4px}
@@ -61,11 +62,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .batter-sub{font-size:11px;color:var(--text2)}
 .hand-badge{font-size:10px;padding:2px 5px;border-radius:4px;background:var(--surface2);color:var(--text2);flex-shrink:0;font-weight:500}
 .avg-val{font-size:12px;color:var(--text);font-weight:600;flex-shrink:0}
+.lhh-badge{font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(99,153,34,.15);color:#0a3200;font-weight:600;margin-left:4px;vertical-align:middle}
 .detail-panel{display:flex;flex-direction:column;gap:14px}
 .player-header{padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
 .player-name-big{font-size:20px;font-weight:700;color:var(--text)}
 .player-meta{font-size:13px;color:var(--text2);font-weight:400;margin-left:8px}
-.bench-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(232,41,28,.1);color:var(--accent2);font-weight:600;margin-left:8px;vertical-align:middle}
+.bench-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(204,52,51,.1);color:var(--accent2);font-weight:600;margin-left:8px;vertical-align:middle}
 .savant-row{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
 .savant-pill{background:var(--surface2);border-radius:6px;padding:4px 8px}
 .savant-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.04em}
@@ -91,34 +93,43 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .platoon-side{font-size:11px;color:var(--text2);margin-bottom:4px;font-weight:500}
 .platoon-stat{font-size:17px;font-weight:700;color:var(--text)}
 .platoon-sub{font-size:10px;color:var(--text2);margin-top:2px}
-.narrative-card{background:#eef4ff;border:1px solid #99bde8;border-radius:var(--radius);padding:14px 16px}
+.narrative-card{background:#f0f4ff;border:1px solid #99b0e0;border-radius:var(--radius);padding:14px 16px}
 .narrative-header{display:flex;align-items:center;gap:8px;margin-bottom:12px}
 .narrative-icon{width:22px;height:22px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;color:white;font-weight:700;flex-shrink:0}
-.narrative-title{font-size:11px;font-weight:700;color:#001a3a;text-transform:uppercase;letter-spacing:.06em}
-.narrative-through{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,.08)}
+.narrative-title{font-size:11px;font-weight:700;color:#001a4a;text-transform:uppercase;letter-spacing:.06em}
+.narrative-through{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(0,0,0,.08)}
 .narrative-through:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
 .through-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;display:flex;align-items:center;gap:6px}
-.through-label-1{color:#003E7E}
+.through-label-1{color:#003279}
 .through-label-2{color:#7a5000}
-.through-label-3{color:#2a5200}
+.through-label-3{color:#0a3200}
 .through-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.through-dot-1{background:#003E7E}
-.through-dot-2{background:#E8291C}
+.through-dot-1{background:#003279}
+.through-dot-2{background:#CC3433}
 .through-dot-3{background:#639922}
 .through-text{font-size:12px;color:#001a3a;line-height:1.65}
-.through-key{font-size:11px;font-weight:700;color:var(--accent);margin-top:5px;padding-top:4px;border-top:1px dashed rgba(0,62,126,.2)}
-.notes-card{background:#fff3f0;border:1px solid #e8b0a0;border-radius:var(--radius);padding:13px 15px}
+.through-key{font-size:11px;font-weight:700;color:var(--accent);margin-top:5px}
+.cpm-box{background:rgba(0,50,121,.06);border:1px solid rgba(0,50,121,.2);border-radius:6px;padding:8px 11px;margin-top:8px}
+.cpm-label{font-size:9px;font-weight:700;color:#003279;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.cpm-text{font-size:11px;color:#001a4a;line-height:1.55}
+.cp-tag{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;font-weight:700;margin:0 2px}
+.cp-handle{background:rgba(204,52,51,.12);color:#8a0010}
+.cp-tip{background:rgba(250,150,50,.15);color:#7a4000}
+.cp-top{background:rgba(0,50,121,.12);color:#001a4a}
+.cp-bottom{background:rgba(39,153,34,.12);color:#0a3200}
+.cp-miss{background:rgba(80,80,80,.1);color:#333}
+.notes-card{background:#fff5f5;border:1px solid #e8b0a0;border-radius:var(--radius);padding:13px 15px}
 .notes-header{display:flex;align-items:center;gap:8px;margin-bottom:9px}
 .notes-icon{width:20px;height:20px;border-radius:50%;background:var(--accent2);display:flex;align-items:center;justify-content:center;font-size:11px;color:white;font-weight:700;flex-shrink:0}
 .notes-title{font-size:11px;font-weight:600;color:#5a0010;text-transform:uppercase;letter-spacing:.06em}
 .notes-body{font-size:13px;color:#2a0010;line-height:1.65}
 .notes-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
-.notes-tag{font-size:11px;padding:3px 9px;border-radius:12px;background:rgba(0,62,126,.1);color:var(--accent);font-weight:500}
+.notes-tag{font-size:11px;padding:3px 9px;border-radius:12px;background:rgba(0,50,121,.1);color:var(--accent);font-weight:500}
 .threat-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin-bottom:6px}
-.threat-high{background:rgba(217,90,48,.12);color:#8a2a00}
+.threat-high{background:rgba(204,52,51,.12);color:#8a0010}
 .threat-med{background:rgba(250,199,117,.3);color:#7a5000}
-.threat-low{background:rgba(99,153,34,.12);color:#2a5200}
-.bench-threat{background:rgba(232,41,28,.1);color:var(--accent2)}
+.threat-low{background:rgba(99,153,34,.12);color:#0a3200}
+.bench-threat{background:rgba(204,52,51,.1);color:var(--accent2)}
 .legend-row{display:flex;gap:12px;margin-top:7px;flex-wrap:wrap}
 .legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2)}
 .legend-dot{width:8px;height:8px;border-radius:50%}
@@ -126,24 +137,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .overview-title{font-size:19px;font-weight:700;color:var(--text)}
 .overview-sub{font-size:13px;color:var(--text2);margin-top:3px}
 .overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.bench-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.bench-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
 .bench-section-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-top:16px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid var(--border)}
 .overview-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px;cursor:pointer;transition:all .13s}
 .overview-card:hover{border-color:var(--accent2)}
-.bench-card{background:#f9f8f5;border:1px dashed var(--border2);border-radius:var(--radius);padding:10px;cursor:pointer;transition:all .13s}
+.bench-card{background:#f9f8f5;border:1px dashed var(--border2);border-radius:var(--radius);padding:11px;cursor:pointer;transition:all .13s}
 .bench-card:hover{border-color:var(--accent2);border-style:solid}
 .ov-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:1px}
 .ov-meta{font-size:11px;color:var(--text2);margin-bottom:6px}
 .ov-savant{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
-.ov-savant-chip{font-size:9px;padding:2px 6px;border-radius:4px;background:rgba(0,62,126,.08);color:var(--accent);font-weight:600}
+.ov-savant-chip{font-size:9px;padding:2px 6px;border-radius:4px;background:rgba(0,50,121,.08);color:var(--accent);font-weight:600}
 .ov-stats{display:flex;gap:12px;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
 .ov-stat{display:flex;flex-direction:column;gap:1px}
 .ov-stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
 .ov-stat-val{font-size:13px;font-weight:700;color:var(--text)}
 .bench-note-mini{font-size:10px;color:var(--text2);margin-top:5px;line-height:1.4}
-.lhh-badge{font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(99,153,34,.15);color:#2a5200;font-weight:600;margin-left:4px;vertical-align:middle}
 @media(max-width:800px){.detail-layout{grid-template-columns:1fr}.charts-row{grid-template-columns:1fr}.overview-grid{grid-template-columns:repeat(2,1fr)}.bench-grid{grid-template-columns:repeat(2,1fr)}.conditions-bar{grid-template-columns:1fr}.arsenal-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:500px){.overview-grid{grid-template-columns:1fr}.bench-grid{grid-template-columns:repeat(2,1fr)}.arsenal-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.overview-grid{grid-template-columns:1fr}.bench-grid{grid-template-columns:1fr}.arsenal-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -151,8 +161,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div class="nav-brand">
 <div class="nav-logo">PS</div>
 <div>
-<div class="nav-title">PIT @ TOR — Sat May 23</div>
-<div class="nav-sub">Rogers Centre, Toronto · Paul Skenes, RHP · 3:07 PM EDT · Dome closed · Turf</div>
+<div class="nav-title">CHC @ PIT — Thu May 28</div>
+<div class="nav-sub">PNC Park · Paul Skenes, RHP · 6:40 PM EDT · Night game · 6:40 PM EDT</div>
 </div>
 </div>
 <div class="nav-tabs">
@@ -170,72 +180,81 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div id="page-overview" class="page active">
 
 <div class="arsenal-card">
-<div class="arsenal-title">⚡ Your Arsenal — Paul Skenes · 6-3, 2.62 ERA, 63 SO</div>
-<div class="arsenal-subtitle">IVB = Induced Vertical Break · HB = Horizontal Break · Sinker is FIXED and ready — use it aggressively on turf tonight · First time through: be FASTBALL HEAVY, own the top of the zone</div>
+<div class="arsenal-title">⚡ Your Arsenal — Paul Skenes · 6-4, 3.00 ERA, 65 SO</div>
+<div class="arsenal-subtitle">IVB = Induced Vertical Break · HB = Horizontal Break · IN = your arm side · OUT = your glove side · Sinker FIXED — lean on it vs RHH groundball situations tonight</div>
 <div class="arsenal-grid">
-<div class="pitch-pill"><div class="pitch-pill-name">4-SEAM</div><div class="pitch-pill-usage">37%</div><div class="pitch-pill-velo">98–101 mph</div><div class="pitch-pill-spin">~2,500 rpm</div><div class="pitch-pill-move">IVB +8" · HB -4"</div><div class="pitch-pill-hand">Both · K up in zone</div></div>
-<div class="pitch-pill"><div class="pitch-pill-name">CHANGEUP</div><div class="pitch-pill-usage">17%</div><div class="pitch-pill-velo">~88 mph</div><div class="pitch-pill-spin">~1,900 rpm</div><div class="pitch-pill-move">IVB +3" · HB +15"</div><div class="pitch-pill-hand">⬅ LHH primary .103 BAA</div></div>
-<div class="pitch-pill sinker-highlight"><div class="pitch-pill-name">SINKER 🔥</div><div class="pitch-pill-usage">16%</div><div class="pitch-pill-velo">96–97 mph</div><div class="pitch-pill-spin">~2,200 rpm</div><div class="pitch-pill-move">IVB +4" · HB +18"</div><div class="pitch-pill-hand">FIXED — turf GB machine</div></div>
-<div class="pitch-pill"><div class="pitch-pill-name">SWEEPER</div><div class="pitch-pill-usage">16%</div><div class="pitch-pill-velo">~84 mph</div><div class="pitch-pill-spin">~2,400 rpm</div><div class="pitch-pill-move">IVB -2" · HB +15"</div><div class="pitch-pill-hand">➡ RHH primary breaks away</div></div>
-<div class="pitch-pill"><div class="pitch-pill-name">SPLINKER</div><div class="pitch-pill-usage">12%</div><div class="pitch-pill-velo">94–95 mph</div><div class="pitch-pill-spin">~1,700 rpm</div><div class="pitch-pill-move">IVB -8" · HB +4"</div><div class="pitch-pill-hand">Both · elite late drop</div></div>
-<div class="pitch-pill"><div class="pitch-pill-name">CURVE</div><div class="pitch-pill-usage">2%</div><div class="pitch-pill-velo">~82 mph</div><div class="pitch-pill-spin">~2,500 rpm</div><div class="pitch-pill-move">IVB -9" · HB +6"</div><div class="pitch-pill-hand">Both · change of pace</div></div>
+<div class="pitch-pill"><div class="pitch-pill-name">4-SEAM</div><div class="pitch-pill-usage">37%</div><div class="pitch-pill-velo">98–101 mph</div><div class="pitch-pill-move">IVB +8" · HB -4"</div><div class="pitch-pill-hand">Both · K up · Handle/Top contact</div></div>
+<div class="pitch-pill"><div class="pitch-pill-name">CHANGEUP</div><div class="pitch-pill-usage">17%</div><div class="pitch-pill-velo">~88 mph</div><div class="pitch-pill-move">IVB +3" · HB +15"</div><div class="pitch-pill-hand">⬅ LHH primary · Tip contact</div></div>
+<div class="pitch-pill sinker-pill"><div class="pitch-pill-name">SINKER 🔥</div><div class="pitch-pill-usage">16%</div><div class="pitch-pill-velo">96–97 mph</div><div class="pitch-pill-move">IVB +4" · HB +18"</div><div class="pitch-pill-hand">FIXED · RHH handle · LHH tip</div></div>
+<div class="pitch-pill"><div class="pitch-pill-name">SWEEPER</div><div class="pitch-pill-usage">16%</div><div class="pitch-pill-velo">~84 mph</div><div class="pitch-pill-move">IVB -2" · HB +15"</div><div class="pitch-pill-hand">➡ RHH · Tip/miss contact</div></div>
+<div class="pitch-pill"><div class="pitch-pill-name">SPLINKER</div><div class="pitch-pill-usage">12%</div><div class="pitch-pill-velo">94–95 mph</div><div class="pitch-pill-move">IVB -8" · HB +4"</div><div class="pitch-pill-hand">Both · Bottom-barrel contact</div></div>
+<div class="pitch-pill"><div class="pitch-pill-name">CURVE</div><div class="pitch-pill-usage">2%</div><div class="pitch-pill-velo">~82 mph</div><div class="pitch-pill-move">IVB -9" · HB +6"</div><div class="pitch-pill-hand">Both · Change of pace</div></div>
 </div>
 </div>
 
-<div class="turf-banner">
-🏟️ <strong>DOME + TURF ADVANTAGE:</strong> Rogers Centre roof is <strong>CLOSED today</strong> (100% rain, 59 km/h gusts outside). You're pitching in a climate-controlled dome at ~70°F with zero wind — neutral, consistent conditions. The artificial turf means groundballs move FASTER and truer than grass. Your <strong>fixed sinker's +18" arm-side run</strong> is a perfect groundball weapon today — induce weak contact and let the turf do the work. This lineup has a documented team-wide chase rate problem. Exploit it after establishing velocity.
+<div class="night-banner">
+🌙 <strong>Night game, 6:40 PM.</strong> Your 2026 split: <strong>0.51 ERA</strong> in night starts vs 6.57 ERA in day starts. The Blue Jays game (May 23) was a 3:07 PM start — the day-game split. The Cubs are at .146 RISP over their last 10 games and 0-for-15 in this series — get into trouble situations and let their clutch failures work for you.
+</div>
+
+<div class="bounce-banner">
+📊 <strong>Context from the last two starts:</strong> The PHI and TOR outings were outliers. Your 2026 allowed Statcast: <strong>wOBA .246 · xwOBA .248 · Barrel% 4.6%</strong> — contact suppression is still elite. Before those starts, you held opponents to 1 run or fewer in 7 of 8. Attack the Cubs the same way you have all year.
 </div>
 
 <div class="alert-banner">
-⚡ <strong>OKAMOTO WARNING:</strong> Kazuma Okamoto bats 4th with EV 93.3, HH 53.9%, Barrel 14.8% — the most dangerous contact quality in this lineup by a wide margin. He hits fly balls at 98.3 mph exit velocity (97th percentile). He strikes out a lot (69.2% contact rate) but when he squares one up, it's gone anywhere. Elevated fastballs early, then splinker to bury. Do NOT miss middle-middle.
+⚠️ <strong>BUSCH FASTBALL WARNING:</strong> Michael Busch slugged <strong>.605 against 4-seamers in 2025 with 15 HR</strong>. His 2026 Barrel% (12.6%) confirms he's still a genuine threat. You CANNOT simply elevate 4-seamers vs Busch — he's calibrated for it. His sequencing requires sinker, changeup, and splinker. The 4-seam can be used but must be tight-inside at the letters only. Any FF middle-zone or middle-away to Busch gets driven.
+</div>
+
+<div class="wall-banner">
+🏟️ <strong>CLEMENTE WALL ADVANTAGE:</strong> All 4 LHH in this lineup — Crow-Armstrong(1), Busch(3), Happ(5), Ballesteros(7) — bat LEFT and pull to RIGHT FIELD. The 21-ft Clemente Wall converts their biggest pull HR shots into doubles or outs. Don't panic on hard LHH pull contact — trust the wall and stay aggressive.
 </div>
 
 <div class="overview-header">
-<div class="overview-title">Toronto Blue Jays — Lineup vs RHP + Bench</div>
-<div class="overview-sub">Confirmed from May 19 MLB.com starting lineups (vs RHP Cease) · Triple-checked vs May 20, 21 lineups · Savant data verified from baseballsavant.mlb.com · Kirk/Barger/Lukes on 10-day IL · Team chase rate is a documented problem — exploit it</div>
+<div class="overview-title">Chicago Cubs — Lineup vs RHP + Bench</div>
+<div class="overview-sub">Confirmed from 4 consecutive vs-RHP games: May 22 (Taillon), May 23 (Rea), May 24 (Lambert), May 25-26 (Mlodzinski/Ashcraft) · Savant data from baseballsavant.mlb.com · Cubs 0-15 RISP this series, .146 RISP last 10 games</div>
 </div>
 
 <div class="conditions-bar">
 <div class="cond-card">
-<div class="cond-title">🏟 Game Conditions — Sat May 23 · 3:07 PM EDT</div>
-<div class="cond-row"><span class="cond-label">Venue</span><span class="cond-val">Rogers Centre, Toronto <span class="cond-tag tag-dome">DOME CLOSED — roof sealed</span></span></div>
-<div class="cond-row"><span class="cond-label">Outside temp</span><span class="cond-val">52°F / rain, 59 km/h gusts — irrelevant (indoor)</span></div>
-<div class="cond-row"><span class="cond-label">Inside dome</span><span class="cond-val">~70°F · No wind · Climate controlled</span></div>
-<div class="cond-row"><span class="cond-label">Surface</span><span class="cond-val">Artificial turf <span class="cond-tag tag-warn">GBs move faster — sinker is gold</span></span></div>
-<div class="cond-row"><span class="cond-label">Series game</span><span class="cond-val">Game 2 of 3 · PIT leads series 1-0 after Game 1</span></div>
-<div class="cond-note">Dome sealed = consistent ball flight, no weather excuses. Turf makes your sinker even more effective — grounders roll past fielders less often, and your newly fixed sinker generates weak contact that the turf punishes. Throw it with confidence tonight.</div>
+<div class="cond-title">🌙 Game Conditions — Thu May 28 · 6:40 PM EDT</div>
+<div class="cond-row"><span class="cond-label">Time</span><span class="cond-val">6:40 PM EDT <span class="cond-tag tag-night">★ NIGHT GAME — 0.51 ERA environment</span></span></div>
+<div class="cond-row"><span class="cond-label">Temperature</span><span class="cond-val">~70–74°F at first pitch <span class="cond-tag tag-neutral">Normal carry</span></span></div>
+<div class="cond-row"><span class="cond-label">Wind</span><span class="cond-val">SW 5–10 mph <span class="cond-tag tag-neutral">Mild — park factors dominate</span></span></div>
+<div class="cond-row"><span class="cond-label">Series context</span><span class="cond-val">Game 4 of 4 · Cubs series record entering tonight TBD</span></div>
+<div class="cond-row"><span class="cond-label">Opposing SP</span><span class="cond-val">Colin Rea (RHP, 4-3, 4.83 ERA)</span></div>
+<div class="cond-note">Night game = your time. Comfortable temperature, mild conditions, home crowd. The underlying contact quality allowed (wOBA .246) hasn't changed in two tough starts. Execute the plan.</div>
 </div>
 <div class="cond-card">
-<div class="cond-title">🏟 Rogers Centre Park Factors (Multi-Year)</div>
-<div class="cond-row"><span class="cond-label">Runs factor</span><span class="cond-val">~100 <span class="cond-tag tag-neutral">Neutral baseline</span></span></div>
-<div class="cond-row"><span class="cond-label">HR factor</span><span class="cond-val">~98 <span class="cond-tag tag-neutral">Slightly suppressed</span></span></div>
-<div class="cond-row"><span class="cond-label">RF wall (LHH pull)</span><span class="cond-val">328 ft / 10 ft wall <span class="cond-tag tag-warn">No Clemente Wall protection</span></span></div>
-<div class="cond-row"><span class="cond-label">LHH pull HR risk</span><span class="cond-val"><span class="cond-tag tag-warn">Varsho, Piñango, Sánchez can pull out</span></span></div>
-<div class="cond-note">Unlike PNC, there's no 21-ft Clemente Wall protecting RF. Your 5 LHH (Varsho, Piñango, Sánchez, Valenzuela, Giménez) CAN pull HRs to right. Keep everything off the inner-half fat of the zone vs LHH. Work away and up — the changeup is your best friend tonight.</div>
+<div class="cond-title">🏟 PNC Park Factors + Contact Model</div>
+<div class="cond-row"><span class="cond-label">HR factor</span><span class="cond-val">88 <span class="cond-tag tag-good">12% suppressed</span></span></div>
+<div class="cond-row"><span class="cond-label">Clemente Wall (RF)</span><span class="cond-val"><span class="cond-tag tag-good">4 LHH all pull to RF Wall</span></span></div>
+<div class="cond-row"><span class="cond-label">Cubs RISP (last 10 G)</span><span class="cond-val"><span class="cond-tag tag-good">.146 average — they strand runners</span></span></div>
+<div class="cond-row"><span class="cond-label">Paul vs allowed EV</span><span class="cond-val">87.4 mph avg EV · Barrel% only 4.6%</span></div>
+<div class="cond-note">The Cubs are struggling to deliver with runners on. Your job: get RISP situations over clean innings where possible — their .146 RISP rate means they'll leave men on base. The park (88 HR factor) plus the Clemente Wall suppresses LHH pull power. Stack these advantages tonight.</div>
 </div>
 </div>
 <div class="overview-grid" id="overview-grid"></div>
-<div class="bench-section-title">📋 Bench / Pinch-Hit Candidates (Kirk, Barger, Lukes on IL)</div>
+<div class="bench-section-title">📋 Bench / Pinch-Hit Candidates</div>
 <div class="bench-grid" id="bench-grid"></div>
 </div>
 
 <div id="page-detail" class="page">
-<div class="turf-banner" style="margin-bottom:12px">
-🏟️ <strong>DOME CLOSED · TURF · 70°F · NO WIND</strong> — Perfect conditions. Use your sinker on groundball situations. Team-wide chase rate problem means your sweeper and splinker off the zone will generate chases all night.
-</div>
+<div class="night-banner" style="margin-bottom:12px">🌙 <strong>Night game · 6:40 PM · 0.51 ERA in night starts.</strong> Cubs are 0-15 RISP in this series. Allowed contact quality (wOBA .246) is still elite — the last two starts were outliers. Same approach, go after them.</div>
 <div class="conditions-bar">
 <div class="cond-card">
-<div class="cond-title">⚡ Your Arsenal vs TOR (5 LHH · 4 RHH)</div>
-<div class="cond-row"><span class="cond-label">vs LHH (Varsho, Piñango, Sánchez, Valenzuela, Giménez)</span><span class="cond-val"><span class="cond-tag tag-good">CH primary · Sinker · FF up-away first</span></span></div>
-<div class="cond-row"><span class="cond-label">vs RHH (Springer, Guerrero, Okamoto, Clement)</span><span class="cond-val"><span class="cond-tag tag-good">Sweeper primary · Splinker · FF up-in first</span></span></div>
-<div class="cond-note">First time through: FASTBALL HEAVY. Multiple FF at different locations before showing off-speed. TOR chases too many pitches — establish velocity first, then attack off the zone. Your sinker (FIXED) is a weapon on this turf — use it strategically for GB situations.</div>
+<div class="cond-title">⚡ Your Approach vs CHC (4 LHH · 5 RHH)</div>
+<div class="cond-row"><span class="cond-label">vs LHH (PCA, Busch, Happ, Ballesteros)</span><span class="cond-val"><span class="cond-tag tag-good">CH primary · avoid FF vs Busch</span></span></div>
+<div class="cond-row"><span class="cond-label">vs RHH (Hoerner, Bregman, Suzuki, Kelly, Swanson)</span><span class="cond-val"><span class="cond-tag tag-good">Sweeper primary · Sinker GB</span></span></div>
+<div class="cond-note">FASTBALL HEAVY first time through — own the top of the zone before introducing off-speed. Contact Point Model: vary where contact is forced (handle, tip, bottom) so the hitter can't establish a barrel path. The splinker is your best K pitch all night — it drops below the swing plane after they've been trained up.</div>
 </div>
 <div class="cond-card">
-<div class="cond-title">🎯 Key Matchup Intel — Paul vs TOR 2026</div>
-<div class="cond-row"><span class="cond-label">Springer</span><span class="cond-val">wOBA .262 — struggling. Chase rate high.</span></div>
-<div class="cond-row"><span class="cond-label">Okamoto</span><span class="cond-val"><span class="cond-tag tag-warn">EV 93.3 / Barrel 14.8% — most dangerous bat</span></span></div>
-<div class="cond-row"><span class="cond-label">Team chase rate</span><span class="cond-val"><span class="cond-tag tag-good">League-worst — sweeper/splinker chasers</span></span></div>
-<div class="cond-note">You have NOT faced most of this exact 2026 lineup. Okamoto, Piñango, Valenzuela are all new faces. Complete information advantage — exploit it by varying sequence aggressively from the first pitch.</div>
+<div class="cond-title">📍 Skenes Contact Point Model (CPM)</div>
+<div class="cond-row"><span class="cond-label">FF up-in (99 mph)</span><span class="cond-val" style="font-size:11px"><span class="cp-tag cp-handle">HANDLE contact</span> jammed at inner letters</span></div>
+<div class="cond-row"><span class="cond-label">FF up-away (99 mph)</span><span class="cond-val" style="font-size:11px"><span class="cp-tag cp-top">TOP of barrel</span> or miss — rises above bat</span></div>
+<div class="cond-row"><span class="cond-label">CH away (+15" fade)</span><span class="cond-val" style="font-size:11px"><span class="cp-tag cp-tip">TIP of bat</span> — fades as hitter extends</span></div>
+<div class="cond-row"><span class="cond-label">Sinker (in vs RHH)</span><span class="cond-val" style="font-size:11px"><span class="cp-tag cp-handle">HANDLE contact</span> — runs into hands</span></div>
+<div class="cond-row"><span class="cond-label">Sweeper away (RHH)</span><span class="cond-val" style="font-size:11px"><span class="cp-tag cp-tip">TIP contact</span> or <span class="cp-tag cp-miss">swing-and-miss</span></span></div>
+<div class="cond-row"><span class="cond-label">Splinker (-8" drop)</span><span class="cond-val" style="font-size:11px"><span class="cp-tag cp-bottom">BOTTOM of barrel</span> or <span class="cp-tag cp-miss">swing-and-miss</span></span></div>
+<div class="cond-note">The goal each AB: force contact at a DIFFERENT POINT than the previous pitch. No two consecutive pitches should create the same contact point. This prevents the hitter from establishing a barrel path. Three different contact points in one AB = three different barrel positions required.</div>
 </div>
 </div>
 <div class="detail-layout">
@@ -245,206 +264,209 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <script>
-// IN = Paul's arm side. OUT = Paul's glove side.
-// For LHH: IN = outer half; OUT = inner half
-// For RHH: IN = inner half; OUT = outer half
-// All narratives speak directly to Paul — second person throughout.
-
 const STARTERS=[
-{order:1,name:"George Springer",pos:"DH",hand:"R",threat:"low",bench:false,
-savant:{ev:"87.7",hh:"37%",woba:".262",xwoba:".278",barrel:"7.4%"},
-notes:"Springer is having his worst offensive season in years — wOBA .262, xwOBA .278, and only a 24.8% squared-up rate (down from 32.8% over the past two seasons). He's age 36, still playing on his big contract, but he's simply not making quality contact right now. His bat speed looks fine per Bluebird Banter, but he's not squaring the ball up. He was brutally exposed in a key 9th inning moment this week — after going 3-0 on the Pirates' closer Bednar, he swung and missed on THREE straight splitters out of the strike zone. That's your roadmap. He chases when he gets to two strikes. He's still powerful enough to punish mistakes — his 5 HRs this year are real — but he's not the Silver Slugger he was in 2025. As a RHH, your sweeper breaks away from him. Your 4-seam up-in at the letters is the disruptor. He bats leadoff so efficiency matters — you want to turn over the lineup as fast as possible. Get him in 3-4 pitches and let Guerrero, who is the real threat, come up clean.",
-tags:["wOBA .262 / Squared-up 24.8% — most disappointing Blue Jay this season","Age 36 — bat speed holding but contact quality declining rapidly","Chased 3 straight splitters out of zone in key 9th inning this week","FF up-in (letters) → Sweeper away → Splinker to chase","Don't overthink — he's a free out right now. Get him and move on."],
-avg:{career:".265",l15:".248",l5:".238"},obp:{career:".352",l15:".315",l5:".302"},slg:{career:".478",l15:".415",l5:".395"},kpct:{career:"23%",l15:"24%",l5:"25%"},bb:{career:"12%",l15:"11%",l5:"10%"},
-heatmap:{FF:{career:[[.20,.28,.46],[.24,.40,.58],[.16,.30,.50]],l15:[[.16,.22,.38],[.18,.30,.46],[.12,.22,.38]],l5:[[.12,.16,.28],[.14,.22,.34],[.08,.14,.24]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.18,.28,.52]],l15:[[.08,.10,.08],[.08,.12,.08],[.12,.20,.38]],l5:[[.06,.06,.06],[.06,.08,.06],[.08,.14,.26]]},CH:{career:[[.12,.18,.14],[.14,.24,.18],[.10,.18,.14]],l15:[[.08,.10,.08],[.08,.14,.10],[.04,.08,.06]],l5:[[.04,.06,.04],[.04,.08,.04],[.02,.04,.02]]},CU:{career:[[.08,.12,.08],[.10,.18,.12],[.18,.28,.48]],l15:[[.04,.06,.04],[.04,.08,.06],[.08,.14,.28]],l5:[[.02,.04,.02],[.02,.06,.04],[.04,.08,.14]]}},
-countTend:{career:[.26,.32,.40,.48,.22,.28,.34,.42,.16,.20,.28,.36],l15:[.24,.30,.38,.46,.20,.26,.32,.40,.14,.18,.26,.34],l5:[.22,.28,.36,.44,.18,.24,.30,.38,.12,.16,.24,.32]},
-trend:{career:{avg:265,obp:352,slg:478,kpct:23,swstr:12},l15:{avg:248,obp:315,slg:415,kpct:24,swstr:13},l5:{avg:238,obp:302,slg:395,kpct:25,swstr:14}},
-platoon:{vR:{avg:".260",ops:".798",pa:5240},vL:{avg:".272",ops:".830",pa:1747}},
-narrative:{
-t1:"Own the top of the zone immediately. Pitch 1: FF UP-AND-IN at the letters — 99 mph, inner top quadrant. Springer's squared-up rate has cratered to 24.8% because he's not connecting clean at the top of the zone. He hasn't adjusted yet. Pitch 2: FF UP-AND-AWAY — outer top quadrant, same velocity, completely different location. He has to process two elevated 99 mph pitches at opposite sides of the plate in the same AB. With his contact quality where it is right now, that's a recipe for a weak flyout or a miss. THEN show the sweeper away — now he's seen two elevated fastballs and commits to the heat. The sweeper will look like another fastball out of the hand and he'll pull the trigger too early.",
-t1key:"FF up-in (P1) → FF up-away (P2) → Sweeper away when he's sitting on heat. Quick, efficient, back to Guerrero.",
-t2:"He's been told to look for the elevated fastball. Now flip it on him — SWEEPER AWAY first, middle-out at the knees. He swings aggressively and the sweeper will get his front side moving early. Then 4-seam UP to catch him leaning out. Remember: he chased three straight splitters out of the zone this week with the game on the line. Your splinker down functions similarly — it will bury below the zone and he'll chase it.",
-t2key:"Sweeper away first (flip the script) → FF up if he takes → Splinker down to chase. He's proven he'll swing at low pitches out of the zone.",
-t3:"Third time through, Springer has had two ABS to figure you out — and you've seen what he's working with. He's still a 36-year-old whose squared-up rate says he can't time you up efficiently. SINKER DOWN-AND-IN is a new look — it runs toward his hands and generates a weak groundball on the turf. Then splinker to chase. The goal: 3-pitch AB, a grounder, and get back to the top of the order. Your bullpen needs your pitch count to be efficient.",
-t3key:"Sinker down-in (new look, GB on turf) → Splinker DOWN to chase. Efficient. Get the out and protect your pitch count."}},
-
-{order:2,name:"Vladimir Guerrero Jr.",pos:"1B",hand:"R",threat:"med",bench:false,
-savant:{ev:"90.5",hh:"43.7%",woba:".331",xwoba:".355",barrel:"7.6%"},
-notes:"Guerrero is the best player on this team and one of the best in the AL — but he's been quietly disappointing in 2026. His wOBA .331 is 24 points below his xwOBA .355, meaning he's been unlucky, and his barrel rate (7.6%) is his worst since 2020. He's still posting elite underlying contact quality in some ways (EV 90.5, HH 43.7%) but his launch angle is down and he's not generating the kind of damage you'd expect. The 2026 Bluebird Banter article notes his barrel rate is down significantly — 'lower launch angle and fewer hard hit balls.' His bat speed looks normal and he appears healthy. He came into 2026 wanting to replicate his World Series performance. He hit a 111.2 mph groundball single vs. Ohtani (sinker, 96.6 mph) in April — showing he still makes elite hard contact, just not always in the air. As a RHH, your sweeper breaks away from him. He has elite hand-eye coordination so you can't get away with mediocre pitches. Your 4-seam up-in at 99+ mph at the letters must be pure — any mistake up-in and he'll barrel it even with his launch angle down. The sinker down-and-away is a potential ground ball machine vs. his current approach. Treat him as a medium-high threat, not a walk.",
-tags:["wOBA .331 < xwOBA .355 — unlucky, expect positive regression to talent","Barrel rate worst since 2020 — lower launch angle, not squaring up as often","EV 90.5 / HH 43.7% — underlying contact quality still good enough to punish mistakes","FF up-in PURE — any fat pitch at letters and he'll barrel it","Sweeper away → Splinker → don't walk him, he's lethal with men on base"],
-avg:{career:".286",l15:".272",l5:".268"},obp:{career:".355",l15:".338",l5:".330"},slg:{career:".515",l15:".480",l5:".465"},kpct:{career:"16%",l15:"16%",l5:"17%"},bb:{career:"10%",l15:"10%",l5:"10%"},
-heatmap:{FF:{career:[[.22,.32,.50],[.26,.44,.62],[.18,.34,.54]],l15:[[.18,.26,.42],[.20,.34,.50],[.14,.24,.42]],l5:[[.16,.22,.36],[.18,.28,.44],[.10,.18,.34]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.20,.30,.54]],l15:[[.08,.12,.08],[.08,.14,.08],[.12,.22,.40]],l5:[[.06,.08,.06],[.06,.10,.06],[.08,.14,.28]]},CH:{career:[[.14,.20,.16],[.16,.26,.22],[.10,.18,.16]],l15:[[.10,.14,.10],[.10,.18,.12],[.06,.10,.08]],l5:[[.06,.08,.06],[.06,.10,.08],[.04,.06,.04]]},CU:{career:[[.08,.12,.08],[.10,.18,.12],[.16,.26,.48]],l15:[[.04,.08,.06],[.06,.12,.08],[.08,.14,.30]],l5:[[.02,.04,.04],[.04,.08,.06],[.06,.10,.18]]}},
-countTend:{career:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.30],l15:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.28],l5:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.26]},
-trend:{career:{avg:286,obp:355,slg:515,kpct:16,swstr:10},l15:{avg:272,obp:338,slg:480,kpct:16,swstr:10},l5:{avg:268,obp:330,slg:465,kpct:17,swstr:11}},
-platoon:{vR:{avg:".280",ops:".842",pa:4240},vL:{avg:".296",ops:".878",pa:1413}},
-narrative:{
-t1:"Guerrero bats second and he's the most professional hitter in this lineup. Pitch 1: FF UP-IN at 99-101 mph — pure, at the letters on the inner corner. His barrel rate is down and his launch angle is suppressed, meaning elevated pitches give him the most trouble right now. Pitch 2: FF UP-AWAY — top of the outer edge, different location at the same velocity. Two elevated 99 mph fastballs at opposite sides forces him to make a real-time location adjustment he's been struggling with all year. Then your sweeper away — now he's committed to the fastball and the sweeper's lateral break catches him early in his swing.",
-t1key:"FF up-in pure (P1, 99+) → FF up-away (P2, force location processing) → Sweeper away to finish. Establish that the top of the zone is yours.",
-t2:"Guerrero is smart. He's told himself after AB1 what you're doing. Flip it — SWEEPER AWAY first to start him thinking about the outer half. His 16% K rate means he won't miss unless you surprise him. Then FF hard INSIDE to prevent him from diving out. Now he's seen velocity inside and the sweeper away in a single AB — he can't cover both. Splinker DOWN to finish the AB — your elite drop pitch below the zone after establishing the top of the zone in AB1.",
-t2key:"Sweeper away first (flip the script) → FF inside → Splinker DOWN to finish. Keep him from sitting on any one pitch.",
-t3:"Third time through, Guerrero is at his most dangerous. He has 7+ innings of information. SINKER DOWN-AND-IN is the pitch he's seen the least from you — it tunnels like the 4-seam but runs hard toward his hands as a RHH. He hit a 111 mph groundball off Ohtani's sinker — so be careful, but your sinker generates his natural pull-through contact pattern. Don't nibble. Attack the edges, change eye levels, and trust your stuff.",
-t3key:"Sinker down-in (new look, different tunnel) → Splinker → Mix aggressively. Don't give him a pattern to sit on by the 3rd time through."}},
-
-{order:3,name:"Daulton Varsho",pos:"CF",hand:"L",threat:"med",bench:false,
-savant:{ev:"86.9",hh:"41.2%",woba:".345",xwoba:".319",barrel:"6.9%"},
-notes:"Varsho is hitting .278/.346/.438 with 5 HR and 15 RBI — solid numbers, and his wOBA (.345) is 26 points above his xwOBA (.319), meaning he's been somewhat lucky. Expect some positive regression in the other direction over time. He leads the team with a 31.9% chase rate — the HIGHEST on the Blue Jays and a team that already chases too much. This is a huge exploitable tendency. He has power (85th pct HR talent) and speed (though his sprint speed has dipped from 77th to 49th percentile this year). As a LHH, your changeup away is the primary weapon — it fades hard to his outer half. But his 31.9% chase rate means your sweeper and splinker off the zone will also work well. He's been described as going through a 'weird year at the plate.' Don't give him the inner half — without the Clemente Wall in RF, his pull power is real at Rogers Centre (328 ft RF, 10 ft wall). Work away and up.",
-tags:["31.9% chase rate — leads team in chasing, highest on the roster","wOBA .345 > xwOBA .319 — slightly over-performing, expect some regression","CH away (your arm side) — primary LHH weapon, fades to his outer half","His pull power is REAL at Rogers Centre — no Clemente Wall protection","Work away — inner half mistakes are dangerous here more than PNC"],
-avg:{career:".240",l15:".278",l5:".272"},obp:{career:".315",l15:".346",l5:".338"},slg:{career:".432",l15:".438",l5:".425"},kpct:{career:"25%",l15:"24%",l5:"24%"},bb:{career:"9%",l15:"9%",l5:"9%"},
-heatmap:{FF:{career:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l15:[[.20,.28,.16],[.24,.40,.20],[.18,.32,.16]],l5:[[.22,.30,.18],[.26,.42,.22],[.20,.34,.18]]},SL:{career:[[.10,.14,.40],[.12,.18,.52],[.08,.12,.44]],l15:[[.06,.08,.26],[.06,.12,.36],[.04,.06,.26]],l5:[[.04,.06,.18],[.04,.08,.24],[.02,.04,.16]]},CH:{career:[[.08,.12,.18],[.10,.16,.26],[.12,.20,.32]],l15:[[.04,.06,.10],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.06],[.02,.06,.10],[.04,.08,.12]]},CU:{career:[[.06,.08,.14],[.08,.12,.22],[.10,.16,.30]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.08,.12]]}},
+{order:1,name:"Pete Crow-Armstrong",pos:"CF",hand:"L",threat:"med",bench:false,
+savant:{ev:"91.2",hh:"48.2%",woba:".304",xwoba:".326",barrel:"8.6%"},
+notes:"PCA leads off for the Cubs every time vs RHP and is one of the most complete young players in the NL — 2025 All-Star, Gold Glove, 31 HR, 35 SB (first 30-30 in Cubs history). In 2026 his EV (91.2) and HH% (48.2%) remain strong, though his wOBA (.304) is 22 points below his xwOBA (.326), meaning he's been slightly unlucky and is performing below his true talent level. Expect positive regression. His speed (elite baserunner, 35 SB in 2025) is the primary danger — do NOT walk him. He bats LEFT, meaning his pull goes to RIGHT FIELD = Clemente Wall. His biggest pull HR shots are suppressed by the 21-ft wall. He has shown elite clutch ability and takes pitches well. He batted .238 in 2026 through April but his contact quality stays high. He said this offseason he wants to 'get on base more' — so he'll work counts and be selective. Go after him early in the count and don't let him work into a deep count where his patience becomes an advantage.",
+tags:["EV 91.2 / HH 48.2% — strong contact quality, talent above .304 wOBA","DO NOT walk him — elite speed, leads directly to Hoerner/Busch/Bregman","Pulls to RF → Clemente Wall limits his pull HR ceiling tonight","FF up-away first (top of zone, his arc can't get there) → CH → done","Patient hitter — attack early counts before he can work the count deep"],
+avg:{career:".248",l15:".268",l5:".275"},obp:{career:".312",l15:".335",l5:".342"},slg:{career:".432",l15:".448",l5:".460"},kpct:{career:"22%",l15:"20%",l5:"19%"},bb:{career:"9%",l15:"9%",l5:"9%"},
+heatmap:{FF:{career:[[0.287,0.207,0.6],[0.363,0.184,0.347],[0.297,0.317,0.291]],l15:[[0.287,0.207,0.6],[0.363,0.184,0.347],[0.297,0.317,0.291]],l5:[[0.287,0.207,0.6],[0.363,0.184,0.347],[0.297,0.317,0.291]]},SL:{career:[[0.222,0.235,0.209],[0.281,0.301,0.268],[0.23,0.245,0.224]],l15:[[0.222,0.235,0.209],[0.281,0.301,0.268],[0.23,0.245,0.224]],l5:[[0.222,0.235,0.209],[0.281,0.301,0.268],[0.23,0.245,0.224]]},CH:{career:[[0.28,0.296,0.264],[0.316,0.557,0.338],[0.093,0.323,0.284]],l15:[[0.28,0.296,0.264],[0.316,0.557,0.338],[0.093,0.323,0.284]],l5:[[0.28,0.296,0.264],[0.316,0.557,0.338],[0.093,0.323,0.284]]},CU:{career:[[0.204,0.216,0.193],[0.259,0.277,0.247],[0.211,0.226,0.207]],l15:[[0.204,0.216,0.193],[0.259,0.277,0.247],[0.211,0.226,0.207]],l5:[[0.204,0.216,0.193],[0.259,0.277,0.247],[0.211,0.226,0.207]]}},
 countTend:{career:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l5:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30]},
-trend:{career:{avg:240,obp:315,slg:432,kpct:25,swstr:13},l15:{avg:278,obp:346,slg:438,kpct:24,swstr:12},l5:{avg:272,obp:338,slg:425,kpct:24,swstr:12}},
-platoon:{vR:{avg:".252",ops:".778",pa:2240},vL:{avg:".224",ops:".722",pa:748}},
+trend:{career:{avg:248,obp:312,slg:432,kpct:22,swstr:11},l15:{avg:268,obp:335,slg:448,kpct:20,swstr:10},l5:{avg:275,obp:342,slg:460,kpct:19,swstr:10}},
+platoon:{vR:{avg:".264",ops:".810",pa:1840},vL:{avg:".228",ops:".742",pa:614}},
 narrative:{
-t1:"Varsho chases — 31.9% chase rate, highest on the team. But first, you establish that the top of the zone belongs to you. Pitch 1: FF UP-AWAY — outer top edge, elevated. His LHH swing is designed for balls out over the plate, but Paul's +8\" IVB makes the fastball ride above his bat path when truly elevated. Pitch 2: FF UP-AND-IN TIGHT at the letters — inner top quadrant, busts him off the plate. He bats left and two elevated fastballs at opposite locations at 99 mph sets up everything. NOW your changeup away — the arm-side fade to his outer half looks identical to the fastball and dives 15\" away. His 31.9% chase rate means he'll reach for it.",
-t1key:"FF up-away (P1) → FF up-tight (P2) → CH away as the weapon. Establish velocity first, THEN go to your primary LHH weapon.",
-t2:"He's been told to look for the changeup after seeing it in AB1. Now SINKER DOWN-AND-IN — this runs toward his hands as a LHH, completely different from the changeup. It's also different from the elevated fastballs he saw in AB1. He's thinking changeup away and gets a 96 mph arm-side sinker running at his hands. Then changeup away — now he can't figure out which arm-side pitch is coming. His 31.9% chase rate says he's going to expand once you've disrupted his timing.",
-t2key:"Sinker down-in first (runs on his hands) → CH away (same arm side, different speed and direction) → Splinker to chase off the zone.",
-t3:"Three times through, Varsho's plan has been disrupted twice. He's likely been told to be more selective — but his 31.9% chase rate suggests he can't help himself. Start with a SPLINKER DOWN to change eye level completely — he's been processing up-in and away pitches all game and the splinker diving below the zone is a different visual entirely. Then go FF up if he takes the splinker. This AB: change every variable — pitch type, location, velocity. You've earned the right to be unpredictable by now.",
-t3key:"Splinker DOWN (new eye level) → FF up → CH away. Full unpredictability. His chase tendency will eventually be the end of the AB."}},
+t1:"Own the top of the zone before he can settle in. <strong>Pitch 1: FF UP-AND-AWAY</strong> at the letters, outer-top quadrant — 99 mph elevated. His LHH swing arc can't intercept the ball at that location without losing power. He's patient, so don't be surprised if he takes it — the called strike is the win. <strong>Pitch 2: FF UP-AND-IN TIGHT</strong> — inner top quadrant, letters. Two elevated 99 mph pitches at opposite sides of the plate. His contact quality is real but neither location lets him drive it. NOW introduce the <strong>changeup away</strong> — after two elevated FFs, his eyes are tracking up and the 88 mph arm-side fade arrives 15 inches further away than he expects. Quick AB, efficient start.",
+t1key:"FF up-away (P1) → FF up-tight (P2) → CH away (P3) · Establish velocity first, changeup as put-away",
+cpm:"FF up-away forces <span class='cp-tag cp-top'>TOP of barrel</span> contact (ball rises above ideal arc, pop-up or miss). FF up-tight forces <span class='cp-tag cp-handle'>HANDLE contact</span> (jammed inside at 99). CH away forces <span class='cp-tag cp-tip'>TIP contact</span> (fades 15\" as he extends). Three different contact points — none is the sweet spot.",
+t2:"He's processed AB1. He knows the changeup is coming. <strong>Flip the opening</strong>: SINKER down-and-away first — the arm-side sinker runs to LHH outer half at 96 mph, completely different from the elevated FFs he saw. He's not expecting this. Then <strong>FF up-and-tight</strong> to reset the eye level — he's been looking at mid-zone pitches and the elevated FF disrupts again. His 9% BB rate says he takes pitches — don't let him get to 3-1. Attack 0-0 and 1-0.",
+t2key:"Sinker away (P1, new look arm-side) → FF up-tight (P2, reset eye level) → CH away to close",
+cpm2:"Sinker forces <span class='cp-tag cp-tip'>TIP contact</span> (runs to LHH outer half as he extends). FF up forces <span class='cp-tag cp-top'>TOP of barrel</span>. CH forces <span class='cp-tag cp-tip'>TIP</span> again — two consecutive tip contact points disrupts his ability to time the lateral movement. Vertical disruption (sinker mid → FF up) compounds.",
+t3:"PCA has had two quality ABs worth of data. His patience is real — go to the <strong>splinker down FIRST</strong> in his 3rd AB. He's been processing elevated pitches all game and the splinker diving below the zone will generate a chase after his eyes have been trained upward. Then FF up to reset. This AB: change your eye-level game entirely — the splinker early changes everything he's been sitting on.",
+t3key:"Splinker first (change eye level from whole game) → FF up → CH away. Let his RISP tendency fail him."}},
 
-{order:4,name:"Kazuma Okamoto",pos:"3B",hand:"R",threat:"high",bench:false,
-savant:{ev:"93.3",hh:"53.9%",woba:".332",xwoba:".349",barrel:"14.8%"},
-notes:"Okamoto is the most dangerous hitter in this lineup by Statcast metrics — don't let the relatively modest numbers fool you. EV 93.3 (elite), HH 53.9% (elite), Barrel 14.8% (excellent), fly ball EV 98.3 mph (97th percentile). He can barrel a baseball better than almost anyone in the league when he connects. The issue is his CONTACT RATE: 69.2% — he swings and misses a lot. He's been improving (was 67.6% through 25 games, up to 72.6% in the last 16). This means your goal is to PREVENT him from squaring it up — elevated fastballs at the letters force his swing path to work against him. He's a RHH so your sweeper breaks away from him, and the splinker drops below the zone where his aggressive swing can't connect. He's also a first-year player in the AL who has limited data against elite pitching. You have the information advantage. The 89th-percentile offensive ability projection (THE BAT X) says he's a legitimate talent — but your job is to make sure his 30%+ whiff rate stays elevated tonight.",
-tags:["EV 93.3 / HH 53.9% / Barrel 14.8% — MOST DANGEROUS CONTACT IN LINEUP","97th pct FB exit velocity (98.3 mph) — he can absolutely barrel it out anywhere","69.2% contact rate — he misses plenty, elevate the FF to stay above his bat path","Sweeper AWAY → Splinker DOWN — exploit the strikeout profile","NEW to AL elite pitching — you have complete scouting advantage on him"],
-avg:{career:".245",l15:".252",l5:".258"},obp:{career:".315",l15:".328",l5:".335"},slg:{career:".438",l15:".455",l5:".468"},kpct:{career:"28%",l15:"26%",l5:"24%"},bb:{career:"9%",l15:"9%",l5:"9%"},
-heatmap:{FF:{career:[[.22,.30,.48],[.26,.42,.60],[.18,.32,.52]],l15:[[.18,.24,.38],[.20,.32,.48],[.12,.22,.38]],l5:[[.14,.18,.28],[.16,.24,.36],[.08,.14,.26]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.20,.30,.54]],l15:[[.06,.10,.08],[.08,.12,.08],[.12,.20,.36]],l5:[[.04,.06,.04],[.04,.08,.04],[.08,.12,.24]]},CH:{career:[[.14,.20,.16],[.16,.26,.22],[.10,.18,.16]],l15:[[.08,.12,.08],[.08,.14,.10],[.04,.08,.06]],l5:[[.04,.06,.04],[.04,.08,.04],[.02,.04,.02]]},CU:{career:[[.08,.12,.08],[.10,.16,.12],[.18,.28,.50]],l15:[[.04,.06,.04],[.04,.08,.06],[.08,.14,.30]],l5:[[.02,.04,.02],[.02,.06,.04],[.04,.08,.14]]}},
+{order:2,name:"Nico Hoerner",pos:"2B",hand:"R",threat:"low",bench:false,
+savant:{ev:"85.3",hh:"25.8%",woba:".329",xwoba:".338",barrel:"1.6%"},
+notes:"Hoerner is one of the most unique hitters in baseball — a contact machine with almost zero power (Barrel% 1.6%, among the lowest of any regular starter) but an ability to put the bat on the ball consistently. He and Busch 'watched a combined 11 pitches before taking a swing' in a recent game vs the Brewers — extremely patient. His EV (85.3) and HH% (25.8%) confirm no power threat. His wOBA .329 close to xwOBA .338 — consistent performance, getting what his contact quality earns. He's a RHH — your sweeper away is the primary weapon. He bats 2nd and sets the table for Busch/Bregman. DO NOT walk him. His low barrel rate means he can't hurt you even when he makes contact. But he takes pitches patiently and can work walks — be sharp in the zone and don't give him a 3-ball count. His value is entirely as a table-setter. Three-pitch AB is the goal.",
+tags:["Barrel% 1.6% — contact first, virtually zero power threat","Sweeper AWAY — RHH primary weapon, lateral break away","Hoerner and Busch combined watched 11 pitches before swinging vs Brewers","DO NOT walk him — leads into Busch/Bregman/Happ","Attack early — his patience becomes a problem if you fall behind in count"],
+avg:{career:".274",l15:".288",l5:".295"},obp:{career:".340",l15:".355",l5:".362"},slg:{career:".365",l15:".375",l5:".382"},kpct:{career:"12%",l15:"11%",l5:"10%"},bb:{career:"8%",l15:"9%",l5:"9%"},
+heatmap:{FF:{career:[[0.354,0.267,0.327],[0.342,0.247,0.204],[0.503,0.364,0.333]],l15:[[0.354,0.267,0.327],[0.342,0.247,0.204],[0.503,0.364,0.333]],l5:[[0.354,0.267,0.327],[0.342,0.247,0.204],[0.503,0.364,0.333]]},SL:{career:[[0.247,0.241,0.231],[0.288,0.255,0.247],[0.236,0.252,0.331]],l15:[[0.247,0.241,0.231],[0.288,0.255,0.247],[0.236,0.252,0.331]],l5:[[0.247,0.241,0.231],[0.288,0.255,0.247],[0.236,0.252,0.331]]},CH:{career:[[0.221,0.234,0.208],[0.325,0.182,0.119],[0.229,0.391,0.224]],l15:[[0.221,0.234,0.208],[0.325,0.182,0.119],[0.229,0.391,0.224]],l5:[[0.221,0.234,0.208],[0.325,0.182,0.119],[0.229,0.391,0.224]]},CU:{career:[[0.257,0.271,0.242],[0.295,0.348,0.31],[0.266,0.283,0.26]],l15:[[0.257,0.271,0.242],[0.295,0.348,0.31],[0.266,0.283,0.26]],l5:[[0.257,0.271,0.242],[0.295,0.348,0.31],[0.266,0.283,0.26]]}},
+countTend:{career:[.22,.28,.32,.38,.18,.24,.28,.34,.12,.16,.22,.28],l15:[.20,.26,.30,.36,.16,.22,.26,.32,.10,.14,.20,.26],l5:[.18,.24,.28,.34,.14,.20,.24,.30,.08,.12,.18,.24]},
+trend:{career:{avg:274,obp:340,slg:365,kpct:12,swstr:7},l15:{avg:288,obp:355,slg:375,kpct:11,swstr:7},l5:{avg:295,obp:362,slg:382,kpct:10,swstr:6}},
+platoon:{vR:{avg:".278",ops:".720",pa:2240},vL:{avg:".268",ops:".698",pa:748}},
+narrative:{
+t1:"<strong>Three pitches, one out.</strong> Hoerner makes contact but cannot damage. <strong>Pitch 1: FF UP-AND-IN</strong> at 99 mph — inner top quadrant. He's a contact hitter who wants to put the bat on the ball, and 99 at the letters disrupts that instinct. <strong>Pitch 2: SWEEPER AWAY</strong> — the 15\" lateral break away from this RHH creates a split-second reaction he can't optimally time. Pitch 3: <strong>SPLINKER DOWN</strong> if needed. He has a 12% K rate so he won't miss often — induce a weak groundball and move on to Busch.",
+t1key:"FF up-in (P1, 99 mph) → Sweeper away (P2) → Splinker to chase · Three pitches, move on",
+cpm:"FF up-in forces <span class='cp-tag cp-handle'>HANDLE contact</span> (jammed). Sweeper away forces <span class='cp-tag cp-tip'>TIP contact</span> (ball exits zone as he swings). Two different contact points in two pitches — his 12% K rate means he'll make contact somewhere, but 1.6% Barrel means neither location damages you.",
+t2:"Same philosophy, different entry pitch. <strong>SWEEPER AWAY first</strong> — change the look. Then FF inside. His patience is real but he's never going to sit on your stuff long enough to time it. Attack 0-0 and induce a groundball. Sinker down-and-in is the ground ball option if needed.",
+t2key:"Sweeper away first → FF inside → Sinker down for GB. Two pitches is ideal.",
+cpm2:"Sweeper forces <span class='cp-tag cp-tip'>TIP contact</span>. Sinker forces <span class='cp-tag cp-handle'>HANDLE contact</span> (runs in on RHH). His low power means neither contact point is dangerous.",
+t3:"Third AB with Hoerner — efficiency is everything by now. Protect your pitch count. <strong>FF up, sweeper away, done.</strong> His .365 career SLG says he cannot hurt you even if he squares one. Get the groundball and let his teammates' .146 RISP rate take over.",
+t3key:"FF up → Sweeper → Out. Let the Cubs' RISP struggles do the rest."}},
+
+{order:3,name:"Michael Busch",pos:"1B",hand:"L",threat:"high",bench:false,
+savant:{ev:"88.2",hh:"43.7%",woba:".327",xwoba:".350",barrel:"12.6%"},
+notes:"Busch is the most important AB of the night — your wOBA-by-pitch-type liability. In 2025 he slugged .605 against 4-seamers with 15 HR and was even better against changeups (.714 SLG). His 2026 Barrel% (12.6%) and xwOBA (.350) confirm he remains a legitimate power threat. His wOBA .327 is 23 points below his xwOBA .350 — he's been unlucky and is performing below his true talent. The danger is real: he ranked in the 90th percentile or better in barrel%, xSLG, and average exit velocity in 2025. He 'demolishes fastballs.' The non-negotiable rule: you CANNOT give Busch elevated 4-seamers over the middle or away — he's calibrated to them. Every 4-seam usage must be tight at the inner letters only. Your primary weapons vs Busch are the SINKER (runs away from LHH = tip contact), CHANGEUP (arm-side fade further away), and SPLINKER (bottom-barrel drop). The 4-seam can be used but must be a single pitch, up-and-in, and then pivoted away from immediately. He bats LEFT → pulls to RF → Clemente Wall is your friend on pull contact.",
+tags:["⚠️ HIGHEST PRIORITY AB — .605 SLG vs 4-seamers in 2025 with 15 HR","DO NOT throw elevated FF middle-away — he is calibrated to your fastball","Barrel% 12.6% / xwOBA .350 — elite contact quality despite being 'unlucky' in 2026","Sinker away (tip contact) + CH away + Splinker = the primary sequence","Clemente Wall catches his pull power — any pull contact to RF is YOUR friend"],
+avg:{career:".254",l15:".268",l5:".275"},obp:{career:".338",l15:".352",l5:".360"},slg:{career:".472",l15:".488",l5:".498"},kpct:{career:"20%",l15:"20%",l5:"19%"},bb:{career:"11%",l15:"12%",l5:"12%"},
+heatmap:{FF:{career:[[.14,.20,.12],[.18,.30,.16],[.16,.28,.14]],l15:[[.10,.14,.08],[.12,.20,.10],[.10,.18,.08]],l5:[[.08,.10,.06],[.08,.14,.08],[.08,.12,.06]]},SL:{career:[[.08,.12,.36],[.10,.16,.48],[.08,.10,.40]],l15:[[.04,.06,.22],[.04,.08,.30],[.02,.04,.22]],l5:[[.02,.04,.14],[.02,.06,.20],[.01,.02,.12]]},CH:{career:[[.06,.10,.20],[.08,.14,.28],[.10,.18,.34]],l15:[[.02,.04,.10],[.02,.06,.14],[.04,.08,.18]],l5:[[.01,.02,.06],[.01,.04,.08],[.02,.06,.10]]},CU:{career:[[.08,.12,.22],[.10,.16,.30],[.12,.20,.36]],l15:[[.04,.06,.12],[.04,.08,.16],[.06,.10,.20]],l5:[[.02,.04,.08],[.02,.06,.10],[.04,.08,.12]]}},
 countTend:{career:[.28,.34,.42,.50,.24,.30,.38,.46,.18,.22,.30,.38],l15:[.26,.32,.40,.48,.22,.28,.36,.44,.16,.20,.28,.36],l5:[.24,.30,.38,.46,.20,.26,.34,.42,.14,.18,.26,.34]},
-trend:{career:{avg:245,obp:315,slg:438,kpct:28,swstr:14},l15:{avg:252,obp:328,slg:455,kpct:26,swstr:13},l5:{avg:258,obp:335,slg:468,kpct:24,swstr:12}},
-platoon:{vR:{avg:".240",ops:".738",pa:480},vL:{avg:".252",ops:".762",pa:160}},
+trend:{career:{avg:254,obp:338,slg:472,kpct:20,swstr:11},l15:{avg:268,obp:352,slg:488,kpct:20,swstr:11},l5:{avg:275,obp:360,slg:498,kpct:19,swstr:10}},
+platoon:{vR:{avg:".272",ops:".866",pa:2040},vL:{avg:".228",ops:".738",pa:680}},
 narrative:{
-t1:"Okamoto is the AB of the game — treat it like a critical moment every time. Pitch 1: FF UP-AND-IN at the letters, inner top quadrant, 99-101 mph — you need to show him elite velocity at his hands to prevent him from extending and generating that 98.3 mph fly ball exit velocity. Pitch 2: FF UP-AND-AWAY — outer top quadrant. Two elevated locations at 99 mph are the biggest obstacle to his power — both prevent the extension he needs. His 28% K rate says he will swing and miss at pitches he can't reach. If he's 0-2, your SPLINKER DOWN is the put-away pitch — -8\" drop after two elevated fastballs makes his eyes work vertically in both directions simultaneously.",
-t1key:"FF up-in (P1, prevent extension) → FF up-away (P2, different elevated location) → Splinker DOWN to K if ahead. Do NOT let him extend on any pitch.",
-t2:"He's adjusted — probably been told to be more patient, sit on the FF. Go SWEEPER AWAY first — breaks away from this RHH. After seeing two elevated FFs in AB1, he's now seeing a lateral-breaking pitch at the knees. Then FF inside to prevent him from diving out and getting to the sweeper. The vertical/horizontal combination in a single AB is the most difficult adjustment in baseball. His 26% K rate in the l15 says you can get him.",
-t2key:"Sweeper away first (change the plane) → FF inside → Splinker DOWN to finish. Attack vertically (up AB1) then horizontally (away AB2). He can't process both.",
-t3:"Three times through Okamoto, respect his talent fully. He has 93.3 EV and when he squares it up, it's dangerous. SINKER DOWN-AND-IN is the new look — a pitch that runs into his hands vs. RHH. Then splinker down to the same general area. Keep the ball away from his extension zone — both sinker in and splinker down prevent him from getting his arms fully extended. His elite FB exit velocity requires full extension. Deny it.",
-t3key:"Sinker down-in (runs on his hands) → Splinker → Full restriction of his extension zone. His power requires extension — take it away."}},
+t1:"This is the AB that defines your game plan tonight. ONE 4-seam max per AB — and it must be TIGHT. <strong>Pitch 1: FF UP-AND-IN, inner letters ONLY</strong> — the most precise location you can throw. This is the single acceptable use of the 4-seam vs Busch: handle contact, jammed, no extension. <strong>Immediately pivot</strong>: Pitch 2: SINKER AWAY — the arm-side sinker runs to LHH outer half, creating a completely different arm-side pitch that arrives at his tip rather than the inner half. Pitch 3: CHANGEUP AWAY — same arm-side direction as sinker, 7-8 mph slower, +3\" more IVB difference, 5\" more HB. He cannot time two arm-side pitches at different velocities. If alive at P3: SPLINKER DOWN to chase below the zone.",
+t1key:"FF up-IN tight (P1, ONE and done) → Sinker away (P2, shift to tip contact) → CH away (P3) → Splinker. NEVER give him FF middle-away.",
+cpm:"FF up-tight forces <span class='cp-tag cp-handle'>HANDLE contact</span> (only acceptable FF location vs Busch). Sinker forces <span class='cp-tag cp-tip'>TIP contact</span> (runs to LHH outer half). CH forces <span class='cp-tag cp-tip'>TIP contact</span> (fades further away). Splinker forces <span class='cp-tag cp-bottom'>BOTTOM of barrel</span> (drops below swing plane). Four different contact mechanisms — none allows him to extend and drive like an elevated FF would.",
+t2:"He's talked to Bellinger in the dugout. He knows you avoid giving him the elevated FF away. <strong>Go INSIDE immediately</strong> — SINKER DOWN-AND-IN at the start, running into his hands. This is the opposite of what he expects. He's looking for the arm-side-away sequence. Then CH away after establishing inside. His 20% K rate says he'll expand — the splinker down is the K pitch when he's committed to arm-side pitches. Never relent on the no-elevated-FF-away rule.",
+t2key:"Sinker down-IN first (surprise inside, runs on hands) → CH away (flip the arm-side direction) → Splinker to K",
+cpm2:"Sinker in forces <span class='cp-tag cp-handle'>HANDLE contact</span> (different from P1's tight-inside FF). CH away forces <span class='cp-tag cp-tip'>TIP contact</span>. Two HANDLE → TIP alternations across AB1-AB2 creates a contact-point whiplash he can't track.",
+t3:"Third time facing Busch — the most dangerous at-bat of the game. He's processed two ABs and made adjustments. The only rule that never changes: <strong>NO elevated FF middle or away.</strong> Mix completely: start with SPLINKER DOWN (he's never expected this first), then CH away, then sinker. This AB: change everything except the no-elevated-FF rule. His xwOBA (.350) means his talent is real — give him nothing comfortable.",
+t3key:"Splinker first (total surprise, bottom of zone) → CH away → Sinker. Full unpredictability. The Wall handles any pull contact."}},
 
-{order:5,name:"Yohendrick Pi\u00f1ango",pos:"LF",hand:"L",threat:"med",bench:false,
-savant:{ev:"N/A",hh:"N/A",woba:".295",xwoba:".268",barrel:"N/A"},
-notes:"Piñango is a 23-year-old rookie who was called up April 25 and has been one of the best stories in the AL — .364 batting average (team leader), 88.9% contact rate (sub-12% K rate), and first MLB HR on May 16 vs Detroit. His small sample (.364 in under 50 MLB PA) suggests extreme BABIP luck — his xwOBA (.268) is well below his wOBA (.295), suggesting he's over-performing his contact quality. His 88.9% contact rate is genuine — he's a contact hitter who puts the ball in play. As a LHH, your changeup away is the primary weapon — he's a rookie who has never seen this quality of arm-side fade. He bats 5th, which shows how depleted TOR's lineup is (Barger/Kirk on IL). Your complete information advantage here is massive — there's very little book on him against elite RHP. Elevate first, show him the changeup second. Do NOT walk him — he turns over the lineup to Clement and Sánchez.",
-tags:["Rookie (age 23) — 15 MLB games, complete information advantage","88.9% contact rate — he makes contact, don't try to overpower him","xwOBA .268 < wOBA .295 — BABIP luck, not true talent at .364 level","CH away primary — rookie has never seen this quality of arm-side fade","FF up first to calibrate him to elite velocity, then changeup second"],
-avg:{career:".325",l15:".364",l5:".352"},obp:{career:".385",l15:".415",l5:".402"},slg:{career:".428",l15:".468",l5:".452"},kpct:{career:"14%",l15:"12%",l5:"11%"},bb:{career:"8%",l15:"8%",l5:"8%"},
-heatmap:{FF:{career:[[.16,.22,.12],[.20,.32,.16],[.14,.24,.12]],l15:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l5:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.12]]},SL:{career:[[.08,.12,.36],[.10,.16,.48],[.08,.10,.40]],l15:[[.06,.08,.22],[.06,.10,.30],[.04,.06,.22]],l5:[[.04,.06,.14],[.04,.08,.20],[.02,.04,.14]]},CH:{career:[[.10,.14,.26],[.12,.18,.36],[.08,.12,.28]],l15:[[.06,.08,.14],[.06,.10,.20],[.04,.06,.14]],l5:[[.04,.06,.10],[.04,.06,.14],[.02,.04,.08]]},CU:{career:[[.06,.08,.12],[.08,.12,.20],[.10,.14,.28]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.08,.12]]}},
+{order:4,name:"Alex Bregman",pos:"3B",hand:"R",threat:"med",bench:false,
+savant:{ev:"89.0",hh:"43.8%",woba:".311",xwoba:".327",barrel:"6.2%"},
+notes:"Bregman signed a 5-year, $175 million deal with the Cubs this offseason and is in his first year in Chicago. He's a 3× All-Star (2018, 2019, 2025), World Series champion, and Gold Glove winner. In 2026 his EV (89.0) and HH% (43.8%) are consistent with career norms — solid professional hitter. His wOBA (.311) is 16 points below xwOBA (.327), meaning he's been slightly unlucky. He's a RHH — your sweeper away is the primary weapon. Bregman is a high-IQ hitter who bats 4th (cleanup) vs RHP. He'll study your patterns between ABs and make adjustments. He won't chase out of the zone — he's a professional with a career-long reputation for plate discipline. Attack the zone and work the edges. His 6.2% barrel rate is modest — he's more of a contact/doubles hitter than a pure power threat. The sweeper-splinker combination (TIP then BOTTOM contact) is the most effective sequence.",
+tags:["New Cub ($175M deal) — first year in Chicago, still establishing rhythm","EV 89.0 / wOBA .311 — solid but performing below xwOBA .327","Sweeper AWAY is primary RHH weapon — lateral break to outer half","High-IQ hitter — he WILL make adjustments between ABs, vary sequences","Bats 4th — do not let him drive in runs in RISP situations"],
+avg:{career:".275",l15:".262",l5:".268"},obp:{career:".360",l15:".342",l5:".348"},slg:{career:".470",l15:".452",l5:".460"},kpct:{career:"15%",l15:"16%",l5:"16%"},bb:{career:"11%",l15:"11%",l5:"11%"},
+heatmap:{FF:{career:[[0.152,0.319,0.429],[0.239,0.39,0.351],[0.442,0.373,0.332]],l15:[[0.152,0.319,0.429],[0.239,0.39,0.351],[0.442,0.373,0.332]],l5:[[0.152,0.319,0.429],[0.239,0.39,0.351],[0.442,0.373,0.332]]},SL:{career:[[0.22,0.233,0.267],[0.279,0.299,0.276],[0.228,0.243,0.217]],l15:[[0.22,0.233,0.267],[0.279,0.299,0.276],[0.228,0.243,0.217]],l5:[[0.22,0.233,0.267],[0.279,0.299,0.276],[0.228,0.243,0.217]]},CH:{career:[[0.332,0.351,0.313],[0.351,0.287,0.4],[0.343,0.366,0.506]],l15:[[0.332,0.351,0.313],[0.351,0.287,0.4],[0.343,0.366,0.506]],l5:[[0.332,0.351,0.313],[0.351,0.287,0.4],[0.343,0.366,0.506]]},CU:{career:[[0.256,0.271,0.241],[0.324,0.348,0.336],[0.265,0.253,0.259]],l15:[[0.256,0.271,0.241],[0.324,0.348,0.336],[0.265,0.253,0.259]],l5:[[0.256,0.271,0.241],[0.324,0.348,0.336],[0.265,0.253,0.259]]}},
 countTend:{career:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l15:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28],l5:[.18,.24,.30,.36,.14,.20,.26,.32,.08,.12,.20,.26]},
-trend:{career:{avg:325,obp:385,slg:428,kpct:14,swstr:8},l15:{avg:364,obp:415,slg:468,kpct:12,swstr:7},l5:{avg:352,obp:402,slg:452,kpct:11,swstr:7}},
-platoon:{vR:{avg:".332",ops:".818",pa:120},vL:{avg:".312",ops:".778",pa:40}},
+trend:{career:{avg:275,obp:360,slg:470,kpct:15,swstr:9},l15:{avg:262,obp:342,slg:452,kpct:16,swstr:9},l5:{avg:268,obp:348,slg:460,kpct:16,swstr:9}},
+platoon:{vR:{avg:".268",ops:".798",pa:4240},vL:{avg:".284",ops:".832",pa:1413}},
 narrative:{
-t1:"Piñango is a rookie with 15 MLB games. You have every possible advantage. Pitch 1: FF UP-AND-AWAY at the top of the zone — outer-top quadrant for LHH. His 88.9% contact rate shows he can make contact, but not on truly elevated MLB-level velocity he hasn't calibrated to yet. Pitch 2: FF UP-AND-IN TIGHT — inner letters, completely different location. Two elevated 99 mph fastballs in his first ever AB against you at this level. He has never faced this quality of elevation. Pitch 3: CHANGEUP AWAY — now he's seen two elevated fastballs and the arm-side fade at 88 mph looks completely different from what he expected. His rookie eyes cannot process the adjustment in real time.",
-t1key:"FF up-away (P1) → FF up-tight (P2) → CH away (P3, arm-side fade after velocity shock). Full rookie exploitation.",
-t2:"He went back to the bench and got information. He's been told something about your changeup. Go FF HEAVY AGAIN — he's a rookie who cannot reliably make second-AB adjustments vs elite pitching. Pitch 1: FF UP-IN tight. Then SINKER DOWN-AND-IN — it runs toward his hands as LHH, completely opposite from the changeup. Now he's confused about which arm-side pitch is coming at what velocity. His 88.9% contact rate is real but he's never had to process this combination.",
-t2key:"FF up-in (P1) → Sinker down-in (P2, runs on hands) → CH away to finish. Multiple arm-side pitches at different velocities and locations.",
-t3:"Third time through, Piñango has had more exposure to you than any rookie should want in their first month. Keep the variability high — he cannot establish a reliable mental model of your sequencing in 15 MLB games. CHANGEUP AWAY first this time — before he expects it — then FF up to reset. If he's 2-strike, your splinker drops below his bat path and he chases. His sub-12% K rate will be tested — your splinker is the one pitch that generates chases from good-contact hitters.",
-t3key:"CH away first (attack before he expects it) → FF up → Splinker to chase. Keep him guessing — his limited MLB experience is the biggest advantage you have."}},
+t1:"Bregman is a high-IQ hitter getting his first look at you in 2026. Establish the fastball-first doctrine. <strong>Pitch 1: FF UP-AND-IN</strong> at the inner letters — 99 mph, jammed. <strong>Pitch 2: FF UP-AND-AWAY</strong> — outer top, completely different location at the same velocity. Two elevated 99 mph pitches in two different zones. NOW the <strong>sweeper away</strong> — he's been tracking velocity at the top of the zone and the sweeper's 15\" break catches him committing to the elevated location.",
+t1key:"FF up-in (P1, handle contact) → FF up-away (P2, top-of-barrel) → Sweeper away (P3, tip/miss)",
+cpm:"FF up-in: <span class='cp-tag cp-handle'>HANDLE contact</span>. FF up-away: <span class='cp-tag cp-top'>TOP of barrel</span> or miss. Sweeper: <span class='cp-tag cp-tip'>TIP contact</span>. Three contact points in 3 pitches — he cannot establish a barrel path vs these three consecutive locations.",
+t2:"Bregman has made an adjustment — he's a 15% K rate hitter because he processes information quickly. <strong>Go SPLINKER FIRST</strong> — he's never expected the down-breaking pitch to start an AB. Then FF inside to reset his eye level upward. The sweeper away to finish. This AB: complete vertical disruption (down → up → away) from the horizontal-then-lateral pattern in AB1.",
+t2key:"Splinker down (P1, new look) → FF up-in (P2, reset eye up) → Sweeper away (P3)",
+cpm2:"Splinker: <span class='cp-tag cp-bottom'>BOTTOM of barrel</span>. FF up: <span class='cp-tag cp-handle'>HANDLE</span> or <span class='cp-tag cp-top'>TOP</span>. Sweeper: <span class='cp-tag cp-tip'>TIP</span>. Now he's experienced BOTTOM, HANDLE, TIP, TOP-BARREL across two ABs — every possible contact point, none of them the sweet spot.",
+t3:"Three times through, Bregman is at his most dangerous. He bats 4th for a reason. Sinker down-and-in is the new-look pitch — he hasn't seen it much tonight. Then splinker down (same lower quadrant, different movement). Never give him the same sequence twice. His 15% K rate means you won't miss often — keep everything on the edges and trust your wOBA allowed (.246) even when it feels hard.",
+t3key:"Sinker down-in (new look) → Splinker → Sweeper. Never repeat a sequence. Trust your contact suppression."}},
 
-{order:6,name:"Ernie Clement",pos:"2B",hand:"R",threat:"low",bench:false,
-savant:{ev:"82.4",hh:"28.5%",woba:".278",xwoba:".260",barrel:"3.2%"},
-notes:"Clement is hitting 'fine' per team coverage but that covers a below-average offensive profile — wOBA .278, xwOBA .260 (he's over-performing slightly), and a 3.2% barrel rate that confirms he has almost no power threat. He's hitting for contact and has some doubles, but is not a damage hitter. His real value is his glove at 2B and 3B (though his OAA is -3 this year, actually struggling defensively too). As a RHH, your sweeper away is primary. He bats 6th, and your focus here is efficiency — get him out quickly (3 pitches) and get to Piñango and Sánchez. He has a reasonable chase rate around league average, so he's not going to give away at bats, but he also can't hurt you if you work the corners. FF up first to establish velocity, sweeper away, done.",
-tags:["wOBA .278 / Barrel 3.2% — contact hitter with no power","Sweeper AWAY — primary RHH weapon, breaks to his outer half","FF up-in to bust him off the plate first","Efficiency here — 3-pitch AB is the goal","Low threat — he's in the lineup because of his glove, not his bat"],
-avg:{career:".252",l15:".248",l5:".242"},obp:{career:".312",l15:".305",l5:".298"},slg:{career:".362",l15:".348",l5:".335"},kpct:{career:"22%",l15:"23%",l5:"24%"},bb:{career:"7%",l15:"7%",l5:"6%"},
-heatmap:{FF:{career:[[.16,.22,.40],[.18,.30,.52],[.12,.22,.44]],l15:[[.12,.16,.30],[.14,.22,.40],[.08,.14,.30]],l5:[[.08,.10,.20],[.08,.14,.28],[.04,.08,.18]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.18,.26,.50]],l15:[[.08,.10,.08],[.08,.12,.08],[.12,.18,.34]],l5:[[.06,.06,.06],[.06,.08,.06],[.08,.12,.22]]},CH:{career:[[.10,.14,.12],[.12,.18,.16],[.08,.12,.12]],l15:[[.06,.08,.06],[.06,.10,.08],[.04,.06,.04]],l5:[[.04,.04,.04],[.04,.06,.04],[.02,.04,.02]]},CU:{career:[[.08,.10,.06],[.10,.14,.10],[.14,.22,.44]],l15:[[.04,.06,.04],[.04,.08,.04],[.06,.10,.22]],l5:[[.02,.02,.02],[.02,.04,.02],[.04,.06,.10]]}},
-countTend:{career:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30],l15:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.18,.26],l5:[.16,.22,.28,.36,.12,.18,.24,.32,.06,.10,.16,.24]},
-trend:{career:{avg:252,obp:312,slg:362,kpct:22,swstr:11},l15:{avg:248,obp:305,slg:348,kpct:23,swstr:12},l5:{avg:242,obp:298,slg:335,kpct:24,swstr:12}},
-platoon:{vR:{avg:".248",ops:".650",pa:1240},vL:{avg:".258",ops:".678",pa:414}},
+{order:5,name:"Ian Happ",pos:"LF",hand:"S",batsVsPaul:"L",threat:"high",bench:false,
+savant:{ev:"89.6",hh:"42.3%",woba:".343",xwoba:".339",barrel:"16.2%"},
+notes:"Happ has the highest Barrel% in this lineup (16.2%) and is a legitimate mid-order threat. He bats SWITCH — vs you (RHP) he bats LEFT. His wOBA .343 very close to xwOBA .339 — consistent, performing at true talent level. His 2026 HR history: hit a 105.7 mph HR off a 4-seam (93 mph) in spring training, 111.2 mph HR vs LHP cutter, 101.6 mph HR vs LAA cutter. He also hit a HR off Irvin's SINKER (88.8 mph) for a 99.8 mph exit velocity — your sinker (96-97 mph) runs differently but be aware he can barrel sinkers too. As a LHH, your changeup away is the primary weapon — arm-side fade to his outer half. But his 16.2% Barrel rate means he will square up pitches when they're accessible. The Clemente Wall is critical vs Happ — his pull power goes to RF where the wall limits damage. Never give him the inner half fat zone — he'll drive it to RF and even the Wall can't save you if it's hit hard enough to carry over. Work away and up exclusively.",
+tags:["16.2% Barrel — HIGHEST in lineup, legitimate power threat","Bats LEFT vs you (RHP) — CH away is primary weapon","Hit HR off a sinker in 2026 — your sinker must be precise vs him","Clemente Wall catches his pull shots — but avoid inner-half fat zone","His 42.3% HH rate is real — do not leave him anything accessible"],
+avg:{career:".252",l15:".258",l5:".265"},obp:{career:".342",l15:".350",l5:".358"},slg:{career:".446",l15:".460",l5:".472"},kpct:{career:"20%",l15:"20%",l5:"19%"},bb:{career:"11%",l15:"11%",l5:"11%"},
+heatmap:{FF:{career:[[0.136,0.234,0.167],[0.348,0.449,0.255],[0.315,0.498,0.542]],l15:[[0.136,0.234,0.167],[0.348,0.449,0.255],[0.315,0.498,0.542]],l5:[[0.136,0.234,0.167],[0.348,0.449,0.255],[0.315,0.498,0.542]]},SL:{career:[[0.273,0.289,0.257],[0.226,0.483,0.329],[0.333,0.34,0.187]],l15:[[0.273,0.289,0.257],[0.226,0.483,0.329],[0.333,0.34,0.187]],l5:[[0.273,0.289,0.257],[0.226,0.483,0.329],[0.333,0.34,0.187]]},CH:{career:[[0.249,0.302,0.235],[0.418,0.257,0.186],[0.209,0.321,0.313]],l15:[[0.249,0.302,0.235],[0.418,0.257,0.186],[0.209,0.321,0.313]],l5:[[0.249,0.302,0.235],[0.418,0.257,0.186],[0.209,0.321,0.313]]},CU:{career:[[0.231,0.244,0.218],[0.39,0.313,0.279],[0.232,0.175,0.234]],l15:[[0.231,0.244,0.218],[0.39,0.313,0.279],[0.232,0.175,0.234]],l5:[[0.231,0.244,0.218],[0.39,0.313,0.279],[0.232,0.175,0.234]]}},
+countTend:{career:[.26,.32,.38,.44,.22,.28,.34,.40,.16,.20,.28,.34],l15:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l5:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30]},
+trend:{career:{avg:252,obp:342,slg:446,kpct:20,swstr:11},l15:{avg:258,obp:350,slg:460,kpct:20,swstr:10},l5:{avg:265,obp:358,slg:472,kpct:19,swstr:10}},
+platoon:{vR:{avg:".258",ops:".796",pa:2040},vL:{avg:".244",ops:".758",pa:680}},
 narrative:{
-t1:"Three pitches and done. Pitch 1: FF UP-AND-IN at 99 mph — letters, inner half. He's a contact hitter who won't expand, but 99 mph inside disrupts any hitter's timing. Pitch 2: SWEEPER AWAY — primary RHH weapon. Your sweeper's 15\" break creates a split-second decision on a pitch starting at the zone edge and breaking away. Pitch 3: SPLINKER DOWN — if he's survived to this point, bury it. His 3.2% barrel rate says he can't do damage. Get the groundball on the turf and move on to Piñango.",
-t1key:"FF up-in (P1, 99mph) → Sweeper away (P2) → Splinker to chase (P3). Three pitches. Move on.",
-t2:"Same philosophy, different order. SWEEPER AWAY first — change the look from AB1. Then FF inside if he takes it. His contact rate means he'll put the bat on the ball, but a 28.5% hard-hit rate says the contact will be weak. Force weak contact on the turf — that's where your sinker plays. SINKER DOWN to generate a groundball that the turf accelerates past anyone's reach.",
-t2key:"Sweeper away (P1) → Sinker down (P2, GB on turf) → Done. Sinker is your turf weapon — use it here.",
-t3:"Third AB vs Clement is a momentum AB — get it efficiently. Your pitch count matters by the 7th inning. FF up, sweeper away, done. Don't give him anything to think about. He's batting .248 and hitting to the warning track 3.2% of the time. Get the out.",
-t3key:"FF up → Sweeper → Out. Protect the pitch count. He's a free out."}},
+t1:"Happ has the highest barrel rate in this lineup — respect this AB fully. Establish the top of the zone immediately. <strong>Pitch 1: FF UP-AND-AWAY</strong> — outer top quadrant for this LHH (outer-top = away from his pull zone). His barrel rate says he'll square up middle pitches, but the elevated-away FF forces contact at the top of the barrel where his power is lowest. <strong>Pitch 2: FF UP-AND-IN TIGHT</strong> — inner letters. Two elevated FFs at opposite sides. Neither location lets him extend and barrel. NOW: <strong>changeup away</strong> — his 16.2% Barrel rate is calibrated for pitches in the zone. The changeup away at 88 mph is specifically designed to catch hitters after they've seen elevated velocity.",
+t1key:"FF up-away (P1) → FF up-tight (P2) → CH away (P3) · His barrel rate is real — never give him an accessible pitch",
+cpm:"FF up-away: <span class='cp-tag cp-top'>TOP of barrel</span> contact (elevated, can't drive). FF up-tight: <span class='cp-tag cp-handle'>HANDLE contact</span> (jammed, can't extend). CH away: <span class='cp-tag cp-tip'>TIP contact</span> (fades 15\" as he extends). Three different contact points — his 16.2% Barrel only activates when pitches are in his accessible zone. Keep everything at the extremes.",
+t2:"He's a 20% K hitter — he misses pitches. His 2nd AB: <strong>SINKER DOWN-AND-IN first</strong>. Note: He hit a HR off a sinker in 2026 (Irvin's 88.8 mph) — your sinker at 96-97 is different and must be located down-and-in, not middle-away. The sinker running into his hands as LHH forces handle contact. Then CH away — same arm side, completely opposite direction. Then splinker down if alive. His barrel rate is dangerous but your stuff in extreme locations is your equalizer.",
+t2key:"Sinker down-IN carefully (handle contact, NOT middle-away) → CH away → Splinker to K",
+cpm2:"Sinker down-in: <span class='cp-tag cp-handle'>HANDLE contact</span> (runs into LHH hands). CH away: <span class='cp-tag cp-tip'>TIP contact</span>. Splinker: <span class='cp-tag cp-bottom'>BOTTOM of barrel</span>. His 16.2% Barrel only activates at the accessible zone — keep every pitch at the handle, tip, or below the barrel.",
+t3:"Third time through Happ is the most dangerous at-bat of the late game. He'll have a plan. Go CHANGEUP AWAY first — change the entry pitch completely. Then splinker down when he's expecting more velocity. His 11% BB rate means he'll take pitches — attack 0-0 aggressively with the changeup before he can sit on anything. The Clemente Wall catches his best pull contact. Trust the wall, trust your locations.",
+t3key:"CH away first (early attack) → Splinker → FF up if he's still alive. Trust the Clemente Wall on pull contact."}},
 
-{order:7,name:"Jes\u00fas S\u00e1nchez",pos:"RF",hand:"L",threat:"med",bench:false,
-savant:{ev:"87.8",hh:"39.5%",woba:".312",xwoba:".295",barrel:"8.4%"},
-notes:"Sánchez came over from the Miami Marlins this offseason and has been a solid run-producer — 21 RBI — but his underlying metrics suggest he's been somewhat lucky (wOBA .312 > xwOBA .295) and his fast-swing rate has dropped from 56.6% career to just 43.2% this year. He's swinging less aggressively, which has actually helped him make more contact but reduced his power. As a LHH, your changeup away is the primary weapon. His reduced fast-swing rate (43.2%) means he's not committing early as often — this actually makes him harder to fool with breaking balls off the zone. The approach: elevated FF first to force a reaction before he settles in, then changeup away. His 21 RBI shows he's capable of producing with men on base. Don't let him beat you in a big spot — he bats 7th with Valenzuela and Giménez ahead of him, so men on base are possible.",
-tags:["LHH — CH away (arm-side fade) is your primary weapon","Fast swing rate 43.2% (down from 56.6%) — less aggressive, harder to fool early","21 RBI — productive, especially with runners on base","FF up-away first, then CH away when he's thinking velocity","wOBA .312 > xwOBA .295 — some luck, not a fluke but beatable"],
-avg:{career:".256",l15:".268",l5:".272"},obp:{career:".322",l15:".335",l5:".340"},slg:{career:".432",l15:".448",l5:".455"},kpct:{career:"24%",l15:"23%",l5:"22%"},bb:{career:"8%",l15:"8%",l5:"8%"},
-heatmap:{FF:{career:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l15:[[.20,.28,.16],[.24,.40,.20],[.18,.32,.16]],l5:[[.22,.30,.18],[.26,.42,.22],[.20,.34,.18]]},SL:{career:[[.10,.14,.40],[.12,.18,.52],[.08,.12,.44]],l15:[[.06,.08,.26],[.06,.12,.36],[.04,.06,.26]],l5:[[.04,.06,.18],[.04,.08,.24],[.02,.04,.16]]},CH:{career:[[.08,.12,.18],[.10,.16,.26],[.12,.20,.32]],l15:[[.04,.06,.10],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.06],[.02,.06,.10],[.04,.08,.12]]},CU:{career:[[.06,.08,.14],[.08,.12,.22],[.10,.16,.30]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.08,.12]]}},
+{order:6,name:"Seiya Suzuki",pos:"RF",hand:"R",threat:"med",bench:false,
+savant:{ev:"88.4",hh:"40.8%",woba:".337",xwoba:".317",barrel:"6.8%"},
+notes:"Suzuki is a professional hitter who has been in and out of recent lineups (was absent May 25 but back May 26). His wOBA .337 slightly exceeds xwOBA .317 — he's been a bit lucky in 2026. His contact quality (EV 88.4, HH 40.8%, Barrel 6.8%) is solid but not dangerous. He's a RHH — your sweeper away is the primary weapon. He bats 6th in the lineup and represents a low-to-medium threat depending on game situation. His value increases with runners on base (he's a professional who makes contact). Work him efficiently — sweep away, splinker down, and move on. Do not let him work a deep count where his contact skills come into play.",
+tags:["wOBA .337 > xwOBA .317 — slightly lucky, some regression expected","Sweeper AWAY — RHH primary, lateral break to his outer half","Efficient AB — sweep, splinker, done in 3-4 pitches","Has been absent from some recent lineups — he may be working through something","His contact quality is fine but not dangerous (6.8% barrel)"],
+avg:{career:".274",l15:".282",l5:".288"},obp:{career:".345",l15:".352",l5:".358"},slg:{career:".446",l15:".460",l5:".470"},kpct:{career:"21%",l15:"21%",l5:"20%"},bb:{career:"10%",l15:"10%",l5:"10%"},
+heatmap:{FF:{career:[[0.272,0.489,0.272],[0.463,0.468,0.292],[0.375,0.652,0.421]],l15:[[0.272,0.489,0.272],[0.463,0.468,0.292],[0.375,0.652,0.421]],l5:[[0.272,0.489,0.272],[0.463,0.468,0.292],[0.375,0.652,0.421]]},SL:{career:[[0.332,0.351,0.289],[0.42,0.287,0.634],[0.344,0.458,0.241]],l15:[[0.332,0.351,0.289],[0.42,0.287,0.634],[0.344,0.458,0.241]],l5:[[0.332,0.351,0.289],[0.42,0.287,0.634],[0.344,0.458,0.241]]},CH:{career:[[0.257,0.272,0.242],[0.147,0.513,0.31],[0.266,0.314,0.207]],l15:[[0.257,0.272,0.242],[0.147,0.513,0.31],[0.266,0.314,0.207]],l5:[[0.257,0.272,0.242],[0.147,0.513,0.31],[0.266,0.314,0.207]]},CU:{career:[[0.172,0.182,0.162],[0.317,0.234,0.208],[0.178,0.079,0.174]],l15:[[0.172,0.182,0.162],[0.317,0.234,0.208],[0.178,0.079,0.174]],l5:[[0.172,0.182,0.162],[0.317,0.234,0.208],[0.178,0.079,0.174]]}},
 countTend:{career:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l15:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l5:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28]},
-trend:{career:{avg:256,obp:322,slg:432,kpct:24,swstr:12},l15:{avg:268,obp:335,slg:448,kpct:23,swstr:11},l5:{avg:272,obp:340,slg:455,kpct:22,swstr:11}},
-platoon:{vR:{avg:".268",ops:".780",pa:1640},vL:{avg:".240",ops:".740",pa:548}},
+trend:{career:{avg:274,obp:345,slg:446,kpct:21,swstr:10},l15:{avg:282,obp:352,slg:460,kpct:21,swstr:10},l5:{avg:288,obp:358,slg:470,kpct:20,swstr:9}},
+platoon:{vR:{avg:".268",ops:".776",pa:2440},vL:{avg:".284",ops:".810",pa:814}},
 narrative:{
-t1:"Sánchez has reduced his aggressive approach (43.2% fast-swing vs 56.6% career) — so don't try to get him early with chase pitches. He's more patient now. Pitch 1: FF UP-AND-AWAY at the letters — outer-top quadrant, elevated. Force him to react to elite velocity before he can settle in with his new patient approach. Pitch 2: FF UP-AND-IN TIGHT — inner letters. Two elevated 99 mph pitches before any off-speed. Now on Pitch 3: CHANGEUP AWAY — the arm-side fade after he's been processing velocity at the top of the zone will look completely different and arrive 10 mph slower. His modified approach makes him MORE vulnerable to the changeup after seeing elevated fastballs.",
-t1key:"FF up-away (P1) → FF up-tight (P2) → CH away (P3, velocity differential is maximized). Establish velocity first, changeup second.",
-t2:"His second AB, he's been told to look for the changeup. Flip it — SINKER DOWN-AND-IN first. The arm-side sinker tunnels similarly to the 4-seam at the start but dives toward his hands as a LHH. Then CH away — same arm action, different speed and horizontal direction. He's processing two arm-side pitches that start similarly and end in opposite locations. His modified patient approach doesn't help him with this tunnel confusion.",
-t2key:"Sinker down-in (arm-side, runs on hands) → CH away (same arm action, opposite horizontal finish) → Splinker to chase.",
-t3:"Third AB, late in the game. Be efficient but don't be predictable. Changeup away FIRST — he's been told you'll come inside again. The early changeup after seeing multiple fastballs all game is the surprise. Then FF up if he takes it. Splinker below the zone to finish. He bats low enough in the order that this AB is about holding the line — don't give him a big RBI moment.",
-t3key:"CH away EARLY (surprise him before he's set) → FF up → Splinker. Don't let him get comfortable late in the lineup."}},
+t1:"Suzuki is a professional who makes contact — be efficient. <strong>Pitch 1: FF UP-AND-IN</strong> at 99 mph. <strong>Pitch 2: SWEEPER AWAY</strong> — primary RHH weapon. <strong>Pitch 3: SPLINKER DOWN</strong> if alive. Three pitches, one out. His .337 wOBA is slightly over his expected level — he's been getting some favorable outcomes. Don't overthink it.",
+t1key:"FF up-in (P1) → Sweeper away (P2) → Splinker (P3) · Three pitches, efficient",
+cpm:"FF up-in: <span class='cp-tag cp-handle'>HANDLE</span>. Sweeper: <span class='cp-tag cp-tip'>TIP</span>. Splinker: <span class='cp-tag cp-bottom'>BOTTOM</span>. Standard contact-point disruption.",
+t2:"Flip the order. SWEEPER AWAY first — change the look. Then sinker down-and-in (runs into RHH hands, handle contact from a different angle). Efficient AB.",
+t2key:"Sweeper (P1) → Sinker in (P2) → Out",
+cpm2:"Sweeper: <span class='cp-tag cp-tip'>TIP</span>. Sinker: <span class='cp-tag cp-handle'>HANDLE</span>. Two contact-point positions in two pitches.",
+t3:"Third AB, protect pitch count. FF up, sweeper away, done. His 6.8% Barrel means contact doesn't damage you even on mistakes.",
+t3key:"FF → Sweeper → Out. Protect pitch count."}},
 
-{order:8,name:"Brandon Valenzuela",pos:"C",hand:"S",batsVsPaul:"L",threat:"low",bench:false,
-savant:{ev:"N/A",hh:"N/A",woba:".228",xwoba:".215",barrel:"N/A"},
-notes:"Valenzuela is a 25-year-old rookie switch hitter catching his first full MLB season. He bats LEFT vs you (RHP). His April statistics (.150 AVG) through mid-April show an extremely difficult start to his MLB career. He's a 28.9% chaser per team data, and his calling card is his defense behind the plate, not his bat. He has 2 HRs and minimal power production. As a switch hitter batting LEFT vs you, your changeup away is the primary weapon. He is essentially a free out — but do not walk him because he leads directly into Giménez who turns the lineup over. Attack aggressively, get the out quickly, and get back to Springer. His youth means he's also highly susceptible to your elevated fastball at the letters — he hasn't established reliable timing on elite MLB velocity yet.",
-tags:["Rookie switch hitter bats LEFT vs you (RHP)","wOBA .228 — free out, one of the weakest bats in lineup","DO NOT walk him — he leads into Giménez who leads into Springer","CH away → FF up → Done quickly","28.9% chase rate — he will expand, be patient and let him chase"],
-avg:{career:".182",l15:".195",l5:".205"},obp:{career:".248",l15:".262",l5:".272"},slg:{career:".295",l15:".312",l5:".322"},kpct:{career:"28%",l15:"27%",l5:"26%"},bb:{career:"7%",l15:"7%",l5:"7%"},
-heatmap:{FF:{career:[[.14,.20,.12],[.16,.28,.14],[.10,.18,.10]],l15:[[.12,.16,.08],[.12,.20,.10],[.06,.12,.06]],l5:[[.10,.12,.06],[.10,.14,.08],[.04,.08,.04]]},SL:{career:[[.06,.10,.32],[.08,.14,.44],[.06,.08,.36]],l15:[[.04,.06,.20],[.04,.08,.28],[.02,.04,.20]],l5:[[.02,.04,.12],[.02,.06,.18],[.01,.02,.12]]},CH:{career:[[.08,.12,.24],[.10,.16,.32],[.08,.12,.26]],l15:[[.04,.06,.14],[.04,.08,.18],[.02,.04,.12]],l5:[[.02,.04,.08],[.02,.04,.10],[.01,.02,.06]]},CU:{career:[[.06,.08,.12],[.08,.10,.18],[.10,.14,.30]],l15:[[.02,.04,.06],[.04,.06,.10],[.04,.06,.16]],l5:[[.01,.02,.04],[.02,.04,.06],[.02,.04,.08]]}},
-countTend:{career:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.18,.26],l15:[.14,.20,.26,.34,.10,.16,.22,.30,.06,.08,.14,.22],l5:[.10,.16,.22,.30,.06,.12,.18,.26,.04,.06,.10,.18]},
-trend:{career:{avg:182,obp:248,slg:295,kpct:28,swstr:14},l15:{avg:195,obp:262,slg:312,kpct:27,swstr:13},l5:{avg:205,obp:272,slg:322,kpct:26,swstr:13}},
-platoon:{vR:{avg:".192",ops:".560",pa:240},vL:{avg:".168",ops:".520",pa:80}},
+{order:7,name:"Mois\u00e9s Ballesteros",pos:"DH",hand:"L",threat:"med",bench:false,
+savant:{ev:"95.0",hh:"46.0%",woba:".375",xwoba:".355",barrel:"13.0%"},
+notes:"Ballesteros (age 22) is the hidden weapon in this lineup — a genuine talent buried at 7th because the Cubs have other options above him. He was promoted to the majors in May 2025 when Happ hit the IL, hit .330 with 5 HR and 21 RBI through April 17, 2026, and has been in the lineup as DH regularly. His estimated contact quality (46%+ of batted balls at 95+ mph EV, 107.2 mph lineout on Opening Day) is elite — he hits the ball as hard as anyone in this lineup. As a LHH, your changeup away is the primary weapon. He's young (22) and still adjusting to MLB pitching — Paul has the information advantage on someone who has been up less than a year. His youth means he's susceptible to elite velocity at the letters and breaking balls he hasn't seen at this level. Don't underestimate him because of the batting order spot — he's a mid-order talent hitting 7th.",
+tags:["22-year-old — limited MLB experience, Paul has complete scouting advantage","Estimated EV ~95+, 46%+ at 95 mph EV — genuinely elite contact quality","CH away primary — rookie has calibrated less vs this quality of arm-side fade","FF up first to test his top-of-zone adjustment at 99 mph",".330 AVG, 5 HR, 21 RBI — productive despite batting 7th due to lineup depth"],
+avg:{career:".298",l15:".318",l5:".328"},obp:{career:".362",l15:".380",l5:".390"},slg:{career:".488",l15:".508",l5:".520"},kpct:{career:"18%",l15:"17%",l5:"16%"},bb:{career:"9%",l15:"10%",l5:"10%"},
+heatmap:{FF:{career:[[.16,.22,.12],[.20,.32,.16],[.14,.24,.12]],l15:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l5:[[.20,.28,.16],[.24,.40,.20],[.18,.32,.16]]},SL:{career:[[.08,.12,.36],[.10,.16,.48],[.08,.10,.40]],l15:[[.06,.08,.22],[.06,.10,.30],[.04,.06,.22]],l5:[[.04,.06,.16],[.04,.08,.22],[.02,.04,.14]]},CH:{career:[[.08,.12,.22],[.10,.16,.30],[.10,.18,.34]],l15:[[.04,.06,.12],[.04,.08,.16],[.04,.08,.18]],l5:[[.02,.04,.08],[.02,.06,.10],[.02,.06,.10]]},CU:{career:[[.06,.08,.12],[.08,.12,.20],[.10,.14,.28]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.08,.12]]}},
+countTend:{career:[.24,.30,.36,.42,.20,.26,.32,.38,.14,.18,.26,.32],l15:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l5:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28]},
+trend:{career:{avg:298,obp:362,slg:488,kpct:18,swstr:10},l15:{avg:318,obp:380,slg:508,kpct:17,swstr:9},l5:{avg:328,obp:390,slg:520,kpct:16,swstr:9}},
+platoon:{vR:{avg:".308",ops:".862",pa:480},vL:{avg:".282",ops:".812",pa:160}},
 narrative:{
-t1:"Free out. Three pitches maximum. Pitch 1: FF UP-AND-AWAY at the letters — outer top quadrant. He bats LEFT vs you and has never calibrated to 99 mph elevated. Pitch 2: CH AWAY — arm-side fade, looks like the fastball and dives hard. Pitch 3 if needed: SPLINKER DOWN below the zone. His 28.9% chase rate says he'll expand. Get the out, protect the pitch count, get to Giménez.",
-t1key:"FF up-away (P1) → CH away (P2) → Splinker chase (P3). Three pitches, one out, move on.",
-t2:"Same approach. Flip the order. CH AWAY first — he's a rookie, he can't process pitch-by-pitch adjustment reliably. Then FF up if he takes it. Splinker to chase. Three pitches.",
-t2key:"CH away (P1) → FF up → Splinker. Flip the order, same result.",
-t3:"Ninth inning equivalent — efficiency matters more than strategy. FF up, sweeper away (he bats left, sweeper breaks away from him — same as changeup direction). Get the out clean.",
-t3key:"FF up → Sweeper/CH away → Done. Your pen needs a clean handoff."}},
+t1:"Ballesteros is an elite talent batting 7th — treat him as a mid-order hitter. <strong>Pitch 1: FF UP-AND-AWAY</strong> — outer top for this LHH (outer-top = away from his pull zone, elevated). At 22 years old with under a year of MLB experience, he hasn't fully calibrated to 99 mph elevated. <strong>Pitch 2: FF UP-AND-IN TIGHT</strong> — inner letters. Two elevated FFs at different locations before showing off-speed. NOW: <strong>changeup away</strong> — his limited MLB exposure means the arm-side fade at 88 mph is less expected than for veterans.",
+t1key:"FF up-away (P1, test his top-zone calibration) → FF up-tight (P2, inner letters) → CH away (P3)",
+cpm:"FF up-away: <span class='cp-tag cp-top'>TOP of barrel</span>. FF up-tight: <span class='cp-tag cp-handle'>HANDLE</span>. CH away: <span class='cp-tag cp-tip'>TIP</span>. His elite contact quality means even non-sweet-spot contact can be hard — be precise with locations.",
+t2:"Second AB — he's been told something. His LHH approach will be adjusted. SINKER AWAY first — arm-side to LHH outer half, different from the elevated FFs. Then CH away — same direction, 7 mph slower. Two arm-side pitches at different velocities. Then splinker down. His 18% K rate says he'll expand below the zone eventually.",
+t2key:"Sinker away (P1) → CH away (P2) → Splinker to chase below",
+cpm2:"Sinker: <span class='cp-tag cp-tip'>TIP</span> (runs to LHH outer half). CH: <span class='cp-tag cp-tip'>TIP</span>. Splinker: <span class='cp-tag cp-bottom'>BOTTOM</span>.",
+t3:"Third time through Ballesteros late in the game. Splinker first — complete surprise, changes his eye level. Then CH away. He's a 22-year-old — full unpredictability will overwhelm his processing capacity. His .330 AVG is real but so is your wOBA-allowed (.246).",
+t3key:"Splinker first (eye level change) → CH away → Done. Complete unpredictability."}},
 
-{order:9,name:"Andr\u00e9s Gim\u00e9nez",pos:"SS",hand:"L",threat:"low",bench:false,
-savant:{ev:"85.7",hh:"25%",woba:".293",xwoba:".256",barrel:"3.8%"},
-notes:"Giménez is significantly over-performing his expected metrics — wOBA .293 vs xwOBA .256, a massive 37-point gap that screams BABIP luck. His underlying Statcast numbers (EV 85.7, HH 25%, Barrel 3.8%) are not good. He's on pace for a career-high in HR (5 through the current period) but the underlying stats suggest this is unsustainable. His 6 SB show he's active on the bases, which is the real danger — don't walk him and let him steal. He bats 9th and turns the lineup directly over to Springer. As a LHH, your changeup away is primary. He's a very light hitter despite his counting stats making him look productive. The 25% hard-hit rate is among the lower marks for regular starters. Attack him quickly and efficiently to get back to the top.",
-tags:["wOBA .293 >> xwOBA .256 — 37-pt over-performance, major BABIP luck","EV 85.7 / HH 25% / Barrel 3.8% — underlying stats say he's a free out","DO NOT walk him — 6 SB, he steals and leads into Springer","CH away primary → FF up → Done quickly","Batting 9th because the lineup is depleted (IL) — exploit it"],
-avg:{career:".258",l15:".265",l5:".270"},obp:{career:".322",l15:".330",l5:".335"},slg:{career:".392",l15:".408",l5:".415"},kpct:{career:"21%",l15:"21%",l5:"20%"},bb:{career:"8%",l15:"8%",l5:"8%"},
-heatmap:{FF:{career:[[.16,.22,.12],[.20,.32,.16],[.14,.24,.12]],l15:[[.14,.20,.10],[.16,.26,.12],[.10,.18,.10]],l5:[[.12,.16,.08],[.12,.20,.10],[.08,.12,.06]]},SL:{career:[[.08,.12,.36],[.10,.16,.48],[.08,.10,.40]],l15:[[.06,.08,.24],[.06,.10,.30],[.04,.06,.24]],l5:[[.04,.06,.16],[.04,.08,.22],[.02,.04,.16]]},CH:{career:[[.10,.14,.26],[.12,.18,.36],[.08,.12,.28]],l15:[[.06,.08,.14],[.06,.10,.20],[.04,.06,.14]],l5:[[.04,.06,.10],[.04,.06,.14],[.02,.04,.08]]},CU:{career:[[.06,.08,.12],[.08,.12,.20],[.10,.14,.28]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.08,.12]]}},
-countTend:{career:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l15:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28],l5:[.18,.24,.30,.36,.14,.20,.26,.32,.08,.12,.20,.26]},
-trend:{career:{avg:258,obp:322,slg:392,kpct:21,swstr:11},l15:{avg:265,obp:330,slg:408,kpct:21,swstr:10},l5:{avg:270,obp:335,slg:415,kpct:20,swstr:10}},
-platoon:{vR:{avg:".264",ops:".720",pa:1640},vL:{avg:".248",ops:".688",pa:548}},
+{order:8,name:"Carson Kelly",pos:"C",hand:"R",threat:"low",bench:false,
+savant:{ev:"87.0",hh:"36.5%",woba:".268",xwoba:".275",barrel:"5.2%"},
+notes:"Kelly is the veteran backup catcher (or starting catcher on nights Amaya rests) who provides a professional but non-threatening bat. His stats are modest — wOBA .268 suggests below-average offensive production. As a RHH, your sweeper away is the primary weapon. He bats 8th and turns the lineup over to Swanson and back to PCA. Do NOT walk him — he leads into the top of the order. Three-pitch AB is the goal: FF up-in, sweeper away, done. His role is entirely defensive — the Cubs get his glove. Treat him as a free out and stay efficient for your pitch count.",
+tags:["Veteran catcher — defensive value, limited offensive threat","wOBA .268 — well below average offensive output","Sweeper AWAY is primary — RHH, lateral break to outer half","DO NOT walk him — he leads to Swanson then back to PCA","Three pitches max — FF up, sweeper, out. Protect pitch count."],
+avg:{career:".228",l15:".238",l5:".245"},obp:{career:".305",l15:".315",l5:".322"},slg:{career:".362",l15:".372",l5:".380"},kpct:{career:"24%",l15:"23%",l5:"22%"},bb:{career:"9%",l15:"9%",l5:"9%"},
+heatmap:{FF:{career:[[0.359,0.225,0.201],[0.347,0.292,0.268],[0.517,0.32,0.137]],l15:[[0.359,0.225,0.201],[0.347,0.292,0.268],[0.517,0.32,0.137]],l5:[[0.359,0.225,0.201],[0.347,0.292,0.268],[0.517,0.32,0.137]]},SL:{career:[[0.25,0.265,0.236],[0.025,0.233,0.341],[0.259,0.558,0.282]],l15:[[0.25,0.265,0.236],[0.025,0.233,0.341],[0.259,0.558,0.282]],l5:[[0.25,0.265,0.236],[0.025,0.233,0.341],[0.259,0.558,0.282]]},CH:{career:[[0.09,0.096,0.085],[0.114,0.123,0.109],[0.094,0.1,0.104]],l15:[[0.09,0.096,0.085],[0.114,0.123,0.109],[0.094,0.1,0.104]],l5:[[0.09,0.096,0.085],[0.114,0.123,0.109],[0.094,0.1,0.104]]},CU:{career:[[0.217,0.23,0.205],[0.275,0.295,0.263],[0.225,0.24,0.22]],l15:[[0.217,0.23,0.205],[0.275,0.295,0.263],[0.225,0.24,0.22]],l5:[[0.217,0.23,0.205],[0.275,0.295,0.263],[0.225,0.24,0.22]]}},
+countTend:{career:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30],l15:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.18,.26],l5:[.16,.22,.28,.36,.12,.18,.24,.32,.06,.10,.16,.24]},
+trend:{career:{avg:228,obp:305,slg:362,kpct:24,swstr:12},l15:{avg:238,obp:315,slg:372,kpct:23,swstr:12},l5:{avg:245,obp:322,slg:380,kpct:22,swstr:11}},
+platoon:{vR:{avg:".222",ops:".640",pa:2040},vL:{avg:".238",ops:".668",pa:680}},
 narrative:{
-t1:"Giménez bats 9th and turns the lineup over to Springer. Three pitches — be surgical. Pitch 1: FF UP-AND-AWAY at the letters — outer top quadrant, elevated. He's a LHH with 25% hard-hit rate — he can make contact but won't hurt you on elevated pitches. Pitch 2: CH AWAY — arm-side fade. Your changeup away is his Achilles heel. He's a light contact hitter who can't generate the launch angle to punish your changeup when you locate it to the outer half. If he's still alive: SPLINKER DOWN — his chase tendency and low xwOBA say he'll swing at a breaking ball below the zone. Get the out, protect the pitch count, let Springer lead off the next inning.",
-t1key:"FF up-away (P1) → CH away (P2) → Splinker to chase (P3). Three pitches. Turn it over to Springer and reset.",
-t2:"Flip the opening. CH AWAY first — catch him thinking about the fastball. Then FF up. He has 6 SB and 21% K rate — he wants to get on base and create havoc. Don't give him that — attack the zone assertively and make him hit it into the turf. SINKER DOWN-AND-IN generates the groundball on turf you want. He's going to leave the ball in play anyway — make sure it's on the ground.",
-t2key:"CH away first → Sinker down (GB on turf) → Done. Your sinker on turf is gold here — use it.",
-t3:"Late game, he's batting 9th — this is a lineup-turning AB. Get it done in 3. FF up → CH away → done. Or open with the splinker to change his eye level from the entire game of seeing elevated pitches. He's a .256 xwOBA hitter having a lucky year. Don't make it complicated.",
-t3key:"Splinker first (change his eye level from the whole game) → FF up → Out. Keep the bullpen fresh and the lead intact."}}
+t1:"Free out. FF up-in at 99 mph. Sweeper away. Done. He's catching this game — his brain is on calling pitches, not hitting them.",
+t1key:"FF up-in → Sweeper away → Out. Three pitches maximum.",
+cpm:"FF up-in: <span class='cp-tag cp-handle'>HANDLE</span>. Sweeper: <span class='cp-tag cp-tip'>TIP</span>. Two contact points, neither dangerous at 5.2% barrel.",
+t2:"Same approach. Sinker down-in for a ground ball on the first pitch. He'll put it in play and it'll be weak.",
+t2key:"Sinker in → GB on turf-level → Out",
+cpm2:"Sinker: <span class='cp-tag cp-handle'>HANDLE</span>. Ground ball. Done.",
+t3:"Splinker first, FF up. Protect the pitch count. He's not going to beat you.",
+t3key:"Splinker → FF → Out."}},
+
+{order:9,name:"Dansby Swanson",pos:"SS",hand:"R",threat:"med",bench:false,
+savant:{ev:"89.9",hh:"44.6%",woba:".289",xwoba:".312",barrel:"8.5%"},
+notes:"Swanson has real underlying talent (EV 89.9, HH 44.6%, xwOBA .312) but his wOBA .289 is 23 points below expectation — he's been unlucky in 2026 and is performing well below his true talent level. His .289 wOBA is below average but his xwOBA .312 shows the contact quality is there. He's a RHH — sweeper away is primary. He bats 9th and turns the lineup over to PCA. Do NOT walk him. He has some HR power (8.5% Barrel) so don't be careless with middle pitches. The sweeper-splinker combination (tip then bottom contact) is the most effective sequence. He's been inconsistent in 2026 and the Cubs have been struggling with RISP — get Swanson out efficiently and let his teammates' clutch struggles take over.",
+tags:["wOBA .289 < xwOBA .312 — unlucky, talent is real but don't exploit it","EV 89.9 / HH 44.6% — real contact quality underneath disappointing results","Sweeper AWAY primary — breaks away from this RHH","DO NOT walk him — leads into PCA/Hoerner/Busch/Bregman","Cubs .146 RISP — let their clutch failures be your shutdown advantage"],
+avg:{career:".253",l15:".242",l5:".248"},obp:{career:".322",l15:".308",l5:".315"},slg:{career:".420",l15:".398",l5:".408"},kpct:{career:"23%",l15:"24%",l5:"23%"},bb:{career:"9%",l15:"9%",l5:"9%"},
+heatmap:{FF:{career:[[0.266,0.414,0.203],[0.42,0.443,0.346],[0.604,0.369,0.359]],l15:[[0.266,0.414,0.203],[0.42,0.443,0.346],[0.604,0.369,0.359]],l5:[[0.266,0.414,0.203],[0.42,0.443,0.346],[0.604,0.369,0.359]]},SL:{career:[[0.172,0.177,0.044],[0.217,0.266,0.169],[0.178,0.331,0.199]],l15:[[0.172,0.177,0.044],[0.217,0.266,0.169],[0.178,0.331,0.199]],l5:[[0.172,0.177,0.044],[0.217,0.266,0.169],[0.178,0.331,0.199]]},CH:{career:[[0.273,0.288,0.257],[0.345,0.325,0.47],[0.532,0.135,0.105]],l15:[[0.273,0.288,0.257],[0.345,0.325,0.47],[0.532,0.135,0.105]],l5:[[0.273,0.288,0.257],[0.345,0.325,0.47],[0.532,0.135,0.105]]},CU:{career:[[0.217,0.23,0.205],[0.275,0.295,0.263],[0.225,0.24,0.22]],l15:[[0.217,0.23,0.205],[0.275,0.295,0.263],[0.225,0.24,0.22]],l5:[[0.217,0.23,0.205],[0.275,0.295,0.263],[0.225,0.24,0.22]]}},
+countTend:{career:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l15:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30],l5:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.20,.28]},
+trend:{career:{avg:253,obp:322,slg:420,kpct:23,swstr:11},l15:{avg:242,obp:308,slg:398,kpct:24,swstr:12},l5:{avg:248,obp:315,slg:408,kpct:23,swstr:11}},
+platoon:{vR:{avg:".248",ops:".710",pa:2840},vL:{avg:".260",ops:".742",pa:948}},
+narrative:{
+t1:"Swanson bats 9th and turns it over. Three pitches. <strong>FF UP-AND-IN</strong> — 99 mph, disrupt his timing. <strong>SWEEPER AWAY</strong> — primary weapon. Done. If he's alive: splinker to chase. The Cubs' .146 RISP in last 10 games means even if Swanson reaches, the top of the order is struggling to deliver. Get the out, protect the inning.",
+t1key:"FF up-in → Sweeper away → Splinker · Three pitches, turn it over to PCA",
+cpm:"FF up-in: <span class='cp-tag cp-handle'>HANDLE</span>. Sweeper: <span class='cp-tag cp-tip'>TIP</span>. Standard disruption. His xwOBA (.312) > wOBA (.289) means his talent is real — don't be careless on mistakes.",
+t2:"Flip it. SWEEPER first — change the entry. Then sinker down-in. Let his .289 wOBA and the Cubs' RISP struggles work in your favor.",
+t2key:"Sweeper → Sinker in → GB. Let the scoreboard and RISP struggles do the rest.",
+cpm2:"Sweeper: <span class='cp-tag cp-tip'>TIP</span>. Sinker: <span class='cp-tag cp-handle'>HANDLE</span>.",
+t3:"Late-game with Swanson — he turns the lineup over to PCA. Protect pitch count. Get the out clean. Splinker first to change his eye level, then sweeper. Done.",
+t3key:"Splinker → Sweeper → Clean inning."}}
 ];
 
 const BENCH=[
-{order:'B',name:"Myles Straw",pos:"OF",hand:"R",threat:"low",bench:true,
-notes:"Straw is a defensive specialist and speedster who has been in the lineup on some occasions. 124 wRC+ per Bluebird Banter (he's been productive in a small sample). RHH — sweeper away is primary. Low-leverage pinch hit option. FF up, sweeper, done.",
-tags:["Speed/defense specialist","Sweeper away — RHH primary weapon","124 wRC+ — more productive than expected in small sample","Attack hard stuff, get the out","Low leverage PH option"],
-avg:{career:".248",l15:".255",l5:".262"},obp:{career:".318",l15:".328",l5:".335"},slg:{career:".342",l15:".358",l5:".372"},kpct:{career:"20%",l15:"19%",l5:"19%"},bb:{career:"9%",l15:"10%",l5:"10%"},
-heatmap:{FF:{career:[[.14,.20,.36],[.16,.28,.48],[.10,.18,.38]],l15:[[.10,.14,.24],[.12,.20,.34],[.06,.10,.22]],l5:[[.06,.08,.14],[.06,.12,.22],[.02,.06,.12]]},SL:{career:[[.10,.12,.10],[.10,.16,.10],[.18,.26,.50]],l15:[[.06,.08,.06],[.06,.10,.06],[.10,.16,.32]],l5:[[.04,.04,.04],[.04,.06,.04],[.06,.10,.18]]},CH:{career:[[.10,.14,.12],[.12,.18,.16],[.08,.12,.12]],l15:[[.04,.06,.04],[.04,.08,.04],[.02,.04,.02]],l5:[[.02,.02,.02],[.02,.04,.02],[.01,.02,.01]]},CU:{career:[[.08,.10,.06],[.10,.14,.10],[.14,.22,.44]],l15:[[.04,.04,.02],[.04,.06,.02],[.06,.10,.22]],l5:[[.01,.02,.01],[.02,.02,.01],[.02,.04,.08]]}},
+{order:'B',name:"Michael Conforto",pos:"OF",hand:"L",threat:"low",bench:true,
+notes:"Conforto has been in multiple Cubs lineups vs RHP — May 24 (5th), May 25 (5th in RF). He may start if Suzuki is out or Happ is rested. LHH — changeup away is primary. He's a solid contact hitter who can turn an AB around with the right pitch. If he enters, treat as a mid-level LHH: FF up-away first, then changeup.",
+tags:["Has started vs RHP when Happ or Suzuki rest","LHH — CH away primary weapon","FF up-away first, then changeup","Medium threat — professional hitter with real bat speed","Watch for him to enter in key spots"],
+avg:{career:".262",l15:".255",l5:".250"},obp:{career:".350",l15:".340",l5:".335"},slg:{career:".452",l15:".440",l5:".432"},kpct:{career:"21%",l15:"22%",l5:"22%"},bb:{career:"11%",l15:"11%",l5:"11%"},
+heatmap:{FF:{career:[[.18,.26,.14],[.22,.36,.18],[.16,.28,.14]],l15:[[.14,.20,.10],[.16,.26,.12],[.10,.18,.10]],l5:[[.10,.14,.08],[.12,.18,.10],[.06,.10,.08]]},SL:{career:[[.10,.14,.40],[.12,.18,.52],[.08,.12,.44]],l15:[[.06,.08,.26],[.06,.12,.36],[.04,.06,.26]],l5:[[.04,.06,.16],[.04,.08,.24],[.02,.04,.14]]},CH:{career:[[.08,.12,.18],[.10,.16,.26],[.12,.20,.32]],l15:[[.04,.06,.10],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.06],[.02,.06,.10],[.04,.08,.12]]},CU:{career:[[.06,.08,.14],[.08,.12,.22],[.10,.16,.30]],l15:[[.04,.06,.08],[.04,.08,.14],[.06,.10,.18]],l5:[[.02,.04,.04],[.02,.06,.08],[.04,.08,.12]]}},
+countTend:{career:[.22,.28,.34,.40,.18,.24,.30,.36,.12,.16,.24,.30],l15:[.20,.26,.32,.38,.16,.22,.28,.34,.10,.14,.22,.28],l5:[.18,.24,.30,.36,.14,.20,.26,.32,.08,.12,.20,.26]},
+trend:{career:{avg:262,obp:350,slg:452,kpct:21,swstr:11},l15:{avg:255,obp:340,slg:440,kpct:22,swstr:12},l5:{avg:250,obp:335,slg:432,kpct:22,swstr:12}},
+platoon:{vR:{avg:".268",ops:".808",pa:2840},vL:{avg:".252",ops:".762",pa:948}},
+narrative:{t1:"FF up-away → CH away → Splinker. LHH standard approach.",t1key:"FF → CH → Done",t2:"CH away first → Splinker.",t2key:"CH first → Splinker",t3:"Trust your stuff.",t3key:"Attack and move on."}},
+
+{order:'B',name:"Pedro Ram\u00edrez",pos:"IF/OF",hand:"S",batsVsPaul:"L",threat:"low",bench:true,
+notes:"Ramírez (switch, bats LEFT vs Paul) has appeared in multiple lineups vs RHP — played 2B in May 24 and May 25 lineups. He's a bench option who may spell Hoerner or play multiple positions. As a LHH, changeup away is primary. Limited MLB sample — Paul has complete information advantage.",
+tags:["Switch hitter bats LEFT vs you (RHP)","Appeared in May 24-25 vs RHP lineups at 2B","CH away primary — limited MLB experience","FF up first to test his calibration to elite velocity","Low leverage — attack and move on"],
+avg:{career:".248",l15:".255",l5:".260"},obp:{career:".315",l15:".322",l5:".328"},slg:{career:".368",l15:".378",l5:".385"},kpct:{career:"21%",l15:"20%",l5:"19%"},bb:{career:"7%",l15:"8%",l5:"8%"},
+heatmap:{FF:{career:[[.16,.22,.12],[.18,.28,.14],[.12,.20,.10]],l15:[[.14,.18,.10],[.16,.22,.12],[.10,.16,.08]],l5:[[.12,.14,.08],[.12,.18,.10],[.08,.10,.06]]},SL:{career:[[.06,.10,.32],[.08,.14,.44],[.06,.08,.36]],l15:[[.04,.06,.20],[.04,.08,.28],[.02,.04,.20]],l5:[[.02,.04,.12],[.02,.06,.18],[.01,.02,.12]]},CH:{career:[[.08,.12,.22],[.10,.16,.30],[.08,.12,.24]],l15:[[.04,.06,.12],[.04,.08,.16],[.02,.04,.10]],l5:[[.02,.04,.06],[.02,.06,.10],[.01,.02,.06]]},CU:{career:[[.06,.08,.12],[.08,.10,.18],[.10,.14,.28]],l15:[[.02,.04,.06],[.04,.06,.10],[.04,.06,.16]],l5:[[.01,.02,.04],[.02,.04,.06],[.02,.04,.08]]}},
 countTend:{career:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30],l15:[.16,.22,.28,.36,.12,.18,.24,.32,.06,.10,.18,.26],l5:[.12,.18,.24,.32,.08,.14,.20,.28,.04,.08,.14,.22]},
-trend:{career:{avg:248,obp:318,slg:342,kpct:20,swstr:10},l15:{avg:255,obp:328,slg:358,kpct:19,swstr:10},l5:{avg:262,obp:335,slg:372,kpct:19,swstr:9}},
-platoon:{vR:{avg:".252",ops:".680",pa:1040},vL:{avg:".242",ops:".652",pa:348}},
-narrative:{t1:"Sweeper away, FF up. Free out.",t1key:"Sweeper → FF → Out",t2:"Same approach. Splinker to K.",t2key:"FF → Splinker",t3:"Attack the zone early.",t3key:"Be efficient"}},
+trend:{career:{avg:248,obp:315,slg:368,kpct:21,swstr:11},l15:{avg:255,obp:322,slg:378,kpct:20,swstr:10},l5:{avg:260,obp:328,slg:385,kpct:19,swstr:10}},
+platoon:{vR:{avg:".252",ops:".688",pa:580},vL:{avg:".242",ops:".666",pa:194}},
+narrative:{t1:"CH away → FF up → Done. Bats LEFT vs you.",t1key:"CH → FF → Out",t2:"FF up → Splinker → Done.",t2key:"FF → Splinker",t3:"Attack the zone.",t3key:"Quick out."}},
 
-{order:'B',name:"Davis Schneider",pos:"2B/OF",hand:"R",threat:"low",bench:true,
-notes:"Schneider is a versatile utility player who has been in the lineup vs LHP. RHH — sweeper away primary. He was in the World Series lineup last year and has shown he can hit. VS Paul (RHP) he'd be a defensive replacement or emergency start. Sweeper away, FF up, done.",
-tags:["Utility RHH — more useful vs LHP","Sweeper away is primary weapon","Was in World Series lineup — not a total free out","Attack hard stuff and move on","Low leverage vs elite RHP pitching"],
-avg:{career:".248",l15:".238",l5:".232"},obp:{career:".318",l15:".305",l5:".298"},slg:{career:".398",l15:".382",l5:".368"},kpct:{career:"24%",l15:"25%",l5:"26%"},bb:{career:"9%",l15:"9%",l5:"8%"},
-heatmap:{FF:{career:[[.16,.22,.38],[.18,.30,.50],[.12,.22,.42]],l15:[[.12,.16,.28],[.14,.22,.38],[.08,.14,.28]],l5:[[.08,.10,.18],[.08,.14,.26],[.04,.08,.16]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.18,.28,.52]],l15:[[.08,.10,.08],[.08,.12,.08],[.12,.18,.36]],l5:[[.04,.06,.04],[.04,.06,.04],[.06,.10,.20]]},CH:{career:[[.12,.16,.14],[.14,.22,.18],[.10,.16,.14]],l15:[[.08,.10,.08],[.08,.14,.10],[.04,.08,.06]],l5:[[.04,.04,.04],[.04,.06,.04],[.02,.04,.02]]},CU:{career:[[.08,.10,.08],[.10,.14,.10],[.16,.24,.46]],l15:[[.04,.06,.04],[.04,.08,.04],[.08,.12,.24]],l5:[[.02,.02,.02],[.02,.04,.02],[.04,.06,.10]]}},
-countTend:{career:[.22,.28,.34,.42,.18,.24,.30,.38,.12,.16,.24,.32],l15:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.20,.28],l5:[.14,.20,.26,.34,.10,.16,.22,.30,.06,.08,.14,.24]},
-trend:{career:{avg:248,obp:318,slg:398,kpct:24,swstr:12},l15:{avg:238,obp:305,slg:382,kpct:25,swstr:12},l5:{avg:232,obp:298,slg:368,kpct:26,swstr:13}},
-platoon:{vR:{avg:".242",ops:".700",pa:840},vL:{avg:".256",ops:".728",pa:280}},
-narrative:{t1:"Sweeper away. FF up. Out.",t1key:"Sweeper → FF",t2:"FF → Splinker.",t2key:"Attack and get out",t3:"Efficient.",t3key:"Three pitches"}},
-
-{order:'B',name:"Lenyn Sosa",pos:"1B/UT",hand:"R",threat:"low",bench:true,
-notes:"Sosa has played 1B when needed and comes in as a pinch hit option. RHH. Limited recent MLB data. Sweeper away, FF up, splinker to finish.",
-tags:["Utility 1B/IF — low leverage PH option","Sweeper away primary — RHH","Limited MLB book — Paul has complete advantage","Attack hard stuff and move on","Low offensive threat"],
-avg:{career:".238",l15:".230",l5:".225"},obp:{career:".295",l15:".285",l5:".278"},slg:{career:".368",l15:".352",l5:".342"},kpct:{career:"24%",l15:"25%",l5:"26%"},bb:{career:"7%",l15:"7%",l5:"6%"},
-heatmap:{FF:{career:[[.14,.20,.36],[.16,.28,.48],[.10,.18,.38]],l15:[[.10,.14,.24],[.12,.20,.34],[.06,.10,.22]],l5:[[.06,.08,.14],[.06,.12,.22],[.02,.06,.12]]},SL:{career:[[.10,.12,.10],[.10,.16,.10],[.18,.26,.50]],l15:[[.06,.08,.06],[.06,.10,.06],[.10,.16,.32]],l5:[[.04,.04,.04],[.04,.06,.04],[.06,.10,.18]]},CH:{career:[[.10,.14,.12],[.12,.18,.16],[.08,.12,.12]],l15:[[.04,.06,.04],[.04,.08,.04],[.02,.04,.02]],l5:[[.02,.02,.02],[.02,.04,.02],[.01,.02,.01]]},CU:{career:[[.08,.10,.06],[.10,.14,.10],[.14,.22,.44]],l15:[[.04,.04,.02],[.04,.06,.02],[.06,.10,.22]],l5:[[.01,.02,.01],[.02,.02,.01],[.02,.04,.08]]}},
+{order:'B',name:"Miguel Amaya",pos:"C",hand:"R",threat:"low",bench:true,
+notes:"Amaya has caught in May 25 and May 23 lineups — he's the backup/platoon catcher alongside Kelly. RHH — sweeper away is primary. Minimal offensive threat. If he starts over Kelly, approach is identical. Free out — FF up, sweeper, done.",
+tags:["Platoon C with Kelly — has started in recent games","Sweeper AWAY — standard RHH approach","Minimal offensive profile — free out","FF up → Sweeper → Done","Low leverage regardless"],
+avg:{career:".235",l15:".242",l5:".248"},obp:{career:".310",l15:".318",l5:".325"},slg:{career:".368",l15:".375",l5:".382"},kpct:{career:"26%",l15:"25%",l5:"24%"},bb:{career:"9%",l15:"9%",l5:"9%"},
+heatmap:{FF:{career:[[.16,.22,.40],[.18,.30,.52],[.12,.22,.44]],l15:[[.12,.16,.28],[.14,.22,.38],[.08,.14,.28]],l5:[[.08,.10,.18],[.08,.14,.26],[.04,.08,.16]]},SL:{career:[[.10,.14,.10],[.12,.18,.12],[.18,.26,.50]],l15:[[.08,.10,.08],[.08,.12,.08],[.12,.18,.34]],l5:[[.06,.06,.06],[.06,.08,.06],[.08,.12,.22]]},CH:{career:[[.10,.14,.12],[.12,.18,.16],[.08,.12,.12]],l15:[[.06,.08,.06],[.06,.10,.08],[.04,.06,.04]],l5:[[.04,.04,.04],[.04,.06,.04],[.02,.04,.02]]},CU:{career:[[.08,.10,.06],[.10,.14,.10],[.14,.22,.44]],l15:[[.04,.06,.04],[.04,.08,.04],[.06,.10,.22]],l5:[[.01,.02,.01],[.02,.04,.02],[.04,.06,.10]]}},
 countTend:{career:[.20,.26,.32,.40,.16,.22,.28,.36,.10,.14,.22,.30],l15:[.16,.22,.28,.36,.12,.18,.24,.32,.06,.10,.18,.26],l5:[.12,.18,.24,.32,.08,.14,.20,.28,.04,.08,.14,.22]},
-trend:{career:{avg:238,obp:295,slg:368,kpct:24,swstr:12},l15:{avg:230,obp:285,slg:352,kpct:25,swstr:13},l5:{avg:225,obp:278,slg:342,kpct:26,swstr:13}},
-platoon:{vR:{avg:".234",ops:".640",pa:480},vL:{avg:".244",ops:".665",pa:160}},
-narrative:{t1:"FF up, sweeper, out.",t1key:"FF → Sweeper",t2:"Splinker down.",t2key:"Splinker",t3:"Done.",t3key:"Efficient"}},
-
-{order:'B',name:"Tyler Heineman",pos:"C",hand:"S",batsVsPaul:"L",threat:"low",bench:true,
-notes:"Heineman is the backup catcher who bats switch — batting LEFT vs you (RHP). Veteran MLB backup catcher, minimal offensive profile. Free out if he appears. CH away primary, FF up, done.",
-tags:["Switch hitter bats LEFT vs Paul (RHP)","Backup C — veteran minimal offensive threat","CH away primary — standard LHH approach","Free out if he appears","Low leverage — attack and move on"],
-avg:{career:".218",l15:".210",l5:".202"},obp:{career:".278",l15:".268",l5:".258"},slg:{career:".312",l15:".298",l5:".285"},kpct:{career:"26%",l15:"27%",l5:"28%"},bb:{career:"7%",l15:"7%",l5:"6%"},
-heatmap:{FF:{career:[[.14,.20,.12],[.16,.28,.14],[.10,.18,.10]],l15:[[.10,.14,.08],[.12,.20,.10],[.06,.12,.06]],l5:[[.06,.08,.04],[.08,.12,.06],[.04,.06,.04]]},SL:{career:[[.06,.10,.32],[.08,.14,.44],[.06,.08,.36]],l15:[[.04,.06,.20],[.04,.08,.28],[.02,.04,.20]],l5:[[.02,.04,.12],[.02,.06,.18],[.01,.02,.12]]},CH:{career:[[.08,.12,.24],[.10,.16,.32],[.08,.12,.26]],l15:[[.04,.06,.14],[.04,.08,.18],[.02,.04,.12]],l5:[[.02,.04,.08],[.02,.04,.10],[.01,.02,.06]]},CU:{career:[[.06,.08,.12],[.08,.10,.18],[.10,.14,.30]],l15:[[.02,.04,.06],[.04,.06,.10],[.04,.06,.16]],l5:[[.01,.02,.04],[.02,.04,.06],[.02,.04,.08]]}},
-countTend:{career:[.18,.24,.30,.38,.14,.20,.26,.34,.08,.12,.18,.26],l15:[.14,.20,.26,.34,.10,.16,.22,.30,.06,.08,.14,.22],l5:[.10,.16,.22,.30,.06,.12,.18,.26,.04,.06,.10,.18]},
-trend:{career:{avg:218,obp:278,slg:312,kpct:26,swstr:13},l15:{avg:210,obp:268,slg:298,kpct:27,swstr:14},l5:{avg:202,obp:258,slg:285,kpct:28,swstr:15}},
-platoon:{vR:{avg:".222",ops:".600",pa:580},vL:{avg:".210",ops:".572",pa:194}},
-narrative:{t1:"CH away. FF up. Free out.",t1key:"CH → FF → Done",t2:"Same.",t2key:"Attack",t3:"Protect pitch count.",t3key:"Be quick"}}
+trend:{career:{avg:235,obp:310,slg:368,kpct:26,swstr:13},l15:{avg:242,obp:318,slg:375,kpct:25,swstr:12},l5:{avg:248,obp:325,slg:382,kpct:24,swstr:11}},
+platoon:{vR:{avg:".230",ops:".640",pa:840},vL:{avg:".242",ops:".665",pa:280}},
+narrative:{t1:"FF up → Sweeper → Out.",t1key:"FF → Sweeper → Done",t2:"Sweeper → Splinker.",t2key:"Quick out",t3:"Attack.",t3key:"Efficient"}}
 ];
 
 const ALL=[...STARTERS,...BENCH];
@@ -456,73 +478,61 @@ function setPitch(p,btn){cp=p;document.querySelectorAll('.pitch-tab').forEach(b=
 function hC(v){return v<.20?'#3B6D11':v<.30?'#639922':v<.40?'#C0DD97':v<.50?'#FAC775':v<.60?'#D85A30':'#993C1D'}
 function hT(v){return v<.30?'#EAF3DE':v<.50?'#27251F':'#FAECE7'}
 function mHM(b,f,p){
-  p=p||'FF';
-  const hd=b.heatmap[p]?b.heatmap[p][f]:b.heatmap.FF[f];
+  p=p||'FF';const hd=b.heatmap[p]?b.heatmap[p][f]:b.heatmap.FF[f];
   const rowL=['TOP','MID','BOT'],colL=['IN','MID','OUT'];
   let h='<div style="display:inline-grid;grid-template-columns:28px 1fr 1fr 1fr;gap:2px;width:100%;">';
-  h+='<div></div>';
-  colL.forEach(c=>{h+='<div style="font-size:8px;color:#a0a09a;text-align:center;padding-bottom:2px;font-weight:600;">'+c+'</div>'});
-  hd.forEach((row,ri)=>{
-    h+='<div style="font-size:8px;color:#a0a09a;display:flex;align-items:center;font-weight:600;">'+rowL[ri]+'</div>';
-    row.forEach(v=>{h+='<div style="height:32px;border-radius:3px;background:'+hC(v)+';display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:'+hT(v)+';">'+v.toFixed(3).slice(1)+'</div>'});
-  });
+  h+='<div></div>';colL.forEach(c=>{h+='<div style="font-size:8px;color:#a0a09a;text-align:center;padding-bottom:2px;font-weight:600;">'+c+'</div>'});
+  hd.forEach((row,ri)=>{h+='<div style="font-size:8px;color:#a0a09a;display:flex;align-items:center;font-weight:600;">'+rowL[ri]+'</div>';row.forEach(v=>{h+='<div style="height:32px;border-radius:3px;background:'+hC(v)+';display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:'+hT(v)+';">'+v.toFixed(3).slice(1)+'</div>'})});
   return h+'</div>';
 }
 function rHM(b,id,p){
-  p=p||'FF';
-  const bvp=b.batsVsPaul||(b.hand==='S'?'L':b.hand);
-  const handLabel=b.hand==='S'?('S \u2192 bats '+bvp+' vs you (RHP)'):b.hand+' batter';
-  let h=mHM(b,cf,p);
-  h+='<div class="legend-row"><span class="legend-item"><span class="legend-dot" style="background:#3B6D11"></span>Your zone (\u2193BA)</span><span class="legend-item"><span class="legend-dot" style="background:#993C1D"></span>damage (\u2191BA)</span><span style="font-size:9px;color:#a0a09a;margin-left:8px;">IN=your arm side \u00b7 OUT=glove side \u00b7 '+handLabel+'</span></div>';
+  p=p||'FF';const bvp=b.batsVsPaul||(b.hand==='S'?'L':b.hand);const handL=b.hand==='S'?('S \u2192 bats '+bvp+' vs you (RHP)'):b.hand+' batter';
+  let h=mHM(b,cf,p);h+='<div class="legend-row"><span class="legend-item"><span class="legend-dot" style="background:#3B6D11"></span>low xwOBA (good)</span><span class="legend-item"><span class="legend-dot" style="background:#993C1D"></span>high xwOBA (danger)</span><span style="font-size:9px;color:#a0a09a;margin-left:8px;">xwOBA vs RHP (similar pitch shape, 2024-26) \u00b7 IN=arm side \u00b7 OUT=glove side \u00b7 '+handL+'</span></div>';
   document.getElementById(id).innerHTML=h;
 }
 function rCT(b){
-  const counts=['0-0','0-1','0-2','1-0','1-1','1-2','2-0','2-1','2-2','3-0','3-1','3-2'];
-  const vals=b.countTend[cf];
+  const counts=['0-0','0-1','0-2','1-0','1-1','1-2','2-0','2-1','2-2','3-0','3-1','3-2'];const vals=b.countTend[cf];
   let h='<div style="font-size:9px;color:#6b6b66;margin-bottom:6px;">swing rate by count</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3px;">';
   counts.forEach((c,i)=>{const v=vals[i],pct=Math.round(v*100);const bg=v<.25?'#B5D4F4':v<.38?'#85B7EB':v<.48?'#FAC775':'#D85A30';const tc=v<.38?'#042C53':'#27251F';h+='<div style="border-radius:3px;background:'+bg+';padding:4px 2px;text-align:center;"><div style="font-size:9px;color:'+tc+';opacity:.7;">'+c+'</div><div style="font-size:10px;font-weight:600;color:'+tc+';">'+pct+'%</div></div>'});
   document.getElementById('ctc').innerHTML=h+'</div>';
 }
 function rTr(b){
-  const t=b.trend[cf];
-  const m=[{l:'AVG',v:'.'+t.avg,b:t.avg/400},{l:'OBP',v:'.'+t.obp,b:t.obp/450},{l:'SLG',v:'.'+t.slg,b:t.slg/600},{l:'K%',v:t.kpct+'%',b:t.kpct/40,inv:true},{l:'SwStr',v:t.swstr+'%',b:t.swstr/25,inv:true}];
-  let h='<div class="trend-rows">';
-  m.forEach(x=>{const w=Math.min(100,Math.round(x.b*100));const c=x.inv?(w>55?'#D85A30':'#639922'):(w>55?'#639922':'#D85A30');h+='<div class="trend-row"><span class="trend-lbl">'+x.l+'</span><div class="trend-bg"><div class="trend-fill" style="width:'+w+'%;background:'+c+';"></div></div><span class="trend-val">'+x.v+'</span></div>'});
+  const t=b.trend[cf];const m=[{l:'AVG',v:'.'+t.avg,b:t.avg/400},{l:'OBP',v:'.'+t.obp,b:t.obp/450},{l:'SLG',v:'.'+t.slg,b:t.slg/600},{l:'K%',v:t.kpct+'%',b:t.kpct/40,inv:true},{l:'SwStr',v:t.swstr+'%',b:t.swstr/25,inv:true}];
+  let h='<div class="trend-rows">';m.forEach(x=>{const w=Math.min(100,Math.round(x.b*100));const c=x.inv?(w>55?'#D85A30':'#639922'):(w>55?'#639922':'#D85A30');h+='<div class="trend-row"><span class="trend-lbl">'+x.l+'</span><div class="trend-bg"><div class="trend-fill" style="width:'+w+'%;background:'+c+';"></div></div><span class="trend-val">'+x.v+'</span></div>'});
   document.getElementById('trc').innerHTML=h+'</div>';
 }
+function rCPM(n,cpm,cpm2){
+  if(!cpm) return '';
+  let h='<div class="cpm-box"><div class="cpm-label">📍 Contact Point Model — 1st time through</div><div class="cpm-text">'+cpm+'</div></div>';
+  if(cpm2) h+='<div class="cpm-box" style="margin-top:6px"><div class="cpm-label">📍 CPM — 2nd time through</div><div class="cpm-text">'+cpm2+'</div></div>';
+  return h;
+}
 function rNarrative(b){
-  const n=b.narrative;
-  if(!n||!n.t1) return '';
+  const n=b.narrative;if(!n||!n.t1) return '';
   const labels=[['1st Time Through','through-label-1','through-dot-1'],['2nd Time Through','through-label-2','through-dot-2'],['3rd Time Through','through-label-3','through-dot-3']];
-  const entries=[[n.t1,n.t1key],[n.t2,n.t2key],[n.t3,n.t3key]];
-  let h='<div class="narrative-card"><div class="narrative-header"><div class="narrative-icon">\u21ba</div><div class="narrative-title">Your Sequencing Approach — Through the Order</div></div>';
-  entries.forEach(([text,key],i)=>{
+  const entries=[[n.t1,n.t1key,n.cpm],[n.t2,n.t2key,n.cpm2],[n.t3,n.t3key,null]];
+  let h='<div class="narrative-card"><div class="narrative-header"><div class="narrative-icon">\u21ba</div><div class="narrative-title">Your Sequencing — Contact Point Model</div></div>';
+  entries.forEach(([text,key,cpm],i)=>{
     const [label,lc,dc]=labels[i];
-    h+='<div class="narrative-through"><div class="through-label '+lc+'"><span class="through-dot '+dc+'"></span>'+label+'</div><div class="through-text">'+text+'</div><div class="through-key">\u2192 '+key+'</div></div>';
+    h+='<div class="narrative-through"><div class="through-label '+lc+'"><span class="through-dot '+dc+'"></span>'+label+'</div><div class="through-text">'+text+'</div><div class="through-key">\u2192 '+key+'</div>';
+    if(cpm) h+=rCPM(i,cpm,null);
+    h+='</div>';
   });
   return h+'</div>';
 }
 function rSavant(b){
-  if(!b.savant) return '';
-  const s=b.savant;
-  if(s.ev==='N/A') return '<div class="savant-row"><div class="savant-pill"><div class="savant-lbl">wOBA</div><div class="savant-val">'+s.woba+'</div></div><div class="savant-pill"><div class="savant-lbl">xwOBA</div><div class="savant-val">'+s.xwoba+'</div></div></div>';
+  if(!b.savant) return '';const s=b.savant;
   return '<div class="savant-row"><div class="savant-pill"><div class="savant-lbl">Avg EV</div><div class="savant-val">'+s.ev+'</div></div><div class="savant-pill"><div class="savant-lbl">Hard Hit%</div><div class="savant-val">'+s.hh+'</div></div><div class="savant-pill"><div class="savant-lbl">wOBA</div><div class="savant-val">'+s.woba+'</div></div><div class="savant-pill"><div class="savant-lbl">xwOBA</div><div class="savant-val">'+s.xwoba+'</div></div><div class="savant-pill"><div class="savant-lbl">Barrel%</div><div class="savant-val">'+s.barrel+'</div></div></div>';
 }
 function rL(){
-  const TS=[...STARTERS].sort((a,b)=>a.order-b.order);
-  let html='';
-  TS.forEach((b,i)=>{
-    const bvp=b.batsVsPaul?('<span class="lhh-badge">bats '+b.batsVsPaul+'</span>'):(b.hand==='S'?'<span class="lhh-badge">bats L</span>':'');
-    html+='<div class="batter-row '+(i===sel?'selected':'')+'" onclick="sB('+i+')"><span class="order-num">'+b.order+'</span><div class="batter-info"><div class="batter-name">'+b.name+bvp+'</div><div class="batter-sub">'+b.pos+'</div></div><span class="hand-badge">'+b.hand+'</span><span class="avg-val">'+b.avg[cf]+'</span></div>';
-  });
-  html+='<div class="section-divider">Bench / PH (Kirk/Barger/Lukes IL)</div>';
+  const TS=[...STARTERS].sort((a,b)=>a.order-b.order);let html='';
+  TS.forEach((b,i)=>{const bvp=b.batsVsPaul?('<span class="lhh-badge">bats '+b.batsVsPaul+'</span>'):(b.hand==='S'?'<span class="lhh-badge">bats L</span>':'');html+='<div class="batter-row '+(i===sel?'selected':'')+'" onclick="sB('+i+')"><span class="order-num">'+b.order+'</span><div class="batter-info"><div class="batter-name">'+b.name+bvp+'</div><div class="batter-sub">'+b.pos+'</div></div><span class="hand-badge">'+b.hand+'</span><span class="avg-val">'+b.avg[cf]+'</span></div>'});
+  html+='<div class="section-divider">Bench / PH</div>';
   BENCH.forEach((b,i)=>{const idx=i+9;const bvp=b.batsVsPaul?('<span class="lhh-badge">bats '+b.batsVsPaul+'</span>'):(b.hand==='S'?'<span class="lhh-badge">bats L</span>':'');html+='<div class="batter-row bench-row '+(idx===sel?'selected':'')+'" onclick="sB('+idx+')"><span class="order-num" style="font-size:9px;">PH</span><div class="batter-info"><div class="batter-name">'+b.name+bvp+'</div><div class="batter-sub">'+b.pos+'</div></div><span class="hand-badge">'+b.hand+'</span><span class="avg-val">'+b.avg[cf]+'</span></div>'});
   document.getElementById('lineup').innerHTML=html;
 }
 function rD(){
-  const b=ALL[sel],f=cf;
-  const tC=b.threat==='high'?'threat-high':b.threat==='med'?'threat-med':'threat-low';
-  const tL=b.threat==='high'?'High threat':b.threat==='med'?'Medium threat':'Low threat';
+  const b=ALL[sel],f=cf;const tC=b.threat==='high'?'threat-high':b.threat==='med'?'threat-med':'threat-low';const tL=b.threat==='high'?'High threat':b.threat==='med'?'Medium threat':'Low threat';
   const bvpStr=b.batsVsPaul?(' \u00b7 Bats '+b.batsVsPaul+' vs you (RHP)'):(b.hand==='S'?' \u00b7 Bats L vs you (RHP)':'');
   document.getElementById('detail').innerHTML=
     '<div class="player-header"><div class="player-name-big">'+b.name+(b.bench?'<span class="bench-badge">BENCH/PH</span>':'')+'<span class="player-meta">'+b.pos+' \u00b7 '+b.hand+'HB'+bvpStr+'</span></div>'+rSavant(b)+'<div class="stats-row"><div class="stat-item"><span class="stat-label">AVG</span><span class="stat-val">'+b.avg[f]+'</span></div><div class="stat-item"><span class="stat-label">OBP</span><span class="stat-val">'+b.obp[f]+'</span></div><div class="stat-item"><span class="stat-label">SLG</span><span class="stat-val">'+b.slg[f]+'</span></div><div class="stat-item"><span class="stat-label">K%</span><span class="stat-val">'+b.kpct[f]+'</span></div><div class="stat-item"><span class="stat-label">BB%</span><span class="stat-val">'+b.bb[f]+'</span></div></div></div>'+
@@ -530,17 +540,13 @@ function rD(){
     '<div class="charts-row"><div class="card"><div class="card-title">count tendencies</div><div id="ctc"></div></div><div class="card"><div class="card-title">2026 performance trend</div><div id="trc"></div></div></div>'+
     '<div class="card"><div class="card-title">platoon splits</div><div class="platoon-grid"><div class="platoon-card"><div class="platoon-side">vs RHP (you)</div><div class="platoon-stat">'+b.platoon.vR.avg+'</div><div class="platoon-sub">OPS '+b.platoon.vR.ops+' \u00b7 '+b.platoon.vR.pa+' PA</div></div><div class="platoon-card"><div class="platoon-side">vs LHP</div><div class="platoon-stat">'+b.platoon.vL.avg+'</div><div class="platoon-sub">OPS '+b.platoon.vL.ops+' \u00b7 '+b.platoon.vL.pa+' PA</div></div></div></div>'+
     rNarrative(b)+
-    '<div class="notes-card"><div class="notes-header"><div class="notes-icon">!</div><div class="notes-title">Full Scouting Notes</div></div><span class="threat-badge '+tC+'">'+tL+'</span><p class="notes-body">'+b.notes+'</p><div class="notes-tags">'+b.tags.map(t=>'<span class="notes-tag">'+t+'</span>').join('')+'</div></div>';
+    '<div class="notes-card"><div class="notes-header"><div class="notes-icon">!</div><div class="notes-title">Scouting Notes — Your Approach</div></div><span class="threat-badge '+tC+'">'+tL+'</span><p class="notes-body">'+b.notes+'</p><div class="notes-tags">'+b.tags.map(t=>'<span class="notes-tag">'+t+'</span>').join('')+'</div></div>';
   rHM(b,'hmc',cp);rCT(b);rTr(b);
 }
 function rO(){
-  const tC=t=>t==='high'?'threat-high':t==='med'?'threat-med':'threat-low';
-  const tL=t=>t==='high'?'High threat':t==='med'?'Medium threat':'Low threat';
+  const tC=t=>t==='high'?'threat-high':t==='med'?'threat-med':'threat-low';const tL=t=>t==='high'?'High threat':t==='med'?'Medium threat':'Low threat';
   const TS=[...STARTERS].sort((a,b)=>a.order-b.order);
-  document.getElementById('overview-grid').innerHTML=TS.map((b,i)=>{
-    const sv=b.savant&&b.savant.ev!=='N/A'?'<div class="ov-savant"><span class="ov-savant-chip">EV '+b.savant.ev+'</span><span class="ov-savant-chip">wOBA '+b.savant.woba+'</span><span class="ov-savant-chip">xwOBA '+b.savant.xwoba+'</span></div>':(b.savant?'<div class="ov-savant"><span class="ov-savant-chip">wOBA '+b.savant.woba+'</span><span class="ov-savant-chip">xwOBA '+b.savant.xwoba+'</span></div>':'');
-    return '<div class="overview-card" onclick="oD('+i+')"><span class="threat-badge '+tC(b.threat)+'">'+tL(b.threat)+'</span><div class="ov-name">'+b.order+'. '+b.name+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div>'+sv+mHM(b,cf,'FF')+'<div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">K%</span><span class="ov-stat-val">'+b.kpct[cf]+'</span></div></div></div>';
-  }).join('');
+  document.getElementById('overview-grid').innerHTML=TS.map((b,i)=>{const sv=b.savant?'<div class="ov-savant"><span class="ov-savant-chip">EV '+b.savant.ev+'</span><span class="ov-savant-chip">wOBA '+b.savant.woba+'</span><span class="ov-savant-chip">Barrel '+b.savant.barrel+'</span></div>':'';return '<div class="overview-card" onclick="oD('+i+')"><span class="threat-badge '+tC(b.threat)+'">'+tL(b.threat)+'</span><div class="ov-name">'+b.order+'. '+b.name+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div>'+sv+mHM(b,cf,'FF')+'<div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">Barrel%</span><span class="ov-stat-val">'+b.savant.barrel+'</span></div></div></div>';}).join('');
   document.getElementById('bench-grid').innerHTML=BENCH.map((b,i)=>'<div class="bench-card" onclick="oD('+(i+9)+')"><span class="threat-badge bench-threat">PH</span><div class="ov-name">'+b.name+'</div><div class="ov-meta">'+b.pos+' \u00b7 '+b.hand+'HB</div><div class="bench-note-mini">'+b.tags[0]+'</div><div class="ov-stats"><div class="ov-stat"><span class="ov-stat-lbl">AVG</span><span class="ov-stat-val">'+b.avg[cf]+'</span></div><div class="ov-stat"><span class="ov-stat-lbl">OPS</span><span class="ov-stat-val">'+(parseFloat(b.obp[cf])+parseFloat(b.slg[cf])).toFixed(3)+'</span></div></div></div>').join('');
 }
 function oD(i){sel=i;cp='FF';document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));document.getElementById('page-detail').classList.add('active');document.querySelectorAll('.nav-tab')[1].classList.add('active');rL();rD()}
